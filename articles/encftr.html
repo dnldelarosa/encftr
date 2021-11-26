@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">encftr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -219,9 +219,13 @@
 <span class="co">#&gt; $ SEXO             &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
 <span class="co">#&gt; $ ID_PROVINCIA     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…</span>
 <span class="co">#&gt; $ FACTOR_EXPANSION &lt;dbl&gt; 529286.00, 126833.66, 48703.15, 99383.29, 39469.04, 1…</span></code></pre></div>
-<p>Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como <code><a href="../reference/%&gt;%.html">%&gt;%</a></code>.</p>
+<p>Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como <code>%&gt;%</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ftc_compute_region.html">ftc_compute_region</a></span><span class="op">(</span><span class="va">encft</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ftc_regiones_desarrollo.html">ftc_compute_region</a></span><span class="op">(</span><span class="va">encft</span><span class="op">)</span>
+<span class="co">#&gt; Warning: `ftc_compute_region()` was deprecated in encftr 0.5.0.</span>
+<span class="co">#&gt; Please use `ftc_regiones_desarrollo()` instead.</span>
+<span class="co">#&gt; This warning is displayed once every 8 hours.</span>
+<span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 6</span>
 <span class="co">#&gt; # Groups:   TRIMESTRE, ANO, SEXO [1]</span>
@@ -236,8 +240,8 @@
 
 
 
-<span class="va">encft</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/ftc_compute_region.html">ftc_compute_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">encft</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/ftc_regiones_desarrollo.html">ftc_compute_region</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 6</span>
 <span class="co">#&gt; # Groups:   TRIMESTRE, ANO, SEXO [1]</span>
@@ -251,8 +255,8 @@
 <span class="co">#&gt; 6     20161  2016     1            6          148962.      3</span></code></pre></div>
 <p>Como se mencionó antes la ENCFT es una encuestra trimestral por lo que el factor de expansión<!-- ^[Si quieres leer sobre como trabajar con datos de encuesta en R. Lee la siguiente publicación: []()] --> es trimestral.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">encft</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRIMESTRE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">encft</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">TRIMESTRE</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">FACTOR_EXPANSION</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 2</span>
 <span class="co">#&gt;   TRIMESTRE `sum(FACTOR_EXPANSION)`</span>
@@ -263,13 +267,17 @@
 <span class="co">#&gt; 4     20164               10110143.</span></code></pre></div>
 <p>Para trabajar con los datos en frecuencia anual debes transformar el factor de expansión.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">encft</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/ftc_compute_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">encft</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/ftc_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
     <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">FACTOR_EXPANSION</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">factor_exp_anual</span><span class="op">)</span>
   <span class="op">)</span>
+<span class="co">#&gt; Warning: `ftc_compute_factor_exp_anual()` was deprecated in encftr 0.5.0.</span>
+<span class="co">#&gt; Please use `ftc_factor_exp_anual()` instead.</span>
+<span class="co">#&gt; This warning is displayed once every 8 hours.</span>
+<span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span>
 <span class="co">#&gt; # A tibble: 1 × 3</span>
 <span class="co">#&gt;     ANO `sum(FACTOR_EXPANSION)` `sum(factor_exp_anual)`</span>
 <span class="co">#&gt;   &lt;dbl&gt;                   &lt;dbl&gt;                   &lt;dbl&gt;</span>
@@ -277,9 +285,9 @@
 <p>En el primer caso, que usa el factor trimestral, el total poblacional está resultando en más de 40 millones de personas, mientras que en el segundo caso obtenemos un total representativo de 10 millones aproximadamente.</p>
 <p>También puedes asignar y utilizar etiquetas de datos para la variables. Lea más sobre las <a href="https://endomer.github.io/endomer/articles/labels.html">Etiquetas de datos</a> en el ecosistema <code>endomer</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">encft</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/ftc_compute_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span>, <span class="va">SEXO</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">encft</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/ftc_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span>, <span class="va">SEXO</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">factor_exp_anual</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; `summarise()` has grouped output by 'ANO'. You can override using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 2 × 3</span>
@@ -290,10 +298,10 @@
 <span class="co">#&gt; 2  2016     2                5118584.</span>
 
 
-<span class="va">encft</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/ftc_compute_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span>, <span class="va">SEXO</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">factor_exp_anual</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">encft</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/ftc_factor_exp_anual.html">ftc_compute_factor_exp_anual</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ANO</span>, <span class="va">SEXO</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">factor_exp_anual</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/ftc_use_labels.html">ftc_use_labels</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; `summarise()` has grouped output by 'ANO'. You can override using the `.groups` argument.</span>
 <span class="co">#&gt; # A tibble: 2 × 3</span>

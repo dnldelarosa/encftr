@@ -90,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">encftr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     <p>Población ocupada perceptora de ingresos</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ftc_perceptores_ingresos</span><span class='op'>(</span><span class='va'>tbl</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ftc_perceptores_ingresos</span><span class='op'>(</span><span class='va'>tbl</span>, min_edad <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +146,10 @@
     <tr>
       <th>tbl</th>
       <td><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>: Conexión a base de datos o data.frame con los datos.</p></td>
+    </tr>
+    <tr>
+      <th>min_edad</th>
+      <td><p><a href='https://rdrr.io/r/base/integer.html'>integer</a>: min age to consider in the indicator construction</p></td>
     </tr>
     </table>
 
@@ -155,10 +159,10 @@
 <code>perceptores_ingresos</code> adicionada.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>encft</span> <span class='op'>&lt;-</span> <span class='fu'>ftc_perceptores_ingresos</span><span class='op'>(</span><span class='va'>encft</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='va'>encft</span> <span class='op'>&lt;-</span> <span class='fu'>ftc_perceptores_ingresos</span><span class='op'>(</span><span class='va'>encft</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Datos para simular la base de datos de la ENCFT — encft • encftr</title>
+<title>Factor de expansión anual — ftc_factor_exp_anual • encftr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,8 @@
 
 
 
-<meta property="og:title" content="Datos para simular la base de datos de la ENCFT — encft" />
-<meta property="og:description" content="Contiene un pequeño data.frame con la estructura básica necesaria para simular
-la ENCFT. Útil para los ejemplos y viñetas del paquete." />
+<meta property="og:title" content="Factor de expansión anual — ftc_factor_exp_anual" />
+<meta property="og:description" content="" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -130,26 +129,41 @@ la ENCFT. Útil para los ejemplos y viñetas del paquete." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Datos para simular la base de datos de la ENCFT</h1>
-    <small class="dont-index">Source: <a href='https://github.com/endomer/encftr/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>encft.Rd</code></div>
+    <h1>Factor de expansión anual</h1>
+    <small class="dont-index">Source: <a href='https://github.com/endomer/encftr/blob/master/R/ftc_factor_exp_anual.R'><code>R/ftc_factor_exp_anual.R</code></a></small>
+    <div class="hidden name"><code>ftc_factor_exp_anual.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Contiene un pequeño data.frame con la estructura básica necesaria para simular
-la ENCFT. Útil para los ejemplos y viñetas del paquete.</p>
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#stable'><img src='figures/lifecycle-stable.svg' alt='[Stable]' /></a></p>
     </div>
 
-    <pre class="usage"><span class='va'>encft</span></pre>
+    <pre class="usage"><span class='fu'>ftc_factor_exp_anual</span><span class='op'>(</span><span class='va'>tbl</span><span class='op'>)</span>
 
+<span class='fu'>ftc_compute_factor_exp_anual</span><span class='op'>(</span><span class='va'>tbl</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>tbl</th>
+      <td><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>: Conexión a base de datos o dataframe con los datos.</p></td>
+    </tr>
+    </table>
 
-    <p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></p>
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>NA</p>
+    <p>Conexión a base de datos o dataframe según input con la variable
+<code>factor_exp_anual</code> agregada.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'>  <span class='va'>encft</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>FACTOR_EXPANSION <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1028</span>, <span class='fl'>848</span>, <span class='fl'>400</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='fu'>ftc_factor_exp_anual</span><span class='op'>(</span><span class='va'>encft</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   FACTOR_EXPANSION factor_exp_anual</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1             1028              257</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              848              212</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              400              100</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
