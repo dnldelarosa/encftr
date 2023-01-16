@@ -30,5 +30,5 @@ valores utilizando las etiquetas de datos correspondientes
 }
 }
 \seealso{
-Etiquetas de datos \code{vignette("labels", package = "labeler")}
+Etiquetas de datos \code{vignette("labeler", package = "labeler")}
 }

@@ -19,7 +19,7 @@ ftc_regiones_desarrollo <- function(tbl){
   ID_PROVINCIA <- NULL
   tbl %>%
     dplyr::mutate(
-      region = dplyr::case_when(
+      regiones_desarrollo = dplyr::case_when(
         ID_PROVINCIA %in% c(25, 18, 9) ~ 1,
         ID_PROVINCIA %in% c(13, 24, 28) ~ 2,
         ID_PROVINCIA %in% c(6, 19, 14, 20) ~ 3,

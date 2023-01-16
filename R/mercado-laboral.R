@@ -12,7 +12,7 @@
 #' \dontrun{
 #'   encft <- ftc_perceptores_ingresos(encft)
 #' }
-ftc_perceptores_ingresos <- function(tbl, min_edad = 15){
+ftc_perceptores_ingresos <- function(tbl, min_edad = 15) {
   CATEGORIA_PRINCIPAL <- NULL
   OCUPADO <- NULL
   tbl %>%
@@ -65,7 +65,10 @@ ftc_ingreso_laboral <- function(tbl){
     )
 }
 
-
+# Este ingreso es el mismo que en pobreza. Buscar la forma de tener solo uno.
+# De hecho estoy pensando en crear una función que calcule el ingreso para todos 
+# los trabajadores (asalariados, cp o independientes) y que este sea un argumento
+# de la función. Igualmente para todas las ocupaciones y que sea otro argumento.
 
 
 #' Horas trabajadas a la semana

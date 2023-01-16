@@ -307,3 +307,26 @@ ftc_compute_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
   deprecate_warn("0.5.0", "ftc_compute_alfabetizacion()", "ftc_alfabetizacion()")
   ftc_compute_alfabetizacion(tbl, min_edad, max_edad)
 }
+
+
+
+
+ftc_grado_asiste <- function(tbl){
+  tbl %>%
+    ftc_anos_educacion() %>%
+    dplyr::mutate(grado_asiste = dplyr::if_else(NIVEL_SE_MATRICULO < 9, anos_educacion + 1, NA_integer_))
+}
+
+
+ftc_nivel_educativo <- function(tbl, esquema_nuevo = TRUE){
+  tbl %>%
+    ftc_anos_educacion() %>%
+    dplyr::mutate(
+      nivel_educativo = dplyr::case_when(
+        anos_educacion < ifelse(esquema_nuevo, 6, 8) ~ 0,
+        anos_educacion < 12 ~ 1,
+        anos_educacion < 16 ~ 2,
+        anos_educacion >= 16 ~ 3
+      )
+    )
+}

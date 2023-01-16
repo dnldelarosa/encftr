@@ -2231,11 +2231,28 @@ dict1 <- list(
       "Salud" = 14,
       "Otros servicios" = 15
     )
+  ),
+  zona_desarrollo_fronterizo = list(
+    lab = "Zona de desarrollo fronterizo",
+    labs = c(
+      "Zona de desarrollo fronterizo" = 1,
+      "Resto país" = 0
+    )
+  ),
+  nivel_educativo = list(
+    lab = "Nivel educativo alcanzado por la persona",
+    labs = c(
+      "Ninguno" = 0,
+      "Primario" = 1,
+      "Secundario" = 2,
+      "Terciario" = 3
+    )
   )
 )
 
 dict <- append(dict0, dict1)
 
+#devtools::load_all("G:/My Drive/Projects/Adatar/labeler")
 dict <- labeler::parse_dict(dict)
 
 usethis::use_data(dict, overwrite = TRUE)
