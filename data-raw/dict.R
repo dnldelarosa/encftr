@@ -2132,7 +2132,7 @@ en la que ... trabaja? (ocupación principal)"
 )
 
 
-
+source("data-raw/scripts/ciuo_08.R")
 
 dict1 <- list(
   alfabetizacion = list(
@@ -2146,6 +2146,10 @@ dict1 <- list(
     lab = "¿Asiste actualmente a un centro educativo?",
     labs = c("Sí" = 1, "No" = 2)
   ),
+  desempleo_ampliado = list(
+    lab = "Población desocupada ampliada (DESOCUPADO + FTP)",
+    labs = c("Sí" = 1, "No" = 2)
+  ),
   factor_exp_anual = list(
     lab = "Factor de expansión anual"
   ),
@@ -2153,8 +2157,40 @@ dict1 <- list(
     lab = "Fuerza de trabajo potencial",
     labs = c("Fuerza de trabajo potencia" = 1, "Fuera de la fuerza de trabajo potencial" = 0)
   ),
+  grandes_grupos_ciuo_08 = list(
+    lab = "Grandes grupos de actividad económica según CIUO 08 (1 dígito)",
+    labs = grandes_grupos_ciuo_08
+  ),
   grupos_edad = list(
     lab = "Grupos de edad"
+  ),
+  grupo_rama_sector = list(
+    lab = "Rama de Actividad Económica (RAE) por sectores PIB",
+    labs = c(
+      'Agropecuario' = 1,
+      'Industrias' = 2,
+      'Servicios' = 3
+    )
+  ),
+  grupo_rama_pib = list(
+    lab = "Rama de Actividad Económica (RAE) - PIB",
+    labs = c(
+      "Agricultura y ganadería" = 1,
+      "Minas y canteras" = 2,
+      "Industrias manufactureras (Zona Franca)" = 3,
+      "Industrias manufactureras (Local)" = 4,
+      "Electricidad, gas y agua" = 5,
+      "Construcción" = 6,
+      "Comercio" = 7,
+      "Transporte y almacenamiento" = 8,
+      "Hoteles, bares y restaurantes" = 9,
+      "Comunicaciones" = 10,
+      "Intermediación financiera y seguros" = 11,
+      "Administración pública y defensa" = 12,
+      "Enseñanza" = 13,
+      "Salud" = 14,
+      "Otros servicios" = 15
+    )
   ),
   hacinamiento = list(
     lab = "Nivel de hacinamiento del hogar"
@@ -2165,6 +2201,38 @@ dict1 <- list(
   ),
   matriculacion_escolar = list(
     lab = "¿Se matriculó en un centro educativo este año?"
+  ),
+  macro_regiones = list(
+    lab = "Macroregiones (Dec. 710-04)",
+    labs = c(
+      "Macroregión Norte" = 1,
+      "Macroregión Suroeste" = 2,
+      "Macroregión Sureste" = 3
+    )
+  ),
+  nivel_educativo_alcanzado = list(
+    lab = "Nivel educativo más alto alcanzado por la persona",
+    labs = c(
+      "Ninguno o inicial" = 1,
+      "Primaria" = 2,
+      "Secundaria" = 3,
+      "Universitaria" = 4,
+      "Postgrado" = 5
+    )
+  ),
+  nivel_educativo_completado = list(
+    lab = "Nivel educativo más alto completado por la persona",
+    labs = c(
+      "Ninguno o inicial" = 1,
+      "Primaria" = 2,
+      "Secundaria" = 3,
+      "Universitaria" = 4,
+      "Postgrado" = 5
+    )
+  ),
+  pea_ampliada = list(
+    lab = "Población Económicamente Ampliada (PEA ampliada) (PEA + FTP)",
+    labeñs = c("Sí" = 1, "No" = 2)
   ),
   perceptores_ingresos = list(
     lab = "Población ocupada perceptora de ingresos",
@@ -2198,9 +2266,41 @@ dict1 <- list(
     lab = "Regiones de desarrollo",
     labs = c("Cibao Norte" = 1, "Cibao Sur" = 2, "Cibao Nordeste" = 3, "Cibao Noroeste" = 4, "Valdesia" = 5, "Enriquillo" = 6, "El Valle" = 7, "Yuma" = 8, "Higuamo" = 9, "Ozama o Metropolitana" = 10)
   ),
+  sector_salario_minimo = list(
+    lab = "Sector del salario mínimo",
+    labs = c(
+      "Empresas del sector no sectorizado" = 1,
+      "Hoteles, bares y restaurantes y similares" = 2,
+      "Zona franca industrial" = 3,
+      "Sector público" = 4
+    )
+  ),
   sexo_jefe = list(
     lab = "Sexo del jefe de hogar",
     labs = c("Hombre" = 1, "Mujer" = 2)
+  ),
+  subgrupos_principales_ciuo_08 = list(
+    lab = "Subgrupos principales de actividad económica según CIUO 08 (2 dígitos)",
+    labs = subgrupos_principales_ciuo_08
+  ),
+  subgrupos_ciuo_08 = list(
+    lab = "Subgrupos de actividad económica según CIUO 08 (3 dígitos)",
+    labs = subgrupos_ciuo_08
+  ),
+  subgrupos_primarios_ciuo_08 = list(
+    lab = "Subgrupos primarios de actividad económica según CIUO 08 (4 dígitos)",
+    labs = subgrupos_primarios_ciuo_08
+  ),
+  tamano_salario_minimo = list(
+    lab = "Tamaños de empresa salario mínimo",
+    labs = c(
+      "Empresa grande" =  1,
+      "Empresa mediana" = 2,
+      "Empresa pequeña" = 3,
+      "Zona Franca" = 4,
+      "Zona Franca en áreas geográficas deprimidas" = 5,
+      "Instituciones del Estado" = 6
+    )
   ),
   tasa_alfabetizacion_hogar = list(
     lab = "Tasa de alfabetizacion del hogar"
@@ -2208,34 +2308,26 @@ dict1 <- list(
   tasa_dependencia = list(
     lab = "Tasa de dependencia del hogar"
   ),
+  tipo_establecimiento = list(
+    lab = 'Tipo de establecimiento',
+    labs = c("Privado" = 1, "Público" = 2, "Zonas Francas" = 3)
+  ),
   trabajo_infantil = list(
     lab = "Trabajo infantil",
     labs = c("Trabaja y estudia" = 1, "Solo trabajo" = 2, "Solo estudia" = 3, "No trabaja ni estudia" = 4)
   ),
-  grupo_rama_pib = list(
-    lab = "Rama de Actividad Económica (RAE) - PIB",
+  zona_desarrollo_fronterizo = list(
+    lab = "Zona de desarrollo fronterizo",
     labs = c(
-      "Agricultura y ganadería" = 1,
-      "Minas y canteras" = 2,
-      "Industrias manufactureras (Zona Franca)" = 3,
-      "Industrias manufactureras (Local)" = 4,
-      "Electricidad, gas y agua" = 5,
-      "Construcción" = 6,
-      "Comercio" = 7,
-      "Transporte y almacenamiento" = 8,
-      "Hoteles, bares y restaurantes" = 9,
-      "Comunicaciones" = 10,
-      "Intermediación financiera y seguros" = 11,
-      "Administración pública y defensa" = 12,
-      "Enseñanza" = 13,
-      "Salud" = 14,
-      "Otros servicios" = 15
+      "Zona de desarrollo fronterizo" = 1,
+      "Resto país" = 0
     )
   )
 )
 
 dict <- append(dict0, dict1)
 
+#devtools::load_all("G:/My Drive/Projects/Adatar/labeler")
 dict <- labeler::parse_dict(dict)
 
 usethis::use_data(dict, overwrite = TRUE)

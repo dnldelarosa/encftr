@@ -12,7 +12,7 @@
 #' \dontrun{
 #'   encft <- ftc_perceptores_ingresos(encft)
 #' }
-ftc_perceptores_ingresos <- function(tbl, min_edad = 15){
+ftc_perceptores_ingresos <- function(tbl, min_edad = 15) {
   CATEGORIA_PRINCIPAL <- NULL
   OCUPADO <- NULL
   tbl %>%
@@ -65,7 +65,10 @@ ftc_ingreso_laboral <- function(tbl){
     )
 }
 
-
+# Este ingreso es el mismo que en pobreza. Buscar la forma de tener solo uno.
+# De hecho estoy pensando en crear una función que calcule el ingreso para todos
+# los trabajadores (asalariados, cp o independientes) y que este sea un argumento
+# de la función. Igualmente para todas las ocupaciones y que sea otro argumento.
 
 
 #' Horas trabajadas a la semana
@@ -164,6 +167,46 @@ ftc_fuerza_trabajo_potencial <- function(tbl) {
         fuerza_trabajo_potencial = dplyr::case_when(
             EDAD >= 15 ~ fuerza_trabajo_potencial
         )
+    )
+}
+
+
+ftc_pea_ampliada <- function(tbl){
+  tbl %>%
+    ftc_fuerza_trabajo_potencial() %>%
+    dplyr::mutate(
+      pea_ampliada = dplyr::case_when(
+        #PET != 1 ~ NA_real_,
+        PEA == 1 ~ 1,
+        fuerza_trabajo_potencial == 1 ~ 1,
+        TRUE ~ 0
+      )
+    )
+}
+
+
+ftc_desempleo_ampliado <- function(tbl){
+  tbl %>%
+    ftc_pea_ampliada() %>%
+    dplyr::mutate(
+      desempleo_ampliado = dplyr::case_when(
+        OCUPADO == 1 ~ 0,
+        pea_ampliada == 1 ~ 1,
+      )
+    )
+}
+
+ftc_tipo_establecimiento <- function(tbl){
+  tbl %>%
+    dplyr::mutate(
+      tipo_establecimiento = dplyr::case_when(
+        CATEGORIA_PRINCIPAL == 4 ~ 3,
+        GRUPO_CATEGORIA == 'Cuenta propia' ~ 1,
+        GRUPO_CATEGORIA == 'Empleado del estado' ~ 2,
+        GRUPO_CATEGORIA == 'Empleado privado' ~ 1,
+        GRUPO_CATEGORIA == 'Familiar no remunerado' ~ 1,
+        GRUPO_CATEGORIA == 'Patrono o socio activo' ~ 1,
+      )
     )
 }
 
@@ -276,4 +319,31 @@ ftc_grupo_rama_pib <- function(tbl) {
                 dplyr::between(RAMA_PRINCIPAL_COD, 9000, 9900) ~ 15
             )
         )
+}
+
+
+ftc_grupo_rama_sector <- function(tbl) {
+  tbl %>%
+    ftc_grupo_rama_pib() %>%
+    dplyr::mutate(
+      grupo_rama_sector = dplyr::case_when(
+        grupo_rama_pib == 1 ~ 1,
+        grupo_rama_pib %in% c(2:4, 6) ~ 2,
+        TRUE ~ 3
+      )
+    )
+}
+
+
+ftc_condicion_laboral <- function(tbl, min_edad = 15){
+  tbl %>%
+    ftc_fuerza_trabajo_potencial() %>%
+    dplyr::mutate(
+      condicion_laboral = dplyr::case_when(
+        OCUPADO == 1 ~ 1,
+        DESOCUPADO == 1 ~ 2,
+        fuerza_trabajo_potencial == 1 ~ 3,
+        TRUE ~ 4
+      )
+    )
 }

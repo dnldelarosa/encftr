@@ -237,10 +237,10 @@ ftc_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
     dplyr::mutate(
       anos_educacion = dplyr::case_when(
         NIVEL_ULTIMO_ANO_APROBADO %in% c(0, 1, 9, 10) ~ 0,
-        NIVEL_ULTIMO_ANO_APROBADO == 2 ~ ULTIMO_ANO_APROBADO,
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(3, 4) ~ 8 + ULTIMO_ANO_APROBADO,
-        NIVEL_ULTIMO_ANO_APROBADO == 5 ~ 12 + ULTIMO_ANO_APROBADO,
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(6, 7, 8) ~ 16 + ULTIMO_ANO_APROBADO
+        NIVEL_ULTIMO_ANO_APROBADO == 2 ~ as.integer(ULTIMO_ANO_APROBADO),
+        NIVEL_ULTIMO_ANO_APROBADO %in% c(3, 4) ~ 8 + as.integer(ULTIMO_ANO_APROBADO),
+        NIVEL_ULTIMO_ANO_APROBADO == 5 ~ 12 + as.integer(ULTIMO_ANO_APROBADO),
+        NIVEL_ULTIMO_ANO_APROBADO %in% c(6, 7, 8) ~ 16 + as.integer(ULTIMO_ANO_APROBADO)
       )
     )
 
@@ -306,4 +306,43 @@ ftc_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
 ftc_compute_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
   deprecate_warn("0.5.0", "ftc_compute_alfabetizacion()", "ftc_alfabetizacion()")
   ftc_compute_alfabetizacion(tbl, min_edad, max_edad)
+}
+
+
+
+
+ftc_grado_asiste <- function(tbl){
+  tbl %>%
+    ftc_anos_educacion() %>%
+    dplyr::mutate(grado_asiste = dplyr::if_else(NIVEL_SE_MATRICULO < 9, anos_educacion + 1, NA_integer_))
+}
+
+
+ftc_nivel_educativo_completado <- function(tbl, primaria = 6){
+  tbl %>%
+    ftc_anos_educacion() %>%
+    dplyr::mutate(
+      nivel_educativo_completado = dplyr::case_when(
+        anos_educacion < primaria ~ 1,
+        anos_educacion < 12 ~ 2,
+        anos_educacion < 16 ~ 3,
+        anos_educacion == 16 ~ 4,
+        anos_educacion > 16 ~ 5
+      )
+    )
+}
+
+
+ftc_nivel_educativo_alcanzado <- function(tbl, primaria = 6){
+  tbl %>%
+    ftc_anos_educacion() %>%
+    dplyr::mutate(
+      nivel_educativo_alcanzado = dplyr::case_when(
+        anos_educacion == 0 ~ 1,
+        anos_educacion <= primaria ~ 2,
+        anos_educacion <= 12 ~ 3,
+        NIVEL_ULTIMO_ANO_APROBADO == 5 ~ 4,
+        NIVEL_ULTIMO_ANO_APROBADO %in% 6:8 ~ 5
+      )
+    )
 }

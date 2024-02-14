@@ -1,0 +1,972 @@
+---
+title: "Pobreza monetaria"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Pobreza monetaria}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+# library(encftr)
+devtools::load_all("..")
+library(dplyr)
+library(sjlabelled)
+library(tidyr)
+```
+
+```{r}
+conn <- Dmisc:::db_connect()
+encft <- tbl(conn, "encft") %>%
+  ftc_select_variables_pobreza() %>%
+  collect()
+pobreza_oficial <- tbl(conn, "encft_pobreza_mepyd") %>% collect()
+DBI::dbDisconnect(conn)
+```
+
+#Ingreso monetario mensual por ocupaci?n principal asalariada----
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_prin_asalariado() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_prin_asalariado)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingmenasal, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual por ocupaci?n principal para independiente agropecuario o contratista----
+```{r}
+encft %>% 
+  count(TRIMESTRE, GANANCIA_IN_PRODUCTOR)
+
+
+encft %>% 
+  count(TRIMESTRE, GANANCIA_IN_PRODUCTOR_MONTO)
+
+
+encft %>% 
+  count(TRIMESTRE, GANANCIA_PRINC_IMP_MONTO)
+
+
+encft %>% 
+  count(TRIMESTRE, GANANCIA_IN_PRODUCTOR_MONEDA)
+```
+
+
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_prin_independiente() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_prin_independiente)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingagroycontra, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario por ocupacion principal para patronos y cuenta propia----
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_prin_cuenta_propia() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_prin_cuenta_propia)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingmenctaprop, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de comisiones por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_comisiones() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_comisiones)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxcomisiones, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de propinas por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_propinas() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_propinas)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxpropinas, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de horas extras por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_horas_extra() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_horas_extra)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxhrsextra, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de vacaciones pagadas por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_vacaciones() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_vacaciones)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxvaca, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de dividendos por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_dividendos() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_dividendos)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxdividendos, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de bonificacion por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_bonificaciones() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_bonificaciones)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxbonificacion, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de regalia pascual por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_regalia_pascual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_regalia_pascual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxregalia, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de utilidades empresariales por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_utilidades_empresariales() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_utilidades_empresariales)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxutilidades, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario adicional mensual de beneficios marginales por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_beneficios_marginales() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_beneficios_marginales)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxmarginales, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual de otros ingresos monetarios mensuales por ocupaci?n secundaria asalariada----
+```{r}
+encft %>%
+  ftc_ing_otros_ocup_sec_asalariado() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_otros_ocup_sec_asalariado)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxotrossec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual de otros ingresos por beneficios marginales anuales en ocupaci?n secundaria asalariada----
+```{r}
+encft %>%
+  ftc_ing_beneficios_marginales_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_beneficios_marginales_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxotrosbenefsec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie por alimentos adicional mensual por ocupaciones----
+```{r}
+encft %>%
+  ftc_ing_especie_alimentos() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_alimentos)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxalimentos, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie por pago de viviendas adicional mensual por ocupaciones----
+```{r}
+encft %>%
+  ftc_ing_especie_viviendas() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_viviendas)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxvivienda, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie por pago de transporte adicional mensual por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_especie_transporte() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_transporte)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxtransporte, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie por pago de combustible mensual por ocupacion principal----
+```{r}
+encft %>%
+  ftc_ing_especie_combustible() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_combustible)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxcombustible, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie por pago de celular adicional mensual por ocupaciones----
+```{r}
+encft %>%
+  ftc_ing_especie_celular() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_celular)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxcelular, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Otros ingresos en especie ocupaci?n principal asalariado----
+```{r}
+encft %>%
+  ftc_ing_especie_otros() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_otros)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxotrosesp, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie ocupaci?n principal patronos y cuenta propia----
+```{r}
+encft %>%
+  ftc_ing_especie_cuenta_propia() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_cuenta_propia)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxespctapatro, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie ocupaci?n secundaria asalariado----
+```{r}
+encft %>%
+  ftc_ing_especie_ocup_sec_asalarariado() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_ocup_sec_asalarariado)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxespas, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie ocupaci?n secundaria patronos y cuenta propia----
+```{r}
+encft %>%
+  ftc_ing_especie_ocup_sec_cuenta_propia() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_ocup_sec_cuenta_propia)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingxespctapatroas, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual por ocupaci?n secundaria asalariada----
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_sec_asalariado() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_sec_asalariado)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingasalsec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual por ocupaci?n secundaria independiente agropecuario o contratista----
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_sec_independiente() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_sec_independiente)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingagroycontrasec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario mensual por ocupacion secundaria para cuenta propia o patron----
+```{r}
+encft %>%
+  ftc_ing_mensual_ocup_sec_cuenta_propia() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_mensual_ocup_sec_cuenta_propia)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingmenctapropsec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por pensi?n o jubilaci?n----
+```{r}
+encft %>%
+  ftc_ing_pension_jubilacion() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_pension_jubilacion)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(pensionnac, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por Intereses o dividendos----
+```{r}
+encft %>%
+  ftc_ing_intereses_dividendos() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_intereses_dividendos)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(interesesnac, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por alquileres o rentas de propiedades----
+```{r}
+encft %>%
+  ftc_ing_alquileres_renta() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_alquileres_renta)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(alquileresnac, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por remesas nacionales----
+```{r}
+encft %>%
+  ftc_ing_remesas_nacionales() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_remesas_nacionales)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(remesasnac, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por ayuda del gobierno----
+```{r}
+encft %>%
+  ftc_ing_transferencias_sociales() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_transferencias_sociales)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(trsoc, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por pensi?n o jubilaci?n, anual----
+```{r}
+encft %>%
+  ftc_ing_pension_jubilacion_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_pension_jubilacion_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(regalia12, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por Intereses o dividendos, anual----
+```{r}
+encft %>%
+  ftc_ing_intereses_dividendos_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_intereses_dividendos_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(intereses12, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por alquileres o rentas de propiedades, anual----
+```{r}
+encft %>%
+  ftc_ing_alquileres_renta_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_alquileres_renta_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(alquiler12, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetario no laboral por remesas nacionales, anual----
+```{r}
+encft %>%
+  ftc_ing_remesas_nacionales_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_remesas_nacionales_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(remesas12, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie no laboral por ayuda de familiares, no familiares e instituciones---
+```{r}
+encft %>%
+  ftc_ing_especie_ayuda_ong() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_ayuda_ong)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ayudaespnac, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+```{r}
+encft %>%
+  ftc_ing_especie_ayuda_ong_anual() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_especie_ayuda_ong_anual)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ayudaesp12, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso en especie no laboral por autoconsumo y auto suministro----
+```{r}
+encft %>%
+  ftc_ing_autoconsumo_autosuministro() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_autoconsumo_autosuministro)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(autoconsumoprin + autoconsumosec, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingresos mensuales externos por pensi?n----
+```{r}
+encft %>%
+  ftc_ing_pension_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_pension_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(pensionext, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingresos mensuales externos por intereses o dividendos en RD$----
+```{r}
+encft %>%
+  ftc_ing_intereses_dividendos_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_intereses_dividendos_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(interesesext, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingresos mensuales externos por alquileres en RD$---
+```{r}
+encft %>%
+  ftc_ing_alquileres_renta_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_alquileres_renta_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(alquilerext, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingresos externos por regalos----
+```{r}
+encft %>%
+  ftc_ing_regalos_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_regalos_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(regalosext, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+#Ingreso monetarios remesas del exterior----
+```{r}
+encft %>%
+  mutate(across(contains("_EXT_MONEDA"), as.character)) %>% 
+  ftc_ing_remesas_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_remesas_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(remesasextprom_def, na.rm = TRUE)) # Esta ya está deflactado.
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+# Monto probable de alquiler vivienda no alquilada----
+```{r}
+encft %>%
+  ftc_ing_alquiler_imputado() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_alquiler_imputado)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(alqimputado, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+# ml = monetario laboral----
+```{r}
+encft %>%
+  ftc_ing_laboral_monetario() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_laboral_monetario)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ml, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+# nml= no monetario laboral----
+```{r}
+encft %>%
+  ftc_ing_no_monetario_laboral() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_no_monetario_laboral)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(nml, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+# mnl= monetario no laboral----
+```{r}
+encft %>%
+  ftc_ing_monetario_no_laboral() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_monetario_no_laboral)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(mnl, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+# nmnl = no monetario no laboral----
+```{r}
+encft %>%
+  ftc_ing_no_monetario_no_laboral() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_no_monetario_no_laboral)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(nmnl, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+# mext = monetario exterior----
+```{r}
+encft %>%
+  mutate(across(contains("_EXT_MONEDA"), as.character)) %>% 
+  ftc_ing_monetario_ext() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_monetario_ext)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(nmnl, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+# Ingreso total----
+```{r}
+encft %>%
+  ftc_ing_total_pobreza() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_total_pobreza)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingresototalyalqimpdef, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+# ingreso total per capita----
+```{r}
+encft %>%
+  ftc_ing_pc_pobreza_def() %>%
+  group_by(TRIMESTRE) %>%
+  summarise(resultado = sum(ing_pc_pobreza_def, na.rm = TRUE)) %>%
+  left_join(
+    pobreza_oficial %>%
+      group_by(TRIMESTRE) %>%
+      summarise(esperado = sum(ingpercapitadef, na.rm = TRUE))
+  ) %>%
+  mutate(
+    diferencia = round(resultado - esperado, 4),
+    diferencia_relativa = round(diferencia / esperado * 100)
+  )
+```
+
+
+# Pobreza monetaria----
+```{r}
+encft %>%
+  ftc_pobreza_monetaria() %>%
+  select(ANO, TRIMESTRE, VIVIENDA, HOGAR, MIEMBRO, pobreza_monetaria, FACTOR_EXPANSION) %>%
+  left_join(
+    pobreza_oficial %>%
+      mutate(
+        pobrezaMonetaria = case_when(
+          indigencia == 1 ~ 1,
+          pobre == 1 ~ 2,
+          TRUE ~ 3
+        )
+      ) %>%
+      select(TRIMESTRE, VIVIENDA, HOGAR, MIEMBRO, pobrezaMonetaria)
+  ) %>%
+  ftc_factor_exp_anual() %>%
+  count(ANO, pobreza_monetaria, pobrezaMonetaria, wt = factor_exp_anual)
+```
+
+
+
+
+
+
+
+
+```{r}
+encft %>%
+  ftc_pobreza_monetaria() %>%
+  print() %>%
+  group_by(ANO) %>%
+  ftc_factor_exp_anual() %>%
+  summarise(
+    indigencia = sum(factor_exp_anual[pobreza_monetaria == 1]),
+    pobreza_moderada = sum(factor_exp_anual[pobreza_monetaria == 2]),
+    no_pobre = sum(factor_exp_anual[pobreza_monetaria == 3]),
+    pobreza_general = indigencia + pobreza_moderada
+  ) %>%
+  mutate(
+    esperado = c(2879654, 2598858, 2335921, 2169012, 2440479, 2512597)
+  ) %>%
+  mutate(
+    diferencia = round(pobreza_general - esperado, 4),
+    diferencia_rel = round(diferencia / esperado * 100, 4)
+  )
+```

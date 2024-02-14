@@ -19,7 +19,7 @@ ftc_regiones_desarrollo <- function(tbl){
   ID_PROVINCIA <- NULL
   tbl %>%
     dplyr::mutate(
-      region = dplyr::case_when(
+      regiones_desarrollo = dplyr::case_when(
         ID_PROVINCIA %in% c(25, 18, 9) ~ 1,
         ID_PROVINCIA %in% c(13, 24, 28) ~ 2,
         ID_PROVINCIA %in% c(6, 19, 14, 20) ~ 3,
@@ -38,4 +38,17 @@ ftc_regiones_desarrollo <- function(tbl){
 ftc_compute_region <- function(tbl) {
   deprecate_warn("0.5.0", "ftc_compute_region()", "ftc_regiones_desarrollo()")
   ftc_regiones_desarrollo(tbl)
+}
+
+
+ftc_macro_regiones <- function(tbl){
+  tbl %>%
+    ftc_regiones_desarrollo() %>%
+    mutate(
+      macro_regiones = dplyr::case_when(
+        regiones_desarrollo <= 4 ~ 1,
+        regiones_desarrollo <= 7 ~ 2,
+        regiones_desarrollo <= 10 ~ 3
+      )
+    )
 }

@@ -49,6 +49,7 @@ Para conseguir los datos de la encuesta es necesario hacer una solicitud vía co
 ## Algunos cruces básicos y detalles finales utilizando la librería
 
 ```{r}
+#devtools::load_all(".")
 library(encftr)
 library(dplyr)
 ```
@@ -60,7 +61,7 @@ glimpse(encft)
 ```
 
 
-Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como ` %>%`.
+Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como `magrittr::%>%` o `base::|>`.
 
 Como se mencionó antes la ENCFT es una encuestra trimestral por lo que el factor de expansión<!-- ^[Si quieres leer sobre como trabajar con datos de encuesta en R. Lee la siguiente publicación: []()] --> es trimestral.
 ```{r}

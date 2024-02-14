@@ -3,7 +3,8 @@
 \name{ftc_factor_exp_anual}
 \alias{ftc_factor_exp_anual}
 \alias{ftc_compute_factor_exp_anual}
-\title{Factor de expansión anual}
+\title{Factor de expansión anual
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}})`}
 \usage{
 ftc_factor_exp_anual(tbl)
 
@@ -17,7 +18,8 @@ Conexión a base de datos o dataframe según input con la variable
 \code{factor_exp_anual} agregada.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+Factor de expansión anual
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}})`
 }
 \examples{
   encft <- data.frame(FACTOR_EXPANSION = c(1028, 848, 400))
