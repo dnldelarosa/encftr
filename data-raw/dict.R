@@ -2322,6 +2322,22 @@ dict1 <- list(
       "Zona de desarrollo fronterizo" = 1,
       "Resto país" = 0
     )
+  ),
+  zona_desarrollo_fronterizo = list(
+    lab = "Zona de desarrollo fronterizo",
+    labs = c(
+      "Zona de desarrollo fronterizo" = 1,
+      "Resto país" = 0
+    )
+  ),
+  nivel_educativo = list(
+    lab = "Nivel educativo alcanzado por la persona",
+    labs = c(
+      "Ninguno" = 0,
+      "Primario" = 1,
+      "Secundario" = 2,
+      "Terciario" = 3
+    )
   )
 )
 

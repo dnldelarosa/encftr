@@ -12,7 +12,7 @@
 #' \dontrun{
 #'   encft <- ftc_perceptores_ingresos(encft)
 #' }
-ftc_perceptores_ingresos <- function(tbl, min_edad = 15) {
+ftc_perceptores_ingresos <- function(tbl, min_edad = 15)  {
   CATEGORIA_PRINCIPAL <- NULL
   OCUPADO <- NULL
   tbl %>%
