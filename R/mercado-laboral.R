@@ -299,12 +299,24 @@ ftc_grupo_rama_pib <- function(tbl) {
     tbl %>%
         dplyr::mutate(
             grupo_rama_pib = dplyr::case_when(
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'sin actividad') ~ NA_real_,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Agr.c') ~ 1,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Industr') & CATEGORIA_PRINCIPAL == 4 ~ 3,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Industr') & CATEGORIA_PRINCIPAL != 4 ~ 4,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Electric') ~ 5,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Constr') ~ 6,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Comerc') ~ 7,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Transp') ~ 8,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Hoteles') ~ 9,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Financ') ~ 11,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'p.blic.+def') ~ 12,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Ense.anza') ~ 13,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Salud') ~ 14,
+              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Otros') ~ 15,
                 dplyr::between(RAMA_PRINCIPAL_COD, 111, 322) ~ 1,
                 dplyr::between(RAMA_PRINCIPAL_COD, 510, 990) ~ 2,
-                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) &
-                CATEGORIA_PRINCIPAL == 4 ~ 3,
-                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) &
-                CATEGORIA_PRINCIPAL != 4 ~ 4,
+                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) & CATEGORIA_PRINCIPAL == 4 ~ 3,
+                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) & CATEGORIA_PRINCIPAL != 4 ~ 4,
                 dplyr::between(RAMA_PRINCIPAL_COD, 3510, 3900) ~ 5,
                 dplyr::between(RAMA_PRINCIPAL_COD, 4100, 4390) ~ 6,
                 dplyr::between(RAMA_PRINCIPAL_COD, 4510, 4799) ~ 7,
