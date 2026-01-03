@@ -7,7 +7,7 @@ library(dplyr)
 
 #Se carga la hoja de Tasa de Cambio mensual, que se encuentra en la página web del BCRD.
 #Se sustituyen los codigos del estándar internacional ISO 4217.
-tipo_cambio <- readxl::read_excel("G:/My Drive/Databases/ENCFT/pobrezaMonetaria/2022/TASAS_CONVERTIBLES_OTRAS_MONEDAS.xls", sheet = "Mensual", col_names = T, skip = 2) %>%
+tipo_cambio <- readxl::read_excel("data-raw/TASAS_CONVERTIBLES_OTRAS_MONEDAS.xlsx", sheet = "Mensual", col_names = T, skip = 2) %>%
   rename( "BRL"= "REAL BRASILENO",
           "CAD"= "DOLAR CANADIENSE",
           "CHF"= "FRANCO SUIZO",

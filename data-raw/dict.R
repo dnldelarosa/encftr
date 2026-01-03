@@ -471,6 +471,10 @@ si le hubieran ofrecido uno?",
   EDAD = list(
     lab = "¿Qué edad tiene en años cumplidos?"
   ),
+  empleado = list(
+    lab = "Trabajador ocupado como empleado",
+    labs = c("Empleado" = 1, "No empleado" = 0)
+  ),
   EMPRESA_INSCRITA_RNC = list(
     lab = "¿La empresa o negocio donde ... trabaja se encuentra inscrita en el Registro Nacional de Contribuyente (RNC)?",
     labs = c("Sí" = 1, "No" = 2, "No sabe" = 98)
@@ -555,6 +559,10 @@ si le hubieran ofrecido uno?",
   FORMA_TRABAJO_REALIZO_IS = list(
     lab = "¿Cuál de las siguientes formas de trabajo realizó? (ocupación secundaria, independientes)",
     labs = c("Productor agropecuario" = 1, "Consultor o contratista" = 2, "Cuenta propia o patrón" = 99)
+  ),
+  formalidad_afiliacion = list(
+    lab = "Formalidad por afiliación a la seguridad social",
+    labs = c("Formal" = 1, "Informal" = 0)
   ),
   FUNCIONES_OCUPACION = list(
     lab = "¿Qué tareas o funciones realiza ... en ese trabajo? (ocupación principal)"
@@ -2167,9 +2175,9 @@ dict1 <- list(
   grupo_rama_sector = list(
     lab = "Rama de Actividad Económica (RAE) por sectores PIB",
     labs = c(
-      'Agropecuario' = 1,
-      'Industrias' = 2,
-      'Servicios' = 3
+      "Agropecuario" = 1,
+      "Industrias" = 2,
+      "Servicios" = 3
     )
   ),
   grupo_rama_pib = list(
@@ -2179,17 +2187,39 @@ dict1 <- list(
       "Minas y canteras" = 2,
       "Industrias manufactureras (Zona Franca)" = 3,
       "Industrias manufactureras (Local)" = 4,
-      "Electricidad, gas y agua" = 5,
-      "Construcción" = 6,
+      "Construcción" = 5,
+      "Electricidad, gas y agua" = 6,
       "Comercio" = 7,
-      "Transporte y almacenamiento" = 8,
-      "Hoteles, bares y restaurantes" = 9,
+      "Hoteles, bares y restaurantes" = 8,
+      "Transporte y almacenamiento" = 9,
       "Comunicaciones" = 10,
       "Intermediación financiera y seguros" = 11,
-      "Administración pública y defensa" = 12,
+      "Actividades inmobiliarias y de alquiler" = 12,
       "Enseñanza" = 13,
       "Salud" = 14,
-      "Otros servicios" = 15
+      "Otras actividades de servicios de mercado" = 15,
+      "Administración pública y defensa" = 16,
+      "Otros servicios" = 17
+    )
+  ),
+  grupo_rama_pib_enft = list(
+    lab = "Rama de Actividad Económica (RAE) - PIB (Compatibles con la ENFT)",
+    labs = c(
+      "Agricultura y ganadería" = 1,
+      "Minas y canteras" = 2,
+      "Industrias manufactureras" = 3,
+      "Construcción" = 4,
+      "Electricidad, gas y agua" = 5,
+      "Comercio" = 6,
+      "Hoteles, bares y restaurantes" = 7,
+      "Transporte y almacenamiento" = 8,
+      "Comunicaciones" = 9,
+      "Intermediación financiera y seguros" = 10,
+      "Actividades inmobiliarias y de alquiler" = 11,
+      "Enseñanza" = 12,
+      "Salud" = 13,
+      "Otras actividades de servicios de mercado" = 14,
+      "Administración pública y defensa; y otros servicios" = 15
     )
   ),
   hacinamiento = list(
@@ -2198,6 +2228,10 @@ dict1 <- list(
   icv_siuben = list(
     lab = "Índice de Calidad de Vida 2A (ICV 2A) del SIUBEN",
     labs = c("ICV 1" = 1, "ICV 2" = 2, "ICV 3" = 3, "ICV 4" = 4)
+  ),
+  informalidad_total = list(
+    lab = "Informalidad total",
+    labs = c("Formal" = 0, "Informal (Sector)" = 1, "Informal (Empleo)" = 2)
   ),
   matriculacion_escolar = list(
     lab = "¿Se matriculó en un centro educativo este año?"
@@ -2294,7 +2328,7 @@ dict1 <- list(
   tamano_salario_minimo = list(
     lab = "Tamaños de empresa salario mínimo",
     labs = c(
-      "Empresa grande" =  1,
+      "Empresa grande" = 1,
       "Empresa mediana" = 2,
       "Empresa pequeña" = 3,
       "Zona Franca" = 4,
@@ -2309,7 +2343,7 @@ dict1 <- list(
     lab = "Tasa de dependencia del hogar"
   ),
   tipo_establecimiento = list(
-    lab = 'Tipo de establecimiento',
+    lab = "Tipo de establecimiento",
     labs = c("Privado" = 1, "Público" = 2, "Zonas Francas" = 3)
   ),
   trabajo_infantil = list(
@@ -2343,7 +2377,7 @@ dict1 <- list(
 
 dict <- append(dict0, dict1)
 
-#devtools::load_all("G:/My Drive/Projects/Adatar/labeler")
+# devtools::load_all("G:/My Drive/Projects/Adatar/labeler")
 dict <- labeler::parse_dict(dict)
 
 usethis::use_data(dict, overwrite = TRUE)
