@@ -1,7 +1,7 @@
 left_join_tipo_cambio <- function(tbl){
   nombres <- c("PERIODO")
   for(nombre in names(tipo_cambio)){
-    if(!nombre %in% tbl_vars(tbl)){
+    if(!nombre %in% dplyr::tbl_vars(tbl)){
       nombres <- c(nombres, nombre)
     }
   }
@@ -63,17 +63,17 @@ ftc_ing_mensual_ocup_prin_asalariado <- function(tbl) {
         SUELDO_BRUTO_AP_MONEDA == "GBP" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(GBP),
         SUELDO_BRUTO_AP_MONEDA == "JPY" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(JPY),
         SUELDO_BRUTO_AP_MONEDA == "NOK" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(NOK),
-        SUELDO_BRUTO_AP_MONEDA == "LESC" ~ SUELDO_BRUTO_AP_MONTO* dplyr::lead(LESC),
+        SUELDO_BRUTO_AP_MONEDA == "LESC" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(LESC),
         SUELDO_BRUTO_AP_MONEDA == "SEK" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(SEK),
         SUELDO_BRUTO_AP_MONEDA == "USD" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(USD),
         SUELDO_BRUTO_AP_MONEDA == "VEF" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(VEF),
-        SUELDO_BRUTO_AP_MONEDA == "ARS" ~ SUELDO_BRUTO_AP_MONTO * ARS,
+        SUELDO_BRUTO_AP_MONEDA == "ARS" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(ARS),
         TRUE ~ 0
       ),
       ingasal = as.double(ingasal),
-      horasocupprin = ifelse(is.na(HORAS_TRABAJO_EFECT_TOTAL), 0, HORAS_TRABAJO_EFECT_TOTAL),
-      periocupprin = ifelse(is.na(TIEMPO_RECIBE_PAGO_AP), 0, TIEMPO_RECIBE_PAGO_AP),
-      diasocupprin = ifelse(is.na(TIEMPO_RECIBE_PAGO_DIAS_AP), 0, TIEMPO_RECIBE_PAGO_DIAS_AP)
+      horasocupprin = dplyr::if_else(is.na(HORAS_TRABAJO_EFECT_TOTAL), 0, HORAS_TRABAJO_EFECT_TOTAL),
+      periocupprin = dplyr::if_else(is.na(TIEMPO_RECIBE_PAGO_AP), 0, TIEMPO_RECIBE_PAGO_AP),
+      diasocupprin = dplyr::if_else(is.na(TIEMPO_RECIBE_PAGO_DIAS_AP), 0, TIEMPO_RECIBE_PAGO_DIAS_AP)
       )
   #tbl %>%
   #  dplyr::select(c(ingasal, horasocupprin, periocupprin, diasocupprin)) %>%
@@ -1396,6 +1396,7 @@ ftc_ing_alquiler_imputado <- function(tbl, deflactar = TRUE) {
 #'
 #' @examples
 ftc_ing_laboral_monetario <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
+  # - [ ] TODO: NO hay algunos no monetarios aquí?
   ingresos <- c(
     "ing_mensual_ocup_prin_asalariado",
     "ing_mensual_ocup_prin_cuenta_propia",
