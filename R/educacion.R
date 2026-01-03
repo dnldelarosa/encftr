@@ -238,7 +238,7 @@ ftc_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
       anos_educacion = dplyr::case_when(
         NIVEL_ULTIMO_ANO_APROBADO %in% c(0, 1, 9, 10) ~ 0,
         NIVEL_ULTIMO_ANO_APROBADO == 2 ~ as.integer(ULTIMO_ANO_APROBADO),
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(3, 4) ~ 8 + as.integer(ULTIMO_ANO_APROBADO),
+        NIVEL_ULTIMO_ANO_APROBADO %in% c(3, 4) ~ dplyr::if_else(ANO >= 2022, 6, 8) + as.integer(ULTIMO_ANO_APROBADO),
         NIVEL_ULTIMO_ANO_APROBADO == 5 ~ 12 + as.integer(ULTIMO_ANO_APROBADO),
         NIVEL_ULTIMO_ANO_APROBADO %in% c(6, 7, 8) ~ 16 + as.integer(ULTIMO_ANO_APROBADO)
       )
