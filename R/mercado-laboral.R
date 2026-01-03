@@ -10,9 +10,9 @@
 #'
 #' @examples
 #' \dontrun{
-#'   encft <- ftc_perceptores_ingresos(encft)
+#' encft <- ftc_perceptores_ingresos(encft)
 #' }
-ftc_perceptores_ingresos <- function(tbl, min_edad = 15)  {
+ftc_perceptores_ingresos <- function(tbl, min_edad = 15) {
   CATEGORIA_PRINCIPAL <- NULL
   OCUPADO <- NULL
   tbl %>%
@@ -25,9 +25,6 @@ ftc_perceptores_ingresos <- function(tbl, min_edad = 15)  {
 }
 
 
-
-
-
 #' Ingreso laboral total mensual
 #'
 #'   Calcula el ingreso laboral mensual por todas las partidas para las asalariados
@@ -37,15 +34,15 @@ ftc_perceptores_ingresos <- function(tbl, min_edad = 15)  {
 #' @param tbl [data.frame]: Conexión a base de datos o data.frame con los datos.
 #'
 #' @return Los datos suministrados en el input \code{tbl} con la variable
-#'   \code{ingreso_laboral} adicionada.
+#'   \code{ingreso_laboral_total} adicionada.
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'   encft <- ftc_ingreso_laboral(encft)
+#' encft <- ftc_ingreso_laboral_total(encft)
 #' }
-ftc_ingreso_laboral <- function(tbl){
+ftc_ingreso_laboral_total <- function(tbl) {
   INGRESO_ASALARIADO <- NULL
   COMISIONES <- NULL
   PROPINAS <- NULL
@@ -59,17 +56,33 @@ ftc_ingreso_laboral <- function(tbl){
   INGRESO_INDEPENDIENTES <- NULL
   tbl %>%
     dplyr::mutate(
-      ingreso_laboral = INGRESO_ASALARIADO + COMISIONES + PROPINAS + HORAS_EXTRA +
-        OTROS_PAGOS + BONO_VACACIONES + BONIFICACIONES + REGALIA_PASCUAL +
-        INCENTIVO_ANTIGUEDAD + OTROS_BENEFICIOS + INGRESO_INDEPENDIENTES
+      ingreso_laboral_total = INGRESO_ASALARIADO +
+        COMISIONES +
+        PROPINAS +
+        HORAS_EXTRA +
+        OTROS_PAGOS +
+        BONO_VACACIONES +
+        BONIFICACIONES +
+        REGALIA_PASCUAL +
+        INCENTIVO_ANTIGUEDAD +
+        OTROS_BENEFICIOS +
+        INGRESO_INDEPENDIENTES
     )
+}
+
+ftc_ingreso_laboral <- function(tbl) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_ingreso_laboral()",
+    "ftc_ingreso_laboral_total()"
+  )
+  ftc_ingreso_laboral_total(tbl)
 }
 
 # Este ingreso es el mismo que en pobreza. Buscar la forma de tener solo uno.
 # De hecho estoy pensando en crear una función que calcule el ingreso para todos
 # los trabajadores (asalariados, cp o independientes) y que este sea un argumento
 # de la función. Igualmente para todas las ocupaciones y que sea otro argumento.
-
 
 #' Horas trabajadas a la semana
 #'
@@ -86,9 +99,9 @@ ftc_ingreso_laboral <- function(tbl){
 #'
 #' @examples
 #' \dontrun{
-#'   encft <- ftc_horas_semana(encft)
+#' encft <- ftc_horas_semana(encft)
 #' }
-ftc_horas_semana <- function(tbl){
+ftc_horas_semana <- function(tbl) {
   HORAS_TRABAJO_EFECT_TOTAL <- NULL
   HORAS_TRABAJA_SEMANA_PRINCIPAL <- NULL
   tbl %>%
@@ -99,8 +112,6 @@ ftc_horas_semana <- function(tbl){
       )
     )
 }
-
-
 
 
 #' Niños de 5 a 14 años según condición laboral y escolar
@@ -120,14 +131,15 @@ ftc_horas_semana <- function(tbl){
 #'
 #' @examples
 #' \dontrun{
-#'   encft <- ftc_trabajo_infantil(encft)
+#' encft <- ftc_trabajo_infantil(encft)
 #' }
-ftc_trabajo_infantil <- function(tbl, summer_fix = FALSE){
+ftc_trabajo_infantil <- function(tbl, summer_fix = FALSE) {
   tbl %>%
     ftc_asistencia_escolar() %>%
     dplyr::mutate(
       trabajo_infantil = dplyr::case_when(
-        dplyr::between(EDAD, 5, 14) & OCUPADO == 1 & asistencia_escolar == 1 ~ 1,
+        dplyr::between(EDAD, 5, 14) & OCUPADO == 1 & asistencia_escolar == 1 ~
+          1,
         dplyr::between(EDAD, 5, 14) & OCUPADO == 1 ~ 2,
         dplyr::between(EDAD, 5, 14) & asistencia_escolar == 1 ~ 3,
         dplyr::between(EDAD, 5, 14) & OCUPADO == 0 & asistencia_escolar == 0 ~ 4
@@ -137,7 +149,6 @@ ftc_trabajo_infantil <- function(tbl, summer_fix = FALSE){
 #' @rdname ftc_trabajo_infantil
 #' @export
 ftc_compute_trabajo_infantil <- function(...) ftc_trabajo_infantil(...)
-
 
 
 #' Calcula la condición de Fuerza de Trabajo Potencial
@@ -153,30 +164,43 @@ ftc_compute_trabajo_infantil <- function(...) ftc_trabajo_infantil(...)
 #'
 #' @examples
 #' \dontrun{
-#'  encft <- ftc_fuerza_trabajo_potencial(encft)
+#' encft <- ftc_fuerza_trabajo_potencial(encft)
 #' }
 ftc_fuerza_trabajo_potencial <- function(tbl) {
-    tbl %>%
+  tbl %>%
     dplyr::mutate(
-        fuerza_trabajo_potencial = dplyr::case_when(
-          TIEMPO_GESTION_TRABAJO == 1 &
-          DISP_SEMANA_PASADA == 2 ~ 1,
-          AMPLIADO == 1 & INACTIVO == 1 ~ 1, #2,
-          INACTIVO == 1 ~ 0
-        ),
-        fuerza_trabajo_potencial = dplyr::case_when(
-            EDAD >= 15 ~ fuerza_trabajo_potencial
-        )
+      fuerza_trabajo_potencial = dplyr::case_when(
+        TIEMPO_GESTION_TRABAJO == 1 &
+          DISP_SEMANA_PASADA == 2 ~
+          1,
+        AMPLIADO == 1 & INACTIVO == 1 ~ 1, # 2,
+        INACTIVO == 1 ~ 0
+      ),
+      fuerza_trabajo_potencial = dplyr::case_when(
+        EDAD >= 15 ~ fuerza_trabajo_potencial
+      )
     )
 }
 
 
-ftc_pea_ampliada <- function(tbl){
+ftc_pea_abierta <- function(tbl, min_edad = 15) {
+  tbl %>%
+    dplyr::mutate(
+      pea_abierta = dplyr::if_else(
+        EDAD >= min_edad & PEA == 1 ~ 1,
+        EDAD >= min_edad & PEA == 0 ~ 0,
+        .default = NA_real_
+      )
+    )
+}
+
+
+ftc_pea_ampliada <- function(tbl) {
   tbl %>%
     ftc_fuerza_trabajo_potencial() %>%
     dplyr::mutate(
       pea_ampliada = dplyr::case_when(
-        #PET != 1 ~ NA_real_,
+        # PET != 1 ~ NA_real_,
         PEA == 1 ~ 1,
         fuerza_trabajo_potencial == 1 ~ 1,
         TRUE ~ 0
@@ -185,7 +209,7 @@ ftc_pea_ampliada <- function(tbl){
 }
 
 
-ftc_desempleo_ampliado <- function(tbl){
+ftc_desempleo_ampliado <- function(tbl) {
   tbl %>%
     ftc_pea_ampliada() %>%
     dplyr::mutate(
@@ -196,16 +220,16 @@ ftc_desempleo_ampliado <- function(tbl){
     )
 }
 
-ftc_tipo_establecimiento <- function(tbl){
+ftc_tipo_establecimiento <- function(tbl) {
   tbl %>%
     dplyr::mutate(
       tipo_establecimiento = dplyr::case_when(
         CATEGORIA_PRINCIPAL == 4 ~ 3,
-        GRUPO_CATEGORIA == 'Cuenta propia' ~ 1,
-        GRUPO_CATEGORIA == 'Empleado del estado' ~ 2,
-        GRUPO_CATEGORIA == 'Empleado privado' ~ 1,
-        GRUPO_CATEGORIA == 'Familiar no remunerado' ~ 1,
-        GRUPO_CATEGORIA == 'Patrono o socio activo' ~ 1,
+        GRUPO_CATEGORIA == "Cuenta propia" ~ 1,
+        GRUPO_CATEGORIA == "Empleado del estado" ~ 2,
+        GRUPO_CATEGORIA == "Empleado privado" ~ 1,
+        GRUPO_CATEGORIA == "Familiar no remunerado" ~ 1,
+        GRUPO_CATEGORIA == "Patrono o socio activo" ~ 1,
       )
     )
 }
@@ -229,8 +253,9 @@ ftc_tiempo_total_empleo_dias <- function(tbl) {
   TIEMPO_EMPLEO_DIAS <- NULL
   tbl %>%
     dplyr::mutate(
-      tiempo_total_empleo_dias = TIEMPO_EMPLEO_ANOS * 365 +
-      TIEMPO_EMPLEO_MESES * 30 +
+      tiempo_total_empleo_dias = TIEMPO_EMPLEO_ANOS *
+        365.25 +
+        TIEMPO_EMPLEO_MESES * 365.25 / 12 +
         TIEMPO_EMPLEO_DIAS
     )
 }
@@ -253,7 +278,7 @@ ftc_tiempo_total_empleo_meses <- function(tbl) {
   tbl %>%
     ftc_tiempo_total_empleo_dias() %>%
     dplyr::mutate(
-      tiempo_total_empleo_meses = tiempo_total_empleo_dias / 30
+      tiempo_total_empleo_meses = tiempo_total_empleo_dias / (365.25 / 12)
     )
 }
 
@@ -280,8 +305,6 @@ ftc_tiempo_total_empleo_anos <- function(tbl) {
 }
 
 
-
-
 #' Ramas de actividad utilizadas por el Banco Central en la clasificación del PIB
 #'
 #' @param tbl [data.frame]: Conexión a base de datos o data.frame con los datos.
@@ -296,41 +319,79 @@ ftc_tiempo_total_empleo_anos <- function(tbl) {
 #' encft <- ftc_grupo_rama_pib(encft)
 #' }
 ftc_grupo_rama_pib <- function(tbl) {
-    tbl %>%
-        dplyr::mutate(
-            grupo_rama_pib = dplyr::case_when(
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'sin actividad') ~ NA_real_,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Agr.c') ~ 1,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Industr') & CATEGORIA_PRINCIPAL == 4 ~ 3,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Industr') ~ 4,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Electric') ~ 5,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Constr') ~ 6,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Comerc') ~ 7,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Transp') ~ 8,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Hoteles') ~ 9,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'financ') ~ 11,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'p.blic.+def') ~ 12,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Ense.anza') ~ 13,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Salud') ~ 14,
-              is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, 'Otros') ~ 15,
-                dplyr::between(RAMA_PRINCIPAL_COD, 111, 322) ~ 1,
-                dplyr::between(RAMA_PRINCIPAL_COD, 510, 990) ~ 2,
-                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) & CATEGORIA_PRINCIPAL == 4 ~ 3,
-                dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) & CATEGORIA_PRINCIPAL != 4 ~ 4,
-                dplyr::between(RAMA_PRINCIPAL_COD, 3510, 3900) ~ 5,
-                dplyr::between(RAMA_PRINCIPAL_COD, 4100, 4390) ~ 6,
-                dplyr::between(RAMA_PRINCIPAL_COD, 4510, 4799) ~ 7,
-                dplyr::between(RAMA_PRINCIPAL_COD, 4911, 5320) ~ 8,
-                dplyr::between(RAMA_PRINCIPAL_COD, 5510, 5630) ~ 9,
-                dplyr::between(RAMA_PRINCIPAL_COD, 5811, 6399) ~ 10,
-                dplyr::between(RAMA_PRINCIPAL_COD, 6411, 6630) ~ 11,
-                dplyr::between(RAMA_PRINCIPAL_COD, 6810, 8299) ~ 15,
-                dplyr::between(RAMA_PRINCIPAL_COD, 8411, 8430) ~ 12,
-                dplyr::between(RAMA_PRINCIPAL_COD, 8510, 8550) ~ 13,
-                dplyr::between(RAMA_PRINCIPAL_COD, 8610, 8890) ~ 14,
-                dplyr::between(RAMA_PRINCIPAL_COD, 9000, 9900) ~ 15
-            )
-        )
+  tbl %>%
+    dplyr::mutate(
+      grupo_rama_pib = dplyr::case_when(
+        is.na(RAMA_PRINCIPAL_COD) &
+          stringr::str_detect(GRUPO_RAMA, "sin rama de actividad") ~
+          NA_real_,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Agr.c") ~
+          1,
+        is.na(RAMA_PRINCIPAL_COD) &
+          stringr::str_detect(GRUPO_RAMA, "Industr") &
+          CATEGORIA_PRINCIPAL == 4 ~
+          3,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Industr") ~
+          4,
+        is.na(RAMA_PRINCIPAL_COD) &
+          stringr::str_detect(GRUPO_RAMA, "Electric") ~
+          6,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Constr") ~
+          5,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Comerc") ~
+          7,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Transp") ~
+          9,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Hoteles") ~
+          8,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "financ") ~
+          11,
+        is.na(RAMA_PRINCIPAL_COD) &
+          stringr::str_detect(GRUPO_RAMA, "p.blica y def") ~
+          16,
+        is.na(RAMA_PRINCIPAL_COD) &
+          stringr::str_detect(GRUPO_RAMA, "Ense.anza") ~
+          13,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Salud") ~
+          14,
+        is.na(RAMA_PRINCIPAL_COD) & stringr::str_detect(GRUPO_RAMA, "Otros") ~
+          17,
+        dplyr::between(RAMA_PRINCIPAL_COD, 111, 322) ~ 1,
+        dplyr::between(RAMA_PRINCIPAL_COD, 510, 990) ~ 2,
+        dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) &
+          CATEGORIA_PRINCIPAL == 4 ~
+          3,
+        dplyr::between(RAMA_PRINCIPAL_COD, 1010, 3320) &
+          CATEGORIA_PRINCIPAL != 4 ~
+          4,
+        dplyr::between(RAMA_PRINCIPAL_COD, 3510, 3900) ~ 6,
+        dplyr::between(RAMA_PRINCIPAL_COD, 4100, 4390) ~ 5,
+        dplyr::between(RAMA_PRINCIPAL_COD, 4510, 4799) ~ 7,
+        dplyr::between(RAMA_PRINCIPAL_COD, 4911, 5320) ~ 9,
+        dplyr::between(RAMA_PRINCIPAL_COD, 5510, 5630) ~ 8,
+        dplyr::between(RAMA_PRINCIPAL_COD, 5811, 6399) ~ 10,
+        dplyr::between(RAMA_PRINCIPAL_COD, 6411, 6630) ~ 11,
+        dplyr::between(RAMA_PRINCIPAL_COD, 6810, 6820) ~ 12,
+        dplyr::between(RAMA_PRINCIPAL_COD, 6910, 8299) ~ 15,
+        dplyr::between(RAMA_PRINCIPAL_COD, 8411, 8430) ~ 16,
+        dplyr::between(RAMA_PRINCIPAL_COD, 8510, 8550) ~ 13,
+        dplyr::between(RAMA_PRINCIPAL_COD, 8610, 8890) ~ 14,
+        dplyr::between(RAMA_PRINCIPAL_COD, 9000, 9900) ~ 17
+      )
+    )
+}
+
+
+ftc_grupo_rama_pib_enft <- function(tbl) {
+  tbl %>%
+    ftc_grupo_rama_pib() %>%
+    dplyr::mutate(
+      grupo_rama_pib_enft = dplyr::case_when(
+        grupo_rama_pib < 4 ~ grupo_rama_pib,
+        grupo_rama_pib == 17 ~ 15,
+        grupo_rama_pib >= 4 ~ grupo_rama_pib - 1
+      )
+    )
 }
 
 
@@ -340,14 +401,14 @@ ftc_grupo_rama_sector <- function(tbl) {
     dplyr::mutate(
       grupo_rama_sector = dplyr::case_when(
         grupo_rama_pib == 1 ~ 1,
-        grupo_rama_pib %in% c(2:4, 6) ~ 2,
+        grupo_rama_pib %in% 2:5 ~ 2,
         TRUE ~ 3
       )
     )
 }
 
 
-ftc_condicion_laboral <- function(tbl, min_edad = 15){
+ftc_condicion_laboral <- function(tbl, min_edad = 15) {
   tbl %>%
     ftc_fuerza_trabajo_potencial() %>%
     dplyr::mutate(
@@ -356,6 +417,93 @@ ftc_condicion_laboral <- function(tbl, min_edad = 15){
         DESOCUPADO == 1 ~ 2,
         fuerza_trabajo_potencial == 1 ~ 3,
         TRUE ~ 4
+      )
+    )
+}
+
+
+ftc_informalidad_total <- function(tbl) {
+  tbl %>%
+    dplyr::mutate(
+      informalidad_total = dplyr::case_when(
+        ORDEN_SECTOR == 2 & ORDEN_EMPLEO == 1 ~ 0,
+        ORDEN_SECTOR == 2 ~ 1,
+        ORDEN_SECTOR == 1 & ORDEN_EMPLEO == 2 ~ 2,
+        ORDEN_SECTOR == 3 & ORDEN_EMPLEO == 2 ~ 2, # Creo que en la ENFT el Servicio doméstico se considera informal
+        ORDEN_SECTOR == 99 | ORDEN_EMPLEO == 99 ~ NA_real_,
+        .default = 0
+      )
+    )
+}
+
+
+# ftc_formal_informal <- function(tbl) {
+#   tbl |>
+#     dplyr::mutate(
+#       formal_informal = ORDEN_SECTOR
+#     )
+# }
+
+# library(dplyr); encft <- tbl(Dmisc:::db_connect(), 'encft')
+
+# encft |>
+#   ftc_formal_informal() |>
+#   filter(TRIMESTRE == 20242) |>
+#   count(OCUPADO, wt = FACTOR_EXPANSION) # TODO: Hay como 12 mil personas ocupadas más que lo que publica el Banco Central
+
+ftc_pasivo_cesantia <- function(tbl) {
+  ftc_tiempo_total_empleo_meses(tbl) |>
+    ftc_empleado() |>
+    dplyr::mutate(
+      pasivo_cesantia = dplyr::case_when(
+        is.na(INGRESO_ASALARIADO) ~ NA_real_,
+        tiempo_total_empleo_meses < 3 ~ 0,
+        tiempo_total_empleo_meses < 6 ~ (INGRESO_ASALARIADO / 23.83) * 6,
+        tiempo_total_empleo_meses < 12 ~ (INGRESO_ASALARIADO / 23.83) * 13,
+        tiempo_total_empleo_meses < 60 ~
+          (INGRESO_ASALARIADO / 23.83) *
+            21 *
+            TIEMPO_EMPLEO_ANOS +
+            dplyr::case_when(
+              TIEMPO_EMPLEO_MESES < 3 ~ 0,
+              TIEMPO_EMPLEO_MESES < 6 ~ (INGRESO_ASALARIADO / 23.83) * 6,
+              TIEMPO_EMPLEO_MESES < 12 ~ (INGRESO_ASALARIADO / 23.83) * 13,
+              .default = 0
+            ),
+        tiempo_total_empleo_meses >= 60 ~
+          (INGRESO_ASALARIADO / 23.83) *
+            23 *
+            TIEMPO_EMPLEO_ANOS +
+            dplyr::case_when(
+              TIEMPO_EMPLEO_MESES < 3 ~ 0,
+              TIEMPO_EMPLEO_MESES < 6 ~ (INGRESO_ASALARIADO / 23.83) * 6,
+              TIEMPO_EMPLEO_MESES < 12 ~ (INGRESO_ASALARIADO / 23.83) * 13,
+              .default = 0
+            )
+      ),
+      pasivo_cesantia = dplyr::if_else(empleado == 1, pasivo_cesantia, NA_real_)
+    )
+}
+
+
+ftc_formalidad_afiliacion <- function(tbl) {
+  tbl |>
+    dplyr::mutate(
+      formalidad_afiliacion = dplyr::case_when(
+        OCUPADO == 1 & AFILIADO_SEGURO_SALUD_PRINC == 1 ~ 1,
+        OCUPADO == 1 & AFILIADO_AFP_PRINC == 1 ~ 1,
+        OCUPADO == 1 ~ 0
+      )
+    )
+}
+
+
+ftc_empleado <- function(tbl) {
+  tbl |>
+    dplyr::mutate(
+      empleado = dplyr::case_when(
+        OCUPADO == 1 & dplyr::between(CATEGORIA_PRINCIPAL, 1, 4) ~ 1,
+        OCUPADO == 1 ~ 0
       )
     )
 }
