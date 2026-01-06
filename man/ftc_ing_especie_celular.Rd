@@ -9,9 +9,6 @@ ftc_ing_especie_celular(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -9,9 +9,6 @@ ftc_ing_mensual_ocup_sec_independiente(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

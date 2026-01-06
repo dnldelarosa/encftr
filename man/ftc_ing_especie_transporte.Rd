@@ -9,9 +9,6 @@ ftc_ing_especie_transporte(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

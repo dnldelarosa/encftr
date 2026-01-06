@@ -20,10 +20,10 @@ NULL
 #'
 #' @examples
 #' \dontrun{
-#'   ftc_browse_dict()
+#' ftc_browse_dict()
 #' }
-ftc_browse_dict <- function(){
-  labeler::browse_dict(encftr::dict)
+ftc_browse_dict <- function() {
+  labeler::dict_browser(encftr::dict, .interactive = TRUE)
 }
 
 
@@ -40,9 +40,9 @@ ftc_browse_dict <- function(){
 #'
 #' @examples
 #' \dontrun{
-#'   conn <- ftc_db_connect()
+#' conn <- ftc_db_connect()
 #' }
-ftc_db_connect <- function(){
+ftc_db_connect <- function() {
   Dmisc::db_connect(db_name = "encft")
 }
 

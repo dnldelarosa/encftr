@@ -9,9 +9,6 @@ ftc_ing_especie_ayuda_ong_anual(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -9,9 +9,6 @@ ftc_ing_alquiler_imputado(tbl, deflactar = TRUE)
 \arguments{
 \item{deflactar}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -2,16 +2,24 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_bonificaciones}
 \alias{ftc_ing_bonificaciones}
-\title{Title}
+\title{Ingreso monetario adicional mensual de bonificacion por ocupacion principal (Pobreza Monetaria)
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}}
 \usage{
 ftc_ing_bonificaciones(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{\link{data.frame} data.frame con los datos de la ENCFT}
 }
 \value{
-
+\link{data.frame} los datos suministrados en el data.frame \code{tbl}
+con la variable \code{ing_bonificaciones} adicionada.
 }
 \description{
-Title
+Ingreso monetario adicional mensual de bonificacion por ocupacion principal (Pobreza Monetaria)
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+}
+\examples{
+\dontrun{
+encft <- ftc_ing_bonificaciones(encft)
+}
 }

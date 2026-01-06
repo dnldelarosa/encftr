@@ -9,9 +9,6 @@ ftc_ing_total_pobreza(tbl, .keep = FALSE, .reuse = FALSE)
 \arguments{
 \item{.reuse}{}
 }
-\value{
-
-}
 \description{
 Title
 }

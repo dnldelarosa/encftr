@@ -9,9 +9,6 @@ ftc_ing_transferencias_sociales(tbl, deflactar = TRUE)
 \arguments{
 \item{deflactar}{}
 }
-\value{
-
-}
 \description{
 Title
 }

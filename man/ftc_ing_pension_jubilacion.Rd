@@ -9,9 +9,6 @@ ftc_ing_pension_jubilacion(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

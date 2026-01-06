@@ -1,0 +1,22 @@
+---
+title: "Diccionario de Variables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Diccionario de Variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+En esta sección se presenta el diccionario de variables de la Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) utilizado en el paquete `encftr`. Puede buscar variables específicas utilizando la caja de búsqueda.
+
+```{r}
+library(encftr)
+ftc_browse_dict()
+```

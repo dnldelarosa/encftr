@@ -18,3 +18,28 @@ authors:
   sidebar:
     roles: [aut, cph]
 
+navbar:
+  structure:
+    left: [intro, reference, articles, dictionary, news]
+    right: [search, github]
+  components:
+    intro:
+      text: Inicio
+      href: index.html
+    reference:
+      text: Referencia
+      href: reference/index.html
+    articles:
+      text: Artículos
+      menu:
+        - text: Introducción a encftr
+          href: articles/encftr.html
+        - text: Cálculo de Pobreza Monetaria
+          href: articles/_pobreza_monetaria.html
+    dictionary:
+      text: Diccionario
+      href: articles/diccionario.html
+    news:
+      text: Novedades
+      href: news/index.html
+

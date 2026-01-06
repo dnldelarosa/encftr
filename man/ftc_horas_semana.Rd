@@ -20,6 +20,6 @@ del salario por hora publicado por el Banco Central.
 }
 \examples{
 \dontrun{
-  encft <- ftc_horas_semana(encft)
+encft <- ftc_horas_semana(encft)
 }
 }

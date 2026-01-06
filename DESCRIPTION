@@ -21,7 +21,7 @@ Imports:
     lifecycle,
     knitr,
     Dmisc,
-    labeler,
+    labeler (>= 0.9.0),
     haven,
     tidyr
 Remotes: 
@@ -35,4 +35,6 @@ RdMacros: lifecycle
 Depends: 
     R (>= 3.5)
 Suggests: 
-    rmarkdown
+    rmarkdown,
+    DT
+RoxygenNote: 7.3.2

@@ -9,9 +9,6 @@ ftc_ing_autoconsumo_autosuministro(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

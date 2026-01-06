@@ -20,6 +20,6 @@ Vea \code{Dmisc::\link[Dmisc:db_connect]{db_connect}}
 }
 \examples{
 \dontrun{
-  conn <- ftc_db_connect()
+conn <- ftc_db_connect()
 }
 }

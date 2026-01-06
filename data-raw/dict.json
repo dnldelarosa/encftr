@@ -1,0 +1,4267 @@
+{
+  "$schema": "https://labeler.adatar.do/dict-schema/v1",
+  "metadata": {
+    "name": "encft_dict",
+    "description": "Diccionario de la Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT)"
+  },
+  "variables": {
+    "ABANICO_ELECTRICO": {
+      "label": "¿Tiene usted o algún miembro de su hogar abanico eléctrico?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ACEPTARIA_TRAB_SEM_PASADA": {
+      "label": "¿Pudiera haber aceptado un trabajo la semana pasada\nsi le hubieran ofrecido uno?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AFILIADO_AFP_PRINC": {
+      "label": "¿Por ese trabajo ... tiene acceso o se encuentra afiliado a Plan de pensión?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "AFILIADO_OTROS_PRINC": {
+      "label": "¿Por ese trabajo ... tiene acceso o se encuentra afiliado a Otros?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "AFILIADO_OTROS_PRINC_ESP": {
+      "label": "¿Por ese trabajo ... tiene acceso o se encuentra afiliado a Otros? (especifique)"
+    },
+    "AFILIADO_SEGURO_SALUD": {
+      "label": "¿Está afiliado a algún seguro de salud?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AFILIADO_SEGURO_SALUD_PRINC": {
+      "label": "¿Por ese trabajo ... tiene acceso o se encuentra afiliado a Seguro de Salud?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "AFILIADO_SEGURO_VIDA_PRINC": {
+      "label": "¿Por ese trabajo ... tiene acceso o se encuentra afiliado a Seguro de Vida?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "AIRE_ACONDICIONADO": {
+      "label": "¿Tiene usted o algún miembro de su hogar aire acondicionado?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALIMENTACION_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió pagos en especie por alimentación? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALIMENTACION_ESPECIE_AP_MONTO": {
+      "label": "Monto estimado por alimentación durante el mes pasado, en ocupación principal (asalariados)"
+    },
+    "ALIMENTOS_ESCUELA": {
+      "label": "Ingreso mensual por alimentos en escuela pública"
+    },
+    "ALIMENTOS_ESCUELA_NAC": {
+      "label": "En el mes pasado, ¿ ... recibió ingresos por concepto de alimentos en escuela pública?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALIMENTOS_ESCUELA_NAC_MONTO": {
+      "label": "Ingreso por alimentos en escuela pública durante el mes pasado"
+    },
+    "ALIMENTOS_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin ninguna remuneración, principalmente para el consumo de la familia, por lo menos una hora, en: Preparación de alimentos para el almacenamiento, como queso, mantequilla, mermeladas, pasta de tomate y otros alimentos y bebidas",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALIMENTOS_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanas en esta actividad?: Preparación de alimentos para el almacenamiento, como queso, mantequilla, mermeladas, pasta de tomate y otros alimentos y bebidas"
+    },
+    "ALIMENTOS_NO_REMUN_MONTO": {
+      "label": "Monto o estimación mensual de lo consumido: Preparación de alimentos para el almacenamiento, como queso, mantequilla, mermeladas, pasta de tomate y otros alimentos y bebidas"
+    },
+    "ALIMENTOS_NO_REMUN_PORC": {
+      "label": "Porcentaje de la producción consumido por la familia: Preparación de alimentos para el almacenamiento, como queso, mantequilla, mermeladas, pasta de tomate y otros alimentos y bebidas"
+    },
+    "ALQUILER_EXT": {
+      "label": "Alquiler o renta de equipos, maquinaria o propiedades del exterior durante el mes pasado",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALQUILER_EXT_1": {
+      "label": "Ingresos mensuales por alquiler o renta de equipos, maquinaria o propiedades del exterior"
+    },
+    "ALQUILER_EXT_MONEDA": {
+      "label": "Alquiler o renta de equipos, maquinaria o propiedades del exterior durante el mes pasado: moneda",
+      "labels": [
+        ""
+      ]
+    },
+    "ALQUILER_EXT_MONTO": {
+      "label": "Alquiler o renta de equipos, maquinaria o propiedades del exterior durante el mes pasado: monto"
+    },
+    "ALQUILER_EXT_PAIS": {
+      "label": "Alquiler o renta de equipos, maquinaria o propiedades del exterior durante el mes pasado: País"
+    },
+    "ALQUILER_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de alquiler o renta de equipos, maquinaria o propiedades?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALQUILER_NAC_A": {
+      "label": "Ingreso por alquiler nacional"
+    },
+    "ALQUILER_NAC_ANIO": {
+      "label": "Ingreso nacional por alquiler (mensualizado)"
+    },
+    "ALQUILER_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de alquiler o renta de equipos, maquinaria o propiedades?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ALQUILER_NAC_ANO_MONTO": {
+      "label": "Ingreso por alquiler o renta de equipos, maquinaria o propiedades dutante los últimos 12 meses"
+    },
+    "ALQUILER_NAC_MONTO": {
+      "label": "Ingreso por alquiler o renta de equipos, maquinaria o propiedades durante el mes pasado "
+    },
+    "AMPLIADO": {
+      "label": "Desocupados ampliados",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "ANO": {
+      "label": "Año de la encuesta"
+    },
+    "APARIENCIA_VIVIENDA": {
+      "label": "Apariencia de la vivienda",
+      "labels": {
+        "Lujosa": 1,
+        "Muy buena": 2,
+        "Buena": 3,
+        "Modesta": 4,
+        "Precaria": 5
+      }
+    },
+    "APRENDIZ_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin remuneración, por lo menos una hora, en alguna de las siguientes actividades: Aprendiz o pasante sin remuneración ni en dinero ni en especie",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "APRENDIZ_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanas en esta actividad?: Aprendiz o pasante sin remuneración ni en dinero ni en especie"
+    },
+    "ASISTE_CENTRO_EDUCATIVO": {
+      "label": "¿Está asistiendo a la escuela, colegio o universidad?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ASPIRADOR_ELECTRICO": {
+      "label": "¿Tiene usted o algún miembro de su hogar aspirador eléctrico?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AUTOMOVIL": {
+      "label": "¿Tiene usted o algún miembro de su hogar automóvil?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AYUDA_EMPRESAS_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de ayuda de empresas o instituciones?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AYUDA_EMPRESAS_NAC_A": {
+      "label": "Ingreso mensual por ayuda de empresas o instituciones"
+    },
+    "AYUDA_EMPRESAS_NAC_ANIO": {
+      "label": "Ingreso por ayuda de empresas o instituciones (mensualizado)"
+    },
+    "AYUDA_EMPRESAS_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de ayuda de empresas o instituciones?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AYUDA_EMPRESAS_NAC_ANO_ESP": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de ayuda de empresas o instituciones? (especifique)"
+    },
+    "AYUDA_EMPRESAS_NAC_ANO_MONTO": {
+      "label": "Ingreso por ayuda de empresas o instituciones durante los últimos 12 meses"
+    },
+    "AYUDA_EMPRESAS_NAC_ESP": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de ayuda o transferencias de programas del Gobierno? (especifique)"
+    },
+    "AYUDA_EMPRESAS_NAC_MONTO": {
+      "label": "Ingreso por ayuda de empresas o instituciones durante el mes pasado"
+    },
+    "AYUDA_ESPECIE_NAC": {
+      "label": "En el mes pasado ... recibió ingresos por concepto de ayuda en especies de familiares, no familiares o instituciones?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AYUDA_ESPECIE_NAC_A": {
+      "label": "Ingreso mensual por ayuda en especies de familiares, no familiares o instituciones"
+    },
+    "AYUDA_ESPECIE_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de ayuda en especie de familiares, no familiares o instituciones?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "AYUDA_ESPECIE_NAC_ANO_MONTO": {
+      "label": "Ingreso por ayuda en especie de familiares, no familiares o instituciones durante los últimos 12 meses"
+    },
+    "AYUDA_ESPECIE_NAC_MONTO": {
+      "label": "Ingreso recibido por ayuda en especie de familiares, no familiares o instituciones durante el mes pasado"
+    },
+    "AYUDO_FAMILIAR_CONOCIDO": {
+      "label": "¿La semana pasada ... Ayudó en el negocio, empresa o finca de un familiar, amigo o conocido por lo menos una hora, sin recibir pago ni en dinero ni especie?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "BARRIO_SECCION": {
+      "label": "Barrio de residencia"
+    },
+    "BENEFICIOS_HORAS_EXTRAS_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Pago de horas extras (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BENEFICIOS_LICENCIA_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Licencia por enfermedad con disfrute de sueldo (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BENEFICIOS_MARGINALES_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió beneficios marginales? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "BENEFICIOS_MARGINALES_AP_MONTO": {
+      "label": "Monto recibido por beneficios marginales durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "BENEFICIOS_OTROS_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Otros (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BENEFICIOS_OTROS_PRINC_ESP": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Otros (especifique) (ocupación principal, asalariados)"
+    },
+    "BENEFICIOS_PREAVISO_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Preaviso y Cesantía? (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BENEFICIOS_REGALIA_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Regalía Pascual (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BENEFICIOS_VACACIONES_PRINC": {
+      "label": "¿En este trabajo ... disfruta de los siguiente beneficios socio laborales?: Vacaciones con disfrute de sueldo (ocupación principal, asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "BONIFICACION_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió bonificación? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "BONIFICACION_AP_MONTO": {
+      "label": "Monto recibido por bonificación durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "BONIFICACIONES": {
+      "label": "Ingreso por bonificación mensualizado (asalariados)"
+    },
+    "BONO_ESCOLAR_ESTUDIANTE_PROG": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Bono Escolar Estudiante Progreso?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "BONO_ESTUDIANTE_PROGRESO": {
+      "label": "Ingreso mensual por Bono Escolar Estudiante Progreso?"
+    },
+    "BONO_GAS_CHOFERES": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Bono-Gas para Choferes?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "BONO_VACACIONES": {
+      "label": "Ingreso por vacaciones mensualizado (asalariados)"
+    },
+    "BONOGAS_CHOFER": {
+      "label": "Ingreso mensual por Bono-Gas para Choferes"
+    },
+    "BONOGAS_HOGAR": {
+      "label": "Ingreso mensual por Bono-Gas para hogares"
+    },
+    "BONOLUZ": {
+      "label": "Ingreso mensual por Bono Luz "
+    },
+    "BUSCO_TRABAJO_ESTABL_NEGOCIO": {
+      "label": "En las ultimas 4 semanas ¿buscó trabajo o estuvo tratando de establecer su propio negocio o empresa con fines de generar ingresos en dinero o en especie?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CALENTADOR": {
+      "label": "¿Tiene usted o algún miembro de su hogar calentador?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CALLES_ASFALTADAS": {
+      "label": "¿Las calles están asfaltadas?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CAMARA_VIDEO": {
+      "label": "¿Tiene usted o algún miembro de su hogar cámara de video?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CANT_CUARTOS_VIVIENDA": {
+      "label": "Excluyendo el baño y la cocina, ¿cuántos cuartos utiliza su vivienda?"
+    },
+    "CANT_DORMITORIOS_VIVIENDA": {
+      "label": "De estos cuartos, ¿cuántos utiliza solamente para dormitorios?"
+    },
+    "CANTIDAD_HORAS_ADICIONALES": {
+      "label": "¿Cuántas horas adicionales a las que ya trabaja ..., desea y está disponible para trabajar?"
+    },
+    "CANTIDAD_MIEMBROS_HOGAR": {
+      "label": "¿Cuántos miembros en total tiene este hogar?"
+    },
+    "CANTIDAD_PERSONAS_TRABAJAN_EMP": {
+      "label": "¿Cuántas personas en total trabajan regularmente donde labora?: De 1 a 10 personas (especificar cantidad)"
+    },
+    "CATEGORIA_CESANTIA": {
+      "label": "En la empresa o negocio donde ... trabajaba ¿era?",
+      "labels": {
+        "Empleado u obrero del Gobierno central": 1,
+        "Empleado u obrero de empresa pública": 2,
+        "Empleado u obrero de empresas privadas": 3,
+        "Empleado u obrero de Zona Franca": 4,
+        "Empleado en hogar privado": 5,
+        "Empleador o patrón": 6,
+        "Trabajador por cuenta propia": 7,
+        "Trabajador familiar no remunerado (auxiliar)": 8
+      }
+    },
+    "CATEGORIA_PRINCIPAL": {
+      "label": "¿En ese trabajo u ocupación, ... es? (ocupación principal)",
+      "labels": {
+        "Empleado u obrero del Gobierno central": 1,
+        "Empleado u obrero de empresa pública": 2,
+        "Empleado u obrero de empresas privadas": 3,
+        "Empleado u obrero de Zona Franca": 4,
+        "Empleado en hogar privado": 5,
+        "Empleador o patrón": 6,
+        "Trabajador por cuenta propia": 7,
+        "Trabajador familiar no remunerado (auxiliar)": 8
+      }
+    },
+    "CATEGORIA_SECUNDARIA": {
+      "label": "¿En ese trabajo u ocupación, ... es? (ocupación secundaria)",
+      "labels": {
+        "Empleado u obrero del Gobierno central": 1,
+        "Empleado u obrero de empresa pública": 2,
+        "Empleado u obrero de empresas privadas": 3,
+        "Empleado u obrero de Zona Franca": 4,
+        "Empleado en hogar privado": 5,
+        "Empleador o patrón": 6,
+        "Trabajador por cuenta propia": 7,
+        "Trabajador familiar no remunerado (auxiliar)": 8
+      }
+    },
+    "CELULAR": {
+      "label": "¿Tiene usted o algún miembro de su hogar celular?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CELULAR_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió pagos en especie por celular? (asalariados)",
+      "labels": {
+        "Sí": 2,
+        "No": 2
+      }
+    },
+    "CELULAR_ESPECIE_AP_MONTO": {
+      "label": "Monto estimado por celular el mes pasado, en ocupación principal (asalariados)"
+    },
+    "CESANTE": {
+      "label": "Cesantes",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "COMBUSTIBLE_PARA_COCINAR": {
+      "label": "¿Qué combustible utiliza principalmente para cocinar?",
+      "labels": {
+        "Gas en cilindro": 1,
+        "Gas (kerosene)": 2,
+        "Electricidad": 3,
+        "Leña": 4,
+        "Carbón": 5,
+        "No cocina": 6,
+        "Otro - (Especifique)": 99
+      }
+    },
+    "COMBUSTIBLE_PARA_COCINAR_ESP": {
+      "label": "¿Qué combustible utiliza principalmente para cocinar?: Otro (especifique)"
+    },
+    "COMER_ES_PRIMERO": {
+      "label": "Ingreso mensual por programa comer es primero"
+    },
+    "COMISIONES": {
+      "label": "Ingreso mensual por comisiones (asalariados)"
+    },
+    "COMISIONES_AP": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, recibió en su empleo principal: comisiones (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "COMISIONES_AP_MONTO": {
+      "label": "Monto de comisiones recibidas el mes pasado en empleo principal (asalariados)"
+    },
+    "COMO_ELIMINA_BASURA": {
+      "label": "¿Cómo se elimina principalmente la basura en esta vivienda?",
+      "labels": {
+        "La recoge el ayuntamiento": 1,
+        "La recoge una empresa privada": 2,
+        "La recoge el triciclo o carretillero": 3,
+        "La queman": 4,
+        "La tiran al patio o solar": 5,
+        "La tiran a un vertedero": 6,
+        "La tiran a una cañada": 7,
+        "Otro (especifique)": 99
+      }
+    },
+    "COMO_ELIMINA_BASURA_ESP": {
+      "label": "¿Cómo se elimina principalmente la basura en esta vivienda?: Otro (especifique)"
+    },
+    "COMPUTADOR": {
+      "label": "¿Tiene usted o algún miembro de su hogar computador?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CONSTRUCCION_MONTO": {
+      "label": "Monto o estimación mensual: Construcción o reparación importante de su vivienda"
+    },
+    "CONSTRUCCION_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin remuneración, por lo menos una hora, en alguna de las siguientes actividades: Construcción o reparación importante de su vivienda",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CONSTRUCCION_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanas en esta actividad?: Construcción o reparación importante de su vivienda"
+    },
+    "CONSUMIO_BIENES_IN": {
+      "label": "De lo que produce o vende su empresa o negocio ¿utiliza alguna cantidad para consumo personal o de su hogar? (ocupación principal, independientes)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CONSUMIO_BIENES_IN_MONTO": {
+      "label": "Durante el mes pasado ¿En cuánto estima el valor promedio mensual que retira para consumo personal o de su hogar? (ocupación principal, independientes)"
+    },
+    "CONSUMIO_BIENES_IS": {
+      "label": "De lo que produce o vende su empresa o negocio, ¿utiliza alguna cantidad para consumo personal o de su hogar? (ocupación secundaria, independientes)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CONSUMIO_BIENES_IS_MONTO": {
+      "label": "Durante el mes pasado ¿En cuánto estima el valor promedio mensual que retira para consumo personal o de su hogar? (ocupación secundaria, independientes)"
+    },
+    "CONSUMO_BIENES": {
+      "label": "Ingreso mensual en ocupación principal por consumo personal o del hogar (independientes)"
+    },
+    "CONSUMO_BIENES_SECUN": {
+      "label": "Ingreso mensual en ocupación secundaria por consumo personal o del hogar (independientes)"
+    },
+    "CONSUMO_CULTIVO_MONTO": {
+      "label": "Monto o estimación mensual de lo consumido: cultivo o cosecha"
+    },
+    "CONTRATO_VERBAL_ESCRITO": {
+      "label": "¿El contrato es verbal o escrito?",
+      "labels": {
+        "Escrito": 1,
+        "Verbal": 2,
+        "No sabe": 98
+      }
+    },
+    "CRIANZA_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin ninguna remuneración, principalmente para el consumo de la familia, por lo menos una hora, en: Crianza de animales o aves para obtener carne, huevos, leche, miel u otros productos.",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CRIANZA_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanas en esta actividad?: crianza de animales o aves para obtener carne, huevos, leche, miel u otros productos"
+    },
+    "CRIANZA_NO_REMUN_MONTO": {
+      "label": "Monto o estimación mensual de lo consumido: crianza de animales o aves para obtener carne, huevos, leche, miel u otros productos"
+    },
+    "CRIANZA_NO_REMUN_PORC": {
+      "label": "Porcentaje de lo consumido por la familia: crianza de animales o aves para obtener carne, huevos, leche, miel u otros productos"
+    },
+    "CUANTAS_VIVIENDAS_EXISTEN": {
+      "label": "En la estructura seleccionada, ¿Cuántas viviendas existen?"
+    },
+    "CUANTOS_TRABAJOS_TIENE": {
+      "label": "¿Cuántas ocupaciones/trabajos tiene?",
+      "labels": {
+        "Un solo": 1,
+        "Más de uno": 2
+      }
+    },
+    "CUANTOS_TRABAJOS_TIENE_CANT": {
+      "label": "Número de trabajos que tiene la persona"
+    },
+    "CULTIVO_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin ninguna remuneración, principalmente para el consumo de la familia, por lo menos una hora, en: cultivo o cosecha",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "CULTIVO_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanas en esta actividad?: cultivo o cosecha"
+    },
+    "CULTIVO_NO_REMUN_PORC": {
+      "label": "Porcentaje de la producción consumido por la familia: cultivo o cosecha"
+    },
+    "CURSO_MATRICULADO": {
+      "label": "¿En qué curso o año se matriculó?"
+    },
+    "DES_ESTRATO": {
+      "label": "Nombre del estrato geográfico de residencia"
+    },
+    "DES_MUNICIPIO": {
+      "label": "Nombre del municipio de residencia"
+    },
+    "DES_PERIODO": {
+      "label": "Descripción del período de la encuesta"
+    },
+    "DES_PROVINCIA": {
+      "label": "Nombre de la provincia de residencia"
+    },
+    "DESEA_TRABAJAR_MAS_HORAS": {
+      "label": "Además de las horas que habitualmente trabaja en todas sus ocupaciones ¿Desea ... trabajar más horas?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "DESEA_TRABAJAR_MENOS_HORAS": {
+      "label": "¿... Desea trabajar menos horas, aunque esto conlleve una reducción de su salario o ingreso?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "DESOCUPADO": {
+      "label": "Desocupados abiertos",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "DESOCUPADO_INI": {
+      "label": "Desocupados (abiertos con iniciadores)",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "DISP_HORAS_ADICIONALES": {
+      "label": "¿Está ... disponible para trabajar horas adicionales inmediatamente o en las próximas dos semanas?",
+      "labels": {
+        "Sí, inmediatamente": 1,
+        "Sí, en las próximas dos semanas": 2,
+        "No": 3
+      }
+    },
+    "DISP_SEMANA_PASADA": {
+      "label": "Tomando en consideración sus responsabilidades ¿se encontraba disponible para iniciar a trabajar en la semana pasada?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "DIVIDENDOS_AP": {
+      "label": "Durante los últimos 12 meses, en el empleo principal ... recibió dividendos? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "DIVIDENDOS_AP_MONTO": {
+      "label": "Monto recibido por dividendos durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "DONDE_PROVIENE_AGUA": {
+      "label": "¿De dónde proviene el agua que usan en el hogar para lavar, fregar, bañarse, etc?",
+      "labels": {
+        "Del acueducto dentro de la vivienda": 1,
+        "Del acueducto en el patio de la vivienda": 2,
+        "De una llave de otra vivienda": 3,
+        "De una llave pública": 4,
+        "De un tubo de la calle": 5,
+        "Manantial, río, arroyo": 6,
+        "Lluvia": 7,
+        "Pozo": 8,
+        "Camión tanque": 9,
+        "Otro (especifique)": 99
+      }
+    },
+    "DONDE_PROVIENE_AGUA_ESP": {
+      "label": "¿De dónde proviene el agua que usan en el hogar para lavar, fregar, bañarse, etc?: Otro (especifique)"
+    },
+    "DVD": {
+      "label": "¿Tiene usted o algún miembro de su hogar DVD?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "EDAD": {
+      "label": "¿Qué edad tiene en años cumplidos?"
+    },
+    "empleado": {
+      "label": "Trabajador ocupado como empleado",
+      "labels": {
+        "Empleado": 1,
+        "No empleado": 0
+      }
+    },
+    "EMPRESA_INSCRITA_RNC": {
+      "label": "¿La empresa o negocio donde ... trabaja se encuentra inscrita en el Registro Nacional de Contribuyente (RNC)?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "EMPRESA_TIENE_LICENCIA": {
+      "label": "¿La empresa o negocio donde ... trabaja tiene licencia o permiso para operar?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "ENCUESTADO_ANTERIORMENTE": {
+      "label": "¿En este hogar fue realizada anteriormente la Encuesta Nacional Continua de Fuerza de Trabajo?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ESPECIE_ALIMENTOS": {
+      "label": "Ingreso mensual por alimentos en especie (ocupación principal, asalariados)"
+    },
+    "ESPECIE_CELULAR": {
+      "label": "Ingreso mensual por celular en especie (ocupación principal, asalariados)"
+    },
+    "ESPECIE_COMBUSTIBLE": {
+      "label": "Ingreso mensual por asignación de combustible (ocupación principal, asalariados)"
+    },
+    "ESPECIE_INDEPENDIENTES": {
+      "label": "Ingreso mensual en especie por ocupación principal (independientes)"
+    },
+    "ESPECIE_INDEPENDIENTES_SECUN": {
+      "label": "Ingreso mensual en especie por ocupación secundaria (independientes)"
+    },
+    "ESPECIE_TRANSPORTE": {
+      "label": "Ingreso mensual por transporte en especie (ocupación principal, asalariados)"
+    },
+    "ESPECIE_VIVIENDA": {
+      "label": "Ingreso mensual por vivienda en especie (ocupación principal, asalariados)"
+    },
+    "ESTADO_CIVIL": {
+      "label": "Estado civil",
+      "labels": {
+        "Unión libre": 1,
+        "Casado(a)": 2,
+        "Divorciado(a)": 3,
+        "Separado(a)": 4,
+        "Viudo(a)": 5,
+        "Soltero(a)": 6
+      }
+    },
+    "ESTADO_VIVIENDA": {
+      "label": "Estado de la vivienda",
+      "labels": {
+        "No necesita reparaciones": 1,
+        "Necesita reparaciones pequeñas": 2,
+        "Necesita reparaciones importantes": 3
+      }
+    },
+    "ESTRATO": {
+      "label": "Estrato geográfico de residencia"
+    },
+    "ESTUFA": {
+      "label": "¿Tiene usted o algún miembro de su hogar estufa?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "EXISTE_SINDICATO_EMPRESA": {
+      "label": "¿En la empresa donde trabaja ... existe sindicato?",
+      "labels": {
+        "Sí (especifique el nombre)": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "EXISTE_SINDICATO_EMPRESA_ESP": {
+      "label": "Nombre del sindicato de la empresa"
+    },
+    "FACTOR_EXPANSION": {
+      "label": "Factor de expansión"
+    },
+    "FASE": {
+      "label": "Ingreso mensual por Fondo de Asistencia Solidaria a Empleados (FASE)"
+    },
+    "FECHA_TERMINO_TRABAJO": {
+      "label": "¿En qué fecha terminó este trabajo",
+      "labels": {
+        "Menos de 6 meses": 1,
+        "De 6 meses a menos de 1 año": 2,
+        "De 1 año a menos de 3 años": 3,
+        "De 3 años a menos de 5 años": 4,
+        "De 5 años y más": 5
+      }
+    },
+    "FONDO_ASISTENCIA_SOLIDARIA_EMP": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Fondo de Asistencia Solidaria a Empleados (FASE)?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "FORMA_PAGAN_SALARIO_AP": {
+      "label": "¿de qué forma le pagan a ...? (en ocupación principal, asalariados)",
+      "labels": {
+        "Sueldo o salario": 1,
+        "Por comisión o propinas": 2,
+        "Sólo en especie": 3
+      }
+    },
+    "FORMA_TRABAJAR_HORAS_EXTRAS": {
+      "label": "¿Estas horas adicionales ... Las desea trabajar de la siguiente forma?",
+      "labels": {
+        "Mediante un trabajo adicional a los que actualmente tiene": 1,
+        "Trabajar horas adicionales en algunos de sus trabajos actuales": 2,
+        "Reemplazar cualquiera de sus trabajos actuales por otro": 3,
+        "Cualquiera otra posibilidad que aumente sus actuales horas de trabajo": 4
+      }
+    },
+    "FORMA_TRABAJO_REALIZO_IN": {
+      "label": "¿Cuál de las siguientes formas de trabajo realizó? (ocupación principal, independientes)",
+      "labels": {
+        "Productor agropecuario": 1,
+        "Consultor o contratista": 2,
+        "Cuenta propia o patrón": 99
+      }
+    },
+    "FORMA_TRABAJO_REALIZO_IS": {
+      "label": "¿Cuál de las siguientes formas de trabajo realizó? (ocupación secundaria, independientes)",
+      "labels": {
+        "Productor agropecuario": 1,
+        "Consultor o contratista": 2,
+        "Cuenta propia o patrón": 99
+      }
+    },
+    "formalidad_afiliacion": {
+      "label": "Formalidad por afiliación a la seguridad social",
+      "labels": {
+        "Formal": 1,
+        "Informal": 0
+      }
+    },
+    "FUNCIONES_OCUPACION": {
+      "label": "¿Qué tareas o funciones realiza ... en ese trabajo? (ocupación principal)"
+    },
+    "FUNCIONES_OCUPACION_CESANTIA": {
+      "label": "¿Qué tareas o funciones realizaba ... en ese trabajo?"
+    },
+    "FUNCIONES_OCUPACION_SECUNDARIA": {
+      "label": "¿Qué tareas o funciones realiza ... en ese trabajo? (ocupación secundaria)"
+    },
+    "GANANCIA_IN_PRODUCTOR": {
+      "label": "En los últimos 6 meses, ¿cuál fue su ganancia después de descontar los gastos exclusivos de la producción o negocio? (ocupación principal, independientes)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "GANANCIA_IN_PRODUCTOR_MONEDA": {
+      "label": "Moneda en que recibió ganancia en los últimos 6 meses por ocupación principal (independientes)",
+      "labels": [
+        ""
+      ]
+    },
+    "GANANCIA_IN_PRODUCTOR_MONTO": {
+      "label": "Monto recibido por ganancia en los últimos 6 meses, por ocupación principal (independientes)"
+    },
+    "GANANCIA_IS_PRODUCTOR": {
+      "label": "En los últimos 6 meses ¿Cuál fue su ganancia después de\ndescontar los gastos exclusivos de la producción o negocio? (ocupación secundaria, independientes)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "GANANCIA_IS_PRODUCTOR_MONEDA": {
+      "label": "Moneda en que recibió ganancia en los últimos 6 meses por ocupación secundaria (independientes)",
+      "labels": [
+        ""
+      ]
+    },
+    "GANANCIA_IS_PRODUCTOR_MONTO": {
+      "label": "Monto recibido por ganancia en los últimos 6 meses, por ocupación secundaria (independientes)"
+    },
+    "GANANCIA_PRINC_IMP_MONTO": {
+      "label": "Ingreso imputado recibido por ocupación principal (trabajadores independientes)"
+    },
+    "GANANCIA_SECUN_IMP_MONTO": {
+      "label": "Ingreso imputado recibido por ocupación secundaria (trabajadores independientes)"
+    },
+    "GASOLINA_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió pagos en especie por asignación de combustible? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "GASOLINA_ESPECIE_AP_MONTO": {
+      "label": "Monto estimado por asignación de combustible el mes pasado, en ocupación principal (asalariados)"
+    },
+    "GASTO_PROM_COMBUSTIBLE_COCINA": {
+      "label": "¿Cuánto gasta en promedio mensual para adquirir el combustible indicado?"
+    },
+    "GESTION_HORAS_ADICIONALES": {
+      "label": "¿Durante las últimas cuatro semanas, realizó alguna gestión activa para conseguir trabajar horas adicionales?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "GOB_BONO_ESTUDIANTE_PROG_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Bono Escolar Estudiante Progreso "
+    },
+    "GOB_BONO_LUZ_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Bono Luz "
+    },
+    "GOB_BONOGAS_CHOFERES_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Bono Gas para choferes "
+    },
+    "GOB_BONOGAS_HOGARES_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Bono Gas para hogares "
+    },
+    "GOB_COMER_PRIMERO_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Comer es primero "
+    },
+    "GOB_FONDO_ASISTENCIA_FASE": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Fondo Asistencia Solidaria a Empleados (FASE) "
+    },
+    "GOB_INC_ASIS_ESCOLAR_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Incentivo Asistencia Escolar "
+    },
+    "GOB_INC_EDUCACION_SUP_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Incentivo a la Educación Superior "
+    },
+    "GOB_INC_MARINA_GUERRA_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Incentivo Alistados Marina de Guerra "
+    },
+    "GOB_INC_POLICIA_PREV_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Incentivo a la Policía Preventiva "
+    },
+    "GOB_PROGRAMA_PATI": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa de apoyo a trabajadores informales (Pa' Ti) "
+    },
+    "GOB_PROTECCION_VEJEZ_MONTO": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Protección a la vejez "
+    },
+    "GOB_QUEDATE_EN_CASA": {
+      "label": "Ingreso recibido durante el mes pasado por concepto de ayuda o transferencias de programas del Gobierno: Programa Quédate en Casa "
+    },
+    "GOBIERNO_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de ayuda o transferencias de programas del Gobierno?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "GRUPO_CATEGORIA": {
+      "label": "Categoría ocupacional"
+    },
+    "GRUPO_EDAD": {
+      "label": "Grupos de edad (15 años y más)"
+    },
+    "GRUPO_EDAD_PET10": {
+      "label": "Grupos de edad (10 años y más)"
+    },
+    "GRUPO_EDUCACION": {
+      "label": "Nivel educativo"
+    },
+    "GRUPO_EMPLEO": {
+      "label": "Condición de formalidad del empleo"
+    },
+    "GRUPO_OCUPACION": {
+      "label": "Grupo ocupacional"
+    },
+    "GRUPO_RAMA": {
+      "label": "Rama de actividad económica"
+    },
+    "GRUPO_REGION": {
+      "label": "Región de residencia"
+    },
+    "GRUPO_SECTOR": {
+      "label": "Condición de formalidad del sector"
+    },
+    "HAY_RECIEN_NACIDOS": {
+      "label": "¿Hay algún recién nacido que no haya sido incluido en el total anterior?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "HOGAR": {
+      "label": "Número de hogar dentro de la vivienda"
+    },
+    "HORAS_EXTRA": {
+      "label": "Ingreso mensual por horas extras (asalariados)"
+    },
+    "HORAS_EXTRA_AP": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, recibió en su empleo principal: pago por horas extras (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "HORAS_EXTRA_AP_MONTO": {
+      "label": "Monto recibido por pago de horas extras el mes pasado en empleo principal (asalariados)"
+    },
+    "HORAS_TRABAJA_SEMANA_PRINCIPAL": {
+      "label": "¿Cuántas horas trabaja ... regular o habitualmente por semana en su ocupación principal?"
+    },
+    "HORAS_TRABAJO_EFECT_DOMINGO": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Domingo (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_JUEVES": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Jueves (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_LUNES": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Lunes (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_MARTES": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Martes (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_MIERCOLES": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Miércoles (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_SABADO": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Sábado (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_TOTAL": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Total (ocupación principal)"
+    },
+    "HORAS_TRABAJO_EFECT_VIERNES": {
+      "label": "¿Cuántas horas trabajó o le dedicó ... efectivamente a su trabajo durante la semana pasada?: Viernes (ocupación principal)"
+    },
+    "HORAS_TRABAJO_OCUP_SECUN": {
+      "label": "¿Cuántas horas trabajó ... efectivamente durante la semana pasada en este trabajo secundario?"
+    },
+    "HORNO_ELECTRICO": {
+      "label": "¿Tiene usted o algún miembro de su hogar horno eléctrico?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "HORNO_MICROONDAS": {
+      "label": "¿Tiene usted o algún miembro de su hogar horno de microondas?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "ID_HOGAR": {
+      "label": "ID del hogar"
+    },
+    "ID_MUNICIPIO": {
+      "label": "ID de municipio de residencia"
+    },
+    "ID_PERSONA": {
+      "label": "ID del miembro del hogar"
+    },
+    "ID_PROVINCIA": {
+      "label": "Número de provincia de residencia",
+      "labels": {
+        "Distrito Nacional": 1,
+        "Azua": 2,
+        "Bahoruco": 3,
+        "Barahona": 4,
+        "Dajabón": 5,
+        "Duarte": 6,
+        "Elías Piña": 7,
+        "El Seibo": 8,
+        "Espaillat": 9,
+        "Independencia": 10,
+        "La Altagracia": 11,
+        "La Romana": 12,
+        "La Vega": 13,
+        "María Trinidad Sánchez": 14,
+        "Monte Cristi": 15,
+        "Pedernales": 16,
+        "Peravia": 17,
+        "Puerto Plata": 18,
+        "Salcedo": 19,
+        "Samaná": 20,
+        "San Cristóbal": 21,
+        "San Juan": 22,
+        "San Pedro de Macorís": 23,
+        "Sánchez Ramírez": 24,
+        "Santiago": 25,
+        "Santiago Rodríguez": 26,
+        "Valverde": 27,
+        "Monseñor Nouel": 28,
+        "Monte Plata": 29,
+        "Hato Mayor": 30,
+        "San José de Ocoa": 31,
+        "Santo Domingo": 32
+      }
+    },
+    "INACTIVO": {
+      "label": "Población fuera de la fuerza de trabajo (inactivos)",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "INC_ASISTENCIA_ESCOLAR": {
+      "label": "Ingreso mensual por Incentivo a la Asistencia Escolar"
+    },
+    "INC_EDUCACION_SUPERIOR": {
+      "label": "Ingreso mensual por Incentivo a la Educación superior"
+    },
+    "INC_MARINA_GUERRA": {
+      "label": "Ingreso mensual por Incentivo Alistados Marina de Guerra",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INC_POLICIA_PREVENTIVA": {
+      "label": "Ingreso mensual por Incentivo a la Policiía Preventiva"
+    },
+    "INCENTIVO_ANTIGUEDAD": {
+      "label": "Ingreso por incentivo por antiguedad mensualizado (asalariados)"
+    },
+    "INCENTIVO_ANTIGUEDAD_AP": {
+      "label": "Durante los últimos 12 meses, en el empleo principal ... recibió incentivo por antiguedad (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INCENTIVO_ANTIGUEDAD_AP_MONTO": {
+      "label": "Monto recibido por incentivo por antiguedad durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "INCENTIVO_EDUCACION_SUPERIOR": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Incentivo a la Educación Superior, con la Tarjeta Solidaridad?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INGRESO_ACTIVIDAD_IN": {
+      "label": "¿A cuánto ascendieron sus ingresos o ganancias netas de su actividad, negocio, profesión u oficio durante el mes pasado? (ocupación principal, independientes)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "INGRESO_ACTIVIDAD_IN_DIAS": {
+      "label": "¿Cuántos días a la semana recibe pago por ocupación principal? (independientes)"
+    },
+    "INGRESO_ACTIVIDAD_IN_MONEDA": {
+      "label": "Moneda en que recibe pago por ocupación principal (independientes)",
+      "labels": [
+        ""
+      ]
+    },
+    "INGRESO_ACTIVIDAD_IN_MONTO": {
+      "label": "Ingreso recibido por ocupación principal (independientes)"
+    },
+    "INGRESO_ACTIVIDAD_IN_PERIODO": {
+      "label": "Período en que recibe pago por ocupación principal (independientes)",
+      "labels": {
+        "Diario": 1,
+        "Semanal": 2,
+        "Quincenal": 3,
+        "Mensual": 4
+      }
+    },
+    "INGRESO_ACTIVIDAD_IS": {
+      "label": "¿A cuánto ascendieron sus ingresos o ganancias netas de su actividad, negocio, profesión u oficio durante el mes pasado? (ocupación secundaria, independientes)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "INGRESO_ACTIVIDAD_IS_DIAS": {
+      "label": "¿Cuántos días a la semana recibe pago por ocupación secundaria? (independientes)"
+    },
+    "INGRESO_ACTIVIDAD_IS_MONEDA": {
+      "label": "Moneda en que recibe pago por ocupación secundaria (independientes)",
+      "labels": [
+        ""
+      ]
+    },
+    "INGRESO_ACTIVIDAD_IS_MONTO": {
+      "label": "Ingreso recibido por ocupación secundaria (independientes)"
+    },
+    "INGRESO_ACTIVIDAD_IS_PERIODO": {
+      "label": "Período en que recibe pago por ocupación secundaria (independientes)",
+      "labels": {
+        "Diario": 1,
+        "Semanal": 2,
+        "Quincenal": 3,
+        "Mensual": 4
+      }
+    },
+    "INGRESO_ASALARIADO": {
+      "label": "Ingreso mensual por ocupación principal (asalariados)"
+    },
+    "INGRESO_ASALARIADO_SECUN": {
+      "label": "Ingreso mensual por ocupación secundaria (asalariados)"
+    },
+    "INGRESO_INDEPENDIENTES": {
+      "label": "Ingreso mensual por ocupación principal (independientes)"
+    },
+    "INGRESO_INDEPENDIENTES_SECUN": {
+      "label": "Ingreso mensual por ocupación secundaria (independientes)"
+    },
+    "INGRESOS_OTROS_TRABAJOS": {
+      "label": "¿Cuánto recibió en promedio el mes pasado ... en dinero por sus otras ocupaciones y trabajos?",
+      "labels": {
+        "Informó": 1,
+        "No tiene otras ocupaciones/trabajos": 2
+      }
+    },
+    "INGRESOS_OTROS_TRABAJOS_MONTO": {
+      "label": "Ingresos recibidos por otras ocupaciones o trabajos"
+    },
+    "INTERES_EXT": {
+      "label": "Intereses o dividendos del exterior durante el mes pasado",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INTERES_EXT_1": {
+      "label": "Ingresos mensuales por intereses o dividendos del exterior"
+    },
+    "INTERES_EXT_MONEDA": {
+      "label": "Intereses o dividendos del exterior durante el mes pasado; moneda",
+      "labels": [
+        ""
+      ]
+    },
+    "INTERES_EXT_MONTO": {
+      "label": "Intereses o dividendos del exterior durante el mes pasado: monto"
+    },
+    "INTERES_EXT_PAIS": {
+      "label": "Intereses o dividendos del exterior durante el mes pasado: país",
+      "labels": [
+        ""
+      ]
+    },
+    "INTERES_NAC": {
+      "label": "Ingreso nacional por intereses o dividendos"
+    },
+    "INTERESES_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de intereses o dividendos?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INTERESES_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de intereses o dividendos?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INTERESES_NAC_ANO_MONTO": {
+      "label": "Ingreso por intereses o dividendos durante los últimos 12 meses"
+    },
+    "INTERESES_NAC_MONTO": {
+      "label": "Ingreso por intereses o dividendos durante el mes pasado"
+    },
+    "INTERNET": {
+      "label": "¿Tiene usted o algún miembro de su hogar Internet?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "INVERSOR": {
+      "label": "¿Tiene usted o algún miembro de su hogar inversor?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "LAVADORA": {
+      "label": "¿Tiene usted o algún miembro de su hogar lavadora?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "LICUADORA": {
+      "label": "¿Tiene usted o algún miembro de su hogar licuadora?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "MAQUINA_DE_COSER": {
+      "label": "¿Tiene usted o algún miembro de su hogar máquina de coser?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "MATERIAL_PARED_EXTERIOR": {
+      "label": "Material predominante de pared exterior",
+      "labels": {
+        "Asbesto": 1,
+        "Block": 2,
+        "Cartón": 3,
+        "Concreto armado": 4,
+        "Ladrillo": 5,
+        "Madera": 6,
+        "Mixto (block y madera)": 7,
+        "Plywood": 8,
+        "Tabla de palma": 9,
+        "Tejamanil": 10,
+        "Yagua": 11,
+        "Zinc": 12,
+        "Materiales de desecho": 13,
+        "Vaciado de arena y cemento": 14,
+        "Otro (especifique)": 99
+      }
+    },
+    "MATERIAL_PARED_EXTERIOR_ESP": {
+      "label": "Material predominante de pared exterior: Otro (especifique)"
+    },
+    "MATERIAL_PARED_INTERIOR": {
+      "label": "Material predominante de pared interior",
+      "labels": {
+        "Asbesto": 1,
+        "Block": 2,
+        "Cartón": 3,
+        "Concreto armado": 4,
+        "Ladrillo": 5,
+        "Madera": 6,
+        "Mixto (block y madera)": 7,
+        "Plywood": 8,
+        "Tabla de palma": 9,
+        "Tejamanil": 10,
+        "Yagua": 11,
+        "Zinc": 12,
+        "No tiene": 13,
+        "Vaciado de arena y cemento": 14,
+        "Otro (especifique)": 99
+      }
+    },
+    "MATERIAL_PARED_INTERIOR_ESP": {
+      "label": "Material predominante de pared exterior: Otro (especifique)"
+    },
+    "MATERIAL_PISO": {
+      "label": "Material predominante de piso",
+      "labels": {
+        "Cemento": 1,
+        "Cerámica": 2,
+        "Granito": 3,
+        "Ladrillo": 4,
+        "Madera": 5,
+        "Mármol": 6,
+        "Mosaico": 7,
+        "Parquet": 8,
+        "Tierra": 9,
+        "Otro (especifique)": 99
+      }
+    },
+    "MATERIAL_PISO_ESP": {
+      "label": "Material predominante de piso: Otro (especifique)"
+    },
+    "MATERIAL_TECHO": {
+      "label": "Material predominante de techo",
+      "labels": {
+        "Asbesto": 1,
+        "Concreto armado": 2,
+        "Yagua": 3,
+        "Zinc": 4,
+        "Materiales de desecho": 5,
+        "Otro (especifique)": 99
+      }
+    },
+    "MATERIAL_TECHO_ESP": {
+      "label": "Material predominante de techo: Otro (especifique)"
+    },
+    "MAYOR_NIVEL_OBTENIDO": {
+      "label": "¿Cuál es el título o diploma de mayor nivel que ha recibido?",
+      "labels": {
+        "Bachiller": 1,
+        "Técnico o tecnológico": 2,
+        "Universitario": 3,
+        "Post-grado": 4,
+        "Maestría": 5,
+        "Doctorado": 6,
+        "Ninguno": 7,
+        "Primario": 8
+      }
+    },
+    "MES": {
+      "label": "Mes de la entrevista"
+    },
+    "MES1_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior el mes anterior (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES1_1_EXT_MONEDA": {
+      "label": "Remesas del exterior mes anterior: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES1_1_EXT_MONTO": {
+      "label": "Remesas del exterior mes anterior: monto (bloque 1)"
+    },
+    "MES1_1_EXT_PAIS": {
+      "label": "Remesas del exterior mes anterior: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES1_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior el mes anterior (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES1_2_EXT_MONEDA": {
+      "label": "Remesas del exterior mes anterior: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES1_2_EXT_MONTO": {
+      "label": "Remesas del exterior mes anterior: monto (bloque 2)"
+    },
+    "MES1_2_EXT_PAIS": {
+      "label": "Remesas del exterior mes anterior: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES1_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior el mes anterior (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES1_3_EXT_MONEDA": {
+      "label": "Remesas del exterior mes anterior: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES1_3_EXT_MONTO": {
+      "label": "Remesas del exterior mes anterior: monto (bloque 3)"
+    },
+    "MES1_3_EXT_PAIS": {
+      "label": "Remesas del exterior mes anterior: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior dos meses atrás (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES2_1_EXT_MONEDA": {
+      "label": "Remesas del exterior dos meses atrás: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_1_EXT_MONTO": {
+      "label": "Remesas del exterior dos meses atrás: monto (bloque 1)"
+    },
+    "MES2_1_EXT_PAIS": {
+      "label": "Remesas del exterior dos meses atrás: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior dos meses atrás (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES2_2_EXT_MONEDA": {
+      "label": "Remesas del exterior dos meses atrás: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_2_EXT_MONTO": {
+      "label": "Remesas del exterior dos meses atrás: monto (bloque 2)"
+    },
+    "MES2_2_EXT_PAIS": {
+      "label": "Remesas del exterior dos meses atrás: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior dos meses atrás (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES2_3_EXT_MONEDA": {
+      "label": "Remesas del exterior dos meses atrás: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES2_3_EXT_MONTO": {
+      "label": "Remesas del exterior dos meses atrás: monto (bloque 3)"
+    },
+    "MES2_3_EXT_PAIS": {
+      "label": "Remesas del exterior dos meses atrás: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior tres meses atrás (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES3_1_EXT_MONEDA": {
+      "label": "Remesas del exterior tres meses atrás: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_1_EXT_MONTO": {
+      "label": "Remesas del exterior tres meses atrás: monto (bloque 1)"
+    },
+    "MES3_1_EXT_PAIS": {
+      "label": "Remesas del exterior tres meses atrás: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior tres meses atrás (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES3_2_EXT_MONEDA": {
+      "label": "Remesas del exterior tres meses atrás: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_2_EXT_MONTO": {
+      "label": "Remesas del exterior tres meses atrás: monto (bloque 2)"
+    },
+    "MES3_2_EXT_PAIS": {
+      "label": "Remesas del exterior tres meses atrás: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior tres meses atrás (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES3_3_EXT_MONEDA": {
+      "label": "Remesas del exterior tres meses atrás: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES3_3_EXT_MONTO": {
+      "label": "Remesas del exterior tres meses atrás: monto (bloque 3)"
+    },
+    "MES3_3_EXT_PAIS": {
+      "label": "Remesas del exterior tres meses atrás: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cuatro meses atrás (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES4_1_EXT_MONEDA": {
+      "label": "Remesas del exterior cuatro meses atrás: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_1_EXT_MONTO": {
+      "label": "Remesas del exterior cuatro meses atrás: monto (bloque 1)"
+    },
+    "MES4_1_EXT_PAIS": {
+      "label": "Remesas del exterior cuatro meses atrás: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cuatro meses atrás (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES4_2_EXT_MONEDA": {
+      "label": "Remesas del exterior cuatro meses atrás: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_2_EXT_MONTO": {
+      "label": "Remesas del exterior cuatro meses atrás: monto (bloque 2)"
+    },
+    "MES4_2_EXT_PAIS": {
+      "label": "Remesas del exterior cuatro meses atrás: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cuatro meses atrás (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES4_3_EXT_MONEDA": {
+      "label": "Remesas del exterior cuatro meses atrás: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES4_3_EXT_MONTO": {
+      "label": "Remesas del exterior cuatro meses atrás: monto (bloque 3)"
+    },
+    "MES4_3_EXT_PAIS": {
+      "label": "Remesas del exterior cuatro meses atrás: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cinco meses atrás (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES5_1_EXT_MONEDA": {
+      "label": "Remesas del exterior cinco meses atrás: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_1_EXT_MONTO": {
+      "label": "Remesas del exterior cinco meses atrás: monto (bloque 1)"
+    },
+    "MES5_1_EXT_PAIS": {
+      "label": "Remesas del exterior cinco meses atrás: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cinco meses atrás (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES5_2_EXT_MONEDA": {
+      "label": "Remesas del exterior cinco meses atrás: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_2_EXT_MONTO": {
+      "label": "Remesas del exterior cinco meses atrás: monto (bloque 2)"
+    },
+    "MES5_2_EXT_PAIS": {
+      "label": "Remesas del exterior cinco meses atrás: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior cinco meses atrás (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES5_3_EXT_MONEDA": {
+      "label": "Remesas del exterior cinco meses atrás: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES5_3_EXT_MONTO": {
+      "label": "Remesas del exterior cinco meses atrás: monto (bloque 3)"
+    },
+    "MES5_3_EXT_PAIS": {
+      "label": "Remesas del exterior cinco meses atrás: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_1_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior seis meses atrás (bloque 1)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES6_1_EXT_MONEDA": {
+      "label": "Remesas del exterior seis meses atrás: moneda (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_1_EXT_MONTO": {
+      "label": "Remesas del exterior seis meses atrás: monto (bloque 1)"
+    },
+    "MES6_1_EXT_PAIS": {
+      "label": "Remesas del exterior seis meses atrás: país (bloque 1)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_2_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior seis meses atrás (bloque 2)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES6_2_EXT_MONEDA": {
+      "label": "Remesas del exterior seis meses atrás: moneda (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_2_EXT_MONTO": {
+      "label": "Remesas del exterior seis meses atrás: monto (bloque 2)"
+    },
+    "MES6_2_EXT_PAIS": {
+      "label": "Remesas del exterior seis meses atrás: país (bloque 2)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_3_EXT_FORMA_ENVIO": {
+      "label": "Forma de envío de remesas del exterior seis meses atrás (bloque 3)",
+      "labels": {
+        "Correo privado": 1,
+        "Correo público": 2,
+        "Banco comercial": 3,
+        "Personal": 4,
+        "Remesadora": 5
+      }
+    },
+    "MES6_3_EXT_MONEDA": {
+      "label": "Remesas del exterior seis meses atrás: moneda (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MES6_3_EXT_MONTO": {
+      "label": "Remesas del exterior seis meses atrás: monto (bloque 3)"
+    },
+    "MES6_3_EXT_PAIS": {
+      "label": "Remesas del exterior seis meses atrás: país (bloque 3)",
+      "labels": [
+        ""
+      ]
+    },
+    "MIEMBRO": {
+      "label": "Número de miembro del hogar"
+    },
+    "MONTO_ALQUILARIA_VIVIENDA_MES": {
+      "label": "Si usted tuviera que alquilar esta vivienda, ¿en cuánto la alquilaría por mes?"
+    },
+    "MONTO_ALQUILER_DOLARES_VIV": {
+      "label": "¿Cuánto están pagando? (US$)"
+    },
+    "MONTO_ALQUILER_PESOS_VIV": {
+      "label": "¿Cuánto están pagando? (RD$)"
+    },
+    "MOTIVO_DEJO_ULTIMO_TRABAJO": {
+      "label": "¿Por qué motivo ... dejó su último trabajo?",
+      "labels": {
+        "Cerró la empresa": 1,
+        "Lo despidieron": 2,
+        "Venció el contrato y no lo renovaron": 3,
+        "Responsabilidades familiares": 4,
+        "Motivos de salud": 5,
+        "Renunció": 6,
+        "Estudios": 7,
+        "Jubilación o pensión": 8,
+        "Falta de materia prima o problema con la maquinaria": 9,
+        "Otro (especifique)": 99
+      }
+    },
+    "MOTIVO_DEJO_ULTIMO_TRABAJO_ESP": {
+      "label": "¿Por qué motivo ... dejó su último trabajo? Otro (especifique)"
+    },
+    "MOTIVO_NO_BUSCA_TRABAJO": {
+      "label": "¿Por qué motivo no ha buscado trabajo durante las últimas 4 semanas?",
+      "labels": {
+        "Ya consiguió trabajo y entra pronto": 1,
+        "Estaba trabajando en su conuco o criando animales para consumo del hogar": 2,
+        "Esperando la próxima temporada agrícola": 3,
+        "Se cansó de buscar": 4,
+        "No tiene suficiente educación o experiencia": 5,
+        "Los empleadores no le dan trabajo por su edad (muy joven o muy viejo)": 6,
+        "Está estudiando": 7,
+        " Por responsabilidades familiares o quehaceres del hogar": 8,
+        "Por motivos de salud permanente o temporal": 9,
+        "Pensionado o jubilado": 10,
+        "Embarazada": 11,
+        "No quiso buscar o no desea trabajar": 12,
+        "Cuarentena propia o familiar": 90,
+        "Cierre gubernamental": 91,
+        "Otras razones (especifique)": 99
+      }
+    },
+    "MOTIVO_NO_BUSCA_TRABAJO_ESP": {
+      "label": "¿Por qué motivo no ha buscado trabajo durante las últimas 4 semanas?: Otras razones (especifique)"
+    },
+    "MOTIVO_NO_DISPONIBLE": {
+      "label": "¿Por qué no se encuentra disponible para trabajar?",
+      "labels": {
+        "Por estudios": 1,
+        "Por responsabilidades familiares o quehaceres del hogar": 2,
+        "Porque es pensionado o jubilado": 3,
+        "Por motivos de salud permanente o temporal": 4,
+        "Cuarentena propia o familiar": 90,
+        "Cierre gubernamental": 91,
+        "Por otras razones (especifique)": 99
+      }
+    },
+    "MOTIVO_NO_DISPONIBLE_ESP": {
+      "label": "¿Por qué no se encuentra disponible para trabajar?: Otras razones (especifique)"
+    },
+    "MOTIVO_NO_TRAB_SEM_PASADA": {
+      "label": "¿Por qué motivo no trabajó la semana pasada?",
+      "labels": {
+        "Vacaciones o permisos": 1,
+        "Licencia médica por enfermedad": 2,
+        "Otras licencias (matrimonio, gravidez o embarazo, etc)": 3,
+        "Disputa laboral (huelga)": 4,
+        "Asistencia a curso o capacitación": 5,
+        "Período de poca actividad": 6,
+        "Por motivo de salud": 7,
+        "Falta de materia prima o problemas con la maquinaria": 8,
+        "Razones climáticas o catástrofes naturales": 9,
+        "Cuarentena propia o familiar": 90,
+        "Cierre gubernamental": 91,
+        "Otra (especifique)": 99
+      }
+    },
+    "MOTIVO_NO_TRAB_SEM_PASADA_ESP": {
+      "label": "¿Por qué motivo no trabajó la semana pasada?: Otra (especifique)"
+    },
+    "MOTOCICLETA": {
+      "label": "¿Tiene usted o algún miembro de su hogar motocicleta?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "NIVEL_SE_MATRICULO": {
+      "label": "¿En qué nivel se matriculó este año?",
+      "labels": {
+        "Pre-escolar": 1,
+        "Primario": 2,
+        "Secundario": 3,
+        "Secundario-Tecnico": 4,
+        "Universitario": 5,
+        "Post-Grado": 6,
+        "Maestria": 7,
+        "Doctorado": 8,
+        "Ninguno": 9,
+        "Quisqueya Aprende": 10,
+        "Otro": 99
+      }
+    },
+    "NIVEL_ULTIMO_ANO_APROBADO": {
+      "label": "¿A qué nivel corresponde ese último año o curso aprobado?",
+      "labels": {
+        "Pre-escolar": 1,
+        "Primario": 2,
+        "Secundario": 3,
+        "Secundario-Tecnico": 4,
+        "Universitario": 5,
+        "Post-Grado": 6,
+        "Maestria": 7,
+        "Doctorado": 8,
+        "Ninguno": 9,
+        "Quisqueya Aprende": 10,
+        "Otro": 99
+      }
+    },
+    "NO_ES_BENEFICIARIO": {
+      "label": "No es beneficiario de ningún programa del Gobierno",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "NO_REM_ALIMENTOS": {
+      "label": "Ingreso mensual por preparación de alimentos para el almacenamiento, como queso, mantequilla, mermeladas, pasta de tomate y otros alimentos y bebidas no remunerada"
+    },
+    "NO_REM_CONSTRUCCION": {
+      "label": "Ingreso mensual por construcción o reparación importante de su vivienda"
+    },
+    "NO_REM_CRIANZA": {
+      "label": "Ingreso mensual por crianza de animales o aves para obtener carne, huevos, leche, miel u otros productos no remunerado"
+    },
+    "NO_REM_CULTIVO_COSECHA": {
+      "label": "Ingreso mensual por cultivo o cosecha no remunerado"
+    },
+    "NO_REM_PESCA": {
+      "label": "Ingreso mensual por pesca no remunerada"
+    },
+    "NO_TIENE_NINGUNO": {
+      "label": "No tiene ningún equipo en el hogar",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "NOMBRE_EMPRESA_TRABAJA": {
+      "label": "¿Cuál es el nombre de la empresa, establecimiento, negocio, industria, finca, oficina en la que ... trabaja?",
+      "labels": {
+        "Nombre de empresa": 1,
+        "Presta servicio en un hogar": 2,
+        "No tiene nombre": 3,
+        "No sabe": 98
+      }
+    },
+    "NOMBRE_EMPRESA_TRABAJA_ESP": {
+      "label": "Nombre de la empresa en la que trabaja"
+    },
+    "NUEVO": {
+      "label": "Nuevos",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "NUMERO_APTOS_POR_PISO": {
+      "label": "Número de apartamentos por piso"
+    },
+    "NUMERO_DE_CASAS": {
+      "label": "Número de casas"
+    },
+    "NUMERO_DE_PISOS": {
+      "label": "Número de pisos"
+    },
+    "NUMERO_LINEA_INFORMANTE": {
+      "label": "Número de línea del miembro informante"
+    },
+    "OCUPACION_CESANTIA": {
+      "label": "¿Qué ocupación u oficio realizaba ... En su último trabajo?"
+    },
+    "OCUPACION_CESANTIA_COD": {
+      "label": "Código de ocupación u oficio que realizaba en su último\n    trabajo"
+    },
+    "OCUPACION_PRINCIPAL": {
+      "label": "Hablemos de la ocupación principal. ¿cuál es el oficio u\n    ocupación que realiza ... en ese trabajo?"
+    },
+    "OCUPACION_PRINCIPAL_COD": {
+      "label": "Código de oficio u ocupación que realiza"
+    },
+    "OCUPACION_SECUNDARIA": {
+      "label": "¿Qué ocupación u oficio realiza ... en este trabajo? (ocupación secundaria)"
+    },
+    "OCUPACION_SECUNDARIA_COD": {
+      "label": "Código de ocupación u oficio que realiza en ocupación secundaria"
+    },
+    "OCUPADO": {
+      "label": "Ocupado",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "ORDEN_CATEGORIA": {
+      "label": "Código de categoría ocupacional"
+    },
+    "ORDEN_EDAD": {
+      "label": "Código de grupo de edad (15 años y más)"
+    },
+    "ORDEN_EDAD_PET10": {
+      "label": "Código de grupo de edad (10 años y más)"
+    },
+    "ORDEN_EDUCACION": {
+      "label": "Código de nivel educativo"
+    },
+    "ORDEN_EMPLEO": {
+      "label": "Código de formalidad del empleo"
+    },
+    "ORDEN_OCUPACION": {
+      "label": "Código de grupo ocupacional"
+    },
+    "ORDEN_RAMA": {
+      "label": "Código de la rama de actividad económica"
+    },
+    "ORDEN_SECTOR": {
+      "label": "Código de formalidad del sector"
+    },
+    "OTRO": {
+      "label": "¿Tiene usted o algún miembro de su hogar?: Otro",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTRO_ESP": {
+      "label": "¿Tiene usted o algún miembro de su hogar: Otro (especifique)"
+    },
+    "OTROS_BENEFICIOS": {
+      "label": "Ingreso por otros beneficios mensualizado (asalariados)"
+    },
+    "OTROS_BENEFICIOS_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió otros pagos o beneficios? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_BENEFICIOS_AP_ESP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió otros pagos o beneficios? Especifique (asalariados)"
+    },
+    "OTROS_BENEFICIOS_AP_MONTO": {
+      "label": "Monto recibido por otros pagos o beneficios durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "OTROS_BENEFICIOS_AS": {
+      "label": "Durante los últimos 12 meses, ¿en su empleo secundario... recibió algún otro ingreso como vacaciones bonificadas bonificaciones, regalía pascual u otros pagos o beneficios? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_BENEFICIOS_AS_MONTO": {
+      "label": "Monto recibido por otros pagos o beneficios durante los últimos 12 meses, en el empleo secundario (asalariados)"
+    },
+    "OTROS_BENEFICIOS_SECUN": {
+      "label": "Ingreso mensual por otros beneficios en ocupación secundaria (asalariados)"
+    },
+    "OTROS_ESPECIE": {
+      "label": "Ingreso mensual por otros en especie (asalariados)"
+    },
+    "OTROS_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió otros pagos en especie? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_ESPECIE_AP_ESP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió otros pagos en especie? Especifique (asalariados)"
+    },
+    "OTROS_ESPECIE_AP_MONTO": {
+      "label": "Monto estipado por otros pagos en especie durante el mes pasado, en ocupación principal (asalariados)"
+    },
+    "OTROS_INGRESOS_EXT": {
+      "label": "Otros ingresos del exterior durante el mes pasado",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_INGRESOS_EXT_1": {
+      "label": "Otros ingresos mensuales del exterior"
+    },
+    "OTROS_INGRESOS_EXT_ESP": {
+      "label": "Otros ingresos del exterior durante el mes pasado (especifique)"
+    },
+    "OTROS_INGRESOS_EXT_MONEDA": {
+      "label": "Otros ingresos del exterior durante el mes pasado: moneda",
+      "labels": [
+        ""
+      ]
+    },
+    "OTROS_INGRESOS_EXT_MONTO": {
+      "label": "Otros ingresos del exterior durante el mes pasado: monto"
+    },
+    "OTROS_INGRESOS_EXT_PAIS": {
+      "label": "Otros ingresos del exterior durante el mes pasado: país"
+    },
+    "OTROS_INGRESOS_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos nacionales por otro concepto?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_INGRESOS_NAC_A": {
+      "label": "Otros ingresos nacionales mensuales"
+    },
+    "OTROS_INGRESOS_NAC_ANIO": {
+      "label": "Otros ingresos nacionales (mensualizados)"
+    },
+    "OTROS_INGRESOS_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos nacionales por otro concepto?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_INGRESOS_NAC_ANO_ESP": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos nacionales por otro concepto? (especifique)"
+    },
+    "OTROS_INGRESOS_NAC_ANO_MONTO": {
+      "label": "Otro ingreso nacional durante los últimos 12 meses"
+    },
+    "OTROS_INGRESOS_NAC_ESP": {
+      "label": "En el mes pasado, ¿... recibió ingresos nacionales por otro concepto? (especifique)"
+    },
+    "OTROS_INGRESOS_NAC_MONTO": {
+      "label": "Otro ingreso nacional durante el mes anterior"
+    },
+    "OTROS_PAGO_AS": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, ¿... recibió en su empleo secundario algún otro pago como comisiones, propinas, horas extras, otros pagos? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_PAGO_AS_MONTO": {
+      "label": "Monto recibido por otros pagos en ocupación secundaria (asalariados)"
+    },
+    "OTROS_PAGOS": {
+      "label": "Ingreso mensual por otros pagos (asalariados)"
+    },
+    "OTROS_PAGOS_AP": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, recibió en su empleo principal: otros pagos (pasajes, viáticos, dieta, etc) (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "OTROS_PAGOS_AP_ESP": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, recibió en su empleo principal: otros pagos (especifique) (asalariados)"
+    },
+    "OTROS_PAGOS_AP_MONTO": {
+      "label": "Monto recibido por otros pagos el mes pasado en empleo principal (asalariados)"
+    },
+    "OTROS_PAGOS_SECUN": {
+      "label": "Ingreso mensual por otros pagos en ocupación secundaria (asalariados)"
+    },
+    "OTROS_TRABAJOS": {
+      "label": "Ingreso mensual por otras ocupaciones o trabajos"
+    },
+    "PA_TI": {
+      "label": "Ingreso mensual por Programa de apoyo a trabajadores informales (Pa' Ti)"
+    },
+    "PAGO_EN_ESPECIE_AS": {
+      "label": "Durante el mes pasado en su empleo secundario ¿... recibió algún pago en especie como alimento, vivienda, servicio de transporte, combustible, celular, etc.?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PAGO_EN_ESPECIE_AS_MONTO": {
+      "label": "Monto recibido por pagos en especie durante el mes pasado, en el empleo secundario (asalariados)"
+    },
+    "PAGO_ESPECIE_SECUN": {
+      "label": "Ingreso mensual en especie en ocupación secundaria (asalariados)"
+    },
+    "PAGO_ESPECIES_IN": {
+      "label": "Durante el mes pasado ¿Recibió por este trabajo algún pago en especie (alimentos, mercancía, etc)? (ocupación principal, independientes)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PAGO_ESPECIES_IN_MONTO": {
+      "label": "Valor estimado de lo recibido en especie durante el mes pasado en ocupación principal (independientes)"
+    },
+    "PAGO_ESPECIES_IS": {
+      "label": "Durante el mes pasado ¿Recibió por este trabajo algún pago en especie (alimentos, mercancía, etc)? (ocupación secundaria, independientes)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PAGO_ESPECIES_IS_MONTO": {
+      "label": "Valor estimado de lo recibido en especie durante el mes pasado en ocupación secundaria (independientes)"
+    },
+    "PAIS_NACIMIENTO": {
+      "label": "Código de país de nacimiento del miembro del hogar",
+      "labels": [
+        ""
+      ]
+    },
+    "PAIS_TRABAJA": {
+      "label": "Código de país donde realiza principalmente su actividad económica",
+      "labels": [
+        ""
+      ]
+    },
+    "PARABOLA": {
+      "label": "¿Tiene usted o algún miembro de su hogar parábola?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PARENTESCO": {
+      "label": "¿Cuál es la relación de parentesco que tiene con el jefe del hogar?",
+      "labels": {
+        "Jefe del hogar": 1,
+        "Esposa(o) o compañera(o)": 2,
+        "Hijo(a)": 3,
+        "Hijastro(a)": 4,
+        "Nieto(a)": 5,
+        "Yerno o nuera": 6,
+        "Padre, madre": 7,
+        "Suegro(a)": 8,
+        "Hermano(a)": 9,
+        "Abuelo(a)": 10,
+        "Otro pariente": 11,
+        "No pariente": 12
+      }
+    },
+    "PEA": {
+      "label": "Fuerza de trabajo o población económicamente activa",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "PENSION_EXT": {
+      "label": "Pensión o jubilación del exterior durante el mes pasado",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "Se negó": 3
+      }
+    },
+    "PENSION_EXT_1": {
+      "label": "Ingreso mensual por pensión del exterior"
+    },
+    "PENSION_EXT_MONEDA": {
+      "label": "Pensión o jubilación del exterior durante el mes pasado: moneda",
+      "labels": [
+        ""
+      ]
+    },
+    "PENSION_EXT_MONTO": {
+      "label": "Pensión o jubilación del exterior durante el mes pasado: monto"
+    },
+    "PENSION_EXT_PAIS": {
+      "label": "Pensión o jubilación del exterior durante el mes pasado: país",
+      "labels": [
+        ""
+      ]
+    },
+    "PENSION_IMP_MONTO": {
+      "label": "Ingreso imputado por pensión o jubilación en el mes pasado"
+    },
+    "PENSION_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de pensión o jubilación?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "Se negó": 3
+      }
+    },
+    "PENSION_NAC_A": {
+      "label": "Ingreso por pensión"
+    },
+    "PENSION_NAC_MONTO": {
+      "label": "Ingreso por pensión o jubilación durante el mes pasado"
+    },
+    "PERIODO": {
+      "label": "Período de la encuesta"
+    },
+    "PERIODO_PAGO_ALQUILER_VIV": {
+      "label": "Período de pago de alquiler de vivienda",
+      "labels": {
+        "Semana": 1,
+        "Mes": 2,
+        "Quincena": 3,
+        "Año": 4
+      }
+    },
+    "PERTENECE_SINDICATO_EMP": {
+      "label": "¿Pertenece o es miembro del sindicato de la empresa?",
+      "labels": {
+        "Sí": 1,
+        "No (especificar por qué no)": 2,
+        "No sabe": 98
+      }
+    },
+    "PERTENECE_SINDICATO_EMP_ESP": {
+      "label": "Motivo por el que no pertenece al sindicato de la empresa"
+    },
+    "PESCA_NO_REMUN": {
+      "label": "Durante las últimas cuatro semanas, ... trabajó sin ninguna remuneración, principalmente para el consumo de la familia, por lo menos una hora, en: pesca",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PESCA_NO_REMUN_HORAS": {
+      "label": "¿Cuántas horas efectivas trabajó en las últimas cuatro semanaen esta actividad?: pesca"
+    },
+    "PESCA_NO_REMUN_MONTO": {
+      "label": "Monto o estimación mensual de lo consumido: pesca"
+    },
+    "PESCA_NO_REMUN_PORC": {
+      "label": "Porcentaje de la producción consumido por la familia: pesca"
+    },
+    "PET": {
+      "label": "Población en edad de trabajar (15 años y más)",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "PET10": {
+      "label": "Población en edad de trabajar (10 años y más)",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "PLANCHA_ELECTRICA": {
+      "label": "¿Tiene usted o algún miembro de su hogar plancha eléctrica?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PLANTA_ELECTRICA": {
+      "label": "¿Tiene usted o algún miembro de su hogar planta eléctrica?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PORQUE_NO_ESTUDIA": {
+      "label": "¿Por qué no asiste ahora?",
+      "labels": {
+        "En espera del inicio de un nuevo período": 1,
+        "Finalizó sus estudios": 2,
+        "Muy lejos": 3,
+        "Le fue mal": 4,
+        "Nunca lo inscribieron": 5,
+        "No tiene documentos": 6,
+        "El trabajo no se lo permite": 7,
+        "Muy caro": 8,
+        "Por incapacidad física o mental": 9,
+        "Por edad": 10,
+        "Razones familiares": 11,
+        "No quiere / No le gusta": 12,
+        "Otra": 99
+      }
+    },
+    "PORQUE_NO_ESTUDIA_ESP": {
+      "label": "¿Por qué no asiste ahora?: Otra (especifique)"
+    },
+    "PRIMER_EMPLEO": {
+      "label": "¿Este ha sido su primer trabajo?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROG_INCENTIVO_ALIST_MARINA": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Incentivo Alistados Marina de Guerra?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROG_INCENTIVO_POLICIA_PREV": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Incentivo a la Policía Preventiva?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROGRAMA_APOYO_TRABAJADORES_IN": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa de apoyo a trabajadores informales (Pa' Ti)?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROGRAMA_QUEDATE_CASA": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Quédate en Casa?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROPINAS": {
+      "label": "Ingreso mensual por propinas (asalariado)"
+    },
+    "PROPINAS_AP": {
+      "label": "Durante el mes pasado, además del salario, sueldo o jornal, recibió en su empleo principal: propinas (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PROPINAS_AP_MONTO": {
+      "label": "Monto recibido  por propina el mes pasado en empleo principal (asalariados)"
+    },
+    "PROTECCION_VEJEZ": {
+      "label": "Ingreso mensual por Programa Protección a la vejez"
+    },
+    "PROVINCIA_NACIMIENTO": {
+      "label": "Código de provincia de nacimiento del miembro del hogar",
+      "labels": [
+        ""
+      ]
+    },
+    "PROVINCIA_TRABAJA": {
+      "label": "Código de provincia donde realiza principalmente su actividad económica",
+      "labels": [
+        ""
+      ]
+    },
+    "PROVINCIA_TRABAJA_RESP": {
+      "label": "¿En qué provincia realiza principalmente su actividad económica?",
+      "labels": {
+        "En esta provincia": 1,
+        "En otra provincia (especifique)": 2,
+        "En otro país (especifique)": 3
+      }
+    },
+    "PS_APOYO_ADULTOS_MAYORES": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Protección a la vejez?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PS_BONO_GAS": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Bono Gas?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PS_BONO_LUZ": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Bono Luz?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PS_CHISPITA_SOLIDARIDAD": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Chispita Solidaridad?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PS_COMER_ES_PRIMERO": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Comer es Primero?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "PS_INCENTIVO_ASIST_ESCOLAR": {
+      "label": "¿Actualmente usted o algún miembro del hogar es beneficiario de Programa Solidaridad: Incentivo a la Asistencia Escolar?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "QUE_ESTUDIA": {
+      "label": "Carrera que estudia"
+    },
+    "QUE_ESTUDIO": {
+      "label": "Carrera que estudió"
+    },
+    "QUE_HIZO_BUSCAR_TRABAJO": {
+      "label": "¿Durante las últimas cuatro semanas, qué hizo ... para buscar trabajo o establecer su propio negocio, actividad económica o empresa?",
+      "labels": {
+        "Envió currículum, llenó solicitudes, asistió a entrevistas, visitó fábricas, oficinas públicas": 1,
+        "Pidió ayuda a terceras personas para que lo recomendaran  o le avisaran de algún trabajo": 2,
+        "Contestó anuncios en periódicos, radio, TV": 3,
+        "Solicitó permisos o licencias para establecer un negocio, acondicionó local para iniciar un negocio, solicitó financiamiento para un negocio propio, buscó equipo o materiales para empezar un negocio": 4,
+        "Contestó anuncios por internet o en bolsa electrónica de empleo": 5,
+        "Nada": 6,
+        "Otro (especifique)": 99
+      }
+    },
+    "QUE_HIZO_BUSCAR_TRABAJO_ESP": {
+      "label": "¿Durante las últimas cuatro semanas, qué hizo ... para buscar trabajo o establecer su propio negocio, actividad económica o empresa?: Otro (especifique)"
+    },
+    "QUE_HIZO_BUSCAR_TRABAJO_RESP": {
+      "label": "¿Durante las últimas cuatro semanas, qué hizo ... para buscar trabajo o establecer su propio negocio, actividad económica o empresa? Respuesta"
+    },
+    "QUE_TIEMPO_BUSCA_TRABAJO": {
+      "label": "¿Qué tiempo hace que está sin trabajo y buscando?",
+      "labels": {
+        "Menos de un mes": 1,
+        "De 1 mes a menos de 6 meses": 2,
+        "De 6 meses a menos de 1 año": 3,
+        "1 año y más": 4
+      }
+    },
+    "QUEDATE_EN_CASA": {
+      "label": "Ingreso mensual por Programa Quédate en Casa"
+    },
+    "RADIO": {
+      "label": "¿Tiene usted o algún miembro de su hogar radio?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "RAMA_CESANTIA": {
+      "label": "¿Qué produce o a qué actividad se dedica principalmente la empresa o negocio donde trabajaba?"
+    },
+    "RAMA_CESANTIA_COD": {
+      "label": "Código de la actividad a que se dedica principalmente la empresa o negocio donde trabajaba"
+    },
+    "RAMA_PRINCIPAL": {
+      "label": "¿Qué produce o a qué actividad se dedica principalmente la empresa, establecimiento, negocio, industria, finca, oficina\nen la que ... trabaja? (ocupación principal)"
+    },
+    "RAMA_PRINCIPAL_COD": {
+      "label": "Código de la actividad a que se dedica principalmente la\n    empresa, establecimiento, negocio, industria, finca, oficina\n    en la que trabaja (ocupación principal)"
+    },
+    "RAMA_SECUNDARIA": {
+      "label": "¿Qué produce o a qué actividad se dedica principalmente la empresa, establecimiento, negocio, industria, finca, oficina en la que ... realiza este trabajo secundario?"
+    },
+    "RAMA_SECUNDARIA_COD": {
+      "label": "Código de la actividad a que se dedica principalmente la\n    empresa, establecimiento, negocio, industria, finca, oficina\n    en la que trabaja (ocupación secundaria)"
+    },
+    "RAZON_JORNADA_DIFERENTE": {
+      "label": "¿Cuál fue la razón principal por la que la semana pasada trabajó diferentes horas a las habituales? (ocupación principal)",
+      "labels": {
+        "Temporada de alta actividad, había un pedido especial, exceso de trabajo": 1,
+        "Vacaciones": 2,
+        "Baja actividad": 3,
+        "Horario o jornada flexible": 4,
+        "Causas climatológicas": 5,
+        "Motivos personales (enfermedad / licencia médica y cuidado familiar)": 6,
+        "Cierre del gobierno, cuarentena o toque de queda por COVID-19": 90,
+        "No sabe": 98,
+        "Otros (especifique)": 99
+      }
+    },
+    "RAZON_JORNADA_DIFERENTE_ESP": {
+      "label": "¿Cuál fue la razón principal por la que la semana pasada trabajó diferentes horas a las habituales?: Otros (especifique)"
+    },
+    "RAZON_TRASLADO": {
+      "label": "¿Cuál fue la razón por la que se trasladó a este lugar?",
+      "labels": {
+        "Buscar trabajo": 1,
+        "Traslado de trabajo": 2,
+        "Para estudiar": 3,
+        "Salud": 4,
+        "Razón familiar": 5,
+        "No sabe": 98,
+        "Otra razón": 99
+      }
+    },
+    "RAZON_TRASLADO_ESP": {
+      "label": "¿Cuál fue la razón por la que se trasladó a este lugar?: Otra razón (especifique)"
+    },
+    "REALIZA_CURSO_TECNICO": {
+      "label": "¿Actualmente está realizando algún curso técnico vocacional?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REALIZA_CURSO_TECNICO_ESP": {
+      "label": "Curso técnico o vocacional que está realizando el miembro del hogar"
+    },
+    "REALIZO_ACTIVIDAD": {
+      "label": "La semana pasada ... ¿realizó alguna de las siguientes actividades, por lo menos durante una hora a cambio de un salario o con fines de generar ingresos en dinero o en especie?",
+      "labels": {
+        "¿Cultivó o cosechó, crió o cuidó ganado o pescó principalmente para la venta?": 1,
+        "¿Elaboró comida, picadera, fritura, manualidades, artesanía o tabaco principalmente para la venta?": 2,
+        "¿Limpió finca, patio o solar por paga?": 3,
+        "¿Limpió casas, planchó o lavó ropa ajena y reparó o cosió ropa, zapato o cartera por paga?": 4,
+        "¿Vendió productos de belleza, ropas, joyas, ventas por catálogo?": 5,
+        "¿Reparó equipos electrodomésticos (plancha, nevera, lavadora, abanico, celular, fabricó puertas o ventanas, mantenimiento de aires y vehículos) por paga?": 6,
+        "¿Trabajó como aprendiz o pasante con pago en dinero o en especie?": 7,
+        "Ninguna de las anteriores": 8
+      }
+    },
+    "REALIZO_TRABAJO_SECUNDARIO": {
+      "label": "Además del trabajo principal, durante la semana pasada ¿... Realizó o tiene otro trabajo, negocio o empleo secundario?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "RECIBE_DESAYUNO_ESCOLAR": {
+      "label": "¿Está recibiendo en la escuela pública?",
+      "labels": {
+        "Desayuno, almuerzo y merienda": 1,
+        "Desayuno": 2,
+        "Merienda": 3,
+        "Almuerzo": 4,
+        "Ninguno": 5
+      }
+    },
+    "RECIBIO_AUMENTO_SALARIAL_AP": {
+      "label": "En los últimos 3 meses ... ¿recibió aumento salarial? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "RECIBIO_CESANTIA": {
+      "label": "Cuando ... fue despedido de su último trabajo ¿recibió ayuda por cesantía?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "En disputa": 3
+      }
+    },
+    "RECIBIO_REMESA_EXT1": {
+      "label": "¿En los últimos 6 meses recibió dinero de parientes o amistades que residen en el exterior? (bloque 1)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "Recibió y se negó": 3
+      }
+    },
+    "RECIBIO_REMESA_EXT2": {
+      "label": "¿En los últimos 6 meses recibió dinero de parientes o amistades que residen en el exterior? (bloque 2)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "Recibió y se negó": 3
+      }
+    },
+    "RECIBIO_REMESA_EXT3": {
+      "label": "¿En los últimos 6 meses recibió dinero de parientes o amistades que residen en el exterior? (bloque 3)",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "Recibió y se negó": 3
+      }
+    },
+    "REFRIGERADOR": {
+      "label": "¿Tiene usted o algún miembro de su hogar refrigerador?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REGALIA_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió regalía pascual? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REGALIA_AP_MONTO": {
+      "label": "Monto recibido por regalía pascual durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "REGALIA_PASCUAL": {
+      "label": "Ingreso por regalía pascual mensualizado (asalariados)"
+    },
+    "REGALIA_PENSION_IMP_MONTO": {
+      "label": "Ingreso imputado por regalía pascual de pensión durante los últimos 12 meses"
+    },
+    "REGALIA_PENSION_NAC": {
+      "label": "Ingreso por regalía pascual de pensión (mensualizado)"
+    },
+    "REGALIA_PENSION_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de regalía pascual de pensión?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REGALIA_PENSION_NAC_ANO_MONTO": {
+      "label": "Ingreso por regalía pascual de pensión recibido durante los últimos 12 meses"
+    },
+    "REGALIA_PRINC_IMP_MONTO": {
+      "label": "Monto imputado por regalía pascual durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "REGALOS_EXT": {
+      "label": "Regalos u obsequios (no en efectivo) del exterior durante el mes pasado",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REGALOS_EXT_1": {
+      "label": "Ingreso mensual por regalos u obsequios del exterior"
+    },
+    "REGALOS_EXT_MONEDA": {
+      "label": "Regalos u obsequios (no en efectivo) del exterior durante el mes pasado: moneda",
+      "labels": [
+        ""
+      ]
+    },
+    "REGALOS_EXT_MONTO": {
+      "label": "Regalos u obsequios (no en efectivo) del exterior durante el mes pasado: monto"
+    },
+    "REGALOS_EXT_PAIS": {
+      "label": "Regalos u obsequios (no en efectivo) del exterior durante el mes pasado: país",
+      "labels": [
+        ""
+      ]
+    },
+    "REGIMEN_SALUD_AFILIADO": {
+      "label": "¿A cuál de los siguientes regímenes de salud está afiliado?",
+      "labels": {
+        "Contibutivo (aporta el empleado y la empresa)": 1,
+        "Subsidiado (cubierto por el gobierno)": 2,
+        "Contributivo/subsidiado (aporta el afiliado y el gobierno)": 3,
+        "Voluntario privado (contratado por la persona o el hogar)": 4,
+        "No sabe": 98
+      }
+    },
+    "REGISTRO_TRANSACCIONES_EMPRESA": {
+      "label": "En la empresa o negocio donde ... trabaja",
+      "labels": {
+        "Se registran las transacciones o se lleva libros de contabilidad auditables o se acude a los servicios de un contable": 1,
+        "Solo se utiliza un cuaderno de apuntes personal para llevar las cuentas": 2,
+        "No se lleva ningún registro contable de las transacciones": 3,
+        "No sabe": 98
+      }
+    },
+    "REMESAS_EXT": {
+      "label": "Ingreso mensual por remesas del exterior"
+    },
+    "REMESAS_NAC": {
+      "label": "En el mes pasado, ¿... recibió ingresos por concepto de donación o remesa (ayuda) de familiares y no familiares que viven en el país?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REMESAS_NAC_A": {
+      "label": "Ingreso por donación o remesa (ayuda) de familiares y no familiares que viven en el país"
+    },
+    "REMESAS_NAC_ANO": {
+      "label": "¿Además recibió en los últimos 12 meses ... ingresos por concepto de donación o remesa (ayuda) de familiares y no familiares que viven en el país?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "REMESAS_NAC_ANO_MONTO": {
+      "label": "Ingreso por donación o remesa (ayuda) de familiares y no familiares que viven en el país"
+    },
+    "REMESAS_NAC_MONTO": {
+      "label": "Ingreso por donación o remesa (ayuda) de familiares y no familiares que viven en el país durante el mes pasado"
+    },
+    "ROTACION_HOGAR": {
+      "label": "Rotación hogar"
+    },
+    "ROTACION_VIVIENDA": {
+      "label": "Rotación vivienda"
+    },
+    "SABE_LEER_ESCRIBIR": {
+      "label": "¿Sabe leer y escribir?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "SALARIO_PRINC_IMP_MONTO": {
+      "label": "Monto de salario por ocupación principal imputado (asalariados)"
+    },
+    "SALARIO_SECUN_IMP_MONTO": {
+      "label": "Monto de salario por ocupación secundaria imputado (asalariados)"
+    },
+    "SE_ENCUENTRA_CONECTADA_A": {
+      "label": "¿Se encuentra conectada a?",
+      "labels": {
+        "Pozo séptico": 1,
+        "Alcantarillado": 2
+      }
+    },
+    "SEGURO_AFILIADO": {
+      "label": "¿A qué ARS está afiliado?",
+      "labels": {
+        "ARS Senasa": 1,
+        "ARS Humano": 2,
+        "ARS Palic Salud": 3,
+        "ARS Semma": 4,
+        "ARS Universal": 5,
+        "ARS Salud Segura (IDSS)": 6,
+        "ARS Monumental": 7,
+        "ARS Reservas": 8,
+        "No sabe": 98,
+        "Otro (especifique)": 99
+      }
+    },
+    "SEGURO_AFILIADO_ESP": {
+      "label": "¿A qué ARS está afiliado?: Otro (especifique)"
+    },
+    "SEMANA_PAS_TIEMPO_COND_TRABAJO": {
+      "label": "¿La semana pasada habría tenido el tiempo y las condiciones necesarias para salir a trabajar?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "SEXO": {
+      "label": "Sexo del miembro del hogar",
+      "labels": {
+        "Hombre": 1,
+        "Mujer": 2
+      }
+    },
+    "SIGUIO_RECIBIENDO_SUELDO": {
+      "label": "¿Durante este período que no trabajó ... siguió recibiendo sueldo o ganancias? No incluye los ingresos provenientes únicamente del programa de ayuda del gobierno (FASE)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "SUBOCUPADO": {
+      "label": "Subocupados por hora",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "SUELDO_BRUTO_AP": {
+      "label": "En el mes pasado, ¿Cuánto fue el salario o sueldo bruto de ... sin ningún tipo de descuento en su empleo principal? (asalariados)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "SUELDO_BRUTO_AP_MONEDA": {
+      "label": "Moneda en que recibió salario o sueldo bruto el mes pasado, en empleo principal (asalariados)",
+      "labels": [
+        ""
+      ]
+    },
+    "SUELDO_BRUTO_AP_MONTO": {
+      "label": "Monto salario o sueldo recibido el mes pasado en su empleo principal (asalariados)"
+    },
+    "SUELDO_BRUTO_AS": {
+      "label": "En el mes pasado, ¿Cuánto fue el salario o sueldo bruto de ... sin ningún tipo de descuento en su empleo secundario? (asalariados)",
+      "labels": {
+        "Informó": 1,
+        "Se negó": 2
+      }
+    },
+    "SUELDO_BRUTO_AS_MONEDA": {
+      "label": "Moneda en que recibió salario o sueldo bruto el mes pasado, en empleo secundario (asalariados)",
+      "labels": [
+        ""
+      ]
+    },
+    "SUELDO_BRUTO_AS_MONTO": {
+      "label": "Monto salario o sueldo recibido el mes pasado en su empleo secundario (asalariados)"
+    },
+    "TABLETA_ELECTRONICA": {
+      "label": "¿Tiene usted o algún miembro de su hogar tableta electrónica?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TANDA_ASISTE": {
+      "label": "¿A cuál tanda está asistiendo actualmente?",
+      "labels": {
+        "Mañana": 1,
+        "Tarde": 2,
+        "Noche": 3,
+        "Interno": 4,
+        "Semi-interno": 5,
+        "Sabatino": 6,
+        "No asiste": 7,
+        "Domingos": 8,
+        "Tanda extendida": 9,
+        "Otro": 99
+      }
+    },
+    "TANDA_ASISTE_ESP": {
+      "label": "¿A cuál tanda está asistiendo actualmente?; Otro (especifique)"
+    },
+    "TELEFONO": {
+      "label": "¿Tiene usted o algún miembro de su hogar teléfono fijo?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TELEVISOR": {
+      "label": "¿Tiene usted o algún miembro de su hogar televisor?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TENENCIA_VIVIENDA": {
+      "label": "¿ESta vivienda es:",
+      "labels": {
+        "Comprada al contado": 1,
+        "Comprada a plazo al Gobierno": 2,
+        "Comprada a plazo a particular o institución": 3,
+        "Donada por el Gobierno": 4,
+        "Construida por su dueño": 5,
+        "Donada por familiares o particulares": 6,
+        "Cedida o prestada": 7,
+        "Regalada o heredada": 8,
+        "Alquilada": 9,
+        "Otra (especifique)": 99
+      }
+    },
+    "TENENCIA_VIVIENDA_ESP": {
+      "label": "¿Esta vivienda es: Otro (especifique)"
+    },
+    "TENIA_EMPLEO_NEGOCIO": {
+      "label": "Aunque no trabajó la semana pasada, ¿tenía algún empleo o negocio del cual se ausentó temporalmente y al cual próximamente volverá?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "TIEMPO_CONTRATO": {
+      "label": "¿Por cuánto tiempo ha firmado contrato?",
+      "labels": {
+        "Menos de tres meses": 1,
+        "De tres meses a seis": 2,
+        "Más de seis meses": 3,
+        "No sabe": 98
+      }
+    },
+    "TIEMPO_EMPLEO_ANOS": {
+      "label": "¿Qué tiempo tiene laborando en el actual trabajo?: años"
+    },
+    "TIEMPO_EMPLEO_DIAS": {
+      "label": "¿Qué tiempo tiene laborando en el actual trabajo?: días"
+    },
+    "TIEMPO_EMPLEO_MESES": {
+      "label": "¿Qué tiempo tiene laborando en el actual trabajo?: meses"
+    },
+    "TIEMPO_GESTION_TRABAJO": {
+      "label": "¿Hace cuánto tiempo fue la última vez que hio esta acción de búsqueda?",
+      "labels": {
+        "Un mes o menos": 1,
+        "Más de un mes": 2
+      }
+    },
+    "TIEMPO_INICIA_NUEVO_TRABAJO": {
+      "label": "¿En qué tiempo inicia este trabajo?",
+      "labels": {
+        "Un mes o menos": 1,
+        "Más de un mes": 2
+      }
+    },
+    "TIEMPO_PAGANDO_ALQUILER_VIV": {
+      "label": "¿Cuánto tiempo tienen ustedes pagando alquiler en este hogar? (años)"
+    },
+    "TIEMPO_RECIBE_PAGO_AP": {
+      "label": "Período en que recibe pago en ocupación principal (asalariados)",
+      "labels": {
+        "Diario": 1,
+        "Semanal": 2,
+        "Quincenal": 3,
+        "Mensual": 4
+      }
+    },
+    "TIEMPO_RECIBE_PAGO_DIAS_AP": {
+      "label": "¿Cuántos días a la semana recibe pago en su ocupación principal? (asalariados)"
+    },
+    "TIEMPO_RESIDENCIA": {
+      "label": "¿Hace cuánto tiempo reside en esta localidad?",
+      "labels": {
+        "Nació aquí": 1,
+        "Menos de 6 meses": 2,
+        "De 6 meses a menos de 1 año": 3,
+        "De 1 a 5 años": 4,
+        "De 6 o más años": 5
+      }
+    },
+    "TIEMPO_ULT_VEZ_GESTION_TRABAJO": {
+      "label": "¿Hace cuánto tiempo fue la última vez que hizo alguna gestión para conseguir trabajo?",
+      "labels": {
+        "Menos de 6 meses": 1,
+        "De 6 meses a menos de 1 año": 2,
+        "1 año y más": 3,
+        "Nunca ha realizado alguna gestión": 4,
+        "No sabe": 98
+      }
+    },
+    "TIEMPO_VUELVE_TRABAJO": {
+      "label": "¿En cuánto tiempo ... regresará o continuará en esa misma actividad de trabajo?",
+      "labels": {
+        "Ya reinició sus labores o regresará a trabajar en esta semana": 1,
+        "En tres meses o menos": 2,
+        "En más de tres meses": 3,
+        "Cuando le contacten o le soliciten": 4,
+        "No regresará": 5,
+        "Al levantarse las restricciones del COVID-19": 90,
+        "No sabe": 98
+      }
+    },
+    "TIENE_AGUA_RED_PUBLICA": {
+      "label": "¿Tiene esta vivienda instalación para agua corriente por tubería conectada a la red pública?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TIENE_ALUMBRADO_PUBLICO": {
+      "label": "¿Tienen las calles alumbrado público?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TIENE_CONTRATO": {
+      "label": "¿En ese trabajo ... tiene algún tipo de contrato?",
+      "labels": {
+        "Sí": 1,
+        "No": 2,
+        "No sabe": 98
+      }
+    },
+    "TIPO_AFILIADO": {
+      "label": "¿Tipo de afiliado? (a seguro de salud)",
+      "labels": {
+        "Beneficiario titular": 1,
+        "Beneficiario dependiente": 2
+      }
+    },
+    "TIPO_ALUMBRADO": {
+      "label": "¿Qué tipo de alumbrado se utiliza principalmente en esta vivienda?",
+      "labels": {
+        "Electricidad de las empresas públicas": 1,
+        "Electricidad de las empresas privadas": 2,
+        "Planta eléctrica": 3,
+        "Lámpara de gas kerosén": 4,
+        "Lámpara de gas propano": 5,
+        "Panel solar": 6,
+        "Vela": 7,
+        "Otro (especifique)": 99
+      }
+    },
+    "TIPO_ALUMBRADO_ESP": {
+      "label": "¿Qué tipo de alumbrado se utiliza principalmente en esta vivienda?: Otro (especifique)"
+    },
+    "TIPO_CENTRO_ESTUDIOS": {
+      "label": "¿El centro donde estudia actualmente es?",
+      "labels": {
+        "Privado": 1,
+        "Semi-privado": 2,
+        "Público": 3
+      }
+    },
+    "TIPO_CONTRATO": {
+      "label": "¿Qué tipo de contrato ha firmado?",
+      "labels": {
+        "Indefinido": 1,
+        "Por un tiempo definido": 2,
+        "Por un trabajo en específico": 3,
+        "No sabe": 98
+      }
+    },
+    "TIPO_SANITARIO": {
+      "label": "¿La vivienda posee? (Tipo de servicio sanitario)",
+      "labels": {
+        "Inodoro de uso privado": 1,
+        "Inodoro de uso compartido": 2,
+        "Letrina de uso privado": 3,
+        "Letrina de uso compartido": 4,
+        "No tiene": 5
+      }
+    },
+    "TIPO_VIVIENDA": {
+      "label": "Tipo de vivienda",
+      "labels": {
+        "Casa individual que no comparte paredes": 1,
+        "Casa individual que comparte paredes": 2,
+        "Casa individual que comparte paredes y áreas comunes": 3,
+        "Apartamento en edificio con ascensor": 4,
+        "Apartamento en edificio sin ascensor": 5,
+        "Local no construido para viviendas": 6,
+        "Anexo o apartamento en casa individual": 7,
+        "Casa de vecindad, cuartería, barrancones": 8,
+        "Otro (especifique)": 99
+      }
+    },
+    "TIPO_VIVIENDA_ESP": {
+      "label": "Tipo de vivienda: Otro (especifique)"
+    },
+    "TOSTADORA": {
+      "label": "¿Tiene usted o algún miembro de su hogar tostadora?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TOTAL_HOGARES_OCUPAN_VIVIENDA": {
+      "label": "¿Cuántos hogares ocupan esta vivienda?"
+    },
+    "TOTAL_PERSONAS_TRABAJAN_EMP": {
+      "label": "¿Cuántas personas en total, incluyendo al dueño (a) del establecimiento y usted mismo trabajan regularmente donde ... labora?",
+      "labels": {
+        "De 1 a 10 personas": 1,
+        "De 11 a 19 personas": 2,
+        "De 20 a 30 personas": 3,
+        "De 31 a 50 personas": 4,
+        "De 51 a 99 personas": 5,
+        "100 personas y más": 6,
+        "No sabe": 98
+      }
+    },
+    "TRABAJO_ANTES": {
+      "label": "¿Ha trabajado antes?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TRABAJO_DISTANCIA_TELE_TRABAJO": {
+      "label": "¿Actualmente ... realiza su trabajo a distancia (teletrabajo)?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TRABAJO_SEMANA_PASADA": {
+      "label": "¿Durante la semana pasada ... trabajó por lo menos una hora a cambio de un salario o con fines de generar ingresos en dinero o en especie?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TRANSPORTE_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió pagos en especie por servicio de transporte? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "TRANSPORTE_ESPECIE_AP_MONTO": {
+      "label": "Monto estimado por servicio de transporte durante el mes pasado, en ocupación principal (asalariados)"
+    },
+    "TRIMESTRE": {
+      "label": "Trimestre de la encuesta"
+    },
+    "TURNO_HABITUAL_TRABAJO": {
+      "label": "El turno o jornada habitual de trabajo de ... es: (ocupación principal)",
+      "labels": {
+        "Mañana": 1,
+        "Mañana - tarde": 2,
+        "Mañana - tarde - noche": 3,
+        "Tarde": 4,
+        "Tarde - noche": 5,
+        "Noche": 6,
+        "Rotativo": 7
+      }
+    },
+    "UBICACION_COCINA": {
+      "label": "¿La cocina que utiliza en el hogar se encuentra?",
+      "labels": {
+        "Dentro": 1,
+        "Fuera": 2,
+        "No tiene": 3
+      }
+    },
+    "UBICACION_EMPRESA": {
+      "label": "¿Dónde ... realiza principalmente su trabajo?",
+      "labels": {
+        "En un local, oficina, fábrica o industria": 1,
+        "En una obra en construcción": 2,
+        "En la vivienda o local anexo o en la vivienda del socio o patrón (incluye patio y jardín)": 3,
+        "A domicilio o en local de los clientes": 4,
+        "En un puesto fijo en la calle": 5,
+        "Móvil, callejero, ambulante": 6,
+        "En el campo, finca o conuco": 7,
+        "En vehículo terrestre o marítimo para transporte de personas o mercaderías": 8,
+        "Otro (especifique)": 99
+      }
+    },
+    "UBICACION_EMPRESA_ESP": {
+      "label": "¿Dónde ... realiza principalmente su trabajo?: Otro (especifique)"
+    },
+    "ULTIMO_ANO_APROBADO": {
+      "label": "¿Cuál es el último año o curso que aprobó?"
+    },
+    "UPM": {
+      "label": "Unidad primaria de muestreo"
+    },
+    "UTILIDAD_EMPRESARIAL_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió utilidades empresariales? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "UTILIDAD_EMPRESARIAL_AP_MONTO": {
+      "label": "Monto recibido por utilidades empresariales durante los últimos 12 meses, en empleo principal (asalariados)"
+    },
+    "VACACIONES_AP": {
+      "label": "¿Durante los últimos 12 meses, en el empleo principal ... recibió vacaciones bonificadas? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "VACACIONES_AP_MONTO": {
+      "label": "Monto recibido por vacaciones bonificadas durante los últimos 12 meses, en el empleo principal (asalariados)"
+    },
+    "VIVIENDA": {
+      "label": "Número de vivienda"
+    },
+    "VIVIENDA_ESPECIE_AP": {
+      "label": "¿Durante el mes pasado en su empleo principal ... recibió pagos en especie por vivienda? (asalariados)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "VIVIENDA_ESPECIE_AP_MONTO": {
+      "label": "Monto estimado por vivienda durante el mes pasado, en ocupación principal (asalariados)"
+    },
+    "ZONA": {
+      "label": "Zona de residencia",
+      "labels": {
+        "Zona urbana": 1,
+        "Zona rural": 2
+      }
+    },
+    "ZONA_NACIMIENTO": {
+      "label": "Zona de nacimiento del miembro del hogar",
+      "labels": {
+        "Zona urbana": 1,
+        "Zona rural": 2
+      }
+    },
+    "alfabetizacion": {
+      "label": "¿Sabe leer y escribir?",
+      "labels": {
+        "Sí": 1,
+        "No": 0
+      }
+    },
+    "anos_educacion": {
+      "label": "Número de años de educación de la persona"
+    },
+    "asistencia_escolar": {
+      "label": "¿Asiste actualmente a un centro educativo?",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "desempleo_ampliado": {
+      "label": "Población desocupada ampliada (DESOCUPADO + FTP)",
+      "labels": {
+        "Sí": 1,
+        "No": 2
+      }
+    },
+    "factor_exp_anual": {
+      "label": "Factor de expansión anual"
+    },
+    "fuerza_trabajo_potencial": {
+      "label": "Fuerza de trabajo potencial",
+      "labels": {
+        "Fuerza de trabajo potencia": 1,
+        "Fuera de la fuerza de trabajo potencial": 0
+      }
+    },
+    "grandes_grupos_ciuo_08": {
+      "label": "Grandes grupos de actividad económica según CIUO 08 (1 dígito)",
+      "labels": {
+        "1": "Directores y gerentes",
+        "2": "Profesionales científicos e intelectuales",
+        "3": "Técnicos y profesionales de nivel medio",
+        "4": "Personal de apoyo administrativo",
+        "5": "Trabajadores de los servicios y vendedores de comercios y mercados",
+        "6": "Agricultores y trabajadores calificados agropecuarios, forestales y pesqueros",
+        "7": "Oficiales, operarios y artesanos de artes mecánicas y de otros oficios",
+        "8": "Operadores de instalaciones y máquinas y ensambladores",
+        "9": "Ocupaciones elementales",
+        "0": "Ocupaciones militares"
+      }
+    },
+    "grupos_edad": {
+      "label": "Grupos de edad"
+    },
+    "grupo_rama_sector": {
+      "label": "Rama de Actividad Económica (RAE) por sectores PIB",
+      "labels": {
+        "Agropecuario": 1,
+        "Industrias": 2,
+        "Servicios": 3
+      }
+    },
+    "grupo_rama_pib": {
+      "label": "Rama de Actividad Económica (RAE) - PIB",
+      "labels": {
+        "Agricultura y ganadería": 1,
+        "Minas y canteras": 2,
+        "Industrias manufactureras (Zona Franca)": 3,
+        "Industrias manufactureras (Local)": 4,
+        "Construcción": 5,
+        "Electricidad, gas y agua": 6,
+        "Comercio": 7,
+        "Hoteles, bares y restaurantes": 8,
+        "Transporte y almacenamiento": 9,
+        "Comunicaciones": 10,
+        "Intermediación financiera y seguros": 11,
+        "Actividades inmobiliarias y de alquiler": 12,
+        "Enseñanza": 13,
+        "Salud": 14,
+        "Otras actividades de servicios de mercado": 15,
+        "Administración pública y defensa": 16,
+        "Otros servicios": 17
+      }
+    },
+    "grupo_rama_pib_enft": {
+      "label": "Rama de Actividad Económica (RAE) - PIB (Compatibles con la ENFT)",
+      "labels": {
+        "Agricultura y ganadería": 1,
+        "Minas y canteras": 2,
+        "Industrias manufactureras": 3,
+        "Construcción": 4,
+        "Electricidad, gas y agua": 5,
+        "Comercio": 6,
+        "Hoteles, bares y restaurantes": 7,
+        "Transporte y almacenamiento": 8,
+        "Comunicaciones": 9,
+        "Intermediación financiera y seguros": 10,
+        "Actividades inmobiliarias y de alquiler": 11,
+        "Enseñanza": 12,
+        "Salud": 13,
+        "Otras actividades de servicios de mercado": 14,
+        "Administración pública y defensa; y otros servicios": 15
+      }
+    },
+    "hacinamiento": {
+      "label": "Nivel de hacinamiento del hogar"
+    },
+    "icv_siuben": {
+      "label": "Índice de Calidad de Vida 2A (ICV 2A) del SIUBEN",
+      "labels": {
+        "ICV 1": 1,
+        "ICV 2": 2,
+        "ICV 3": 3,
+        "ICV 4": 4
+      }
+    },
+    "informalidad_total": {
+      "label": "Informalidad total",
+      "labels": {
+        "Formal": 0,
+        "Informal (Sector)": 1,
+        "Informal (Empleo)": 2
+      }
+    },
+    "matriculacion_escolar": {
+      "label": "¿Se matriculó en un centro educativo este año?"
+    },
+    "macro_regiones": {
+      "label": "Macroregiones (Dec. 710-04)",
+      "labels": {
+        "Macroregión Norte": 1,
+        "Macroregión Suroeste": 2,
+        "Macroregión Sureste": 3
+      }
+    },
+    "nivel_educativo_alcanzado": {
+      "label": "Nivel educativo más alto alcanzado por la persona",
+      "labels": {
+        "Ninguno o inicial": 1,
+        "Primaria": 2,
+        "Secundaria": 3,
+        "Universitaria": 4,
+        "Postgrado": 5
+      }
+    },
+    "nivel_educativo_completado": {
+      "label": "Nivel educativo más alto completado por la persona",
+      "labels": {
+        "Ninguno o inicial": 1,
+        "Primaria": 2,
+        "Secundaria": 3,
+        "Universitaria": 4,
+        "Postgrado": 5
+      }
+    },
+    "pea_ampliada": {
+      "labeñs": [1, 2],
+      "label": "Población Económicamente Ampliada (PEA ampliada) (PEA + FTP)"
+    },
+    "perceptores_ingresos": {
+      "label": "Población ocupada perceptora de ingresos",
+      "labels": {
+        "No": 0,
+        "Si": 1
+      }
+    },
+    "pobreza_zona": {
+      "label": "Pobreza monetaria por zona de residencia",
+      "labels": {
+        "Pobre extremo": 1,
+        "Pobre moderado": 2,
+        "No pobre": 3
+      }
+    },
+    "precariedad_agua": {
+      "label": "Agua dentro de la vivienda",
+      "labels": {
+        "Tiene dentro de la casa": 1,
+        "No tiene dentro de la casa": 0
+      }
+    },
+    "precariedad_combustible_cocina": {
+      "label": "Precariedad combustible utilizan para cocinar",
+      "labels": {
+        "Carbon, lena u otro": 0,
+        "GLP / Electricidad": 1,
+        "No cocinan": 2
+      }
+    },
+    "precariedad_luz": {
+      "label": "Precariedad tipo de alumbrado utilizado en la vivienda",
+      "labels": {
+        "Lamparas/Otro": 0,
+        "Tendido Electrico": 1,
+        "Planta electrica o inversor": 2
+      }
+    },
+    "precariedad_piso": {
+      "label": "Precariedad materialidad del piso de la vivienda",
+      "labels": {
+        "Tierra": 0,
+        "Cemento/Mosaico, Madera, Otro": 1,
+        "Granito, marmol, ceramica": 2
+      }
+    },
+    "precariedad_techo": {
+      "label": "Precariedad materialidad del techo de la vivienda",
+      "labels": {
+        "Yagua/Cana, Otro": 0,
+        "Concreto, Tejas": 1,
+        "Zinc, Asbesto - Cemento": 2
+      }
+    },
+    "regiones_desarrollo": {
+      "label": "Regiones de desarrollo",
+      "labels": {
+        "Cibao Norte": 1,
+        "Cibao Sur": 2,
+        "Cibao Nordeste": 3,
+        "Cibao Noroeste": 4,
+        "Valdesia": 5,
+        "Enriquillo": 6,
+        "El Valle": 7,
+        "Yuma": 8,
+        "Higuamo": 9,
+        "Ozama o Metropolitana": 10
+      }
+    },
+    "sector_salario_minimo": {
+      "label": "Sector del salario mínimo",
+      "labels": {
+        "Empresas del sector no sectorizado": 1,
+        "Hoteles, bares y restaurantes y similares": 2,
+        "Zona franca industrial": 3,
+        "Sector público": 4
+      }
+    },
+    "sexo_jefe": {
+      "label": "Sexo del jefe de hogar",
+      "labels": {
+        "Hombre": 1,
+        "Mujer": 2
+      }
+    },
+    "subgrupos_principales_ciuo_08": {
+      "label": "Subgrupos principales de actividad económica según CIUO 08 (2 dígitos)",
+      "labels": {
+        "11": "Directores ejecutivos, personal directivo de la administración pública y miembros del poder ejecutivo y de los cuerpos legislativos",
+        "12": "Directores administradores y comerciales",
+        "13": "Directores y gerentes de producción y operaciones",
+        "14": "Gerentes de hoteles, restaurantes, comercios y otros servicios",
+        "21": "Profesionales de las ciencias y de la ingeniería",
+        "22": "Profesionales de la salud",
+        "23": "Profesionales de la enseñanza",
+        "24": "Especialistas en organización de la administración publica y de empresas",
+        "25": "Profesionales de tecnología de la información y las comunicaciones",
+        "26": "Profesionales en derecho, en ciencias sociales y culturales",
+        "31": "Profesionales de las ciencias y la ingeniería de nivel medio",
+        "32": "Profesionales de nivel medio de la salud",
+        "33": "Profesionales de nivel medio en operaciones financieras y administrativas",
+        "34": "Profesionales de nivel medio de servicios jurídicos, sociales, culturales y afines",
+        "35": "Técnicos de la tecnología de la información y las comunicaciones",
+        "41": "Oficinistas",
+        "42": "Empleados en trato directo con el público",
+        "43": "Empleados contables y encargados del registro de materiales",
+        "44": "Otro personal de apoyo administrativo",
+        "51": "Trabajadores de los servicios personales",
+        "52": "Vendedores",
+        "53": "Trabajadores de los cuidados personales",
+        "54": "Personal de los servicios de protección",
+        "61": "Agricultores y trabajadores calificados de explotaciones agropecuarias con destino al mercado",
+        "62": "Trabajadores forestales calificados, pescadores y cazadores",
+        "63": "Trabajadores agropecuarios, pescadores, cazadores y recolectores de subsistencia",
+        "71": "Oficiales y operarios de la construcción excluyendo electricistas",
+        "72": "Oficiales y operarios de la metalurgia, la construcción mecánica y afines",
+        "73": "Artesanos y operarios de las artes gráficas",
+        "74": "Trabajadores especializados en electricidad y la elecrotecnología",
+        "75": "Operarios y oficiales de procesamiento de alimentos, de la confección, ebanistas, otros artesanos y afines",
+        "81": "Operadores de instalaciones fijas y máquinas",
+        "82": "Ensambladores",
+        "83": "Conductores de vehículos y operadores de equipos pesados móviles",
+        "91": "Limpiadores y asistentes",
+        "92": "Peones agropecuarios, pesqueros y forestales",
+        "93": "Peones de la minería, la construcción, la industria manufacturera y el transporte",
+        "94": "Ayudantes de preparación de alimentos",
+        "95": "Vendedores ambulantes de servicios y afines",
+        "96": "Recolectores de desechos y otras ocupaciones elementales",
+        "01": "Oficiales de las fuerzas armadas",
+        "02": "Suboficiales de las fuerzas armadas",
+        "03": "Otros miembros de las fuerzas armadas"
+      }
+    },
+    "subgrupos_ciuo_08": {
+      "label": "Subgrupos de actividad económica según CIUO 08 (3 dígitos)",
+      "labels": {
+        "111": "Miembros del poder ejecutivo y de los cuerpos legislativos",
+        "112": "Directores generales y gerentes generales",
+        "121": "Directores de administración y servicios",
+        "122": "Directores de ventas, comercialización y desarrollo",
+        "131": "Directores de producción agropecuaria, silvicultura y pesca",
+        "132": "Directores de industrias manufactureras, de minería, construcción y distribución",
+        "133": "Directores de servicios de tecnología de la información y las comunicaciones",
+        "134": "Directores  y gerentes de servicios profesionales",
+        "141": "Gerentes de hoteles y restaurantes",
+        "142": "Gerentes de comercios al por mayor y al por menor",
+        "143": "Otros gerentes de servicios",
+        "211": "Físicos, químicos y afines",
+        "212": "Matemáticos, actuarios y estadísticos",
+        "213": "Profesionales en ciencias biológicas",
+        "214": "Ingenieros (excluyendo electrotecnólogos)",
+        "215": "Ingenieros en electrotecnología",
+        "216": "Arquitectos, urbanistas, agrimensores y diseñadores",
+        "221": "Médicos",
+        "222": "Profesionales de enfermería y partería",
+        "223": "Profesionales de medicina tradicional y alternativa",
+        "224": "Practicantes paramédicos",
+        "225": "Veterinarios",
+        "226": "Otros profesionales de la salud",
+        "231": "Profesores de universidades y de la enseñanza superior",
+        "232": "Profesores de formación profesional",
+        "233": "Profesores de enseñanza secundaria",
+        "234": "Maestros de enseñanza primaria y maestros preescolares",
+        "235": "Otros profesionales de la enseñanza",
+        "241": "Especialistas en finanzas",
+        "242": "Especialistas en organización de administración",
+        "243": "Profesionales de las ventas, la comercialización y las relaciones públicas",
+        "251": "Desarrolladores y analistas de software y multimedia",
+        "252": "Especialistas en bases de datos y en redes de computadores",
+        "261": "Profesionales en derecho",
+        "262": "Archivistas, bibliotecarios, curadores y afines",
+        "263": "Especialistas en ciencias sociales y teología",
+        "264": "Autores, periodistas y lingüistas",
+        "265": "Artistas creativos e interpretativos",
+        "311": "Técnicos en ciencias físicas y en ingeniería",
+        "312": "Supervisores en ingeniería de minas, de industrias manufactureras y de la construcción",
+        "313": "Técnicos en control de procesos",
+        "314": "Técnicos y profesionales de nivel medio en ciencias biológicas y afines",
+        "315": "Técnicos y controladores en navegación marítima y aeronáutica",
+        "321": "Técnicos médicos y farmacéuticos",
+        "322": "Profesionales de nivel medio de enfermería y partería",
+        "323": "Profesionales de nivel medio de medicina tradicional y alternativa",
+        "324": "Técnicos y asistentes veterinarios",
+        "325": "Otros profesionales de nivel medio de la salud",
+        "331": "Profesionales de nivel medio en finanzas y matemáticas",
+        "332": "Agentes comerciales y corredores",
+        "333": "Agentes de servicios comerciales",
+        "334": "Secretarios administrativos y especializados",
+        "335": "Agentes de la administración pública para la aplicación de la ley y afines",
+        "341": "Profesionales de nivel medio, de servicios jurídicos, sociales y religiosos",
+        "342": "Entrenadores de deportes y aptitud física",
+        "343": "Profesionales de nivel medio en actividades culturales, artísticas y culinarias",
+        "351": "Técnicos en operaciones de tecnología de la información y las comunicaciones y asistencia al usuario",
+        "352": "Técnicos en telecomunicaciones y radiodifusión",
+        "411": "Oficinistas generales",
+        "412": "Secretarios (general)",
+        "413": "Operadores de máquinas de oficina",
+        "421": "Pagadores y cobradores de ventanilla y afines",
+        "422": "Empleados de servicios de información al cliente",
+        "431": "Auxiliares contables y financieros",
+        "432": "Empleados encargados del registro de materiales y de transportes",
+        "441": "Otro personal de apoyo administrativo",
+        "511": "Personal al servicio directo de los pasajeros",
+        "512": "Cocineros",
+        "513": "Camareros",
+        "514": "Peluqueros, especialistas en tratamientos de belleza y afines",
+        "515": "Supervisores de mantenimiento y limpieza de edificios",
+        "516": "Otros trabajadores de servicios personales",
+        "521": "Vendedores callejeros y de puestos de mercado",
+        "522": "Comerciantes y vendedores de tiendas y almacenes",
+        "523": "Cajeros y expendedores de billetes",
+        "524": "Otros vendedores",
+        "531": "Cuidadores de niños y auxiliares de maestros",
+        "532": "Trabajadores de los cuidados personales en servicios de salud",
+        "541": "Personal de los servicios de protección",
+        "611": "Agricultores y trabajadores calificados de jardines y de cultivos para el mercado",
+        "612": "Criadores y trabajadores pecuarios calificados de la cría de animales para el mercado y afines",
+        "613": "Productores y trabajadores calificados de explotaciones agropecuarias mixtas cuya producción se destina al mercado",
+        "621": "Trabajadores forestales calificados y afines",
+        "622": "Pescadores, cazadores y tramperos",
+        "631": "Trabajadores agrícolas de subsistencia",
+        "632": "Trabajadores pecuarios de subsistencia",
+        "633": "Trabajadores agropecuarios de subsistencia",
+        "634": "Pescadores, cazadores, tramperos y recolectores de subsistencia",
+        "711": "Oficiales y operarios de la construcción (obra gruesa) y afines",
+        "712": "Oficiales y operarios de la construcción (trabajos de acabado) y afines",
+        "713": "Pintores, limpiadores de fachadas y afines",
+        "721": "Moldeadores, soldadores, chapistas, caldereros, montadores de estructuras metálicas y afines",
+        "722": "Herreros, herramentistas y afines",
+        "723": "Mecánicos y reparadores de máquinas",
+        "731": "Artesanos",
+        "732": "Oficiales y operarios de las artes gráficas",
+        "741": "Instaladores y reparadores de equipos eléctricos",
+        "742": "Instaladores y reparadores de equipos electrónicos y de telecomunicaciones",
+        "751": "Oficiales y operarios de procesamiento de alimentos y afines",
+        "752": "Oficiales y operarios del tratamiento de la madera, ebanistas y afines",
+        "753": "Oficiales y operarios de la confección y afines",
+        "754": "Otros oficiales, operarios y artesanos de artes mecánicas y de otros oficios",
+        "811": "Operadores de instalaciones mineras y de extracción y procesamiento de minerales",
+        "812": "Operadores de instalaciones de procesamiento y recubridoras de metales",
+        "813": "Operadores de instalaciones y máquinas de productos químicos y fotográficos",
+        "814": "Operadores de máquinas para fabricar productos de caucho, de papel y de material plástico",
+        "815": "Operadores de máquinas para fabricar productos textiles y artículos de piel y cuero",
+        "816": "Operadores de máquinas para elaborar alimentos y productos afines",
+        "817": "Operadores de instalaciones para la preparación de papel y de procesamiento de la madera",
+        "818": "Otros operadores de máquinas y de instalaciones fijas",
+        "821": "Ensambladores",
+        "831": "Maquinistas de locomotoras y afines",
+        "832": "Conductores de automóviles, camionetas y motocicletas",
+        "833": "Conductores de camiones pesados y autobuses",
+        "834": "Operadores de equipos pesados móviles",
+        "835": "Marineros de cubierta y afines",
+        "911": "Limpiadores y asistentes domésticos de hoteles y oficinas",
+        "912": "Limpiadores de vehículos, ventanas, ropa y otra limpieza a mano",
+        "921": "Peones agropecuarios, pesqueros y forestales",
+        "931": "Peones de la minería y la construcción",
+        "932": "Peones de la industria manufacturera",
+        "933": "Peones del transporte y almacenamiento",
+        "941": "Ayudantes de preparación de alimentos",
+        "951": "Trabajadores ambulantes de servicios y afines",
+        "952": "Vendedores ambulantes (excluyendo de comida)",
+        "961": "Recolectores de desechos",
+        "962": "Otras ocupaciones elementales",
+        "011": "Oficiales de las fuerzas armadas",
+        "021": "Suboficiales de las fuerzas armadas",
+        "031": "Otros miembros de las fuerzas armadas"
+      }
+    },
+    "subgrupos_primarios_ciuo_08": {
+      "label": "Subgrupos primarios de actividad económica según CIUO 08 (4 dígitos)",
+      "labels": {
+        "1111": "Miembros del poder legislativo",
+        "1112": "Personal directivo de la administración pública",
+        "1113": "Jefes de pequeñas poblaciones",
+        "1114": "Dirigentes de organizaciones que presentan un interés especial",
+        "1120": "Directores generales y gerentes generales",
+        "1211": "Directores financieros",
+        "1212": "Directores de recursos humanos",
+        "1213": "Directores de políticas y planificación",
+        "1219": "Directores de administración y servicios no clasificados bajo otros epígrafes",
+        "1221": "Directores de ventas y comercialización",
+        "1222": "Directores de publicidad y relaciones públicas",
+        "1223": "Directores de investigación y desarrollo",
+        "1311": "Directores de producción agropecuaria y silvicultura",
+        "1312": "Directores de producción de piscicultura y pesca",
+        "1321": "Directores de industrias manufactureras",
+        "1322": "Directores de explotaciones de minería",
+        "1323": "Directores de empresas de construcción",
+        "1324": "Directores de empresas de abastecimiento, distribución y afines",
+        "1330": "Directores de servicios de tecnología de la información y las comunicaciones",
+        "1341": "Directores de servicios de cuidados infantiles",
+        "1342": "Directores de servicios de salud",
+        "1343": "Directores de servicios de cuidado de las personas de edad",
+        "1344": "Directores  de servicios de bienestar social",
+        "1345": "Directores de servicios de educación",
+        "1346": "Gerentes de sucursales de bancos, de servicios financieros y de seguros",
+        "1349": "Directores y gerentes de servicios profesionales no clasificados bajo otros epígrafes",
+        "1411": "Gerentes de hoteles",
+        "1412": "Gerentes de restaurantes",
+        "1420": "Gerentes de comercios al por mayor y al por menor",
+        "1431": "Gerentes de centros deportivos, de esparcimiento y culturales",
+        "1439": "Gerentes de servicios no clasificados bajo otros epígrafes",
+        "2111": "Físicos y astrónomos",
+        "2112": "Meteorólogos",
+        "2113": "Químicos",
+        "2114": "Geólogos y geofísicos",
+        "2120": "Matemáticos, actuarios y estadísticos",
+        "2131": "Biólogos, botánicos, zoólogos y afines",
+        "2132": "Agrónomos y afines",
+        "2133": "Profesionales de la protección medioambiental",
+        "2141": "Ingenieros industriales y de producción",
+        "2142": "Ingenieros civiles",
+        "2143": "Ingenieros medioambientales",
+        "2144": "Ingenieros mecánicos",
+        "2145": "Ingenieros químicos",
+        "2146": "Ingenieros de minas, metalúrgicos y afines",
+        "2149": "Ingenieros no clasificados bajo otros epígrafes",
+        "2151": "Ingenieros electricistas",
+        "2152": "Ingenieros electrónicos",
+        "2153": "Ingenieros en telecomunicaciones",
+        "2161": "Arquitectos",
+        "2162": "Arquitectos paisajistas",
+        "2163": "Diseñadores de productos y de prendas",
+        "2164": "Urbanistas e ingenieros de tránsito",
+        "2165": "Cartógrafos y agrimensores",
+        "2166": "Diseñadores gráficos y multimedia",
+        "2211": "Médicos generales",
+        "2212": "Médicos especialistas",
+        "2221": "Profesionales de enfermería",
+        "2222": "Profesionales de partería",
+        "2230": "Profesionales de medicina tradicional y alternativa",
+        "2240": "Practicantes paramédicos",
+        "2250": "Veterinarios",
+        "2261": "Dentistas",
+        "2262": "Farmacéuticos",
+        "2263": "Profesionales de la salud y la higiene laboral y ambiental",
+        "2264": "Fisioterapeutas",
+        "2265": "Dietistas y nutricionistas",
+        "2266": "Audiólogos y logopedas",
+        "2267": "Optometristas",
+        "2269": "Profesionales de la salud no clasificados bajo otros epígrafes",
+        "2310": "Profesores de universidades y de la enseñanza superior",
+        "2320": "Profesores de formación profesional",
+        "2330": "Profesores de enseñanza secundaria",
+        "2341": "Maestros de enseñanza primaria",
+        "2342": "Maestros preescolares",
+        "2351": "Especialistas en métodos pedagógicos",
+        "2352": "Educadores para necesidades especiales",
+        "2353": "Otros profesores de idiomas",
+        "2354": "Otros profesores de música",
+        "2355": "Otros profesores de artes",
+        "2356": "Instructores en tecnología de la información",
+        "2359": "Profesionales de la enseñanza no clasificados bajo otros epígrafes",
+        "2411": "Contables",
+        "2412": "Asesores financieros y en inversiones",
+        "2413": "Analistas financieros",
+        "2421": "Analistas de gestión y organización",
+        "2422": "Especialistas en políticas de administración",
+        "2423": "Especialistas en políticas y servicios de personal y afines",
+        "2424": "Especialistas en formación del personal",
+        "2431": "Profesionales de la publicidad y la comercialización",
+        "2432": "Profesionales de relaciones públicas",
+        "2433": "Profesionales de ventas técnicas y médicas (excluyendo la TIC)",
+        "2434": "Profesionales de ventas de tecnología de la información y las comunicaciones",
+        "2511": "Analistas de sistemas",
+        "2512": "Desarrolladores de software",
+        "2513": "Desarrolladores Web y multimedia",
+        "2514": "Programadores de aplicaciones",
+        "2519": "Desarrolladores y analistas de software y multimedia y analistas no clasificados bajo otros epígrafes",
+        "2521": "Diseñadores y administradores de bases de datos",
+        "2522": "Administradores de sistemas",
+        "2523": "Profesionales en redes de computadores",
+        "2529": "Especialistas en bases de datos y en redes de computadores no clasificados bajo otros epígrafes",
+        "2611": "Abogados",
+        "2612": "Jueces",
+        "2619": "Profesionales en derecho no clasificados bajo otros epígrafes",
+        "2621": "Archivistas y curadores de museos",
+        "2622": "Bibliotecarios, documentalistas y afines",
+        "2631": "Economistas",
+        "2632": "Sociólogos, antropólogos y afines",
+        "2633": "Filósofos, historiadores y especialistas en ciencias políticas",
+        "2634": "Psicólogos",
+        "2635": "Profesionales del trabajo social",
+        "2636": "Profesionales religiosos",
+        "2641": "Autores y otros escritores",
+        "2642": "Periodistas",
+        "2643": "Traductores, intérpretes y lingüistas",
+        "2651": "Artistas de artes plásticas",
+        "2652": "Músicos, cantantes y compositores",
+        "2653": "Bailarines y coreógrafos",
+        "2654": "Directores de cine, de teatro y afines",
+        "2655": "Actores",
+        "2656": "Locutores de radio, televisión y otros medios de comunicación",
+        "2659": "Artistas creativos e interpretativos no clasificados bajo otros epígrafes",
+        "3111": "Técnicos en ciencias físicas y químicas",
+        "3112": "Técnicos en ingeniería civil",
+        "3113": "Electrotécnicos",
+        "3114": "Técnicos en electrónica",
+        "3115": "Técnicos en ingeniería mecánica",
+        "3116": "Técnicos en química industrial",
+        "3117": "Técnicos en ingeniería de minas y metalurgia",
+        "3118": "Delineantes y dibujantes técnicos",
+        "3119": "Técnicos en ciencias físicas y en ingeniería no clasificados bajo otros epígrafes",
+        "3121": "Supervisores en ingeniería de minas",
+        "3122": "Supervisores de industrias manufactureras",
+        "3123": "Supervisores de la construcción",
+        "3131": "Operadores de instalaciones de producción de energía",
+        "3132": "Operadores de incineradores, instalaciones de tratamiento de agua y afines",
+        "3133": "Controladores de instalaciones de procesamiento de productos químicos",
+        "3134": "Operadores de instalaciones de refinación de petróleo y gas natural",
+        "3135": "Controladores de procesos de producción de metales",
+        "3139": "Técnicos en control de procesos no clasificados bajo otros epígrafes",
+        "3141": "Técnicos en ciencias biológicas (excluyendo la medicina)",
+        "3142": "Técnicos agropecuarios",
+        "3143": "Técnicos forestales",
+        "3151": "Oficiales maquinistas en navegación",
+        "3152": "Capitanes, oficiales de cubierta y prácticos",
+        "3153": "Pilotos de aviación y afines",
+        "3154": "Controladores de tráfico aéreo",
+        "3155": "Técnicos en seguridad aeronáutica",
+        "3211": "Técnicos en aparatos de diagnóstico y tratamiento médico",
+        "3212": "Técnicos de laboratorios médicos",
+        "3213": "Técnicos y asistentes farmacéuticos",
+        "3214": "Técnicos de prótesis médicas y dentales",
+        "3221": "Profesionales de nivel medio de enfermería",
+        "3222": "Profesionales de nivel medio de partería",
+        "3230": "Profesionales de nivel medio de medicina tradicional y alternativa",
+        "3240": "Técnicos y asistentes veterinarios",
+        "3251": "Dentistas auxiliares y ayudantes de odontología",
+        "3252": "Técnicos en documentación sanitaria",
+        "3253": "Trabajadores comunitarios de la salud",
+        "3254": "Técnicos en optometría y ópticos",
+        "3255": "Técnicos y asistentes fisioterapeutas",
+        "3256": "Practicantes y asistentes médicos",
+        "3257": "Inspectores de la salud laboral,  medioambiental y afines",
+        "3258": "Ayudantes de ambulancias",
+        "3259": "Profesionales de la salud de nivel medio no clasificados bajo otros epígrafes",
+        "3311": "Agentes de bolsa, cambio y otros servicios financieros",
+        "3312": "Oficiales de préstamos y créditos",
+        "3313": "Tenedores de libros",
+        "3314": "Profesionales de nivel medio de servicios estadísticos, matemáticos y afines",
+        "3315": "Tasadores",
+        "3321": "Agentes de seguros",
+        "3322": "Representantes comerciales",
+        "3323": "Agentes de compras",
+        "3324": "Agentes de compras y consignatarios",
+        "3331": "Declarantes o gestores de aduana",
+        "3332": "Organizadores de conferencias y eventos",
+        "3333": "Agentes de empleo y contratistas de mano de obra",
+        "3334": "Agentes inmobiliarios",
+        "3339": "Agentes de servicios comerciales no clasificados bajo otros epígrafes",
+        "3341": "Supervisores de secretaría",
+        "3342": "Secretarios jurídicos",
+        "3343": "Secretarios administrativos y ejecutivos",
+        "3344": "Secretarios médicos",
+        "3351": "Agentes de aduana e inspectores de fronteras",
+        "3352": "Agentes de administración tributaria",
+        "3353": "Agentes de servicios de seguridad social",
+        "3354": "Agentes de servicios de expedición de licencias y permisos",
+        "3355": "Inspectores de policía y detectives",
+        "3359": "Agentes de la administración pública para la aplicacion de la ley y afines no clasificados bajo otros epígrafes",
+        "3411": "Profesionales de nivel medio del derecho y servicios legales y afines",
+        "3412": "Trabajadores y asistentes sociales de nivel medio",
+        "3413": "Auxiliares laicos de las religiones",
+        "3421": "Atletas y deportistas",
+        "3422": "Entrenadores, instructores y árbitros de actividades deportivas",
+        "3423": "Instructores de educación física y actividades recreativas",
+        "3431": "Fotógrafos",
+        "3432": "Diseñadores y decoradores de interior",
+        "3433": "Técnicos en galerías de arte, museos y bibliotecas",
+        "3434": "Chefs",
+        "3435": "Otros profesionales de nivel medio en actividades culturales y artísticas",
+        "3511": "Técnicos en operaciones de tecnología de la información y las comunicaciones",
+        "3512": "Técnicos en asistencia al usuario de tecnología de la información y las comunicaciones",
+        "3513": "Técnicos en redes y sistemas de computadores",
+        "3514": "Técnicos de la Web",
+        "3521": "Técnicos de radiodifusión y grabación audio visual",
+        "3522": "Técnicos de ingeniería de las telecomunicaciones",
+        "4110": "Oficinistas generales",
+        "4120": "Secretarios (general)",
+        "4131": "Operadores de máquinas de procesamiento de texto y mecanógrafos",
+        "4132": "Grabadores de datos",
+        "4211": "Cajeros de bancos y afines",
+        "4212": "Receptores de apuestas y afines",
+        "4213": "Prestamistas",
+        "4214": "Cobradores y afines",
+        "4221": "Empleados de agencias de viajes",
+        "4222": "Empleados de centros de llamadas",
+        "4223": "Telefonistas",
+        "4224": "Recepcionistas de hoteles",
+        "4225": "Empleados de ventanillas de informaciones",
+        "4226": "Recepcionistas (general)",
+        "4227": "Entrevistadores de encuestas y de investigaciones de mercados",
+        "4229": "Empleados de servicios de información al cliente no clasificados bajo otros epígrafes",
+        "4311": "Empleados de contabilidad y cálculo de costos",
+        "4312": "Empleados de servicios estadísticos, financieros y de seguros",
+        "4313": "Empleados encargados de las nóminas",
+        "4321": "Empleados de control de abastecimientos e inventario",
+        "4322": "Empleados de servicios de apoyo a la producción",
+        "4323": "Empleados de servicios de transporte",
+        "4411": "Empleados de bibliotecas",
+        "4412": "Empleados de servicios de correos",
+        "4413": "Codificadores de datos, correctores de pruebas de imprenta y afines",
+        "4414": "Escribientes públicos y afines",
+        "4415": "Empleados de archivos",
+        "4416": "Empleados del servicio de personal",
+        "4419": "Personal de apoyo administrativo no clasificado bajo otros epígrafes",
+        "5111": "Auxiliares de servicio de abordo",
+        "5112": "Revisores y cobradores de los transportes públicos",
+        "5113": "Guías de turismo",
+        "5120": "Cocineros",
+        "5131": "Camareros de mesas",
+        "5132": "Camareros de barra",
+        "5141": "Peluqueros",
+        "5142": "Especialistas en tratamientos de belleza y afines",
+        "5151": "Supervisores de mantenimiento y limpieza en oficinas, hoteles y otros establecimientos",
+        "5152": "Ecónomos y mayordomos domésticos",
+        "5153": "Conserjes",
+        "5161": "Astrólogos, adivinadores y afines",
+        "5162": "Acompañantes y ayudantes de cámara",
+        "5163": "Personal de pompas fúnebres y embalsamadores",
+        "5164": "Cuidadores de animales",
+        "5165": "Instructores de autoescuela",
+        "5169": "Trabajadores de servicios personales no clasificados bajo otros epígrafes",
+        "5211": "Vendedores de quioscos y de puestos de mercado",
+        "5212": "Vendedores ambulantes de productos comestibles",
+        "5221": "Comerciantes de tiendas",
+        "5222": "Supervisores de tiendas y almacenes",
+        "5223": "Asistentes de venta de tiendas y almacenes",
+        "5230": "Cajeros y expendedores de billetes",
+        "5241": "Modelos de moda, arte y publicidad",
+        "5242": "Demostradores de tiendas",
+        "5243": "Vendedores puerta a puerta",
+        "5244": "Vendedores por teléfono",
+        "5245": "Expendedores de gasolineras",
+        "5246": "Vendedores de comidas al mostrador",
+        "5249": "Vendedores no clasificados bajo otros epígrafes",
+        "5311": "Cuidadores de niños",
+        "5312": "Auxiliares de maestros",
+        "5321": "Trabajadores de los cuidados personales en instituciones",
+        "5322": "Trabajadores de los cuidados personales a domicilio",
+        "5329": "Trabajadores de los cuidados personales en servicios de salud no clasificados bajo otros epígrafes",
+        "5411": "Bomberos",
+        "5412": "Policías",
+        "5413": "Guardianes de prisión",
+        "5414": "Guardias de protección",
+        "5419": "Personal de los servicios de protección no clasificados bajo otros epígrafes",
+        "6111": "Agricultores y trabajadores calificados de cultivos extensivos",
+        "6112": "Agricultores y trabajadores calificados de plantaciones de árboles y arbustos",
+        "6113": "Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",
+        "6114": "Agricultores y trabajadores calificados de cultivos mixtos",
+        "6121": "Criadores de ganado",
+        "6122": "Avicultores y trabajadores calificados de la avicultura",
+        "6123": "Apicultores y sericultores y trabajadores calificados de la apicultura y la sericultura",
+        "6129": "Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes",
+        "6130": "Productores y trabajadores calificados de explotaciones agropecuarias mixtas cuya producción se destina al mercado",
+        "6210": "Trabajadores forestales calificados y afines",
+        "6221": "Trabajadores de explotaciones de acuicultura",
+        "6222": "Pescadores de agua dulce y en aguas costeras",
+        "6223": "Pescadores de alta mar",
+        "6224": "Cazadores y tramperos",
+        "6310": "Trabajadores agrícolas de subsistencia",
+        "6320": "Trabajadores pecuarios de subsistencia",
+        "6330": "Trabajadores agropecuarios de subsistencia",
+        "6340": "Pescadores, cazadores, tramperos y recolectores de subsistencia",
+        "7111": "Constructores de casas",
+        "7112": "Albañiles",
+        "7113": "Mamposteros, tronzadores, labrantes y grabadores de piedra",
+        "7114": "Operarios en cemento armado, enfoscadores y afines",
+        "7115": "Carpinteros de armar y de obra blanca",
+        "7119": "Oficiales y operarios de la construcción (obra gruesa) y afines no clasificados bajo otros epígrafes",
+        "7121": "Techadores",
+        "7122": "Parqueteros y colocadores de suelos",
+        "7123": "Revocadores",
+        "7124": "Instaladores de material aislante y de insonorización",
+        "7125": "Cristaleros",
+        "7126": "Fontaneros e instaladores de tuberías",
+        "7127": "Mecánicos-montadores de instalaciones de refrigeración y climatización",
+        "7131": "Pintores y empapeladores",
+        "7132": "Barnizadores y afines",
+        "7133": "Limpiadores de fachadas y deshollinadores",
+        "7211": "Moldeadores y macheros",
+        "7212": "Soldadores y oxicortadores",
+        "7213": "Chapistas y caldereros",
+        "7214": "Montadores de estructuras metálicas",
+        "7215": "Aparejadores y empalmadores de cables",
+        "7221": "Herreros y forjadores",
+        "7222": "Herramentistas y afines",
+        "7223": "Reguladores y operadores de máquinas herramientas",
+        "7224": "Pulidores de metales y afiladores de herramientas",
+        "7231": "Mecánicos y reparadores de vehículos de motor",
+        "7232": "Mecánicos y reparadores de motores de avión",
+        "7233": "Mecánicos y reparadores de máquinas agrícolas e industriales",
+        "7234": "Reparadores de bicicletas y afines",
+        "7311": "Mecánicos y reparadores de instrumentos de precisión",
+        "7312": "Fabricantes y afinadores de instrumentos musicales",
+        "7313": "Joyeros, orfebres y plateros",
+        "7314": "Alfareros y afines (barro, arcilla y abrasivos)",
+        "7315": "Sopladores, modeladores, laminadores, cortadores y pulidores de vidrio",
+        "7316": "Redactores de carteles, pintores decorativos y grabadores",
+        "7317": "Artesanos en madera, cestería y materiales similares",
+        "7318": "Artesanos de los tejidos, el cuero y materiales similares",
+        "7319": "Artesanos no clasificados bajo otros epígrafes",
+        "7321": "Cajistas, tipógrafos y afines",
+        "7322": "Impresores",
+        "7323": "Encuadernadores y afines",
+        "7411": "Electricistas de obras y afines",
+        "7412": "Mecánicos y ajustadores electricistas",
+        "7413": "Instaladores y reparadores de líneas eléctricas",
+        "7421": "Mecánicos y reparadores en electrónica",
+        "7422": "Instaladores y reparadores en tecnología de la información y las comunicaciones",
+        "7511": "Carniceros, pescaderos y afines",
+        "7512": "Panaderos, pasteleros y confiteros",
+        "7513": "Operarios de la elaboración de productos lácteos",
+        "7514": "Operarios de la conservación de frutas, legumbres, verduras y afines",
+        "7515": "Catadores y clasificadores de alimentos y bebidas",
+        "7516": "Preparadores y elaboradores de tabaco y sus productos",
+        "7521": "Operarios del tratamiento de la madera",
+        "7522": "Ebanistas y afines",
+        "7523": "Reguladores y operadores de máquinas de labrar madera",
+        "7531": "Sastres, modistos, peleteros y sombrereros",
+        "7532": "Patronistas y cortadores de tela y afines",
+        "7533": "Costureros, bordadores y afines",
+        "7534": "Tapiceros, colchoneros y afines",
+        "7535": "Apelambradores, pellejeros y curtidores",
+        "7536": "Zapateros y afines",
+        "7541": "Buzos",
+        "7542": "Dinamiteros y pegadores",
+        "7543": "Clasificadores y probadores de productos (excluyendo alimentos y bebidas)",
+        "7544": "Fumigadores y otros controladores de plagas y malas hierbas",
+        "7549": "Oficiales, operarios y artesanos de artes mecánicas y de otros oficios no clasificados bajo otros epígrafes",
+        "8111": "Mineros y operadores de instalaciones mineras",
+        "8112": "Operadores de instalaciones de procesamiento de minerales y rocas",
+        "8113": "Perforadores y sondistas de pozos y afines",
+        "8114": "Operadores de máquinas para fabricar cemento y otros productos minerales",
+        "8121": "Operadores de instalaciones de procesamiento de metales",
+        "8122": "Operadores de máquinas pulidoras, galvanizadoras y recubridoras de metales",
+        "8131": "Operadores de plantas y máquinas de productos químicos",
+        "8132": "Operadores de máquinas para fabricar productos fotográficos",
+        "8141": "Operadores de máquinas para fabricar productos de caucho",
+        "8142": "Operadores de máquinas para fabricar productos de material plástico",
+        "8143": "Operadores de máquinas para fabricar productos de papel",
+        "8151": "Operadores de máquinas de preparación de fibras, hilado y devanado",
+        "8152": "Operadores de telares y otras máquinas tejedoras",
+        "8153": "Operadores de máquinas de coser",
+        "8154": "Operadores de máquinas de blanqueamiento, teñido y limpieza de tejidos",
+        "8155": "Operadores de máquinas de tratamiento de pieles y cueros",
+        "8156": "Operadores de máquinas para la fabricación de calzado y afines",
+        "8157": "Operadores de máquinas lavarropas",
+        "8159": "Operadores de máquinas para fabricar productos textiles y artículos de piel y cuero no clasificados bajo otros epígrafes",
+        "8160": "Operadores de máquinas para elaborar alimentos y productos afines",
+        "8171": "Operadores de instalaciones para la preparación de pasta para papel y papel",
+        "8172": "Operadores de instalaciones de procesamiento de la madera",
+        "8181": "Operadores de instalaciones de vidriería y cerámica",
+        "8182": "Operadores de máquinas de vapor y calderas",
+        "8183": "Operadores de máquinas de embalaje, embotellamiento y etiquetado",
+        "8189": "Operadores de máquinas y de instalaciones fijas no clasificados bajo otros epígrafes",
+        "8211": "Ensambladores de maquinaria mecánica",
+        "8212": "Ensambladores de equipos eléctricos y electrónicos",
+        "8219": "Ensambladores no clasificados bajo otros epígrafes",
+        "8311": "Maquinistas de locomotoras",
+        "8312": "Guardafrenos, guardagujas y agentes de maniobras",
+        "8321": "Conductores de motocicletas",
+        "8322": "Conductores de automóviles, taxis y camionetas",
+        "8331": "Conductores de autobuses y tranvías",
+        "8332": "Conductores de camiones pesados",
+        "8341": "Operadores de maquinaria agrícola y forestal móvil",
+        "8342": "Operadores de máquinas de movimiento de tierras y afines",
+        "8343": "Operadores de grúas, aparatos elevadores y afines",
+        "8344": "Operadores de autoelevadoras",
+        "8350": "Marineros de cubierta y afines",
+        "9111": "Limpiadores y asistentes domésticos",
+        "9112": "Limpiadores y asistentes de oficinas, hoteles y otros establecimientos",
+        "9121": "Lavanderos y planchadores manuales",
+        "9122": "Lavadores de vehículos",
+        "9123": "Lavadores de ventanas",
+        "9129": "Otro personal de limpieza",
+        "9211": "Peones de explotaciones agrícolas",
+        "9212": "Peones de explotaciones ganaderas",
+        "9213": "Peones de explotaciones de cultivos mixtos y ganaderos",
+        "9214": "Peones de jardinería y horticultura",
+        "9215": "Peones forestales",
+        "9216": "Peones de pesca y acuicultura",
+        "9311": "Peones de minas y canteras",
+        "9312": "Peones de obras públicas y mantenimiento",
+        "9313": "Peones de la construcción de edificios",
+        "9321": "Empacadores manuales",
+        "9329": "Peones de la industria manufacturera no clasificados bajo otros epígrafes",
+        "9331": "Conductores de vehículos accionados a pedal o a brazo",
+        "9332": "Conductores de vehículos y máquinas de tracción animal",
+        "9333": "Peones de carga",
+        "9334": "Reponedores de estanterías",
+        "9411": "Cocineros de comidas rápidas",
+        "9412": "Ayudantes de cocina",
+        "9510": "Trabajadores ambulantes de servicios y afines",
+        "9520": "Vendedores ambulantes (excluyendo de comida)",
+        "9611": "Recolectores de basura y material reciclable",
+        "9612": "Clasificadores de desechos",
+        "9613": "Barrenderos y afines",
+        "9621": "Mensajeros, mandaderos, maleteros y repartidores",
+        "9622": "Personas que realizan trabajos varios",
+        "9623": "Recolectores de dinero en aparatos de venta automática y lectores de medidores",
+        "9624": "Acarreadores de agua y recolectores  de  leña",
+        "9629": "Ocupaciones elementales no clasificadas bajo otros epígrafes",
+        "0110": "Oficiales de las fuerzas armadas",
+        "0210": "Suboficiales de las fuerzas armadas",
+        "0310": "Otros miembros de las fuerzas armadas"
+      }
+    },
+    "tamano_salario_minimo": {
+      "label": "Tamaños de empresa salario mínimo",
+      "labels": {
+        "Empresa grande": 1,
+        "Empresa mediana": 2,
+        "Empresa pequeña": 3,
+        "Zona Franca": 4,
+        "Zona Franca en áreas geográficas deprimidas": 5,
+        "Instituciones del Estado": 6
+      }
+    },
+    "tasa_alfabetizacion_hogar": {
+      "label": "Tasa de alfabetizacion del hogar"
+    },
+    "tasa_dependencia": {
+      "label": "Tasa de dependencia del hogar"
+    },
+    "tipo_establecimiento": {
+      "label": "Tipo de establecimiento",
+      "labels": {
+        "Privado": 1,
+        "Público": 2,
+        "Zonas Francas": 3
+      }
+    },
+    "trabajo_infantil": {
+      "label": "Trabajo infantil",
+      "labels": {
+        "Trabaja y estudia": 1,
+        "Solo trabajo": 2,
+        "Solo estudia": 3,
+        "No trabaja ni estudia": 4
+      }
+    },
+    "zona_desarrollo_fronterizo": {
+      "label": "Zona de desarrollo fronterizo",
+      "labels": {
+        "Zona de desarrollo fronterizo": 1,
+        "Resto país": 0
+      }
+    },
+    "nivel_educativo": {
+      "label": "Nivel educativo alcanzado por la persona",
+      "labels": {
+        "Ninguno": 0,
+        "Primario": 1,
+        "Secundario": 2,
+        "Terciario": 3
+      }
+    }
+  }
+}

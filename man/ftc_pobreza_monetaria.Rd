@@ -3,7 +3,7 @@
 \name{ftc_pobreza_monetaria}
 \alias{ftc_pobreza_monetaria}
 \title{Pobreza monetaria por zona de residencia
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}})`}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 ftc_pobreza_monetaria(tbl, .keep = FALSE, .reuse = FALSE)
 }
@@ -27,7 +27,7 @@ los datos del input tbl más las variables:
 }
 \description{
 Pobreza monetaria por zona de residencia
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}})`
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
 \dontrun{

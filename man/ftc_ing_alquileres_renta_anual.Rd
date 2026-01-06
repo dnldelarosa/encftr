@@ -9,9 +9,6 @@ ftc_ing_alquileres_renta_anual(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

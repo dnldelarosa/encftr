@@ -9,9 +9,6 @@ ftc_ing_remesas_nacionales(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

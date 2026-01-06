@@ -19,10 +19,7 @@ status](https://www.r-pkg.org/badges/version/encftr)](https://CRAN.R-project.org
 <!-- badges: end -->
 
 `encftr` es una interfaz para trabajar con la base de datos de la
-Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R. Este
-paquete es parte de [endomer-py](https://endomer-py.github.io/) un
-proyecto de código abierto que busca ofrecer interfaces en R para las
-principales encuestas de la República Dominicana.
+Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R.
 
 ## Instalación
 

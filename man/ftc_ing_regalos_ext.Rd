@@ -9,9 +9,6 @@ ftc_ing_regalos_ext(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

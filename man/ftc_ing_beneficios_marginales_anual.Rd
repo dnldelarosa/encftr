@@ -9,9 +9,6 @@ ftc_ing_beneficios_marginales_anual(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

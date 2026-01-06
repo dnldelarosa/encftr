@@ -9,9 +9,6 @@ ftc_ing_mensual_ocup_sec_cuenta_propia(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

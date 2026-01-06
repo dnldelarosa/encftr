@@ -14,6 +14,6 @@ Visualizar el diccionario de forma interactiva
 }
 \examples{
 \dontrun{
-  ftc_browse_dict()
+ftc_browse_dict()
 }
 }

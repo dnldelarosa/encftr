@@ -9,9 +9,6 @@ ftc_ing_intereses_dividendos(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

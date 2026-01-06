@@ -9,9 +9,6 @@ ftc_ing_otros_ocup_sec_asalariado(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

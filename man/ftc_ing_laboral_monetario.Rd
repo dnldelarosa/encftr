@@ -9,9 +9,6 @@ ftc_ing_laboral_monetario(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE)
 \arguments{
 \item{.reuse}{}
 }
-\value{
-
-}
 \description{
 Title
 }

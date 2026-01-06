@@ -14,9 +14,6 @@ ftc_ing_no_monetario_no_laboral(
 \arguments{
 \item{.reuse}{}
 }
-\value{
-
-}
 \description{
 Title
 }

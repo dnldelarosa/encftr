@@ -9,9 +9,6 @@ ftc_ing_especie_ocup_sec_asalarariado(tbl)
 \arguments{
 \item{tbl}{}
 }
-\value{
-
-}
 \description{
 Title
 }

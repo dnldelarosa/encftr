@@ -27,6 +27,6 @@ ambas o ninguna.
 }
 \examples{
 \dontrun{
-  encft <- ftc_trabajo_infantil(encft)
+encft <- ftc_trabajo_infantil(encft)
 }
 }

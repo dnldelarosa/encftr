@@ -19,6 +19,6 @@ o aquellos que no buscan y están disponibles para trabajar.
 }
 \examples{
 \dontrun{
- encft <- ftc_fuerza_trabajo_potencial(encft)
+encft <- ftc_fuerza_trabajo_potencial(encft)
 }
 }

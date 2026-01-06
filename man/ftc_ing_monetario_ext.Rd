@@ -9,9 +9,6 @@ ftc_ing_monetario_ext(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE)
 \arguments{
 \item{.reuse}{}
 }
-\value{
-
-}
 \description{
 Title
 }

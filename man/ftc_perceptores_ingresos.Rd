@@ -20,6 +20,6 @@ Población ocupada perceptora de ingresos
 }
 \examples{
 \dontrun{
-  encft <- ftc_perceptores_ingresos(encft)
+encft <- ftc_perceptores_ingresos(encft)
 }
 }
