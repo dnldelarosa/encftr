@@ -19,7 +19,18 @@ ftc_factor_expansion_anual <- function(tbl){
     )
 }
 
-
+#' Factor de expansion anual
+#'   `r lifecycle::badge("deprecated")`
+#'
+#' @inheritParams ftc_factor_expansion_anual
+#' @inherit ftc_factor_expansion_anual return
+#'
+#' @export
+#' @rdname ftc_factor_exp_anual
+#'
+#' @examples
+#'   encft <- data.frame(FACTOR_EXPANSION = c(1028, 848, 400))
+#'   ftc_factor_exp_anual(encft)
 ftc_factor_exp_anual <- function(tbl) {
   deprecate_warn("0.5.0", "ftc_factor_exp_anual()", "ftc_factor_expansion_anual()")
   ftc_factor_expansion_anual(tbl)
