@@ -33,7 +33,7 @@ ftc_browse_dict <- function() {
 #'
 #'   `r lifecycle::badge("experimental")`
 #'
-#'   Vea \code{Dmisc::\link[Dmisc:db_connect]{db_connect}}
+#'   Requiere el paquete `Dmisc` para abrir la conexion a la base `encft`.
 #'
 #' @return Conexión a base de datos.
 #' @export
@@ -43,7 +43,7 @@ ftc_browse_dict <- function() {
 #' conn <- ftc_db_connect()
 #' }
 ftc_db_connect <- function() {
-  Dmisc::db_connect(db_name = "encft")
+  utils::getFromNamespace("db_connect", "Dmisc")(db_name = "encft")
 }
 
 

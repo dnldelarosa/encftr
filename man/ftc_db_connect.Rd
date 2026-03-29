@@ -16,7 +16,7 @@ Conexión a base de datos.
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \details{
-Vea \code{Dmisc::\link[Dmisc:db_connect]{db_connect}}
+Requiere el paquete \code{Dmisc} para abrir la conexion a la base \code{encft}.
 }
 \examples{
 \dontrun{

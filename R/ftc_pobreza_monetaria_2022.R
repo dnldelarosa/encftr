@@ -322,7 +322,7 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
   missing_required <- setdiff(required_cols, names(tbl))
   if (length(missing_required)) {
     stop(
-      "Faltan columnas requeridas para metodología 2022: ",
+      "Faltan columnas requeridas para metodologia 2022: ",
       paste(missing_required, collapse = ", "),
       call. = FALSE
     )
@@ -722,7 +722,7 @@ ftc_pobreza_monetaria <- function(tbl, .keep = FALSE, .reuse = FALSE) {
     details = paste(
       "Use `ftc_pobreza_monetaria_2012()`, `ftc_pobreza_monetaria_2022()`",
       "directamente.",
-      "Este wrapper se mantiene solo por compatibilidad hacia atrás."
+      "Este wrapper se mantiene solo por compatibilidad hacia atras."
     )
   )
 

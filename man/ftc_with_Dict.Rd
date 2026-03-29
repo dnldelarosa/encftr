@@ -20,6 +20,8 @@ ftc_useLabels(tbl, dict = encftr::dict, vars = NULL, ...)
 \item{subset}{\link{character}: Si especificado, solo se asignaran las etiquetas a esas variables.}
 
 \item{...}{argumentos adicionales de \code{labeler::with_Dict}}
+
+\item{vars}{\link{character}: Alias deprecated de \code{subset} mantenido por compatibilidad.}
 }
 \value{
 El dataset modificado

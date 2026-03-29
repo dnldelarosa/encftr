@@ -5,6 +5,7 @@
 #' @param tbl [data.frame]: Conexión a base de datos o dataframe con los datos
 #' @param dict [Dict]: Diccionario con las etiquetas de las variables
 #' @param subset [character]: Si especificado, solo se asignaran las etiquetas a esas variables.
+#' @param vars [character]: Alias deprecated de `subset` mantenido por compatibilidad.
 #' @param ... argumentos adicionales de \code{labeler::set_Dict}
 #'
 #' @return Los datos introducidos en el argumento \code{tbl} pero con etiquetas de datos
@@ -24,6 +25,7 @@ ftc_set_Dict <- function(tbl, dict = encftr::dict, subset = NULL, ...) {
 #' @param tbl [data.frame]: Conexión a base de datos o dataframe con los datos
 #' @param dict [Dict]: Diccionario con las etiquetas de las variables
 #' @param subset [character]: Si especificado, solo se asignaran las etiquetas a esas variables.
+#' @param vars [character]: Alias deprecated de `subset` mantenido por compatibilidad.
 #' @param ... argumentos adicionales de \code{labeler::with_Dict}
 #'
 #' @return El dataset modificado

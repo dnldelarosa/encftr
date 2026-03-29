@@ -20,6 +20,8 @@ ftc_setLabels(tbl, vars = NULL)
 \item{subset}{\link{character}: Si especificado, solo se asignaran las etiquetas a esas variables.}
 
 \item{...}{argumentos adicionales de \code{labeler::set_Dict}}
+
+\item{vars}{\link{character}: Alias deprecated de \code{subset} mantenido por compatibilidad.}
 }
 \value{
 Los datos introducidos en el argumento \code{tbl} pero con etiquetas de datos
