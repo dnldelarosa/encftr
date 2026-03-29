@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 .RData
+README.html
 inst/doc
 docs
 data-raw/

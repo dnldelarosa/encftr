@@ -5,94 +5,75 @@
 
 <!-- badges: start -->
 
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R build
-status](https://github.com/endomer-py/encftr/workflows/R-CMD-check/badge.svg)](https://github.com/endomer-py/encftr/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/endomer-py/encftr/branch/master/graph/badge.svg)](https://codecov.io/gh/endomer-py/encftr?branch=master)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/encftr)](https://CRAN.R-project.org/package=encftr)
+[![R-CMD-check](https://github.com/endomer-py/encftr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/endomer-py/encftr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-`encftr` es una interfaz para trabajar con la base de datos de la
-Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R.
+`encftr` es un paquete para trabajar con la Encuesta Nacional Continua
+de Fuerza de Trabajo (ENCFT) en R. Incluye utilidades para etiquetar
+variables, construir indicadores derivados y calcular pobreza monetaria
+con las metodologias 2012 y 2022.
 
-## Instalación
+## Instalacion
 
-`encftr` aun no está en CRAN.
+`encftr` no esta publicado en CRAN.
 
-<!-- You can install the released version of encftr from [CRAN](https://CRAN.R-project.org) with: -->
-<!-- ``` r -->
-<!-- install.packages("encftr") -->
-<!-- ``` -->
-
-Pero puedes instalar la versión de desarrollo desde
-[GitHub](https://github.com/) con:
+Puedes instalar la version de desarrollo desde GitHub con:
 
 ``` r
-tryCatch(
-  library(remotes),
-  error = function(e){
-    install.packages('remotes')
-  }
-)
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+
 remotes::install_github("endomer-py/encftr")
 ```
 
-## Roadmap
+## Pobreza monetaria
 
-1.  Completar el diccionario.
+El paquete expone tres entradas para pobreza monetaria:
 
-  <svg width="50%" height="25" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;">
-  <linearGradient id="a" x2="0" y2="100%">
-    <stop offset="0" stop-color="#bbb" stop-opacity="0.2"/>
-  <stop offset="1" stop-opacity="0.1"/>
-    </linearGradient>
-    <rect rx="4" x="0" width="50%" height="25" fill="#555"/>
-    <rect rx="4" x="0" width="309%" height="25" fill="#5cb85c"/>
-    <rect rx="4" width="50%" height="25" fill="url(#a)"/>
-    <g fill="#fff" text-anchor="middle" font-family=DejaVu Sans,Verdana,Geneva,sans-serif font-size="14">
-    <text x="154%" y="17.5">618626</text>
-    </g>
-    </svg>
-    
+- `ftc_pobreza_monetaria()` mantiene la ruta historica de 2012 y esta
+  `deprecated`.
+- `ftc_pobreza_monetaria_2012()` es la entrada explicita para la
+  metodologia 2012.
+- `ftc_pobreza_monetaria_2022()` es la entrada explicita para la
+  metodologia 2022.
 
-2.  Agregar una función para calcular la pobreza monetaria.
-3.  Agregar una función para el cálculo del ICV.
-4.  Agregar validadores a las funciones para garantizar que las
-    variables son del tipo y con el contenido esperado en los cálculos.
-5.  Escribir tests
-6.  Hacer que todas las funciones trabajen con conexiones a base de
-    datos (Las que usan cut3 específicamente).
+La recomendacion es llamar directamente a la funcion de la metodologia
+que corresponda a tu flujo de trabajo.
 
-## Contribuye
+``` r
+encft_2012 <- ftc_pobreza_monetaria_2012(encft)
+encft_2022 <- ftc_pobreza_monetaria_2022(encft)
+```
 
-Tienes comentarios o quieres contribuir?
+Si tu tabla de entrada es amplia, `ftc_select_variables_pobreza()` ayuda
+a quedarte solo con los insumos relevantes antes del calculo.
 
-Por favor, revisa las [gias de contribución (en
-inglés)](https://endomer-py.github.io/encftr/CONTRIBUTING.html).
+## Documentacion
 
-Ten en cuenta que el proyecto `encftr` está sujeto a un [Código del
-contribuyente](https://contributor-covenant.org/es/version/2/0/CODE_OF_CONDUCT.html).
-Contribuyendo con el proyecto aceptas los términos y condiciones.
+La documentacion principal del paquete esta en el sitio pkgdown:
 
-<hr/>
+- Sitio del paquete: <https://endomer-py.github.io/encftr/>
+- Introduccion:
+  <https://endomer-py.github.io/encftr/articles/encftr.html>
+- Pobreza monetaria:
+  <https://endomer-py.github.io/encftr/articles/pobreza-monetaria.html>
+- Diccionario de variables:
+  <https://endomer-py.github.io/encftr/articles/diccionario.html>
 
-<a href="./articles/encftr.html">
-  <svg width="50%" height="30" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;">
-  <linearGradient id="a" x2="0" y2="100%">
-    <stop offset="0" stop-color="#bbb" stop-opacity="0.2"/>
-  <stop offset="1" stop-opacity="0.1"/>
-    </linearGradient>
-    <rect rx="4" x="0" width="50%" height="30" fill="#555"/>
-    <rect rx="4" x="0" width="50%" height="30" fill="#00a65a"/>
-    <rect rx="4" width="50%" height="30" fill="url(#a)"/>
-    <g fill="#fff" text-anchor="middle" font-size="18">
-    <text x="25%" y="21">Guía de inicio rápido</text>
-    </g>
-    </svg>
-    </a>
+## Cobertura actual
+
+- Etiquetado y uso del diccionario de variables.
+- Indicadores derivados y utilidades de procesamiento sobre la ENCFT.
+- Calculo de pobreza monetaria con metodologias 2012 y 2022.
+- Vinetas de introduccion, pobreza monetaria y diccionario.
+
+## Contribuir
+
+Si quieres reportar un problema o proponer cambios:
+
+- Issues: <https://github.com/endomer-py/encftr/issues>
+- Codigo de conducta:
+  <https://github.com/endomer-py/encftr/blob/main/CODE_OF_CONDUCT.md>

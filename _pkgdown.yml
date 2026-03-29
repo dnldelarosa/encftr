@@ -8,13 +8,12 @@ template:
 
 lang: es
 
-
 authors:
   Daniel E. de la Rosa:
-    href: http://dnldelarosa.com
+    href: https://dnldelarosa.com
   Adatar:
     html: <div><img src="https://raw.githubusercontent.com/adatar-do/adatar-do.github.io/main/logotipo.png" alt="Adatar" height="20"> <span style="font-weight:900; margin:10px;">Adatar</span></div>
-    href: http://adatar.do
+    href: https://adatar.do
   sidebar:
     roles: [aut, cph]
 
@@ -30,16 +29,15 @@ navbar:
       text: Referencia
       href: reference/index.html
     articles:
-      text: Artículos
+      text: Articulos
       menu:
-        - text: Introducción a encftr
+        - text: Introduccion a encftr
           href: articles/encftr.html
-        - text: Cálculo de Pobreza Monetaria
-          href: articles/_pobreza_monetaria.html
+        - text: Pobreza monetaria
+          href: articles/pobreza-monetaria.html
     dictionary:
       text: Diccionario
       href: articles/diccionario.html
     news:
       text: Novedades
       href: news/index.html
-
