@@ -11,4 +11,7 @@
 ^data-raw$
 ^contributors\.R$
 ^contributors\.csv$
-^Files/$
+^Files$
+^Files/
+^vignettes/_pobreza_monetaria\.Rmd$
+^vignettes/_pobreza_monetaria\.0Rmd$

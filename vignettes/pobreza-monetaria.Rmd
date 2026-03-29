@@ -1,0 +1,94 @@
+---
+title: "Pobreza monetaria"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Pobreza monetaria}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(encftr)
+```
+
+## API pública
+
+El paquete expone tres entradas para pobreza monetaria:
+
+- `ftc_pobreza_monetaria()`: wrapper **deprecated** que se conserva por compatibilidad y sigue usando la metodología 2012.
+- `ftc_pobreza_monetaria_2012()`: entrada explícita para la metodología 2012.
+- `ftc_pobreza_monetaria_2022()`: entrada explícita para la metodología 2022.
+
+La recomendación es llamar directamente a la metodología que corresponda a tu flujo de trabajo.
+
+## Metodología 2012
+
+La ruta 2012 mantiene la semántica histórica del paquete y conserva los argumentos `.keep` y `.reuse`.
+
+```{r, eval = FALSE}
+encft_2012 <- ftc_pobreza_monetaria_2012(
+  encft,
+  .keep = FALSE,
+  .reuse = FALSE
+)
+```
+
+El wrapper deprecated continúa disponible para no romper código existente:
+
+```{r, eval = FALSE}
+encft_2012 <- ftc_pobreza_monetaria(encft)
+```
+
+## Metodología 2022
+
+La ruta 2022 implementa la metodología nueva con líneas macroregionales y deflactación regional. Requiere una base con identificadores del hogar y variables adicionales de ingresos, región y moneda.
+
+Columnas mínimas esperadas por la función:
+
+- `PERIODO`
+- `TRIMESTRE`
+- `VIVIENDA`
+- `HOGAR`
+- `GRUPO_REGION`
+- `ID_PROVINCIA`
+
+En la práctica, la función necesita además las variables de ingresos y remesas usadas por la metodología.
+
+```{r, eval = FALSE}
+encft_2022 <- ftc_pobreza_monetaria_2022(
+  encft,
+  .keep = FALSE
+)
+```
+
+La salida agrega, entre otras, estas variables:
+
+- `macro_region_pobreza`
+- `ing_total_pobreza_def`
+- `ing_pc_pobreza_def`
+- `linea_pobreza`
+- `linea_pobreza_extrema`
+- `pobreza_monetaria`
+- `pobre`
+- `indigente`
+
+## Selección de variables
+
+Si tu flujo de trabajo parte de una tabla amplia y quieres conservar sólo los insumos relevantes para pobreza monetaria, puedes usar `ftc_select_variables_pobreza()` antes del cálculo.
+
+```{r, eval = FALSE}
+encft_pobreza <- encft |>
+  ftc_select_variables_pobreza()
+```
+
+## Notas
+
+- La metodología 2022 fue integrada como una función nueva para no cambiar silenciosamente el comportamiento de `ftc_pobreza_monetaria()`.
+- Si estás migrando código existente, la transición recomendada es reemplazar `ftc_pobreza_monetaria()` por `ftc_pobreza_monetaria_2012()` o `ftc_pobreza_monetaria_2022()`, según corresponda.

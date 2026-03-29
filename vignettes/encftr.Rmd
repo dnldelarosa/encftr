@@ -2,7 +2,7 @@
 title: "Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{encftr}
+  %\VignetteIndexEntry{Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -59,6 +59,8 @@ Para mostrar algunas funcionalidades de la librería utilizaremos un pequeño da
 encft <- encftr::encft
 glimpse(encft)
 ```
+
+Si tu flujo de trabajo incluye pobreza monetaria, consulta tambiÃ©n la viÃ±eta `Pobreza monetaria`, donde se documentan las entradas pÃºblicas `ftc_pobreza_monetaria()`, `ftc_pobreza_monetaria_2012()` y `ftc_pobreza_monetaria_2022()`.
 
 
 Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como `magrittr::%>%` o `base::|>`.
