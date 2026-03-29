@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_autoconsumo_autosuministro}
 \alias{ftc_ing_autoconsumo_autosuministro}
-\title{Title}
+\title{ftc_ing_autoconsumo_autosuministro}
 \usage{
 ftc_ing_autoconsumo_autosuministro(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_autoconsumo_autosuministro
+}
+\examples{
+NULL
 }

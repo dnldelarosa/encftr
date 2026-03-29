@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_especie_ocup_sec_asalarariado}
 \alias{ftc_ing_especie_ocup_sec_asalarariado}
-\title{Title}
+\title{ftc_ing_especie_ocup_sec_asalarariado}
 \usage{
 ftc_ing_especie_ocup_sec_asalarariado(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_especie_ocup_sec_asalarariado
+}
+\examples{
+NULL
 }

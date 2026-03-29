@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_alquileres_renta}
 \alias{ftc_ing_alquileres_renta}
-\title{Title}
+\title{ftc_ing_alquileres_renta}
 \usage{
 ftc_ing_alquileres_renta(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_alquileres_renta
+}
+\examples{
+NULL
 }

@@ -2,13 +2,21 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_alquiler_imputado}
 \alias{ftc_ing_alquiler_imputado}
-\title{Title}
+\title{ftc_ing_alquiler_imputado}
 \usage{
 ftc_ing_alquiler_imputado(tbl, deflactar = TRUE)
 }
 \arguments{
-\item{deflactar}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+
+\item{deflactar}{Logico; si TRUE, aplica deflactacion cuando corresponde.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_alquiler_imputado
+}
+\examples{
+NULL
 }

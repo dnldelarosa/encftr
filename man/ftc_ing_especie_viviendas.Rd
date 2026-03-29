@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_especie_viviendas}
 \alias{ftc_ing_especie_viviendas}
-\title{Title}
+\title{ftc_ing_especie_viviendas}
 \usage{
 ftc_ing_especie_viviendas(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_especie_viviendas
+}
+\examples{
+NULL
 }

@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_pension_jubilacion_anual}
 \alias{ftc_ing_pension_jubilacion_anual}
-\title{Title}
+\title{ftc_ing_pension_jubilacion_anual}
 \usage{
 ftc_ing_pension_jubilacion_anual(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_pension_jubilacion_anual
+}
+\examples{
+NULL
 }

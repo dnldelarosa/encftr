@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_mensual_ocup_sec_independiente}
 \alias{ftc_ing_mensual_ocup_sec_independiente}
-\title{Title}
+\title{ftc_ing_mensual_ocup_sec_independiente}
 \usage{
 ftc_ing_mensual_ocup_sec_independiente(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_mensual_ocup_sec_independiente
+}
+\examples{
+NULL
 }

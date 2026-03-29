@@ -2,13 +2,19 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_regalos_ext}
 \alias{ftc_ing_regalos_ext}
-\title{Title}
+\title{ftc_ing_regalos_ext}
 \usage{
 ftc_ing_regalos_ext(tbl)
 }
 \arguments{
-\item{tbl}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_regalos_ext
+}
+\examples{
+NULL
 }

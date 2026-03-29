@@ -2,13 +2,25 @@
 % Please edit documentation in R/ftc_pobreza_monetaria.R
 \name{ftc_ing_laboral_monetario}
 \alias{ftc_ing_laboral_monetario}
-\title{Title}
+\title{ftc_ing_laboral_monetario}
 \usage{
 ftc_ing_laboral_monetario(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE)
 }
 \arguments{
-\item{.reuse}{}
+\item{tbl}{Data frame con los datos de la encuesta.}
+
+\item{deflactar}{Logico; si TRUE, aplica deflactacion cuando corresponde.}
+
+\item{.keep}{Lista de variables intermedias a mantener en el output.}
+
+\item{.reuse}{Lista de variables intermedias a reutilizar del input.}
+}
+\value{
+El input con la variable calculada agregada.
 }
 \description{
-Title
+ftc_ing_laboral_monetario
+}
+\examples{
+NULL
 }
