@@ -1,0 +1,6 @@
+{
+  "ref": "refs/heads/master",
+  "head_commit": {
+    "message": "release: publicar paquete"
+  }
+}

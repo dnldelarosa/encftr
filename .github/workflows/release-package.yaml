@@ -1,0 +1,77 @@
+name: release-package
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  release-package:
+    if: startsWith(github.event.head_commit.message, 'release:')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install R for act
+        if: ${{ env.ACT == 'true' }}
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends r-base
+
+      - uses: r-lib/actions/setup-r@v2
+        if: ${{ env.ACT != 'true' }}
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Read package metadata
+        id: package
+        shell: bash
+        run: |
+          package_name="$(sed -n 's/^Package:[[:space:]]*//p' DESCRIPTION | head -n1)"
+          package_version="$(sed -n 's/^Version:[[:space:]]*//p' DESCRIPTION | head -n1)"
+
+          if [[ -z "$package_name" || -z "$package_version" ]]; then
+            echo "Package metadata not found in DESCRIPTION" >&2
+            exit 1
+          fi
+
+          echo "name=$package_name" >> "$GITHUB_OUTPUT"
+          echo "version=$package_version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$package_version" >> "$GITHUB_OUTPUT"
+          echo "asset=${package_name}_${package_version}.tar.gz" >> "$GITHUB_OUTPUT"
+
+      - name: Build source tarball
+        shell: bash
+        run: |
+          mkdir -p dist
+          R CMD build . --no-manual --no-build-vignettes
+          mv "${{ steps.package.outputs.asset }}" "dist/${{ steps.package.outputs.asset }}"
+
+      - name: Verify tarball in act
+        if: ${{ env.ACT == 'true' }}
+        shell: bash
+        run: test -f "dist/${{ steps.package.outputs.asset }}"
+
+      - name: Create or update GitHub release
+        if: ${{ env.ACT != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          asset_path="dist/${{ steps.package.outputs.asset }}"
+
+          if gh release view "${{ steps.package.outputs.tag }}" >/dev/null 2>&1; then
+            gh release upload "${{ steps.package.outputs.tag }}" "$asset_path" --clobber
+          else
+            gh release create "${{ steps.package.outputs.tag }}" "$asset_path" \
+              --title "${{ steps.package.outputs.tag }}" \
+              --generate-notes \
+              --target "${{ github.sha }}"
+          fi
