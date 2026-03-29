@@ -438,14 +438,14 @@ ftc_ing_beneficios_marginales <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_otros_ocup_sec_asalariado
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_otros_ocup_sec_asalariado <- function(tbl) {
 
   # Ingreso monetario mensual de otros ingresos monetarios mensuales por ocupación secundaria asalariada----
@@ -461,14 +461,14 @@ ftc_ing_otros_ocup_sec_asalariado <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_beneficios_marginales_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_beneficios_marginales_anual <- function(tbl) {
 
   # Ingreso monetario mensual de otros ingresos por beneficios marginales anuales en ocupación secundaria asalariada----
@@ -483,14 +483,14 @@ ftc_ing_beneficios_marginales_anual <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_especie_alimentos
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_alimentos <- function(tbl) {
 
   # Ingreso en especie por alimentos adicional mensual por ocupacion principal----
@@ -504,14 +504,14 @@ ftc_ing_especie_alimentos <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_viviendas
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_viviendas <- function(tbl) {
 
   # Ingreso en especie por pago de viviendas adicional mensual por ocupacion principal----
@@ -525,14 +525,14 @@ ftc_ing_especie_viviendas <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_transporte
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_transporte <- function(tbl) {
 
   # Ingreso en especie por pago de transporte adicional mensual por ocupacion principal----
@@ -547,14 +547,14 @@ ftc_ing_especie_transporte <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_combustible
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_combustible <- function(tbl) {
 
   # Ingreso en especie por pago de combustible mensual por ocupacion principal----
@@ -569,14 +569,14 @@ ftc_ing_especie_combustible <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_celular
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_celular <- function(tbl) {
 
   # Ingreso en especie por pago de celular adicional mensual por ocupaciones----
@@ -591,14 +591,14 @@ ftc_ing_especie_celular <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_otros
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_otros <- function(tbl) {
 
   # Otros ingresos en especie ocupación principal asalariado----
@@ -612,14 +612,14 @@ ftc_ing_especie_otros <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_cuenta_propia
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_cuenta_propia <- function(tbl) {
 
   # Ingreso en especie ocupación principal patronos y cuenta propia----
@@ -633,14 +633,14 @@ ftc_ing_especie_cuenta_propia <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_ocup_sec_asalarariado
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_ocup_sec_asalarariado <- function(tbl) {
 
   # Ingreso en especie ocupación secundaria asalariado----
@@ -655,14 +655,14 @@ ftc_ing_especie_ocup_sec_asalarariado <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_especie_ocup_sec_cuenta_propia
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_ocup_sec_cuenta_propia <- function(tbl) {
 
   # Ingreso en especie ocupación secundaria patronos y cuenta propia----
@@ -676,14 +676,14 @@ ftc_ing_especie_ocup_sec_cuenta_propia <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_mensual_ocup_sec_asalariado
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_mensual_ocup_sec_asalariado <- function(tbl) {
 
   # Ingreso monetario mensual por ocupación secundaria asalariada----
@@ -718,14 +718,14 @@ ftc_ing_mensual_ocup_sec_asalariado <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_mensual_ocup_sec_independiente
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_mensual_ocup_sec_independiente <- function(tbl) {
 
   # Ingreso monetario mensual por ocupación secundaria independiente agropecuario o contratista----
@@ -740,14 +740,14 @@ ftc_ing_mensual_ocup_sec_independiente <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_mensual_ocup_sec_cuenta_propia
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_mensual_ocup_sec_cuenta_propia <- function(tbl) {
 
   # Ingreso monetario mensual por ocupacion secundaria para cuenta propia o patron----
@@ -798,14 +798,14 @@ ftc_ing_mensual_ocup_sec_cuenta_propia <- function(tbl) {
     dplyr::select(-c(ingsecctaprop, perisecctaprop, diassecctaprop))
 }
 
-#' Title
+#' ftc_ing_pension_jubilacion
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_pension_jubilacion <- function(tbl) {
   # Ingreso monetario no laboral por pensión o jubilación----
   tbl %>%
@@ -820,14 +820,14 @@ ftc_ing_pension_jubilacion <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_intereses_dividendos
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_intereses_dividendos <- function(tbl) {
   # Ingreso monetario no laboral por Intereses o dividendos----
   tbl %>%
@@ -841,14 +841,14 @@ ftc_ing_intereses_dividendos <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_alquileres_renta
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_alquileres_renta <- function(tbl) {
   # Ingreso monetario no laboral por alquileres o rentas de propiedades----
   tbl %>%
@@ -862,14 +862,14 @@ ftc_ing_alquileres_renta <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_remesas_nacionales
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_remesas_nacionales <- function(tbl) {
   # Ingreso monetario no laboral por remesas nacionales----
   tbl %>%
@@ -883,14 +883,14 @@ ftc_ing_remesas_nacionales <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_pension_jubilacion_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_pension_jubilacion_anual <- function(tbl) {
   # Ingreso monetario no laboral por pensión o jubilación, anual----
   tbl %>%
@@ -903,14 +903,14 @@ ftc_ing_pension_jubilacion_anual <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_intereses_dividendos_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_intereses_dividendos_anual <- function(tbl) {
   # Ingreso monetario no laboral por Intereses o dividendos, anual----
   tbl %>%
@@ -923,14 +923,14 @@ ftc_ing_intereses_dividendos_anual <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_alquileres_renta_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_alquileres_renta_anual <- function(tbl) {
 
   # Ingreso monetario no laboral por alquileres o rentas de propiedades, anual----
@@ -944,14 +944,14 @@ ftc_ing_alquileres_renta_anual <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_remesas_nacionales_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_remesas_nacionales_anual <- function(tbl) {
 
   # Ingreso monetario no laboral por remesas nacionales, anual----
@@ -966,14 +966,14 @@ ftc_ing_remesas_nacionales_anual <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_especie_ayuda_ong
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_ayuda_ong <- function(tbl) {
 
   # Ingreso en especie no laboral por ayuda de familiares, no familiares e instituciones---
@@ -990,14 +990,14 @@ ftc_ing_especie_ayuda_ong <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_especie_ayuda_ong_anual
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_especie_ayuda_ong_anual <- function(tbl) {
 
   # Ingreso en especie no laboral por ayuda de familiares, no familiares e instituciones---
@@ -1013,14 +1013,14 @@ ftc_ing_especie_ayuda_ong_anual <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_autoconsumo_autosuministro
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_autoconsumo_autosuministro <- function(tbl) {
 
   # Ingreso en especie no laboral por autoconsumo y auto suministro----
@@ -1039,14 +1039,14 @@ ftc_ing_autoconsumo_autosuministro <- function(tbl) {
     dplyr::select(-autoconsumoprin)
 }
 
-#' Title
+#' ftc_ing_pension_ext
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_pension_ext <- function(tbl) {
 
   # Ingresos mensuales externos por pensión----
@@ -1082,14 +1082,14 @@ ftc_ing_pension_ext <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_intereses_dividendos_ext
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_intereses_dividendos_ext <- function(tbl) {
 
   # Ingresos mensuales externos por intereses o dividendos en RD$----
@@ -1119,14 +1119,14 @@ ftc_ing_intereses_dividendos_ext <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_alquileres_renta_ext
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_alquileres_renta_ext <- function(tbl) {
 
   # Ingresos mensuales externos por alquileres---
@@ -1155,14 +1155,14 @@ ftc_ing_alquileres_renta_ext <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_regalos_ext
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_regalos_ext <- function(tbl) {
 
   # Ingresos externos por regalos----
@@ -1177,14 +1177,14 @@ ftc_ing_regalos_ext <- function(tbl) {
     )
 }
 
-#' Title
+#' ftc_ing_remesas_ext
 #'
-#' @param tbl
+#' @param tbl Data frame con los datos de la encuesta.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_remesas_ext <- function(tbl) {
   tbl <- tbl
 
@@ -1347,15 +1347,15 @@ ftc_ing_remesas_ext <- function(tbl) {
 }
 
 
-#' Title
+#' ftc_ing_alquiler_imputado
 #'
-#' @param tbl
-#' @param deflactar
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_alquiler_imputado <- function(tbl, deflactar = TRUE) {
 
   # Monto probable de alquiler vivienda no alquilada----
@@ -1384,17 +1384,17 @@ ftc_ing_alquiler_imputado <- function(tbl, deflactar = TRUE) {
   }
 
 
-#' Title
+#' ftc_ing_laboral_monetario
 #'
-#' @param tbl
-#' @param deflactar
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_laboral_monetario <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
   # - [ ] TODO: NO hay algunos no monetarios aquí?
   ingresos <- c(
@@ -1493,17 +1493,17 @@ ftc_ing_laboral_monetario <- function(tbl, deflactar = TRUE, .keep = FALSE, .reu
     dplyr::select(-c(ml_1, ml_2, ml_3, ml_1_def, ml_3_def))
 }
 
-#' Title
+#' ftc_ing_no_monetario_laboral
 #'
-#' @param tbl
-#' @param deflactar
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_no_monetario_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
   ingresos <- c(
     "ing_especie_ocup_sec_cuenta_propia",
@@ -1568,17 +1568,17 @@ ftc_ing_no_monetario_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .
     dplyr::select(-dplyr::all_of(ingresos))
 }
 
-#' Title
+#' ftc_ing_monetario_no_laboral
 #'
-#' @param tbl
-#' @param deflactar
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_monetario_no_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
   ingresos <- c(
     "ing_remesas_nacionales",
@@ -1652,17 +1652,17 @@ ftc_ing_monetario_no_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .
     dplyr::select(-c(mnl_1, mnl_2, mnl_2_def))
 }
 
-#' Title
+#' ftc_ing_no_monetario_no_laboral
 #'
-#' @param tbl
-#' @param deflactar
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_no_monetario_no_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
   ingresos <- c(
     "ing_autoconsumo_autosuministro",
@@ -1724,15 +1724,15 @@ ftc_ing_no_monetario_no_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE
     dplyr::select(-dplyr::all_of(ingresos))
 }
 
-#' Title
+#' ftc_ing_transferencias_sociales
 #'
-#' @param tbl
-#' @param deflactar
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_transferencias_sociales <- function(tbl, deflactar = TRUE) {
     # Ingreso monetario no laboral por ayuda del gobierno----
    tbl<- tbl %>% mutate(
@@ -1850,17 +1850,17 @@ ftc_ing_transferencias_sociales <- function(tbl, deflactar = TRUE) {
   tbl
 }
 
-#' Title
+#' ftc_ing_monetario_ext
 #'
-#' @param tbl
-#' @param deflactar
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param deflactar Logico; si TRUE, aplica deflactacion cuando corresponde.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_monetario_ext <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse = FALSE) {
   tbl <- tbl %>%
     dplyr::mutate(dplyr::across(dplyr::contains("_EXT_MONEDA"), as.character))
@@ -1939,16 +1939,16 @@ ftc_ing_monetario_ext <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse =
     dplyr::select(-c(mext_1, mext_2, mext_1_def, mext_2_def))
 }
 
-#' Title
+#' ftc_ing_total_pobreza
 #'
-#' @param tbl
-#' @param .keep
-#' @param .reuse
+#' @param tbl Data frame con los datos de la encuesta.
+#' @param .keep Lista de variables intermedias a mantener en el output.
+#' @param .reuse Lista de variables intermedias a reutilizar del input.
 #'
-#' @return
+#' @return El input con la variable calculada agregada.
 #' @export
 #'
-#' @examples
+#' @examples NULL
 ftc_ing_total_pobreza <- function(tbl, .keep = FALSE, .reuse = FALSE) {
   ingresos <- c(
     "ing_alquiler_imputado",
@@ -2097,14 +2097,15 @@ ftc_ing_pc_pobreza_def <- function(tbl, .keep = FALSE, .reuse = FALSE){
 #'      \item pobreza_monetaria: Pobreza monetaria
 #'    }
 #'
-#' @export
+#' @keywords internal
 #'
 #' @examples
 #' \dontrun{
 #' tbl <- ftc_pobreza_zona(tbl, conn)
 #' }
+#' @noRd
 #'
-ftc_pobreza_monetaria <- function(tbl, .keep = FALSE, .reuse = FALSE) {
+ftc_pobreza_monetaria_2012_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) {
 
   tbl <- tbl %>%
     #left_join(tipo_cambio, by = "PERIODO") %>%
