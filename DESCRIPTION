@@ -28,7 +28,7 @@ Imports:
     tidyr
 Remotes:
     dnldelarosa/Dmisc,
-    adatar-do/labeler
+    dnldelarosa/labeler@cf78c2c54908a66f399eaeb3c1f784fe8799d20f
 Roxygen: list(markdown = TRUE)
 URL: https://endomer-py.github.io/encftr/, https://github.com/endomer-py/encftr
 BugReports: https://github.com/endomer-py/encftr/issues
