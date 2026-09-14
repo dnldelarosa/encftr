@@ -1,107 +1,29 @@
 ---
-title: "Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R"
+title: "Empezar con ENCFT"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) en R}
+  %\VignetteIndexEntry{Empezar con ENCFT}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+encftr 0.10.0 y endompy 0.3.0 preparan y analizan respuestas de personas de la Encuesta Nacional Continua de Fuerza de Trabajo. Incluyen etiquetas, educación, trabajo, ingresos, indicadores del hogar, pobreza monetaria 2012/2022 e índice de ingresos del hogar (IIH).
 
-"_El objetivo general de la Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) consiste en proporcionar información estadística amplia y precisa sobre las distintas variables laborales, sociodemográficas y económicas que permita caracterizar y analizar la dinámica y heterogeneidad del mercado de trabajo en la República Dominicana y por consiguiente fortalecer y mejorar el diseño y formulación de las políticas y programas socio laborales del país. Además, tiene el propósito de dar seguimiento a la estimación de la pobreza monetaria estimada a través del ingreso de los hogares y las líneas oficiales de pobreza consensuadas para medir la misma en el país._" (BCRD, 2016)
+Instale primero labeler >= 0.11.0 en R o labelerpy >= 0.2.1 en Python. La entrega contiene los paquetes locales para instalar sin depender de que esas versiones estén publicadas. Los paquetes de R necesitan R >= 4.1; Python admite Python >= 3.9 con pandas >= 1.5. Consulte la guía de despliegue para construir e instalar desde los archivos de entrega.
 
-A continuación, se presentan una tabla resumen con algunos detalles de interés acerca de la encuesta. Para mayor especificidad consulta el [Diseño muestral](https://github.com/endomer-py/encftr/tree/master/Files), el [Manual del Encuestador](https://github.com/endomer-py/encftr/tree/master/Files) y el [Boletín informativo No. I de la ENFT](https://github.com/endomer-py/encftr/tree/master/Files). También están disponibles las [Presentaciones de lanzamiento](https://github.com/endomer-py/encftr/tree/master/Files) de la encuesta donde además podrás encontrar la forma correcta de realizar algunos cálculos, aunque la mayoría, sino todos, ya se encuentran implementados en las funciones de esta librería.
+El ejemplo incluido es completamente sintético: 12 personas, cuatro hogares a través de los períodos y claves ficticias. No contiene microdatos de la encuesta. Las funciones devuelven una tabla con los resultados y mantienen las filas originales, salvo cuando se solicita explícitamente una salida por hogar del IIH.
 
-|Especificaciones del Diseño					              |Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT)                                                                                                   |
-|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Población objeto de estudio					              |Las personas residentes en los hogares de las viviendas particulares ocupadas de la República Dominicana.                                                 |
-|Cobertura geográfica					                      |Todo el territorio nacional, incluyendo las islas aledañas.                                                                                               |
-|Marco censal de referencia					                |IX Censo Nacional de Población y Vivienda realizado en diciembre del año 2010.                                                                            |
-|Distribución geográfica de la población            |75.0% en al área urbana y 25.0% en la zona rural.															                                                                           |
-|Tipo de muestreo					                          |Probabilístico, estratificado, continuo, replicado y bietápico.															                                                             |
-|Variable de diseño					                        |Tasa de desocupación abierta y otras variables del mercado de trabajo.      														                                                   |
-|Nivel de confianza					                        |90% de confianza en la muestra (Z=1.645) para indicadores laborales.															                                                         |
-|Máximo error esperado					                    |Error de 2% en la estimación de los indicadores laborales.															                                                                   |
-|Tasa de no respuesta mínima esperada		            |Tasa de no respuesta de 22%, basado en la ENFT anteriores.															                                                                   |
-|Dominio de estimación o inferencia estadística			|a) Gran Santo Domingo, Norte o Cibao, Este y Sur.	<br/>	b) Total país, zona urbana y zona rural. <br/> c) Gran Santo Domingo, resto urbano y resto rural.|											
-|Estratificación geográfica					                |23 estratos geográficos con 5 réplicas o submuestras en cada uno; formado en base a la zona de residencia reportada por el Censo Nacional 2010.					 |
-|Asignación o distribución de la muestra por dominio|Asignación óptima en los dominios de estudios y proporcional a la población por zona de residencia en los estratos geográficos.                           |
-|Tamaño de muestra					                        |Se escogen 8,480 viviendas por trimestre en 1,060 segmentos censales o UPM's.															                                               |
-|Selección de la muestra                            | a) Los segmentos censales se definieron como las unidades primarias de muestreo (UPM) y se seleccionaron con probabilidad proporcional al tamaño (PPT). <br/> b) Las unidades secundarias de muestreo (USM) son las viviendas y se seleccionan 8 por UPM con igual probabilidad, tanto en zona urbana como rural.|
-|Traslape o solapamiento de viviendas					      |80% de las viviendas son comunes en dos trimestres consecutivos y un 20% en el mismo trimestre de dos años contiguos. Se rota 1 réplica equivalente al 20% del total de viviendas del trimestre.	|
-|Levantamiento en campo					                    |Forma continua a lo largo de 48 semanas durante el año y 12 semanas en el trimestre.|
-|Período de referencia de estimación					      |A mitad del trimestre de levantamiento de la Encuesta.	|
-|Factores de expansión					                    |1,060 factores de expansión por trimestre calculados en base a: muestra efectiva, tasa de respuesta, actualizaciones cartográficas en las UPM’s y las proyecciones oficiales de población por zona de residencia realizadas por la ONE (2014-2015).|
-|Nomenclaturas					                            |a) Clasificación Internacional Uniforme de Ocupaciones (CIUO-08).	<br/>	b) Clasificación Industrial Internacional Uniforme de todas las Actividades Económicas (CIIU, Rev.4).	|
-|Divulgación de resultados					                |Trimestrales.|
-Table: **Diseño de Muestra de la Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT)**
+Calcule los pesos antes de filtrar personas. El divisor anual es el número de trimestres distintos observados dentro de cada año; el semestral se calcula dentro de cada año y semestre. Una muestra de dos trimestres no equivale a observar un año completo. Si el extracto no contiene períodos y usted conoce su cobertura, declare `periods = 4` para el anual o `periods = 2` para el semestral. Sin esa declaración, el cálculo falla.
 
-### ¿Dónde puedo conseguir los datos de la encuesta? {-}
+`TRIMESTRE` acepta AAAAT (por ejemplo 20191), o 1–4 acompañado de `ANO`. Los identificadores y períodos no pueden estar ausentes. Los pesos ausentes se conservan; pesos negativos, infinitos o de tipo lógico se rechazan.
 
-Para conseguir los datos de la encuesta es necesario hacer una solicitud vía correo electrónico a la Oficina de Libre Acceso a la Información Pública del Banco Central de la República Dominicana.
-
-## Algunos cruces básicos y detalles finales utilizando la librería
+R usa nombres `ftc_*`; Python ofrece los mismos nombres sin prefijo y alias `ftc_*` para migrar scripts. Las operaciones también están disponibles en `EncftDataFrame` y se pueden encadenar. Las convenciones de tipos son nativas: R usa factores y valores NA; Python usa categorías y tipos anulables de pandas.
 
 ```{r}
-# devtools::load_all(".")
 library(encftr)
-library(dplyr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-members.json", package = "encftr"))
+y <- ftc_factor_expansion_anual(x)
+y <- ftc_anos_educacion(y)
+stopifnot(nrow(y) == 12, all(y$factor_expansion_anual == 60))
+head(y[c("PERIODO", "EDAD", "anos_educacion", "factor_expansion_anual")])
 ```
-
-Para mostrar algunas funcionalidades de la librería utilizaremos un pequeño data.frame que simulará los datos de la encuesta. El archivo tiene la siguiente estructura.
-```{r}
-encft <- encftr::encft
-glimpse(encft)
-```
-
-Si tu flujo de trabajo incluye pobreza monetaria, consulta tambiÃ©n la viÃ±eta `Pobreza monetaria`, donde se documentan las entradas pÃºblicas `ftc_pobreza_monetaria()`, `ftc_pobreza_monetaria_2012()` y `ftc_pobreza_monetaria_2022()`.
-
-
-Para el procesamiento de la encuesta puedes utilizar las funiones suministradas de la forma convencional o utilizar operadores pipe como `magrittr::%>%` o `base::|>`.
-
-Como se mencionó antes la ENCFT es una encuesta trimestral por lo que el factor de expansión<!-- ^[Si quieres leer sobre como trabajar con datos de encuesta en R. Lee la siguiente publicación: []()] --> es trimestral.
-```{r}
-encft %>%
-  group_by(TRIMESTRE) %>%
-  summarise(sum(FACTOR_EXPANSION))
-```
-
-Para trabajar con los datos en frecuencia anual debes transformar el factor de expansión.
-```{r}
-encft %>%
-  ftc_factor_expansion_anual() %>%
-  group_by(ANO) %>%
-  summarise(
-    sum(FACTOR_EXPANSION),
-    sum(factor_expansion_anual)
-  )
-```
-
-En el primer caso, que usa el factor trimestral, por lo que el total poblacional está resultando en más de 40 millones de personas, mientras que en el segundo caso obtenemos un total representativo de 10 millones aproximadamente.
-
-También puedes asignar etiquetas de datos a las variables utilizando `ftc_set_Dict()`. Consulta la documentación del paquete [labeler](https://adatar-do.github.io/labeler/) para más información.
-
-```{r}
-# Sin etiquetas
-encft %>%
-  ftc_factor_expansion_anual() %>%
-  group_by(ANO, SEXO) %>%
-  summarise(total = sum(factor_expansion_anual), .groups = "drop")
-
-# Con etiquetas aplicadas
-encft %>%
-  ftc_set_Dict() %>%
-  ftc_factor_expansion_anual() %>%
-  group_by(ANO, SEXO) %>%
-  summarise(total = sum(factor_expansion_anual), .groups = "drop")
-```
-
-Al usar `ftc_set_Dict()`, las variables numéricas como `SEXO` mantienen sus valores pero incluyen metadatos con las etiquetas correspondientes (1 = "Hombre", 2 = "Mujer").
-
-

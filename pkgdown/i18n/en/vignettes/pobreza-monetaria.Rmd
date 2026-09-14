@@ -1,0 +1,44 @@
+---
+title: "Monetary poverty: 2012 and 2022"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Monetary poverty: 2012 and 2022}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Select the methodology explicitly. The historical `ftc_pobreza_monetaria()` entry point still selects 2012 for compatibility and emits a deprecation warning. It does not select a methodology from the survey year.
+
+| Contract | 2012 methodology | 2022 methodology |
+|---|---|---|
+| Deflation | National | Four macroregions |
+| Lines | Urban and rural | Ozama, Norte, Sur and Este |
+| Per-capita denominator | Reported CANTIDAD_MIEMBROS_HOGAR | Observed people in the household and period |
+| School food | Excluded | Included |
+| Entry point | pobreza_monetaria_2012 | pobreza_monetaria_2022 |
+
+Input consists of person responses with uppercase questionnaire names and keys `PERIODO` (YYYYMM), `TRIMESTRE`, `VIVIENDA` and `HOGAR`. The 2012 method additionally requires `ZONA` and `CANTIDAD_MIEMBROS_HOGAR`. Supply all household members when aggregating their income. The 2022 method needs an identifiable macroregion through `ID_PROVINCIA` or `GRUPO_REGION`.
+
+`prepare_poverty` resolves only known social-program and annual-aid aliases, and fills optional fields that the methodology code treats as zero or missing. It does not invent other required answers. Classification remains missing when lines are unavailable, calculated income is nonfinite, or the 2012 denominator is not positive. Missing components summed with `na.rm=TRUE` in the official code contribute zero; this does not make every missing answer an error or replace survey quality review.
+
+Monetary outputs are monthly Dominican pesos. `ing_total_pobreza` is nominal; `ing_total_pobreza_def` and `ing_pc_pobreza_def` use the methodology's price basis. `linea_pobreza` and `linea_pobreza_extrema` use the corresponding comparison basis. `pobreza_monetaria` is 1 (extreme), 2 (non-extreme) or 3 (nonpoor); `pobre` and `indigente` are nullable booleans. Equality with a line belongs to the higher category.
+
+`keep=True` retains intermediate components; a list retains requested names. R names these arguments `.keep` and `.reuse`. Both methodology functions accept `reuse` for compatibility and always recompute from responses. Repeating a calculation updates output columns. Historical `ing_*` helpers retain their individual reuse contracts: they are useful for inspecting components, while an official complete workflow should use an explicit methodology function.
+
+Bundled lines for both methodologies cover January 2016 through December 2022; CPI tables cover July 2015 through December 2022. Exchange rates extend through December 2024, which does not extend poverty-line coverage. Periods from 2023 onward remain unclassified in this delivery. Inspect provenance before updating rates or lines; dictionary updates do not update economic tables. Remittance rates follow the reported month and do not depend on person order.
+
+Validation on 2019 covers 83,031 people and 26,697 households. R reproduces income, lines and classification from the official 2012 code; 2022 classification matches the methodology reference file. Python reproduces R outputs for both methods. This evidence validates that dataset and synthetic regression cases; it does not certify periods without an independent comparison.
+
+```{r}
+library(encftr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-members.json", package = "encftr"))
+p12 <- ftc_pobreza_monetaria_2012(x)
+p22 <- ftc_pobreza_monetaria_2022(x)
+stopifnot(nrow(p12) == nrow(x), nrow(p22) == nrow(x))
+head(p22[c("ing_total_pobreza", "ing_pc_pobreza_def", "linea_pobreza", "pobreza_monetaria")])
+```
+
+## Fuentes / Sources
+
+- [Código oficial de pobreza / Official poverty code](https://mepyd.gob.do/vaes/codigos-de-pobreza/).
+- [Metodología oficial 2022 / Official 2022 methodology](https://one.gob.do/media/skoevafz/nueva-metodologia-de-medicion-oficial-de-pobreza-monetaria-2023.pdf).

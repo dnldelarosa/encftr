@@ -16,3 +16,10 @@
 ^Files/
 ^vignettes/_pobreza_monetaria\.Rmd$
 ^vignettes/_pobreza_monetaria\.0Rmd$
+^scripts$
+^\.vscode$
+^\.gitignore$
+^vignettes/.*\.html$
+^renv$
+^renv\.lock$
+^\.Rprofile$

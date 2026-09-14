@@ -6,7 +6,15 @@
 \alias{ftc_setLabels}
 \title{Asigna etiquetas de datos a las variables especificadas}
 \usage{
-ftc_set_Dict(tbl, dict = encftr::dict, subset = NULL, ...)
+ftc_set_Dict(
+  tbl,
+  dict = NULL,
+  subset = NULL,
+  ...,
+  version = NULL,
+  at = NULL,
+  con = NULL
+)
 
 ftc_set_labels(tbl, dict = encftr::dict, vars = NULL)
 
@@ -20,6 +28,8 @@ ftc_setLabels(tbl, vars = NULL)
 \item{subset}{\link{character}: Si especificado, solo se asignaran las etiquetas a esas variables.}
 
 \item{...}{argumentos adicionales de \code{labeler::set_Dict}}
+
+\item{version, at, con}{Seleccion opcional de revision; ver \code{\link[=ftc_dict]{ftc_dict()}}.}
 
 \item{vars}{\link{character}: Alias deprecated de \code{subset} mantenido por compatibilidad.}
 }

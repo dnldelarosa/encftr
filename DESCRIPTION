@@ -1,6 +1,6 @@
 Package: encftr
 Title: Funciones para trabajar con la ENCFT
-Version: 0.8.1
+Version: 0.10.0
 Authors@R:
     c(person(given = "Daniel E.",
            family = "de la Rosa",
@@ -11,7 +11,7 @@ Authors@R:
 Description: Herramientas para preparar, etiquetar y analizar los datos de la
   Encuesta Nacional Continua de Fuerza de Trabajo (ENCFT) del Banco Central de
   la Republica Dominicana, incluyendo calculos de pobreza monetaria con las
-  metodologias 2012 y 2022.
+  metodologias 2012 y 2022, y el ICV SIUBEN historico integrado desde encftr0.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -21,7 +21,7 @@ Imports:
     dplyr,
     Dmisc,
     glue,
-    labeler (>= 0.9.0),
+    labeler (>= 0.11.0),
     lifecycle,
     magrittr,
     stringr,
@@ -35,10 +35,15 @@ BugReports: https://github.com/endomer-py/encftr/issues
 VignetteBuilder: knitr
 RdMacros: lifecycle
 Depends:
-    R (>= 3.5)
+    R (>= 4.1)
 Suggests:
     DT,
     haven,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0),
+    DBI,
+    RSQLite,
+    jsonlite
+Config/testthat/edition: 3
 RoxygenNote: 7.3.2

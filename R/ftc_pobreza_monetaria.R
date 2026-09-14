@@ -1,4 +1,10 @@
 left_join_tipo_cambio <- function(tbl){
+  for (column in grep("_MONEDA$", names(tbl), value = TRUE)) {
+    tbl[[column]] <- ftc_pm22_normalize_currency(tbl[[column]])
+    tbl[[column]][which(tbl[[column]] == "REAL")] <- "BRL"
+  }
+  tipo_cambio <- dplyr::arrange(tipo_cambio, PERIODO) %>%
+    dplyr::mutate(dplyr::across(-PERIODO, dplyr::lag))
   nombres <- c("PERIODO")
   for(nombre in names(tipo_cambio)){
     if(!nombre %in% dplyr::tbl_vars(tbl)){
@@ -8,7 +14,7 @@ left_join_tipo_cambio <- function(tbl){
 tbl %>%
   dplyr::left_join(
     tipo_cambio %>%
-      dplyr::select(nombres),
+      dplyr::select(dplyr::all_of(nombres)),
     by = "PERIODO",
     copy = TRUE
   )
@@ -24,7 +30,7 @@ left_join_ipc_2020 <- function(tbl){
 tbl %>%
   dplyr::left_join(
     ipc_2020 %>%
-      dplyr::select(nombres),
+      dplyr::select(dplyr::all_of(nombres)),
     by = "PERIODO",
     copy = TRUE
   )
@@ -53,21 +59,21 @@ ftc_ing_mensual_ocup_prin_asalariado <- function(tbl) {
         is.na(SUELDO_BRUTO_AP_MONEDA) ~ 0,
         is.na(SUELDO_BRUTO_AP_MONTO) ~ 0,
         SUELDO_BRUTO_AP_MONEDA == "DOP" ~ SUELDO_BRUTO_AP_MONTO,
-        SUELDO_BRUTO_AP_MONEDA == "BRL" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(BRL),
-        SUELDO_BRUTO_AP_MONEDA == "CAD" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(CAD),
-        SUELDO_BRUTO_AP_MONEDA == "CHF" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(CHF),
-        SUELDO_BRUTO_AP_MONEDA == "CNY" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(CNY),
-        SUELDO_BRUTO_AP_MONEDA == "DEG" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(DEG),
-        SUELDO_BRUTO_AP_MONEDA == "DKK" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(DKK),
-        SUELDO_BRUTO_AP_MONEDA == "EUR" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(EUR),
-        SUELDO_BRUTO_AP_MONEDA == "GBP" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(GBP),
-        SUELDO_BRUTO_AP_MONEDA == "JPY" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(JPY),
-        SUELDO_BRUTO_AP_MONEDA == "NOK" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(NOK),
-        SUELDO_BRUTO_AP_MONEDA == "LESC" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(LESC),
-        SUELDO_BRUTO_AP_MONEDA == "SEK" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(SEK),
-        SUELDO_BRUTO_AP_MONEDA == "USD" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(USD),
-        SUELDO_BRUTO_AP_MONEDA == "VEF" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(VEF),
-        SUELDO_BRUTO_AP_MONEDA == "ARS" ~ SUELDO_BRUTO_AP_MONTO * dplyr::lead(ARS),
+        SUELDO_BRUTO_AP_MONEDA == "BRL" ~ SUELDO_BRUTO_AP_MONTO * BRL,
+        SUELDO_BRUTO_AP_MONEDA == "CAD" ~ SUELDO_BRUTO_AP_MONTO * CAD,
+        SUELDO_BRUTO_AP_MONEDA == "CHF" ~ SUELDO_BRUTO_AP_MONTO * CHF,
+        SUELDO_BRUTO_AP_MONEDA == "CNY" ~ SUELDO_BRUTO_AP_MONTO * CNY,
+        SUELDO_BRUTO_AP_MONEDA == "DEG" ~ SUELDO_BRUTO_AP_MONTO * DEG,
+        SUELDO_BRUTO_AP_MONEDA == "DKK" ~ SUELDO_BRUTO_AP_MONTO * DKK,
+        SUELDO_BRUTO_AP_MONEDA == "EUR" ~ SUELDO_BRUTO_AP_MONTO * EUR,
+        SUELDO_BRUTO_AP_MONEDA == "GBP" ~ SUELDO_BRUTO_AP_MONTO * GBP,
+        SUELDO_BRUTO_AP_MONEDA == "JPY" ~ SUELDO_BRUTO_AP_MONTO * JPY,
+        SUELDO_BRUTO_AP_MONEDA == "NOK" ~ SUELDO_BRUTO_AP_MONTO * NOK,
+        SUELDO_BRUTO_AP_MONEDA == "LESC" ~ SUELDO_BRUTO_AP_MONTO * LESC,
+        SUELDO_BRUTO_AP_MONEDA == "SEK" ~ SUELDO_BRUTO_AP_MONTO * SEK,
+        SUELDO_BRUTO_AP_MONEDA == "USD" ~ SUELDO_BRUTO_AP_MONTO * USD,
+        SUELDO_BRUTO_AP_MONEDA == "VEF" ~ SUELDO_BRUTO_AP_MONTO * VEF,
+        SUELDO_BRUTO_AP_MONEDA == "ARS" ~ SUELDO_BRUTO_AP_MONTO * ARS,
         TRUE ~ 0
       ),
       ingasal = as.double(ingasal),
@@ -145,20 +151,20 @@ ftc_ing_mensual_ocup_prin_cuenta_propia <- function(tbl) {
       INGRESO_ACTIVIDAD_IN_MONTO = as.double(INGRESO_ACTIVIDAD_IN_MONTO),
       ingprinctaprop = case_when(
         INGRESO_ACTIVIDAD_IN_MONEDA == "DOP" ~ INGRESO_ACTIVIDAD_IN_MONTO,
-        INGRESO_ACTIVIDAD_IN_MONEDA == "BRL" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(BRL),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "CAD" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(CAD),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "CHF" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(CHF),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "CNY" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(CNY),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "DEG" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(DEG),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "DKK" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(DKK),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "EUR" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(EUR),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "GBP" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(GBP),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "JPY" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(JPY),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "NOK" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(NOK),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "LESC" ~ INGRESO_ACTIVIDAD_IN_MONTO* dplyr::lead(LESC),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "SEK" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(SEK),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "USD" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(USD),
-        INGRESO_ACTIVIDAD_IN_MONEDA == "VEF" ~ INGRESO_ACTIVIDAD_IN_MONTO * dplyr::lead(VEF),
+        INGRESO_ACTIVIDAD_IN_MONEDA == "BRL" ~ INGRESO_ACTIVIDAD_IN_MONTO * BRL,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "CAD" ~ INGRESO_ACTIVIDAD_IN_MONTO * CAD,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "CHF" ~ INGRESO_ACTIVIDAD_IN_MONTO * CHF,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "CNY" ~ INGRESO_ACTIVIDAD_IN_MONTO * CNY,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "DEG" ~ INGRESO_ACTIVIDAD_IN_MONTO * DEG,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "DKK" ~ INGRESO_ACTIVIDAD_IN_MONTO * DKK,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "EUR" ~ INGRESO_ACTIVIDAD_IN_MONTO * EUR,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "GBP" ~ INGRESO_ACTIVIDAD_IN_MONTO * GBP,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "JPY" ~ INGRESO_ACTIVIDAD_IN_MONTO * JPY,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "NOK" ~ INGRESO_ACTIVIDAD_IN_MONTO * NOK,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "LESC" ~ INGRESO_ACTIVIDAD_IN_MONTO* LESC,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "SEK" ~ INGRESO_ACTIVIDAD_IN_MONTO * SEK,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "USD" ~ INGRESO_ACTIVIDAD_IN_MONTO * USD,
+        INGRESO_ACTIVIDAD_IN_MONEDA == "VEF" ~ INGRESO_ACTIVIDAD_IN_MONTO * VEF,
         INGRESO_ACTIVIDAD_IN_MONEDA == "ARS" ~ INGRESO_ACTIVIDAD_IN_MONTO * ARS,
         TRUE ~ 0
       ),
@@ -696,20 +702,20 @@ ftc_ing_mensual_ocup_sec_asalariado <- function(tbl) {
       SUELDO_BRUTO_AS_MONTO = as.double(SUELDO_BRUTO_AS_MONTO),
       ing_mensual_ocup_sec_asalariado = case_when(
         SUELDO_BRUTO_AS_MONEDA == "DOP" ~ SUELDO_BRUTO_AS_MONTO,
-        SUELDO_BRUTO_AS_MONEDA == "BRL" ~ SUELDO_BRUTO_AS_MONTO * lead(BRL),
-        SUELDO_BRUTO_AS_MONEDA == "CAD" ~ SUELDO_BRUTO_AS_MONTO * lead(CAD),
-        SUELDO_BRUTO_AS_MONEDA == "CHF" ~ SUELDO_BRUTO_AS_MONTO * lead(CHF),
-        SUELDO_BRUTO_AS_MONEDA == "CNY" ~ SUELDO_BRUTO_AS_MONTO * lead(CNY),
-        SUELDO_BRUTO_AS_MONEDA == "DEG" ~ SUELDO_BRUTO_AS_MONTO * lead(DEG),
-        SUELDO_BRUTO_AS_MONEDA == "DKK" ~ SUELDO_BRUTO_AS_MONTO * lead(DKK),
-        SUELDO_BRUTO_AS_MONEDA == "EUR" ~ SUELDO_BRUTO_AS_MONTO * lead(EUR),
-        SUELDO_BRUTO_AS_MONEDA == "GBP" ~ SUELDO_BRUTO_AS_MONTO * lead(GBP),
-        SUELDO_BRUTO_AS_MONEDA == "JPY" ~ SUELDO_BRUTO_AS_MONTO * lead(JPY),
-        SUELDO_BRUTO_AS_MONEDA == "NOK" ~ SUELDO_BRUTO_AS_MONTO * lead(NOK),
-        SUELDO_BRUTO_AS_MONEDA == "LESC" ~ SUELDO_BRUTO_AS_MONTO * lead(LESC),
-        SUELDO_BRUTO_AS_MONEDA == "SEK" ~ SUELDO_BRUTO_AS_MONTO * lead(SEK),
-        SUELDO_BRUTO_AS_MONEDA == "USD" ~ SUELDO_BRUTO_AS_MONTO * lead(USD),
-        SUELDO_BRUTO_AS_MONEDA == "VEF" ~ SUELDO_BRUTO_AS_MONTO * lead(VEF),
+        SUELDO_BRUTO_AS_MONEDA == "BRL" ~ SUELDO_BRUTO_AS_MONTO * BRL,
+        SUELDO_BRUTO_AS_MONEDA == "CAD" ~ SUELDO_BRUTO_AS_MONTO * CAD,
+        SUELDO_BRUTO_AS_MONEDA == "CHF" ~ SUELDO_BRUTO_AS_MONTO * CHF,
+        SUELDO_BRUTO_AS_MONEDA == "CNY" ~ SUELDO_BRUTO_AS_MONTO * CNY,
+        SUELDO_BRUTO_AS_MONEDA == "DEG" ~ SUELDO_BRUTO_AS_MONTO * DEG,
+        SUELDO_BRUTO_AS_MONEDA == "DKK" ~ SUELDO_BRUTO_AS_MONTO * DKK,
+        SUELDO_BRUTO_AS_MONEDA == "EUR" ~ SUELDO_BRUTO_AS_MONTO * EUR,
+        SUELDO_BRUTO_AS_MONEDA == "GBP" ~ SUELDO_BRUTO_AS_MONTO * GBP,
+        SUELDO_BRUTO_AS_MONEDA == "JPY" ~ SUELDO_BRUTO_AS_MONTO * JPY,
+        SUELDO_BRUTO_AS_MONEDA == "NOK" ~ SUELDO_BRUTO_AS_MONTO * NOK,
+        SUELDO_BRUTO_AS_MONEDA == "LESC" ~ SUELDO_BRUTO_AS_MONTO * LESC,
+        SUELDO_BRUTO_AS_MONEDA == "SEK" ~ SUELDO_BRUTO_AS_MONTO * SEK,
+        SUELDO_BRUTO_AS_MONEDA == "USD" ~ SUELDO_BRUTO_AS_MONTO * USD,
+        SUELDO_BRUTO_AS_MONEDA == "VEF" ~ SUELDO_BRUTO_AS_MONTO * VEF,
         SUELDO_BRUTO_AS_MONEDA == "ARS" ~ SUELDO_BRUTO_AS_MONTO * ARS,
         SUELDO_BRUTO_AS == 2 ~ SALARIO_SECUN_IMP_MONTO,
         TRUE ~ 0
@@ -756,20 +762,20 @@ ftc_ing_mensual_ocup_sec_cuenta_propia <- function(tbl) {
     mutate(
       ingsecctaprop = case_when(
         INGRESO_ACTIVIDAD_IS_MONEDA == "DOP" ~ INGRESO_ACTIVIDAD_IS_MONTO,
-        INGRESO_ACTIVIDAD_IS_MONEDA == "BRL" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(BRL),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "CAD" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(CAD),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "CHF" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(CHF),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "CNY" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(CNY),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "DEG" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(DEG),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "DKK" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(DKK),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "EUR" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(EUR),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "GBP" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(GBP),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "JPY" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(JPY),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "NOK" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(NOK),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "LESC" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(LESC),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "SEK" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(SEK),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "USD" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(USD),
-        INGRESO_ACTIVIDAD_IS_MONEDA == "VEF" ~ INGRESO_ACTIVIDAD_IS_MONTO * lead(VEF),
+        INGRESO_ACTIVIDAD_IS_MONEDA == "BRL" ~ INGRESO_ACTIVIDAD_IS_MONTO * BRL,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "CAD" ~ INGRESO_ACTIVIDAD_IS_MONTO * CAD,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "CHF" ~ INGRESO_ACTIVIDAD_IS_MONTO * CHF,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "CNY" ~ INGRESO_ACTIVIDAD_IS_MONTO * CNY,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "DEG" ~ INGRESO_ACTIVIDAD_IS_MONTO * DEG,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "DKK" ~ INGRESO_ACTIVIDAD_IS_MONTO * DKK,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "EUR" ~ INGRESO_ACTIVIDAD_IS_MONTO * EUR,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "GBP" ~ INGRESO_ACTIVIDAD_IS_MONTO * GBP,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "JPY" ~ INGRESO_ACTIVIDAD_IS_MONTO * JPY,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "NOK" ~ INGRESO_ACTIVIDAD_IS_MONTO * NOK,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "LESC" ~ INGRESO_ACTIVIDAD_IS_MONTO * LESC,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "SEK" ~ INGRESO_ACTIVIDAD_IS_MONTO * SEK,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "USD" ~ INGRESO_ACTIVIDAD_IS_MONTO * USD,
+        INGRESO_ACTIVIDAD_IS_MONEDA == "VEF" ~ INGRESO_ACTIVIDAD_IS_MONTO * VEF,
         INGRESO_ACTIVIDAD_IS_MONEDA == "ARS" ~ INGRESO_ACTIVIDAD_IS_MONTO * ARS,
         TRUE ~ 0
       ), ingsecctaprop = as.double(ingsecctaprop)
@@ -1062,20 +1068,20 @@ ftc_ing_pension_ext <- function(tbl) {
       PENSION_EXT_MONTO = as.double(PENSION_EXT_MONTO),
       ing_pension_ext = case_when(
         PENSION_EXT_MONEDA == "DOP" ~ PENSION_EXT_MONTO,
-        PENSION_EXT_MONEDA == "BRL" ~ PENSION_EXT_MONTO * lead(BRL),
-        PENSION_EXT_MONEDA == "CAD" ~ PENSION_EXT_MONTO * lead(CAD),
-        PENSION_EXT_MONEDA == "CHF" ~ PENSION_EXT_MONTO * lead(CHF),
-        PENSION_EXT_MONEDA == "CNY" ~ PENSION_EXT_MONTO * lead(CNY),
-        PENSION_EXT_MONEDA == "DEG" ~ PENSION_EXT_MONTO * lead(DEG),
-        PENSION_EXT_MONEDA == "DKK" ~ PENSION_EXT_MONTO * lead(DKK),
-        PENSION_EXT_MONEDA == "EUR" ~ PENSION_EXT_MONTO * lead(EUR),
-        PENSION_EXT_MONEDA == "GBP" ~ PENSION_EXT_MONTO * lead(GBP),
-        PENSION_EXT_MONEDA == "JPY" ~ PENSION_EXT_MONTO * lead(JPY),
-        PENSION_EXT_MONEDA == "NOK" ~ PENSION_EXT_MONTO * lead(NOK),
-        PENSION_EXT_MONEDA == "LESC" ~ PENSION_EXT_MONTO * lead(LESC),
-        PENSION_EXT_MONEDA == "SEK" ~ PENSION_EXT_MONTO * lead(SEK),
-        PENSION_EXT_MONEDA == "USD" ~ PENSION_EXT_MONTO * lead(USD),
-        PENSION_EXT_MONEDA == "VEF" ~ PENSION_EXT_MONTO * lead(VEF),
+        PENSION_EXT_MONEDA == "BRL" ~ PENSION_EXT_MONTO * BRL,
+        PENSION_EXT_MONEDA == "CAD" ~ PENSION_EXT_MONTO * CAD,
+        PENSION_EXT_MONEDA == "CHF" ~ PENSION_EXT_MONTO * CHF,
+        PENSION_EXT_MONEDA == "CNY" ~ PENSION_EXT_MONTO * CNY,
+        PENSION_EXT_MONEDA == "DEG" ~ PENSION_EXT_MONTO * DEG,
+        PENSION_EXT_MONEDA == "DKK" ~ PENSION_EXT_MONTO * DKK,
+        PENSION_EXT_MONEDA == "EUR" ~ PENSION_EXT_MONTO * EUR,
+        PENSION_EXT_MONEDA == "GBP" ~ PENSION_EXT_MONTO * GBP,
+        PENSION_EXT_MONEDA == "JPY" ~ PENSION_EXT_MONTO * JPY,
+        PENSION_EXT_MONEDA == "NOK" ~ PENSION_EXT_MONTO * NOK,
+        PENSION_EXT_MONEDA == "LESC" ~ PENSION_EXT_MONTO * LESC,
+        PENSION_EXT_MONEDA == "SEK" ~ PENSION_EXT_MONTO * SEK,
+        PENSION_EXT_MONEDA == "USD" ~ PENSION_EXT_MONTO * USD,
+        PENSION_EXT_MONEDA == "VEF" ~ PENSION_EXT_MONTO * VEF,
         PENSION_EXT_MONEDA == "ARS" ~ PENSION_EXT_MONTO * ARS,
         TRUE ~ 0
       ), ing_pension_ext = as.double(ing_pension_ext)
@@ -1098,20 +1104,20 @@ ftc_ing_intereses_dividendos_ext <- function(tbl) {
     mutate(
       ing_intereses_dividendos_ext = case_when(
         INTERES_EXT_MONEDA == "DOP" ~ as.numeric(INTERES_EXT_MONTO),
-        INTERES_EXT_MONEDA == "BRL" ~ as.numeric(INTERES_EXT_MONTO) * lead(BRL),
-        INTERES_EXT_MONEDA == "CAD" ~ as.numeric(INTERES_EXT_MONTO) * lead(CAD),
-        INTERES_EXT_MONEDA == "CHF" ~ as.numeric(INTERES_EXT_MONTO) * lead(CHF),
-        INTERES_EXT_MONEDA == "CNY" ~ as.numeric(INTERES_EXT_MONTO) * lead(CNY),
-        INTERES_EXT_MONEDA == "DEG" ~ as.numeric(INTERES_EXT_MONTO) * lead(DEG),
-        INTERES_EXT_MONEDA == "DKK" ~ as.numeric(INTERES_EXT_MONTO) * lead(DKK),
-        INTERES_EXT_MONEDA == "EUR" ~ as.numeric(INTERES_EXT_MONTO) * lead(EUR),
-        INTERES_EXT_MONEDA == "GBP" ~ as.numeric(INTERES_EXT_MONTO) * lead(GBP),
-        INTERES_EXT_MONEDA == "JPY" ~ as.numeric(INTERES_EXT_MONTO) * lead(JPY),
-        INTERES_EXT_MONEDA == "NOK" ~ as.numeric(INTERES_EXT_MONTO) * lead(NOK),
-        INTERES_EXT_MONEDA == "LESC" ~ as.numeric(INTERES_EXT_MONTO) * lead(LESC),
-        INTERES_EXT_MONEDA == "SEK" ~ as.numeric(INTERES_EXT_MONTO) * lead(SEK),
-        INTERES_EXT_MONEDA == "USD" ~ as.numeric(INTERES_EXT_MONTO) * lead(USD),
-        INTERES_EXT_MONEDA == "VEF" ~ as.numeric(INTERES_EXT_MONTO) * lead(VEF),
+        INTERES_EXT_MONEDA == "BRL" ~ as.numeric(INTERES_EXT_MONTO) * BRL,
+        INTERES_EXT_MONEDA == "CAD" ~ as.numeric(INTERES_EXT_MONTO) * CAD,
+        INTERES_EXT_MONEDA == "CHF" ~ as.numeric(INTERES_EXT_MONTO) * CHF,
+        INTERES_EXT_MONEDA == "CNY" ~ as.numeric(INTERES_EXT_MONTO) * CNY,
+        INTERES_EXT_MONEDA == "DEG" ~ as.numeric(INTERES_EXT_MONTO) * DEG,
+        INTERES_EXT_MONEDA == "DKK" ~ as.numeric(INTERES_EXT_MONTO) * DKK,
+        INTERES_EXT_MONEDA == "EUR" ~ as.numeric(INTERES_EXT_MONTO) * EUR,
+        INTERES_EXT_MONEDA == "GBP" ~ as.numeric(INTERES_EXT_MONTO) * GBP,
+        INTERES_EXT_MONEDA == "JPY" ~ as.numeric(INTERES_EXT_MONTO) * JPY,
+        INTERES_EXT_MONEDA == "NOK" ~ as.numeric(INTERES_EXT_MONTO) * NOK,
+        INTERES_EXT_MONEDA == "LESC" ~ as.numeric(INTERES_EXT_MONTO) * LESC,
+        INTERES_EXT_MONEDA == "SEK" ~ as.numeric(INTERES_EXT_MONTO) * SEK,
+        INTERES_EXT_MONEDA == "USD" ~ as.numeric(INTERES_EXT_MONTO) * USD,
+        INTERES_EXT_MONEDA == "VEF" ~ as.numeric(INTERES_EXT_MONTO) * VEF,
         INTERES_EXT_MONEDA == "ARS" ~ as.numeric(INTERES_EXT_MONTO) * ARS,
         TRUE ~ 0
       ), ing_intereses_dividendos_ext = as.double(ing_intereses_dividendos_ext)
@@ -1135,20 +1141,20 @@ ftc_ing_alquileres_renta_ext <- function(tbl) {
     mutate(
       ing_alquileres_renta_ext = case_when(
         ALQUILER_EXT_MONEDA == "DOP" ~ as.numeric(ALQUILER_EXT_MONTO),
-        ALQUILER_EXT_MONEDA == "BRL" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(BRL),
-        ALQUILER_EXT_MONEDA == "CAD" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(CAD),
-        ALQUILER_EXT_MONEDA == "CHF" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(CHF),
-        ALQUILER_EXT_MONEDA == "CNY" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(CNY),
-        ALQUILER_EXT_MONEDA == "DEG" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(DEG),
-        ALQUILER_EXT_MONEDA == "DKK" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(DKK),
-        ALQUILER_EXT_MONEDA == "EUR" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(EUR),
-        ALQUILER_EXT_MONEDA == "GBP" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(GBP),
-        ALQUILER_EXT_MONEDA == "JPY" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(JPY),
-        ALQUILER_EXT_MONEDA == "NOK" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(NOK),
-        ALQUILER_EXT_MONEDA == "LESC" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(LESC),
-        ALQUILER_EXT_MONEDA == "SEK" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(SEK),
-        ALQUILER_EXT_MONEDA == "USD" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(USD),
-        ALQUILER_EXT_MONEDA == "VEF" ~ as.numeric(ALQUILER_EXT_MONTO) * lead(VEF),
+        ALQUILER_EXT_MONEDA == "BRL" ~ as.numeric(ALQUILER_EXT_MONTO) * BRL,
+        ALQUILER_EXT_MONEDA == "CAD" ~ as.numeric(ALQUILER_EXT_MONTO) * CAD,
+        ALQUILER_EXT_MONEDA == "CHF" ~ as.numeric(ALQUILER_EXT_MONTO) * CHF,
+        ALQUILER_EXT_MONEDA == "CNY" ~ as.numeric(ALQUILER_EXT_MONTO) * CNY,
+        ALQUILER_EXT_MONEDA == "DEG" ~ as.numeric(ALQUILER_EXT_MONTO) * DEG,
+        ALQUILER_EXT_MONEDA == "DKK" ~ as.numeric(ALQUILER_EXT_MONTO) * DKK,
+        ALQUILER_EXT_MONEDA == "EUR" ~ as.numeric(ALQUILER_EXT_MONTO) * EUR,
+        ALQUILER_EXT_MONEDA == "GBP" ~ as.numeric(ALQUILER_EXT_MONTO) * GBP,
+        ALQUILER_EXT_MONEDA == "JPY" ~ as.numeric(ALQUILER_EXT_MONTO) * JPY,
+        ALQUILER_EXT_MONEDA == "NOK" ~ as.numeric(ALQUILER_EXT_MONTO) * NOK,
+        ALQUILER_EXT_MONEDA == "LESC" ~ as.numeric(ALQUILER_EXT_MONTO) * LESC,
+        ALQUILER_EXT_MONEDA == "SEK" ~ as.numeric(ALQUILER_EXT_MONTO) * SEK,
+        ALQUILER_EXT_MONEDA == "USD" ~ as.numeric(ALQUILER_EXT_MONTO) * USD,
+        ALQUILER_EXT_MONEDA == "VEF" ~ as.numeric(ALQUILER_EXT_MONTO) * VEF,
         ALQUILER_EXT_MONEDA == "ARS" ~ as.numeric(ALQUILER_EXT_MONTO) * ARS,
         TRUE ~ 0
       ), ing_alquileres_renta_ext = as.double(ing_alquileres_renta_ext)
@@ -1186,164 +1192,21 @@ ftc_ing_regalos_ext <- function(tbl) {
 #'
 #' @examples NULL
 ftc_ing_remesas_ext <- function(tbl) {
-  tbl <- tbl
-
-  # Ingreso monetarios remesas del exterior----
-  REMEXMONTO <- tbl %>%
-    select(
-      TRIMESTRE, PERIODO, ANO, MES, VIVIENDA, HOGAR, MIEMBRO, MES1_1_EXT_MONTO, MES2_1_EXT_MONTO, MES3_1_EXT_MONTO,
-      MES4_1_EXT_MONTO, MES5_1_EXT_MONTO, MES6_1_EXT_MONTO, MES1_2_EXT_MONTO, MES2_2_EXT_MONTO, MES3_2_EXT_MONTO,
-      MES4_2_EXT_MONTO, MES5_2_EXT_MONTO, MES6_2_EXT_MONTO, MES1_3_EXT_MONTO, MES2_3_EXT_MONTO, MES3_3_EXT_MONTO,
-      MES4_3_EXT_MONTO, MES5_3_EXT_MONTO, MES6_3_EXT_MONTO
-    ) %>%
-    mutate(across(everything(), as.numeric)) %>%
-    #gather(key = "MES_EXT_MONTO", value = "montoenvio", MES1_1_EXT_MONTO:MES6_3_EXT_MONTO, na.rm = T) %>%
-    tidyr::pivot_longer( MES1_1_EXT_MONTO:MES6_3_EXT_MONTO, names_to = "MES_EXT_MONTO", values_to = "montoenvio", values_drop_na = TRUE) %>%
-    mutate(
-      mes1_6 = substr(MES_EXT_MONTO, 4, 4),
-      bloque = substr(MES_EXT_MONTO, 6, 6),
-      mesenvio = case_when(
-        MES == 1 & mes1_6 == 1 ~ 07,
-        MES == 1 & mes1_6 == 2 ~ 08,
-        MES == 1 & mes1_6 == 3 ~ 09,
-        MES == 1 & mes1_6 == 4 ~ 10,
-        MES == 1 & mes1_6 == 5 ~ 11,
-        MES == 1 & mes1_6 == 6 ~ 12,
-        MES == 2 & mes1_6 == 1 ~ 08,
-        MES == 2 & mes1_6 == 2 ~ 09,
-        MES == 2 & mes1_6 == 3 ~ 10,
-        MES == 2 & mes1_6 == 4 ~ 11,
-        MES == 2 & mes1_6 == 5 ~ 12,
-        MES == 2 & mes1_6 == 6 ~ 01,
-        MES == 3 & mes1_6 == 1 ~ 09,
-        MES == 3 & mes1_6 == 2 ~ 10,
-        MES == 3 & mes1_6 == 3 ~ 11,
-        MES == 3 & mes1_6 == 4 ~ 12,
-        MES == 3 & mes1_6 == 5 ~ 01,
-        MES == 3 & mes1_6 == 6 ~ 02,
-        MES == 4 & mes1_6 == 1 ~ 10,
-        MES == 4 & mes1_6 == 2 ~ 11,
-        MES == 4 & mes1_6 == 3 ~ 12,
-        MES == 4 & mes1_6 == 4 ~ 01,
-        MES == 4 & mes1_6 == 5 ~ 02,
-        MES == 4 & mes1_6 == 6 ~ 03,
-        MES == 5 & mes1_6 == 1 ~ 11,
-        MES == 5 & mes1_6 == 2 ~ 12,
-        MES == 5 & mes1_6 == 3 ~ 01,
-        MES == 5 & mes1_6 == 4 ~ 02,
-        MES == 5 & mes1_6 == 5 ~ 03,
-        MES == 5 & mes1_6 == 6 ~ 04,
-        MES == 6 & mes1_6 == 1 ~ 12,
-        MES == 6 & mes1_6 == 2 ~ 01,
-        MES == 6 & mes1_6 == 3 ~ 02,
-        MES == 6 & mes1_6 == 4 ~ 03,
-        MES == 6 & mes1_6 == 5 ~ 04,
-        MES == 6 & mes1_6 == 6 ~ 05,
-        MES == 7 & mes1_6 == 1 ~ 01,
-        MES == 7 & mes1_6 == 2 ~ 02,
-        MES == 7 & mes1_6 == 3 ~ 03,
-        MES == 7 & mes1_6 == 4 ~ 04,
-        MES == 7 & mes1_6 == 5 ~ 05,
-        MES == 7 & mes1_6 == 6 ~ 06,
-        MES == 8 & mes1_6 == 1 ~ 02,
-        MES == 8 & mes1_6 == 2 ~ 03,
-        MES == 8 & mes1_6 == 3 ~ 04,
-        MES == 8 & mes1_6 == 4 ~ 05,
-        MES == 8 & mes1_6 == 5 ~ 06,
-        MES == 8 & mes1_6 == 6 ~ 07,
-        MES == 9 & mes1_6 == 1 ~ 03,
-        MES == 9 & mes1_6 == 2 ~ 04,
-        MES == 9 & mes1_6 == 3 ~ 05,
-        MES == 9 & mes1_6 == 4 ~ 06,
-        MES == 9 & mes1_6 == 5 ~ 07,
-        MES == 9 & mes1_6 == 6 ~ 08,
-        MES == 10 & mes1_6 == 1 ~ 04,
-        MES == 10 & mes1_6 == 2 ~ 05,
-        MES == 10 & mes1_6 == 3 ~ 06,
-        MES == 10 & mes1_6 == 4 ~ 07,
-        MES == 10 & mes1_6 == 5 ~ 08,
-        MES == 10 & mes1_6 == 6 ~ 09,
-        MES == 11 & mes1_6 == 1 ~ 05,
-        MES == 11 & mes1_6 == 2 ~ 06,
-        MES == 11 & mes1_6 == 3 ~ 07,
-        MES == 11 & mes1_6 == 4 ~ 08,
-        MES == 11 & mes1_6 == 5 ~ 09,
-        MES == 11 & mes1_6 == 6 ~ 10,
-        MES == 12 & mes1_6 == 1 ~ 06,
-        MES == 12 & mes1_6 == 2 ~ 07,
-        MES == 12 & mes1_6 == 3 ~ 08,
-        MES == 12 & mes1_6 == 4 ~ 09,
-        MES == 12 & mes1_6 == 5 ~ 10,
-        MES == 12 & mes1_6 == 6 ~ 11
-      ),
-      periodoenvio = case_when(
-        MES > 6 & mesenvio < 10 ~ as.numeric(paste(ANO, mesenvio, sep = "0")),
-        MES > 6 & mesenvio >= 10 ~ as.numeric(paste(ANO, mesenvio, sep = "")),
-        MES <= 6 & mesenvio < 6 ~ as.numeric(paste(ANO, mesenvio, sep = "0")),
-        MES <= 6 & mesenvio > 6 & mesenvio < 10 ~ as.numeric(paste(ANO - 1, mesenvio, sep = "0")),
-        MES <= 6 & mesenvio > 6 & mesenvio >= 10 ~ as.numeric(paste(ANO - 1, mesenvio, sep = ""))
-      )
-    )
-
-  REMEXMONEDA <- tbl %>%
-    select(
-      TRIMESTRE, PERIODO, ANO, MES, VIVIENDA, HOGAR, MIEMBRO, MES1_1_EXT_MONEDA, MES2_1_EXT_MONEDA, MES3_1_EXT_MONEDA,
-      MES4_1_EXT_MONEDA, MES5_1_EXT_MONEDA, MES6_1_EXT_MONEDA, MES1_2_EXT_MONEDA, MES2_2_EXT_MONEDA, MES3_2_EXT_MONEDA,
-      MES4_2_EXT_MONEDA, MES5_2_EXT_MONEDA, MES6_2_EXT_MONEDA, MES1_3_EXT_MONEDA, MES2_3_EXT_MONEDA, MES3_3_EXT_MONEDA,
-      MES4_3_EXT_MONEDA, MES5_3_EXT_MONEDA, MES6_3_EXT_MONEDA
-    ) %>%
-    #gather(key = "MES_EXT_MONEDA", value = "monedaenvio", MES1_1_EXT_MONEDA:MES6_3_EXT_MONEDA, na.rm = T) %>%
-    tidyr::pivot_longer(MES1_1_EXT_MONEDA:MES6_3_EXT_MONEDA, names_to = "MES_EXT_MONEDA", values_to = "monedaenvio", values_drop_na = TRUE) %>%
-    mutate(
-      mes1_6 = substr(MES_EXT_MONEDA, 4, 4),
-      bloque = substr(MES_EXT_MONEDA, 6, 6)
-    )
-
-  REMESA <- left_join(REMEXMONTO, REMEXMONEDA, by = c("TRIMESTRE", "PERIODO", "ANO", "MES", "VIVIENDA", "HOGAR", "MIEMBRO", "mes1_6", "bloque"), copy = TRUE)
-  rm(REMEXMONTO, REMEXMONEDA)
-
-  TDC <- tipo_cambio %>%
-    rename(periodoenvio = PERIODO)
-
-  REMESA <- full_join(REMESA, TDC, by = "periodoenvio", copy = TRUE)
-  #REMESA <- REMESA[order(REMESA$periodoenvio), ]
-
-  REMESA <- REMESA %>%
-    dplyr::arrange(periodoenvio) %>%
-    mutate(
-    remedop = case_when(
-      monedaenvio == "DOP" ~ montoenvio,
-      monedaenvio == "BRL" ~ montoenvio * lead(BRL),
-      monedaenvio == "CAD" ~ montoenvio * lead(CAD),
-      monedaenvio == "CHF" ~ montoenvio * lead(CHF),
-      monedaenvio == "CNY" ~ montoenvio * lead(CNY),
-      monedaenvio == "DEG" ~ montoenvio * lead(DEG),
-      monedaenvio == "DKK" ~ montoenvio * lead(DKK),
-      monedaenvio == "EUR" ~ montoenvio * lead(EUR),
-      monedaenvio == "GBP" ~ montoenvio * lead(GBP),
-      monedaenvio == "JPY" ~ montoenvio * lead(JPY),
-      monedaenvio == "NOK" ~ montoenvio * lead(NOK),
-      monedaenvio == "LESC" ~ montoenvio * lead(LESC),
-      monedaenvio == "SEK" ~ montoenvio * lead(SEK),
-      monedaenvio == "USD" ~ montoenvio * lead(USD),
-      monedaenvio == "VEF" ~ montoenvio * lead(VEF),
-      monedaenvio == "ARS" ~ montoenvio * ARS,
-      TRUE ~ 0
-    ),
-    remedop = as.double(remedop)
-  )
-
-  REMESA <- REMESA %>%
-    group_by(TRIMESTRE, PERIODO, ANO, MES, VIVIENDA, HOGAR, MIEMBRO, periodoenvio, mesenvio, mes1_6) %>%
-    summarise(mestotal = sum(remedop, na.rm = T))
-
-  REMESA <- REMESA %>%
-    group_by(TRIMESTRE, PERIODO, ANO, MES, VIVIENDA, HOGAR, MIEMBRO) %>%
-    summarise(ing_remesas_ext = mean(mestotal, na.rm = T)) %>%
-    mutate(ing_remesas_ext = as.double(ing_remesas_ext))
-
-  left_join(tbl, REMESA, by = c("PERIODO", "TRIMESTRE", "ANO", "MES", "VIVIENDA", "HOGAR", "MIEMBRO"), copy = TRUE) %>%
-    mutate(ing_remesas_ext = replace_na(ing_remesas_ext, 0))
+  ftc_require_columns(tbl, "PERIODO")
+  amounts <- as.vector(outer(1:6, 1:3, function(i, j) paste0("MES", i, "_", j, "_EXT_MONTO")))
+  currencies <- sub("_MONTO$", "_MONEDA", amounts)
+  ftc_require_columns(tbl, c(amounts, currencies))
+  rates <- ftc_pm22_build_tipo_cambio_lookup()
+  converted <- vector("list", 18L)
+  for (k in seq_along(amounts)) {
+    month <- as.integer(substr(amounts[[k]], 4, 4))
+    currency <- ftc_pm22_normalize_currency(tbl[[currencies[[k]]]])
+    key <- paste(tbl$PERIODO, currency)
+    rate <- rates[[paste0("tasa_a_pesos_mes", month)]][match(key, paste(rates$periodo, rates$moneda))]
+    converted[[k]] <- as.numeric(tbl[[amounts[[k]]]]) * rate
+  }
+  tbl$ing_remesas_ext <- rowSums(as.data.frame(converted), na.rm = TRUE) / 6
+  tbl
 }
 
 
@@ -1490,7 +1353,7 @@ ftc_ing_laboral_monetario <- function(tbl, deflactar = TRUE, .keep = FALSE, .reu
 
   tbl %>%
     dplyr::select(-dplyr::all_of(ingresos)) %>%
-    dplyr::select(-c(ml_1, ml_2, ml_3, ml_1_def, ml_3_def))
+    dplyr::select(-dplyr::any_of(c("ml_1", "ml_2", "ml_3", "ml_1_def", "ml_3_def")))
 }
 
 #' ftc_ing_no_monetario_laboral
@@ -1649,7 +1512,7 @@ ftc_ing_monetario_no_laboral <- function(tbl, deflactar = TRUE, .keep = FALSE, .
 
   tbl %>%
     dplyr::select(-dplyr::all_of(ingresos)) %>%
-    dplyr::select(-c(mnl_1, mnl_2, mnl_2_def))
+    dplyr::select(-dplyr::any_of(c("mnl_1", "mnl_2", "mnl_2_def")))
 }
 
 #' ftc_ing_no_monetario_no_laboral
@@ -1936,7 +1799,7 @@ ftc_ing_monetario_ext <- function(tbl, deflactar = TRUE, .keep = FALSE, .reuse =
 
   tbl %>%
     dplyr::select(-dplyr::all_of(ingresos)) %>%
-    dplyr::select(-c(mext_1, mext_2, mext_1_def, mext_2_def))
+    dplyr::select(-dplyr::any_of(c("mext_1", "mext_2", "mext_1_def", "mext_2_def")))
 }
 
 #' ftc_ing_total_pobreza
@@ -2113,6 +1976,7 @@ ftc_pobreza_monetaria_2012_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
     left_join(lineas_pobreza, by = c("TRIMESTRE", "ZONA"), copy = TRUE) %>%
     mutate(
       pobreza_monetaria = case_when(
+        !is.finite(ing_pc_pobreza_def) | !is.finite(lpextrema) | !is.finite(lpgeneral) ~ NA_real_,
         ing_pc_pobreza_def < lpextrema ~ 1,
         ing_pc_pobreza_def < lpgeneral ~ 2,
         TRUE ~ 3

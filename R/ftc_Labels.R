@@ -7,6 +7,7 @@
 #' @param subset [character]: Si especificado, solo se asignaran las etiquetas a esas variables.
 #' @param vars [character]: Alias deprecated de `subset` mantenido por compatibilidad.
 #' @param ... argumentos adicionales de \code{labeler::set_Dict}
+#' @param version,at,con Seleccion opcional de revision; ver [ftc_dict()].
 #'
 #' @return Los datos introducidos en el argumento \code{tbl} pero con etiquetas de datos
 #'
@@ -14,8 +15,10 @@
 #'   Etiquetas de datos \code{vignette("labeler", package = "labeler")}
 #'
 #' @export
-ftc_set_Dict <- function(tbl, dict = encftr::dict, subset = NULL, ...) {
-  labeler::set_Dict(tbl, dict, subset, ...)
+ftc_set_Dict <- function(tbl, dict = NULL, subset = NULL, ..., version = NULL, at = NULL, con = NULL) {
+  if (!is.null(dict) && (!is.null(version) || !is.null(con))) stop("Especifique dict o version/con, no ambos.", call. = FALSE)
+  if (is.null(dict)) dict <- ftc_dict(version = version, at = at, con = con)
+  labeler::set_Dict(tbl, dict, subset, ..., at = at)
 }
 
 #' Utiliza las etiquetas de datos de una variable/dataset

@@ -131,3 +131,55 @@ if (getRversion() >= "2.15.1") {
     )
   )
 }
+
+if (getRversion() >= "2.15.1") {
+  utils::globalVariables(
+    c(
+      ".join_periodo", ".join_vivienda", ".row_id",
+      "AFILIADO_SEGURO_SALUD_PRINC", "AIRE_ACONDICIONADO", "AUTOMOVIL",
+      "CANT_DORMITORIOS_VIVIENDA", "CATEGORIA_PRINCIPAL", "CELULAR",
+      "COMBUSTIBLE_PARA_COCINAR", "COMO_ELIMINA_BASURA", "COMPUTADOR",
+      "DESOCUPADO", "DONDE_PROVIENE_AGUA", "EDAD_mean", "ESTUFA",
+      "HORNO_MICROONDAS", "ID_HOGAR", "INACTIVO", "INVERSOR", "LAVADORA",
+      "MATERIAL_PARED_EXTERIOR", "MATERIAL_PARED_EXTERIOR2",
+      "MATERIAL_PARED_EXTERIOR_ESP", "MATERIAL_PARED_EXTERIOR_ESP_VIV",
+      "MATERIAL_PISO", "MATERIAL_TECHO", "NIVEL_ULTIMO_ANO_APROBADO",
+      "PORQUE_NO_ESTUDIA", "REFRIGERADOR", "SABE_LEER_ESCRIBIR", "SEXO",
+      "TELEFONO", "TELEVISOR", "TIPO_ALUMBRADO", "TIPO_CENTRO_ESTUDIOS",
+      "TIPO_SANITARIO", "TIPO_VIVIENDA", "ULTIMO_ANO_APROBADO", "abuelo",
+      "abuelo_sum", "afilsegsal", "alfa15", "alfa15h", "alfabeto",
+      "alfaj0", "alfaj0_min", "alfaviviS3", "analfa", "anio",
+      "anosedu1", "anosedu15", "anosedu15h", "asis614h", "asist614",
+      "calc_id", "categsalariadoj0", "categsalariadoj0_min",
+      "ciclofamviviS3", "condicion_laboral_jefe",
+      "condicion_laboral_pob_0", "condicion_laboral_pob_1",
+      "condicion_laboral_pob_2", "condicion_laboral_pob_3",
+      "condicion_laboral_pob_4", "condicion_laboral_pob_5",
+      "condicion_laboral_pob_6", "condicion_laboral_pob_7",
+      "condicion_laboral_pob_dum_0", "condicion_laboral_pob_dum_1",
+      "condicion_laboral_pob_dum_2", "condicion_laboral_pob_dum_3",
+      "condicion_laboral_pob_dum_4", "condicion_laboral_pob_dum_5",
+      "condicion_laboral_pob_dum_6", "condicion_laboral_pob_dum_7",
+      "conyug_sum", "conyuge", "conyuge_sum", "conyugec", "difedadhijos",
+      "edadconyc", "edadhijos_max", "edadhijos_min", "edadhijosc",
+      "edadjefec", "edadmadre", "educjefe", "educjefh", "enve60",
+      "escojefeviviS3", "escoviviS3", "hconmissing", "hermano",
+      "hermano_sum", "hijastro", "hijastro_sum", "hijo", "hijo_sum",
+      "hijoc", "hijos_sum", "idenprov", "ingpcfoctransln_RCNC30_calc_ecuacion",
+      "ingpcfoctransln_RCNOC30_calc_ecuacion",
+      "ingpctransln_calc_ecuacion_NCRO_50var_aj_C37_d1010_C939",
+      "ingpctransln_calc_ecuacion_RCNO_C37_50var",
+      "ingresopc_oficial_NCRO_calc_C37_d1010_C939", "jefe", "muje",
+      "mujeh", "nieto", "nieto_sum", "ninijoven15a24",
+      "ninijoven15a24_mean", "nivelunij0", "nivelunij0_min", "ocupa",
+      "otronp", "otronp_sum", "otrop", "otrop_sum", "padre", "padre_sum",
+      "patronj0", "patronj0_min", "pob6a14", "pobmen12", "pobmen12h",
+      "pobmen17", "pobmen17h", "pobmen5h", "pobmeno5", "pobmeno6",
+      "primary_max_grade", "secondary_base", "secondary_max_grade",
+      "seguromean", "sexcony", "sexcony_sum", "sexconyc", "sexjefec",
+      "sexojefe", "sexojefeh", "suegro", "suegro_sum", "tiencony",
+      "tipocentro", "tipocentro_mean", "tipohogviviS3", "trabajah",
+      "yerno", "yerno_sum"
+    )
+  )
+}

@@ -19,23 +19,23 @@
 #' \dontrun{
 #' encft <- ftc_tasa_alfabetizacion_hogar(encft)
 #' }
-ftc_tasa_alfabetizacion_hogar <- function(tbl, min_edad = 0, max_edad = Inf){
+ftc_tasa_alfabetizacion_hogar <- function(tbl, min_edad = 0, max_edad = Inf) {
   TRIMESTRE <- NULL
   VIVIENDA <- NULL
   HOGAR <- NULL
   alfabetizacion <- NULL
-  if(min_edad > max_edad){
-    stop(glue::glue("ftc_compute_tasa_alfabetizacion_hogar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"))
+  if (min_edad > max_edad) {
+    stop(glue::glue(
+      "ftc_compute_tasa_alfabetizacion_hogar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"
+    ))
   }
   tbl %>%
-    ftc_compute_alfabetizacion(min_edad = min_edad, max_edad = max_edad) %>%
-    dplyr::group_by(
-      TRIMESTRE,
-      VIVIENDA,
-      HOGAR
-    ) %>%
+    ftc_alfabetizacion(min_edad = min_edad, max_edad = max_edad) %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(ftc_household_keys(tbl)))) %>%
     dplyr::mutate(
-      tasa_alfabetizacion_hogar = sum(alfabetizacion == 1, na.rm = T)/sum(!is.na(alfabetizacion), na.rm = T)*100
+      tasa_alfabetizacion_hogar = sum(alfabetizacion == 1, na.rm = T) /
+        sum(!is.na(alfabetizacion), na.rm = T) *
+        100
     ) %>%
     dplyr::ungroup() %>%
     dplyr::select(-alfabetizacion)
@@ -44,12 +44,18 @@ ftc_tasa_alfabetizacion_hogar <- function(tbl, min_edad = 0, max_edad = Inf){
 # make a function rename
 #' @rdname ftc_tasa_alfabetizacion_hogar
 #' @export
-ftc_compute_tasa_alfabetizacion_hogar <- function(tbl, min_edad = 0, max_edad = Inf){
-  deprecate_warn("0.5.0", "ftc_compute_tasa_alfabetizacion_hogar()", "ftc_tasa_alfabetizacion_hogar()")
+ftc_compute_tasa_alfabetizacion_hogar <- function(
+  tbl,
+  min_edad = 0,
+  max_edad = Inf
+) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_tasa_alfabetizacion_hogar()",
+    "ftc_tasa_alfabetizacion_hogar()"
+  )
   ftc_tasa_alfabetizacion_hogar(tbl, min_edad, max_edad)
 }
-
-
 
 
 #' Sobreedad escolar
@@ -76,12 +82,13 @@ ftc_compute_tasa_alfabetizacion_hogar <- function(tbl, min_edad = 0, max_edad = 
 #' \dontrun{
 #'   encft <- ftc_sobreedad_escolar(encft)
 #' }
-ftc_sobreedad_escolar <- function(tbl, nrezagos = 2){
+ftc_sobreedad_escolar <- function(tbl, nrezagos = 2) {
   tbl %>%
-    ftc_compute_anos_educacion() %>%
+    ftc_anos_educacion() %>%
     dplyr::mutate(
       sobreedad_escolar = dplyr::case_when(
-        dplyr::between(NIVEL_SE_MATRICULO, 2, 4) & EDAD >= anos_educacion + 6 + nrezagos ~ 1,
+        dplyr::between(NIVEL_SE_MATRICULO, 2, 4) &
+          EDAD >= anos_educacion + 6 + nrezagos ~ 1,
         dplyr::between(NIVEL_SE_MATRICULO, 2, 4) ~ 0
       )
     )
@@ -91,12 +98,14 @@ ftc_sobreedad_escolar <- function(tbl, nrezagos = 2){
 # make a function rename
 #' @rdname ftc_sobreedad_escolar
 #' @export
-ftc_compute_sobreedad_escolar <- function(tbl, nrezagos = 2){
-  deprecate_warn("0.5.0", "ftc_compute_sobreedad_escolar()", "ftc_sobreedad_escolar()")
-  ftc_compute_sobreedad_escolar(tbl, nrezagos)
+ftc_compute_sobreedad_escolar <- function(tbl, nrezagos = 2) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_sobreedad_escolar()",
+    "ftc_sobreedad_escolar()"
+  )
+  ftc_sobreedad_escolar(tbl, nrezagos)
 }
-
-
 
 
 #' Matriculación escolar
@@ -124,21 +133,33 @@ ftc_compute_sobreedad_escolar <- function(tbl, nrezagos = 2){
 #'                       MES = c(1, 4, 7), PORQUE_NO_ESTUDIA = c(3, 7, 1))
 #'  ftc_matriculacion_escolar(encft)
 #'  ftc_matriculacion_escolar(encft, summer_fix = TRUE)
-ftc_matriculacion_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_fix = FALSE){
+ftc_matriculacion_escolar <- function(
+  tbl,
+  min_edad = 6,
+  max_edad = 17,
+  summer_fix = FALSE
+) {
   EDAD <- NULL
   NIVEL_SE_MATRICULO <- NULL
   PORQUE_NO_ESTUDIA <- NULL
-  if(min_edad > max_edad){
-    stop(glue::glue("ftc_matriculacion_escolar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"))
+  if (min_edad > max_edad) {
+    stop(glue::glue(
+      "ftc_matriculacion_escolar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"
+    ))
   }
-  if(min_edad < 3){
-    warning("ftc_matriculacion_escolar: La encuesta solo recoge informaci\u00F3n educativa para miembros mayores de 2 a\u00F1os.")
+  if (min_edad < 3) {
+    warning(
+      "ftc_matriculacion_escolar: La encuesta solo recoge informaci\u00F3n educativa para miembros mayores de 2 a\u00F1os."
+    )
   }
   tbl %>%
     dplyr::mutate(
       matriculacion_escolar = dplyr::case_when(
-        dplyr::between(EDAD, min_edad, max_edad) & dplyr::between(NIVEL_SE_MATRICULO, 1, 8) ~ 1,
-        dplyr::between(EDAD, min_edad, max_edad) & dplyr::between(MES, 6, 8) & PORQUE_NO_ESTUDIA == 1 ~ dplyr::if_else(summer_fix, 1, 0),
+        dplyr::between(EDAD, min_edad, max_edad) &
+          dplyr::between(NIVEL_SE_MATRICULO, 1, 8) ~ 1,
+        dplyr::between(EDAD, min_edad, max_edad) &
+          dplyr::between(MES, 6, 8) &
+          PORQUE_NO_ESTUDIA == 1 ~ dplyr::if_else(summer_fix, 1, 0),
         dplyr::between(EDAD, min_edad, max_edad) ~ 0
       )
     )
@@ -147,11 +168,19 @@ ftc_matriculacion_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_f
 
 #' @rdname ftc_matriculacion_escolar
 #' @export
-ftc_compute_matriculacion_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_fix = FALSE){
-  deprecate_warn("0.5.0", "ftc_compute_matriculacion_escolar_summer_fix()", "ftc_matriculacion_escolar()")
-  ftc_matriculacion_escolar(tbl, min_edad, max_edad, summer_fix = FALSE)
+ftc_compute_matriculacion_escolar <- function(
+  tbl,
+  min_edad = 6,
+  max_edad = 17,
+  summer_fix = FALSE
+) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_matriculacion_escolar_summer_fix()",
+    "ftc_matriculacion_escolar()"
+  )
+  ftc_matriculacion_escolar(tbl, min_edad, max_edad, summer_fix = summer_fix)
 }
-
 
 
 #' Asistencia escolar
@@ -179,22 +208,33 @@ ftc_compute_matriculacion_escolar <- function(tbl, min_edad = 6, max_edad = 17, 
 #'                       MES = c(1, 4, 7), PORQUE_NO_ESTUDIA = c(3, 7, 1))
 #'  ftc_asistencia_escolar(encft)
 #'  ftc_asistencia_escolar(encft, summer_fix = TRUE)
-ftc_asistencia_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_fix = FALSE){
+ftc_asistencia_escolar <- function(
+  tbl,
+  min_edad = 6,
+  max_edad = 17,
+  summer_fix = FALSE
+) {
   EDAD <- NULL
   TANDA_ASISTE <- NULL
   MES <- NULL
   PORQUE_NO_ESTUDIA <- NULL
-  if(min_edad > max_edad){
-    stop(glue::glue("ftc_compute_asistencia_escolar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"))
+  if (min_edad > max_edad) {
+    stop(glue::glue(
+      "ftc_compute_asistencia_escolar: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"
+    ))
   }
-  if(min_edad < 3){
-    warning("ftc_compute_asistencia_escolar: La encuesta solo recoge informaci\u00F3n educativa para miembros mayores de 2 a\u00F1os.")
+  if (min_edad < 3) {
+    warning(
+      "ftc_compute_asistencia_escolar: La encuesta solo recoge informaci\u00F3n educativa para miembros mayores de 2 a\u00F1os."
+    )
   }
   tbl %>%
     dplyr::mutate(
       asistencia_escolar = dplyr::case_when(
         dplyr::between(EDAD, min_edad, max_edad) & TANDA_ASISTE != 7 ~ 1,
-        dplyr::between(EDAD, min_edad, max_edad) & dplyr::between(MES, 6, 8) & PORQUE_NO_ESTUDIA == 1 ~ dplyr::if_else(summer_fix, 1, 0),
+        dplyr::between(EDAD, min_edad, max_edad) &
+          dplyr::between(MES, 6, 8) &
+          PORQUE_NO_ESTUDIA == 1 ~ dplyr::if_else(summer_fix, 1, 0),
         dplyr::between(EDAD, min_edad, max_edad) ~ 0
       )
     )
@@ -203,8 +243,17 @@ ftc_asistencia_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_fix 
 
 #' @rdname ftc_asistencia_escolar
 #' @export
-ftc_compute_asistencia_escolar <- function(tbl, min_edad = 6, max_edad = 17, summer_fix = FALSE){
-  deprecate_warn("0.5.0", "ftc_compute_asistencia_escolar()", "ftc_asistencia_escolar()")
+ftc_compute_asistencia_escolar <- function(
+  tbl,
+  min_edad = 6,
+  max_edad = 17,
+  summer_fix = FALSE
+) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_asistencia_escolar()",
+    "ftc_asistencia_escolar()"
+  )
   ftc_asistencia_escolar(tbl, min_edad, max_edad, summer_fix)
 }
 
@@ -213,9 +262,21 @@ ftc_compute_asistencia_escolar <- function(tbl, min_edad = 6, max_edad = 17, sum
 #'
 #'   `r lifecycle::badge("experimental")`
 #'
+#'   Calcula los años de educación aprobados a partir del nivel y el último
+#'   año aprobado. Permite armonizar la base de secundaria entre la estructura
+#'   6-6, la estructura histórica 8-4 o una regla por año de corte.
+#'
 #' @param tbl una conexión a base de datos o data.frame con los datos
 #' @param breaks Puntos de corte para la variable. Vea \code{See also} para más detalles.
 #' @param labels [character]: Nombres para los grupos de la variable.  Vea \code{See also} para más detalles.
+#' @param secundaria_base [character]: Base usada para calcular los años de
+#'   secundaria. Puede ser \code{"armonizada_6_6"} para asumir primaria de 6
+#'   años, \code{"legacy_8_4"} para asumir primaria de 8 años o
+#'   \code{"historica_por_ano"} para decidir según \code{ANO} y
+#'   \code{anio_corte} (útil si tienes datos que mezclan los sistemas).
+#' @param anio_corte [numeric]: Año a partir del cual
+#'   \code{secundaria_base = "historica_por_ano"} usa la estructura 6-6. Para
+#'   años anteriores usa la estructura 8-4.
 #'
 #' @return [data.frame]: Los datos suministrados en el argumento \code{tbl} con
 #'   la variable \code{anos_educacion} adicionada.
@@ -229,28 +290,75 @@ ftc_compute_asistencia_escolar <- function(tbl, min_edad = 6, max_edad = 17, sum
 #' \dontrun{
 #'   encft <- ftc_anos_educacion(encft)
 #' }
-ftc_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
-  EDAD <- NULL
-  ULTIMO_ANO_APROBADO <- NULL
-  anos_educacion <- NULL
-  tbl <- tbl %>%
-    dplyr::mutate(
-      anos_educacion = dplyr::case_when(
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(0, 1, 9, 10) ~ 0,
-        NIVEL_ULTIMO_ANO_APROBADO == 2 ~ as.integer(ULTIMO_ANO_APROBADO),
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(3, 4) ~ dplyr::if_else(ANO >= 2022, 6, 8) + as.integer(ULTIMO_ANO_APROBADO),
-        NIVEL_ULTIMO_ANO_APROBADO == 5 ~ 12 + as.integer(ULTIMO_ANO_APROBADO),
-        NIVEL_ULTIMO_ANO_APROBADO %in% c(6, 7, 8) ~ 16 + as.integer(ULTIMO_ANO_APROBADO)
-      )
-    )
+ftc_anos_educacion <- function(
+  tbl,
+  breaks = NULL,
+  labels = NULL,
+  secundaria_base = c(
+    "armonizada_6_6",
+    "historica_por_ano",
+    "legacy_8_4"
+  ),
+  anio_corte = 2022L
+) {
+  secundaria_base <- match.arg(secundaria_base)
 
-  if(is.null(breaks)){
+  if (secundaria_base == "armonizada_6_6") {
+    tbl <- tbl %>%
+      dplyr::mutate(
+        anos_educacion = dplyr::case_when(
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(0L, 1L, 9L, 10L) ~ 0L,
+          NIVEL_ULTIMO_ANO_APROBADO == 2L ~ as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(3L, 4L) ~ 6L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO == 5L ~ 12L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(6L, 7L, 8L) ~ 16L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          TRUE ~ NA_integer_
+        )
+      )
+  }
+
+  if (secundaria_base == "legacy_8_4") {
+    tbl <- tbl %>%
+      dplyr::mutate(
+        anos_educacion = dplyr::case_when(
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(0L, 1L, 9L, 10L) ~ 0L,
+          NIVEL_ULTIMO_ANO_APROBADO == 2L ~ as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(3L, 4L) ~ 8L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO == 5L ~ 12L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(6L, 7L, 8L) ~ 16L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          TRUE ~ NA_integer_
+        )
+      )
+  }
+
+  if (secundaria_base == "historica_por_ano") {
+    tbl <- tbl %>%
+      dplyr::mutate(
+        anos_educacion = dplyr::case_when(
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(0L, 1L, 9L, 10L) ~ 0L,
+          NIVEL_ULTIMO_ANO_APROBADO == 2L ~ as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(3L, 4L) ~
+            dplyr::if_else(ANO >= anio_corte, 6L, 8L) +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO == 5L ~ 12L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          NIVEL_ULTIMO_ANO_APROBADO %in% c(6L, 7L, 8L) ~ 16L +
+            as.integer(ULTIMO_ANO_APROBADO),
+          TRUE ~ NA_integer_
+        )
+      )
+  }
+
+  if (is.null(breaks)) {
     tbl
   } else {
-    tbl %>%
-      dplyr::mutate(
-        anos_educacion = Dmisc::cut3(anos_educacion, breaks, labels = labels)
-      )
+    Dmisc::cut3(tbl, "anos_educacion", breaks, labels = labels)
   }
 }
 
@@ -258,10 +366,13 @@ ftc_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
 #' @rdname ftc_anos_educacion
 #' @export
 ftc_compute_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
-  deprecate_warn("0.5.0", "ftc_compute_anos_educacion()", "ftc_anos_educacion()")
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_anos_educacion()",
+    "ftc_anos_educacion()"
+  )
   ftc_anos_educacion(tbl, breaks, labels)
 }
-
 
 
 #' Alfabetización de la población
@@ -285,11 +396,13 @@ ftc_compute_anos_educacion <- function(tbl, breaks = NULL, labels = NULL) {
 #' \dontrun{
 #' encft <- ftc_alfabetizacion(encft)
 #' }
-ftc_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
+ftc_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf) {
   SABE_LEER_ESCRIBIR <- NULL
   EDAD <- NULL
-  if(min_edad > max_edad){
-    stop(glue::glue("ftc_compute_alfabetizacion: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"))
+  if (min_edad > max_edad) {
+    stop(glue::glue(
+      "ftc_compute_alfabetizacion: Edad m\u00EDnima ({min_edad}) mayor que edad m\u00E1xima ({max_edad})"
+    ))
   }
   tbl %>%
     dplyr::mutate(
@@ -303,22 +416,30 @@ ftc_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
 
 #' @rdname ftc_alfabetizacion
 #' @export
-ftc_compute_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf){
-  deprecate_warn("0.5.0", "ftc_compute_alfabetizacion()", "ftc_alfabetizacion()")
-  ftc_compute_alfabetizacion(tbl, min_edad, max_edad)
+ftc_compute_alfabetizacion <- function(tbl, min_edad = 0, max_edad = Inf) {
+  deprecate_warn(
+    "0.5.0",
+    "ftc_compute_alfabetizacion()",
+    "ftc_alfabetizacion()"
+  )
+  ftc_alfabetizacion(tbl, min_edad, max_edad)
 }
 
 
-
-
-ftc_grado_asiste <- function(tbl){
+ftc_grado_asiste <- function(tbl) {
   tbl %>%
     ftc_anos_educacion() %>%
-    dplyr::mutate(grado_asiste = dplyr::if_else(NIVEL_SE_MATRICULO < 9, anos_educacion + 1, NA_integer_))
+    dplyr::mutate(
+      grado_asiste = dplyr::if_else(
+        NIVEL_SE_MATRICULO < 9,
+        anos_educacion + 1,
+        NA_integer_
+      )
+    )
 }
 
 
-ftc_nivel_educativo_completado <- function(tbl, primaria = 6){
+ftc_nivel_educativo_completado <- function(tbl, primaria = 6) {
   tbl %>%
     ftc_anos_educacion() %>%
     dplyr::mutate(
@@ -333,7 +454,7 @@ ftc_nivel_educativo_completado <- function(tbl, primaria = 6){
 }
 
 
-ftc_nivel_educativo_alcanzado <- function(tbl, primaria = 6){
+ftc_nivel_educativo_alcanzado <- function(tbl, primaria = 6) {
   tbl %>%
     ftc_anos_educacion() %>%
     dplyr::mutate(

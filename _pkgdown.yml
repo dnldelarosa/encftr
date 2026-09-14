@@ -1,43 +1,23 @@
 url: https://endomer-py.github.io/encftr/
-
+lang: es
 template:
   bootstrap: 5
-  bootswatch: journal
-  params:
-    ganalytics: G-MZ6Q9WX373
-
-lang: es
-
-authors:
-  Daniel E. de la Rosa:
-    href: https://dnldelarosa.com
-  Adatar:
-    html: <div><img src="https://raw.githubusercontent.com/adatar-do/adatar-do.github.io/main/logotipo.png" alt="Adatar" height="20"> <span style="font-weight:900; margin:10px;">Adatar</span></div>
-    href: https://adatar.do
-  sidebar:
-    roles: [aut, cph]
-
+  bootswatch: flatly
 navbar:
   structure:
-    left: [intro, reference, articles, dictionary, news]
+    left: [intro, reference, articles, news]
     right: [search, github]
   components:
     intro:
       text: Inicio
       href: index.html
-    reference:
-      text: Referencia
-      href: reference/index.html
-    articles:
-      text: Articulos
-      menu:
-        - text: Introduccion a encftr
-          href: articles/encftr.html
-        - text: Pobreza monetaria
-          href: articles/pobreza-monetaria.html
-    dictionary:
-      text: Diccionario
-      href: articles/diccionario.html
-    news:
-      text: Novedades
-      href: news/index.html
+articles:
+  - title: Guías
+    navbar: ~
+    contents:
+      - encftr
+      - diccionario
+      - pobreza-monetaria
+      - indicadores
+      - iih
+      - icv-siuben

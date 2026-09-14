@@ -1,0 +1,31 @@
+---
+title: "ICV SIUBEN y migración desde encftr0"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ICV SIUBEN y migración desde encftr0}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Desde encftr 0.10.0, el cálculo del ICV de encftr0 0.0.2.9002 se mantiene en `ftc_icv_siuben()`. endompy 0.3.0 ofrece `icv_siuben()` y métodos equivalentes de `EncftDataFrame`. La implementación conserva coeficientes, límites y precedencia de las recodificaciones históricas. El identificador `encftr0-0.0.2.9002` identifica ese código; no certifica una metodología vigente de SIUBEN ni selecciona ICV4. ICV, IIH y pobreza monetaria son cálculos diferentes.
+
+Entregue una tabla de personas con hogares completos. `variables_icv_siuben()` enumera las 32 columnas obligatorias y las opcionales. Use códigos numéricos enteros o ausentes, antes de convertirlos a etiquetas. `TRIMESTRE` admite AAAAT o 1–4 con `ANO`. Las claves, la ubicación y `PARENTESCO` deben estar completos; cada hogar y período necesita exactamente una jefatura (`PARENTESCO == 1`). La ubicación debe ser consistente dentro del hogar. No se agrupan hogares de años distintos. El hacinamiento conserva su agrupación histórica por vivienda y período, incluyendo todos los hogares de esa vivienda.
+
+La salida conserva las filas, el orden y las columnas originales, y agrega `icv_global` (clases 1–4), `icv_puntaje` e `icv_metodo`. Los 19 componentes se incluyen por defecto; `include_details = FALSE` omite componentes nuevos y actualiza los que ya existían. Recalcular no reutiliza resultados intermedios. No sume puntajes repetidos en las filas de las personas para obtener un total del hogar.
+
+Se conserva el tratamiento histórico de ausentes: catorce componentes ausentes contribuyen cero antes de sumar; provincia, basura o tipo de vivienda pueden dejar sin clasificación casos urbanos o rurales. El componente históricamente llamado menores de cinco conserva `EDAD <= 5`. Si falta la columna opcional de texto de pared, se usa texto vacío. Estas decisiones reproducen el programa de origen y no reinterpretan su metodología.
+
+`ftc_dict_icv_siuben()`/`dict_icv_siuben()` contiene las etiquetas del resultado. Se aplica por separado del cuestionario inmutable `baseline-1`, cuya versión y contenido no cambian. `set_labels_icv_siuben()` conserva códigos; `use_labels_icv_siuben()` convierte la categoría a factor en R o categoría de pandas en Python. `vars` limita las columnas seleccionadas.
+
+Para migrar R, sustituya `encftr0::ftc0_compute_icv_siuben(x)` por `encftr::ftc_icv_siuben(x)`. Los cuatro nombres `ftc0_*` permanecen en encftr con advertencia de deprecación; encftr0 0.1.0 es un paquete de compatibilidad que delega en encftr >= 0.10.0. Instale primero encftr. `ftc0_setLabels()` etiqueta cuestionario e ICV; `ftc0_setLabels_icv_global()` etiqueta solo la clase; `ftc0_useLabels()` convierte las columnas seleccionadas. Ahora se respeta `vars`, corrigiendo el comportamiento anterior. Python también incluye estos cuatro alias para scripts pareados.
+
+La referencia independiente contiene 108 personas sintéticas, 36 hogares, tres zonas geográficas y las cuatro clases. Los 20 resultados históricos se comparan con la ejecución preservada de encftr0. Pruebas adicionales cubren años repetidos, viviendas con varios hogares, ausentes, jefaturas inválidas, recálculo y etiquetas. Esta evidencia verifica equivalencia del software; no valida una población real ni actualiza coeficientes.
+
+```{r}
+library(encftr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-icv.json", package = "encftr"))
+y <- ftc_icv_siuben(x, include_details = FALSE)
+stopifnot(nrow(y) == 108, setequal(y$icv_global, 1:4))
+labelled <- ftc_use_labels_icv_siuben(y, vars = "icv_global")
+head(labelled[c("icv_global", "icv_puntaje", "icv_metodo")])
+```

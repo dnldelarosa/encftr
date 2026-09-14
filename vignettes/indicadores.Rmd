@@ -1,0 +1,25 @@
+---
+title: "Educación, trabajo y hogares"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Educación, trabajo y hogares}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Los indicadores respetan universos explícitos. Alfabetización, matrícula y asistencia se calculan entre edades inclusivas; fuera de ese universo devuelven ausentes. Dentro del universo, las condiciones no reconocidas siguen la codificación del indicador de R (por ejemplo, alfabetización distinta de código 1 produce cero). No interprete ese cero como una imputación documental de la respuesta original.
+
+Los años de educación permiten tres bases: `armonizada_6_6` suma seis años a secundaria; `legacy_8_4` suma ocho; `historica_por_ano` usa ocho antes de `anio_corte` y seis a partir de ese año. La base predeterminada es 6+6 y el corte predeterminado es 2022. La opción histórica requiere `ANO`. Los estudios universitarios parten de 12 y los de posgrado de 16. Una configuración analítica no modifica los códigos del cuestionario.
+
+`summer_fix` incluye como estudiantes a quienes esperan el inicio de clases en junio–agosto según el motivo codificado. Se aplica de forma consistente a matrícula, asistencia y trabajo infantil. Este último tiene universo 5–14 años y cuatro categorías: trabaja y asiste (1), trabaja y no asiste (2), no trabaja y asiste (3), no trabaja y no asiste (4).
+
+La tasa de dependencia expresa dependientes por cada 100 personas de edad activa (15–64 por defecto). Los hogares sin denominador tienen resultado ausente; una edad ausente conserva la indeterminación de la suma. `limit` permite dependencia total, de mayores o de menores. La alfabetización del hogar excluye del denominador a quienes están fuera del universo. El hacinamiento cuenta personas por dormitorio a nivel de vivienda; cero dormitorios produce infinito. La jefatura se agrupa por mes, vivienda y hogar; un hogar sin jefatura queda ausente y más de una jefatura genera error.
+
+Para cortes categóricos use límites numéricos explícitos y etiquetas explícitas al comparar R y Python. Los intervalos son abiertos a la izquierda y cerrados a la derecha. Las funciones de cortes avanzados propias de Dmisc en R no tienen equivalencia general automática con pandas. La conexión configurada de Dmisc y el visor HTML de R son adaptadores del entorno: en Python utilice una conexión propia (`sqlite3`, SQLAlchemy) y `browse_dict()`, que devuelve una tabla para cuadernos o exportación.
+
+```{r}
+library(encftr)
+x <- data.frame(NIVEL_ULTIMO_ANO_APROBADO = c(3,3,5), ULTIMO_ANO_APROBADO = c(4,6,2), ANO = c(2021,2022,2022))
+stopifnot(all(ftc_anos_educacion(x)$anos_educacion == c(10,12,14)))
+ftc_anos_educacion(x, secundaria_base = "historica_por_ano")
+```

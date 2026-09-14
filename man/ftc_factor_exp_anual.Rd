@@ -3,25 +3,22 @@
 \name{ftc_factor_exp_anual}
 \alias{ftc_factor_exp_anual}
 \alias{ftc_compute_factor_exp_anual}
-\title{Factor de expansion anual
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
+\title{Alias anteriores del factor anual}
 \usage{
-ftc_factor_exp_anual(tbl)
+ftc_factor_exp_anual(tbl, periods = NULL)
 
-ftc_compute_factor_exp_anual(tbl)
+ftc_compute_factor_exp_anual(tbl, periods = NULL)
 }
 \arguments{
-\item{tbl}{\link{data.frame}: Conexión a base de datos o dataframe con los datos.}
+\item{tbl}{Un data.frame de miembros de la ENCFT.}
+
+\item{periods}{Divisor entero opcional entre 1 y 4 (anual) o 1 y 2 (semestral).
+Si es NULL, requiere TRIMESTRE como AAAAT o como 1:4 junto con ANO.}
 }
 \value{
-Conexión a base de datos o dataframe según input con la variable
-\code{factor_expansion_anual} agregada.
+Los datos originales con \code{factor_expansion_anual} o
+\code{factor_expansion_semestre}, conservando el orden de las filas.
 }
 \description{
-Factor de expansion anual
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-}
-\examples{
-  encft <- data.frame(FACTOR_EXPANSION = c(1028, 848, 400))
-  ftc_factor_exp_anual(encft)
+Alias anteriores del factor anual
 }

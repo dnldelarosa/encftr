@@ -27,7 +27,7 @@ ftc_hacinamiento <- function(tbl, breaks = NULL, labels = NULL) {
   VIVIENDA <- NULL
   CANT_DORMITORIOS_VIVIENDA <- NULL
   tbl <- tbl %>%
-    dplyr::group_by(TRIMESTRE, VIVIENDA) %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(ftc_household_keys(tbl, dwelling = TRUE)))) %>%
     dplyr::mutate(
       hacinamiento = dplyr::n() / CANT_DORMITORIOS_VIVIENDA
     ) %>%

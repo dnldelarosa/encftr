@@ -1,0 +1,28 @@
+---
+title: "Household income index"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Household income index}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+IIH estimates a classification from person and dwelling characteristics using fixed coefficient models. It is not observed survey income and does not replace monetary poverty measurement. Dictionary editions and poverty methodology do not select another IIH model.
+
+`variables_iih()` returns required, optional and output columns. `ID_HOGAR` and `PERIODO` form a stable calculation key. The function accepts a person table or a mapping/list with `miembros` and optional `vivienda`; a dwelling table can also be supplied separately. Additional wall text is filled by period and dwelling when absent in person records.
+
+The calculation normalizes responses, builds person indicators, aggregates households and applies official and targeting models. IIH detects the secondary-school base within each year using observed grades, following its R implementation; this model-specific contract differs from the configurable `anos_educacion()` option.
+
+Results are attached to people by default. `return_households=True` returns one row per household. `include_details=True` adds components, predictors and diagnostics. `IIH` is 1, 2 or 3 for model categories and 9 when unclassified. `hconmissing` flags the educational deficiencies specified by the model; other codes absent from coefficient maps can also lead to category 9.
+
+`filter_valid_households=True` filters households using `hconmissing == 0`. Person output preserves original rows and leaves scores missing for filtered households. Recalculation updates previous scores. Do not sum estimated household income repeated across people when analyzing households.
+
+Python reproduces all 77 result and diagnostic columns from R for the 26,697 reference households in 2019. This validates implementation equivalence; it is neither model re-estimation nor external coefficient certification. Preserve the model and its tables for reproducibility.
+
+```{r}
+library(encftr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-members.json", package = "encftr"))
+households <- ftc_iih(x, return_households = TRUE, include_details = TRUE)
+stopifnot(nrow(households) == 4)
+households[c("PERIODO", "ID_HOGAR", "IIH", "hconmissing")]
+```

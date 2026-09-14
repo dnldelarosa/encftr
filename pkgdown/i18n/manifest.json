@@ -1,0 +1,462 @@
+{
+  "CODE_OF_CONDUCT.md": {
+    "source": "bb30ad41acfc09a8d2463d9d68757355a4bc1db22df5cc8071ece6ea1bce8750",
+    "translation": "56be2b3d7c0877bd324290e4c9d82552a9833797a5787838743803f1c7ba62e5"
+  },
+  "CONTRIBUTING.md": {
+    "source": "db5e30ca77c9d98204af06d6b22d80c85d869ee03eb934f4f286d4adcc07818b",
+    "translation": "3b12dd3097aec80d50e0ba813f39025aae08dc7bac39b1f7a8f3007e3b8dfb39"
+  },
+  "DEPLOYMENT.md": {
+    "source": "60d6af2e9dbd4fbf7367afaadc7bd6e94b0f0b22aa687ed2baea9081c9505257",
+    "translation": "96ad958e95461a40ec734f5b1e613bba31eec3be0e3772105438f4327e6aa26b"
+  },
+  "LICENSE.md": {
+    "source": "6a0da4b100dc2ae3a6d08c36fc6f8f8323f7fd429253cc56b64117f25fa0746b",
+    "translation": "6a0da4b100dc2ae3a6d08c36fc6f8f8323f7fd429253cc56b64117f25fa0746b"
+  },
+  "man/dict.Rd": {
+    "source": "21ff36d756cbbc7a597af1e1b3d6dc7e1adc79947c8cff43d80288a19d573638",
+    "translation": "9d31d1182b28ffd68869519795de461f3c88ec7336d7fa4aad58475989324031"
+  },
+  "man/encft.Rd": {
+    "source": "aa43a6a7dab3e3ca0c076ed68c0ba0f61a9a7aaa4ab71ccc1c37d896f914e492",
+    "translation": "e18564dd59bd2a424c7ee7eecb219812f8b47eb98d5df62c73f57953e9bdeee0"
+  },
+  "man/ftc0_compute_icv_siuben.Rd": {
+    "source": "a97ed5057c145144027267424ad6052ef13e478b87971fa6b5bbeab2b5a4c182",
+    "translation": "5c345f657cec3579b2e6795403a7ff39df4b453e38fb1adfb101f37251b46c49"
+  },
+  "man/ftc_alfabetizacion.Rd": {
+    "source": "eadc474c277fc5554dcf18f288156e456fe170af89bd0472cd0805c130f4d625",
+    "translation": "067df1b1f9f6ca42f3801326d9b87b98bd6a625f94243b7067285b5365f0016e"
+  },
+  "man/ftc_anos_educacion.Rd": {
+    "source": "df680427e5053fbb9e59a777c838e4df39ea5829d55df4e552a83d149b5eb08c",
+    "translation": "936e61f5e0424cf5edcac2d89abcb191dc8ea93a5ccd6a07f42a4bcf1c75fe8d"
+  },
+  "man/ftc_asistencia_escolar.Rd": {
+    "source": "84d4bcf5a5385579a201017fc2590193a4747b83bd4bce1853fc324d838c1055",
+    "translation": "16195b453081b332dca48b62a96959a28c753143e88f83087007c25d06db4cd9"
+  },
+  "man/ftc_browse_dict.Rd": {
+    "source": "6a43088e9cc145ae6225f82c72bae46f49d26d141796aaf0d1820a4d9ce51126",
+    "translation": "a13b80701d624413bf9aaeacfe7c1be4857d4bccfd35e065701f4771ac531fee"
+  },
+  "man/ftc_db_connect.Rd": {
+    "source": "c71c1fcd55276e4b3da34bb66bca19140833cd14a2fc4e9cd3fd53a1a20269a7",
+    "translation": "be9d2e00455e326425389ce9cfb1c25ef9f605dada17c2ee4b76c5a95f35e8f4"
+  },
+  "man/ftc_dict.Rd": {
+    "source": "16088545c01d0e53ca7b95ff001c4910c343e219a785ece767dfb320607098ff",
+    "translation": "f0217990188702eeaa4aec3da52127c4e03661ccd8ba80d4ed09e47e8f1cd2d3"
+  },
+  "man/ftc_dict_icv_siuben.Rd": {
+    "source": "1abc2b0459e4d49654e1de3fc00ffb0c503e151f6a04297011d6be3c77b53496",
+    "translation": "b6f3b2a4140179f7ed252142ccdbc3bc7498a971e5ba285dca7ba8e8d757ebc0"
+  },
+  "man/ftc_dict_versions.Rd": {
+    "source": "293f02aa9dbf6717d17008e4a10219543bbc7abc95b6bd8d1785695b50c6dfe3",
+    "translation": "8dc165e5172035039c827ea6c74cd70bb18337cae2eddc5c67160716d7ae7292"
+  },
+  "man/ftc_factor_exp_anual.Rd": {
+    "source": "2f68c7cb7813a4d6bafe8feff4f439119ae485b14ef8f8dc3ca848b21fae3140",
+    "translation": "3cdd17643f5af098e5c5bcb58cddc9f7e47b4f66c9bfa3fe18f26a025d129a19"
+  },
+  "man/ftc_factor_expansion_anual.Rd": {
+    "source": "f7eb3471198180e080e539f1f74ef0a43d5c21579236068ffd8c787666fdda1c",
+    "translation": "c64dfe7d7aa79404f05832915b93395f2c86ba8589a9a36980271fa14f4845b2"
+  },
+  "man/ftc_fuerza_trabajo_potencial.Rd": {
+    "source": "7bdc9efee209c8d202cd1739bdb799ecb04aa541c2820e52335741b61ab63540",
+    "translation": "0267d9680238377523b37b5cf11e5e90c30bfd73ea5884abd0986470b552a6d1"
+  },
+  "man/ftc_grupo_rama_pib.Rd": {
+    "source": "405bc8da0ca13939c52886173daef3adeb7943641ee4f235579999b827daddcc",
+    "translation": "3aeb8e0f77e6b8165dca18948dba4c6deab9f4a4da70c17cc3f9bfb9cafa4060"
+  },
+  "man/ftc_grupos_edad.Rd": {
+    "source": "85c973e52756a19e99b378d78bba00bd8aefdde3b3c8b37639834aa8f4529e19",
+    "translation": "317137696e2cf5e0e4387200f5aefd187c5c66b2b8b4d06868000a095d8c6853"
+  },
+  "man/ftc_hacinamiento.Rd": {
+    "source": "d5b6327707675a7b4420ca0867fe30245907aee657c1f632bd1ccaedc49d6d16",
+    "translation": "c7557eb3e09532e027eefb4bd70ca5739dcefd4b62dbb70d920c2912b161b14c"
+  },
+  "man/ftc_horas_semana.Rd": {
+    "source": "0402ff0d9827a5b9735b0e587e4fa61d79cbac70aca1e3f5ac09a920ae0bdca4",
+    "translation": "0d83521117d694874cbfd84acc38a324d216831917dd964c5e3138785e855525"
+  },
+  "man/ftc_icv_siuben.Rd": {
+    "source": "509c76fa49ba2e927560be5f1dc796e9105541aff91faa7262a3ba5eca908748",
+    "translation": "309e9ef43701b9a4cce81be1634c447054283ea6c14c469a190755082246e361"
+  },
+  "man/ftc_iih.Rd": {
+    "source": "89d32639ada91aae88f17b0b9d3522601634783f6bc19681da465a57810b1e85",
+    "translation": "59eb37ab432b4c914f42e139394904d247a440dd0e6054ec0939540936d20e50"
+  },
+  "man/ftc_ing_alquiler_imputado.Rd": {
+    "source": "1fa0774057c6cd479c9e79c2043311724bb3fce789b10d2f409490e976de9d33",
+    "translation": "aca2870e32d06955210bf87bb3ec2d7596f190f16f7ca41df9f0d48998a66c73"
+  },
+  "man/ftc_ing_alquileres_renta.Rd": {
+    "source": "41ac4517cf85ba10b0724870a8458b6da04ce7fda77392cc2e198030c3515a5d",
+    "translation": "c234d3c164b7cd214f39b1a6a0b5c5b06dd88465e729c6dfaa4adfb9296cf0b4"
+  },
+  "man/ftc_ing_alquileres_renta_anual.Rd": {
+    "source": "66e0ad6b3e734cf70d1697b5d4881feb5697dd630f38c7f3a90da2d22ee81508",
+    "translation": "32dfa5d0175bda078292eaba0699319d8329742eee637f2083453d8b706b6acb"
+  },
+  "man/ftc_ing_alquileres_renta_ext.Rd": {
+    "source": "b08716167802ef3250d4967c43a1ddddfcea019d80ce991b6e131f5db8f6e3f8",
+    "translation": "75b392f113bbd1a27ef18126307c84fa327f3d632de015dbcc4c0438bbc6c7cb"
+  },
+  "man/ftc_ing_autoconsumo_autosuministro.Rd": {
+    "source": "8d65196b651ab9eb14e4cf3d2e5b9b869249a040909dc17137db63f94f0581f4",
+    "translation": "16d3ea6b6bd3b35311c9a7df3f9bea78cac26d7a472f6e115c1882c73d96ed40"
+  },
+  "man/ftc_ing_beneficios_marginales.Rd": {
+    "source": "fc3db190a06eddab3ec814731a85f201fd80e81aa639b7b7bfcff12809f3a78e",
+    "translation": "745f77c1fe38bc04c1efcaf57aa5761a3ec43cb338c13954076fb897d213cfff"
+  },
+  "man/ftc_ing_beneficios_marginales_anual.Rd": {
+    "source": "df5a30f4e5552a9502245c2256f967986a89e6ea645584403185a27b163cad22",
+    "translation": "fe2a5b9e3e7af94ab3f5dd673351ff4cd483a6403161755439e07fab46a1f38f"
+  },
+  "man/ftc_ing_bonificaciones.Rd": {
+    "source": "a0f380f3822ba253516e6e07dcd42b8e248e15298ca7b765e6620d9cd2cca47d",
+    "translation": "7f46ef931769dad316442e4269e79ce2b2b65b8037c1e4b3886b0968fb108dfd"
+  },
+  "man/ftc_ing_comisiones.Rd": {
+    "source": "3f202343be052b0eb90bbdca86e51bd47c12b9436832b7a4f40929537df78235",
+    "translation": "67aee65724223fc24390fda268a7a44a9a749c9f038291fcbab4df05b91a936b"
+  },
+  "man/ftc_ing_dividendos.Rd": {
+    "source": "66f354d21c32cf1847863b55e457d85b51eae757a9119ffa913300d83db8238f",
+    "translation": "b83bb4cccf8c16074fb5b4c26ca72a85a2e2e7d1d76b9ac6c5fd6685950487b4"
+  },
+  "man/ftc_ing_especie_alimentos.Rd": {
+    "source": "c7fbba41c15f7d102b6167d4c281101fe9885cf040c00cd0c5b474293ff98e67",
+    "translation": "cb90695ae2c8d4cfe84cbbb2c25ed832b6fb869ec66e11fd4bbd68a96ba6d493"
+  },
+  "man/ftc_ing_especie_ayuda_ong.Rd": {
+    "source": "7bacd29d3e90342c000858a7bcc75690cb8a9189f356704cf9b6b7e09b0a8d09",
+    "translation": "54358b7dac08b43b2acbe36552b3dad60e657cfc99baabe8d492af1891a955f2"
+  },
+  "man/ftc_ing_especie_ayuda_ong_anual.Rd": {
+    "source": "50e1ef72bacd9c51a361f67b4f4ff89235be6bcea51cdc3c4ebc5d2055f53fd1",
+    "translation": "f76e9ed5fb1911fddbb769275216d97df937456b386cc7b7279c59e82c9a8776"
+  },
+  "man/ftc_ing_especie_celular.Rd": {
+    "source": "e94c4cacf9bdaf2ead16df9008bdb7e1faf21ecf974ac2de08358f85610c947d",
+    "translation": "3822342c2210198df7c96854dfa222d2603ffe124c400538deef2d0e9ce72d89"
+  },
+  "man/ftc_ing_especie_combustible.Rd": {
+    "source": "875464758a152c3efd1a11a8e2faea3ca957766d47eaae38fb718ed3a415b954",
+    "translation": "27813eb11dd294e6c0c89507704798ea6867ea0f1e00cfb11878425b4b6a23b0"
+  },
+  "man/ftc_ing_especie_cuenta_propia.Rd": {
+    "source": "0eed83baf9dd95aef1886af2c8a6906c546d7fb56eb2572e0f65bc48b74dbd21",
+    "translation": "dfcce201330e88152633299bd6c2d31f84d9f508516a1e379a47c3a0e8c3689d"
+  },
+  "man/ftc_ing_especie_ocup_sec_asalarariado.Rd": {
+    "source": "bb340f5f1202a48bbe26ef10839141d2e4bb76e68887286a7243be334efc078a",
+    "translation": "94e108314b3999b364cfeedb74b340055ea693065f74d17d3ba75033ca12cfd7"
+  },
+  "man/ftc_ing_especie_ocup_sec_cuenta_propia.Rd": {
+    "source": "12956e29f7879627df33289c5f766b19a5b6b8a278cae43be2e6072a9b73e5e8",
+    "translation": "f7277165afaadc04ebcb537b53ef725082ed767c464ade53856e155068d5f862"
+  },
+  "man/ftc_ing_especie_otros.Rd": {
+    "source": "369c641d2f661fc384cf66b25333ec1475187d4bbdf25750afbecb1cae315d6c",
+    "translation": "4b0025cf09b2bb261ed9504e45c840a88f7d3d005201d35d740a08b87b6d5663"
+  },
+  "man/ftc_ing_especie_transporte.Rd": {
+    "source": "0ccdabcd219c4d3a00b7c991f93177a5bf92066b9b6390e95607e1ec9c6b7471",
+    "translation": "b8919c8a205f074218ed82056fd3a414b802befa85e1eb9ed78be40c2a838f12"
+  },
+  "man/ftc_ing_especie_viviendas.Rd": {
+    "source": "3926a295486315c43f833c7b909df9f9fda4b2e29e16c0f1b6264efe1784cb2e",
+    "translation": "74f84e2d04e96f2b3d62b6930ac4e0400b64141fb35856c2d5cdb975de3c055f"
+  },
+  "man/ftc_ing_horas_extra.Rd": {
+    "source": "112faeb5a9ff7a61cc141a81376894e265c5f49962a287755868e61959bd6e2c",
+    "translation": "7e7aaf9fa7372578c00343fe7556db9fb9f4fa7a48e4ad5493ae8a74cc99b8bf"
+  },
+  "man/ftc_ing_intereses_dividendos.Rd": {
+    "source": "20599d04a813b7dfa45535a6fb2ab5f409f013fc1375330bdcd2b327fb85caf6",
+    "translation": "2b3e4333bd08ac6839e198e921123b491a1df51afb933a22edffb09c8713f9d2"
+  },
+  "man/ftc_ing_intereses_dividendos_anual.Rd": {
+    "source": "6ced708b3cebf03a6ec07aea02d2606adc84a8094ad776d248259832eb7fea6c",
+    "translation": "3e63d0ae38f93ad12b15ad4df1ab416f6faf99ab1d77ac50ccd876c24a487b36"
+  },
+  "man/ftc_ing_intereses_dividendos_ext.Rd": {
+    "source": "aa061f75820b6072dd1bfd7a75b365585e66ca3bdf19185d1a829823b0442f85",
+    "translation": "ea423812ad35c8287670be5b830ec3f0deb23fe37914b16af0a253170c61f401"
+  },
+  "man/ftc_ing_laboral_monetario.Rd": {
+    "source": "b8c0ed5b19f1cda010dadfe1871497d62f7ae0edf43e4a2df47a1d3df8a1ecb3",
+    "translation": "1f14250b7578b15ebb63afce6bb08e1a25a43c97e35ca9191f153e8aa29d6860"
+  },
+  "man/ftc_ing_mensual_ocup_prin_asalariado.Rd": {
+    "source": "2dca2cfe7b962b00b98b9ef38ec53ec60cdbe42afeb31d6738270191b7fff009",
+    "translation": "35390753c45236f13075250c4a27cc65083b97301a3b6db7b93d00a50942433d"
+  },
+  "man/ftc_ing_mensual_ocup_prin_cuenta_propia.Rd": {
+    "source": "e86a5459725b857d598645102347e4e35b406c788147adc7f1cdf5671be7b550",
+    "translation": "433d7e7ccd9722e43fdeb727f3dd940b687d84bef261b8a99a99f0f204ef7e8b"
+  },
+  "man/ftc_ing_mensual_ocup_prin_independiente.Rd": {
+    "source": "b4aa6585feac3dea87bad7532f8e1d486049520a6028f3da194ed70cec2e7c46",
+    "translation": "f01b58408dc53b19738d3ec065e338bc3d17915c6daf0e300d15b182405a7b2c"
+  },
+  "man/ftc_ing_mensual_ocup_sec_asalariado.Rd": {
+    "source": "460693df3f39a0d86f184dc7c88e3c695a2be39e53b51712f6cd6e7e847c4919",
+    "translation": "20fa704d4f1d921cf2bb34c0e807e4fa5f5c6623b45774e660eda0bd0dfc473e"
+  },
+  "man/ftc_ing_mensual_ocup_sec_cuenta_propia.Rd": {
+    "source": "a650a0dd8c11eb32d0c03065ce87b6634f0ec9a186178187d8d89f6a765ed48a",
+    "translation": "b4f7a9496f2b2605ec764204fb12c304cd4704ad66416750139906923829e815"
+  },
+  "man/ftc_ing_mensual_ocup_sec_independiente.Rd": {
+    "source": "aa0aa77d382bddf9075e08432bc2222ca82b4960cd8fe876c1008d1c1519b1dd",
+    "translation": "690b30fe5ded3c54cf8059ffd86feced388c4f9f26d901267719c7f624233c55"
+  },
+  "man/ftc_ing_monetario_ext.Rd": {
+    "source": "21719b1aea03fac8d7da7ea0831dacb9723d7aaeca927d8e47ac892938d661ee",
+    "translation": "eb607b951b11b2984bee882f72c1f595a8999b091b82b33fa27f8ee9bb6608bb"
+  },
+  "man/ftc_ing_monetario_no_laboral.Rd": {
+    "source": "8b51a5345228de6f2cf30e16c6019fac258a9fbee42ebc2b93beac24c988ab31",
+    "translation": "a90e54d7ee2ad2418748cb6b5d0180055ffd804ecbaa5661621793c81912dca6"
+  },
+  "man/ftc_ing_no_monetario_laboral.Rd": {
+    "source": "cdb56e29ef8774ec863359e22bb2e6e25385ba036e2772f29af5c946e1fa0968",
+    "translation": "5d0bf6147a850f69e90e8f7d0ba3514356122f1a994c6dfe421af37ec39b63a8"
+  },
+  "man/ftc_ing_no_monetario_no_laboral.Rd": {
+    "source": "4a9206063a5db67166e302a132cf8f5333ecf15b4568e1c5c5efca9364358598",
+    "translation": "eefa964293abc121619f1a3cd6484c4adee834be89685059abbb03560e294cfb"
+  },
+  "man/ftc_ing_otros_ocup_sec_asalariado.Rd": {
+    "source": "260d560eeb323049aa3c36a81e1e811894ac9f5313af20bb0f0c590295898364",
+    "translation": "ead482278900e24af0df78a5761dceb4668b4c5ff7549fcc4b1475b742b8cbc6"
+  },
+  "man/ftc_ing_pc_pobreza_def.Rd": {
+    "source": "4d3d01306c0869de116d5b6a24d4e3283dbad2ad1dba4b7a2efa0c05a9ff614f",
+    "translation": "88db38d71f4fa02433edfd58938121f8f7ff8a728b4ae85b06a09f1989617b48"
+  },
+  "man/ftc_ing_pension_ext.Rd": {
+    "source": "836fcad7b54bb4744aabb2d6abd0a29d02722db570c4a27cac6f3319fe8880c2",
+    "translation": "f52dbd743ca7983d02812069fd4548ce553b982d672c568c833c4241b70da560"
+  },
+  "man/ftc_ing_pension_jubilacion.Rd": {
+    "source": "41a07b525e0a2c71d9825133c21586e4620cf7a4a851412e8cc371b29dae2137",
+    "translation": "4f3a31d08970352ec811014407069934be058f1e1f283e47c97a813118110c6a"
+  },
+  "man/ftc_ing_pension_jubilacion_anual.Rd": {
+    "source": "072083082a1bb15cc06b5bfaf797a47b33d860b41871c4ad6a7a0c977ed49712",
+    "translation": "1bf809540283a019115bd25c830f122eedfaaa8a0a251b50fb9005dbfdcfd887"
+  },
+  "man/ftc_ing_propinas.Rd": {
+    "source": "44468cd5d8b356e2371732c48a577cfeb8e269857a0b729f13fc5e873be53fd0",
+    "translation": "11356215fdd802f55f36824b9b131afb533a7160ef17759d57edeb3765cc6f4c"
+  },
+  "man/ftc_ing_regalia_pascual.Rd": {
+    "source": "5ec6fad3ff9ef19f30460e4f116b78670a20f2fae40a5ab33ddcea0a756620d3",
+    "translation": "bb201b031c3ec5ad76299f3878e7e5a4e7be13738e55f7ff636784301bea2474"
+  },
+  "man/ftc_ing_regalos_ext.Rd": {
+    "source": "f4984cebfa1fdbfff8346ac93d4cdf4af9e84140c298afd494cc08bea7886de3",
+    "translation": "c78bd4ea43c4bfb8cbd1210074215b5d005b013aad8d9d36bf5738810af399f4"
+  },
+  "man/ftc_ing_remesas_ext.Rd": {
+    "source": "afe2f41bbe0dd014b9e59356109ddcdf8d0ed062981214c886c0f5a08bae5d7c",
+    "translation": "ce265a9578e98300d824302846678de92ffbf11a588bc84200261cd1961f2c5c"
+  },
+  "man/ftc_ing_remesas_nacionales.Rd": {
+    "source": "e2c7a6dabd195ed2e64693256b3018047b0688407e5ab02f1aa62d11f391c46e",
+    "translation": "fab3315c0657836be65faeb87e3e2951255cc84515acfe82ed465c01f749911e"
+  },
+  "man/ftc_ing_remesas_nacionales_anual.Rd": {
+    "source": "1591e8bc83aa965f2040fb2e9f820f2059815fe543d7f5750014010e44afe071",
+    "translation": "667cc90745aec974b976c1469957e4d4bf5bffc1b37df1a18c7cb9623eec75ff"
+  },
+  "man/ftc_ing_total_pobreza.Rd": {
+    "source": "7bcf419aefe07f0ca22c3321877a5276e92e2fcf96e943fbdf93559010157d1a",
+    "translation": "f6a2de4614390410aca0f2d19784dfbe04b3195b4443a6d9819109590294529e"
+  },
+  "man/ftc_ing_transferencias_sociales.Rd": {
+    "source": "a88d76d5f5b255068573720036a991b795ddf9c83526637df31d6269c1f15977",
+    "translation": "0cf7ea53fe151345d77a05a39dba6a56ad8fe9d2f18b3fc2c1aa9b12e84330a5"
+  },
+  "man/ftc_ing_utilidades_empresariales.Rd": {
+    "source": "f26896d13b4012eec1db08dc5a70344fc707c8de60e9e5b0b34d22222109ab53",
+    "translation": "1366b42675abdc4a6fbc054dbbaea531bd08f3e06e8032c2cd551ed22ec11686"
+  },
+  "man/ftc_ing_vacaciones.Rd": {
+    "source": "4f16006068974b08f59e018590f140cc3a10d9a6827c926b7648902e3a86b0f3",
+    "translation": "8f732f2a4e7c81dd10b6a69b6c9233124673def044a2cb9d821c186307892614"
+  },
+  "man/ftc_ingreso_laboral_total.Rd": {
+    "source": "0b4c7418540f1ed9f6fe51fb273bf3bb68f0bf27bc52af1ddd362bbb812ca5d1",
+    "translation": "8057e046fdd20f4443a55a97de9b7e8a978739206d554bc6316173b48d609039"
+  },
+  "man/ftc_matriculacion_escolar.Rd": {
+    "source": "d1575873938404998a79e09617087f32c61dafa2f313e35b0c2c2b3b08a0f21c",
+    "translation": "fcb7e22e92ccc28f1d4d1ba32300571e1bea62325691fd8808b5b67c7bb44443"
+  },
+  "man/ftc_perceptores_ingresos.Rd": {
+    "source": "b119a48e917cface803ce35666d3860c1387ec7a0c82130d62b21dfde7a85697",
+    "translation": "6de8fab00f30be5ac6792282e21faa8235ac304aa2efd5acbed5edabaa10fa3e"
+  },
+  "man/ftc_pobreza_monetaria.Rd": {
+    "source": "639aa337fcb506b71b6cb3d7eec1fbba90e3b9eac460b23ea9df5586fbc5068d",
+    "translation": "2b4cef3cf53bc2a0397f90bbb9f80bf0bc631e5f19f8087fbec2562ae22081a4"
+  },
+  "man/ftc_pobreza_monetaria_2012.Rd": {
+    "source": "fedabdbe0e46a2d615c98cc1cdde396ea152ce40500f68e565c9fcb0eb89bf1b",
+    "translation": "224d23896af2ec19002a44c24e3b27f530dfc213698e96a862f0e8f7ee06a15e"
+  },
+  "man/ftc_pobreza_monetaria_2022.Rd": {
+    "source": "5d95ca645cc5129b3e49059a8bc10d6f35873a83cf322bb1859318f4e631c901",
+    "translation": "d568eebcfedc909d99f08aafc3065bf43d168995547252ba4fe2409faf88df6a"
+  },
+  "man/ftc_prepare_poverty.Rd": {
+    "source": "b6eba941c140c8d76a19cb3f94b64609de36bb6c2ff8e0adf93b0bae9c658c5f",
+    "translation": "e596de0e40cd601ac41724dd04e9acb53db981647f8e8eee4b47e7033eb2a0a7"
+  },
+  "man/ftc_recode_material_pared_exterior.Rd": {
+    "source": "701c2670bfff8413887ba95bcebe122cea9ffe636109a2d66e1e68efc7dd06e2",
+    "translation": "266eb890ad83286016bd1374b7a95c047ba88c590d7cfc29cc20538abd560965"
+  },
+  "man/ftc_regiones_desarrollo.Rd": {
+    "source": "e3c4f74d83fe23cf3954f6506beca8242355e50722cbd3f4540b4ae41380040f",
+    "translation": "a157fb0f4c2c14388360bb69a7163ec4a0c3eb636969e3e58182c30d2d3a37f4"
+  },
+  "man/ftc_register_dict.Rd": {
+    "source": "b41a63aa14caccdeb9ce8f21b87cf40794fb054f0934a142507468e072a7b226",
+    "translation": "4504d1f73662668e5cb51c34c0d928992801a8730f38c472c18b2a62ff7b24b0"
+  },
+  "man/ftc_select_variables_pobreza.Rd": {
+    "source": "7d591a21ba5ec9952a48a41a23e7b0257c29c909e903f03e235828d718d490ce",
+    "translation": "5c1dd0abfa478d7c6fad7375eee5f9813f7c4991f7ee83fc947fbfe4695f5d8f"
+  },
+  "man/ftc_set_Dict.Rd": {
+    "source": "24ec21f30eeee5a67cdad6b70fedf17d007b9e2a13ccddb002110a80ea4b768a",
+    "translation": "fa66bf54e16e23dc5254477365ada6b610cb855cc9670ce7403448a158961c7a"
+  },
+  "man/ftc_set_labels_icv_siuben.Rd": {
+    "source": "3683774baea8da0bb03c6e5baaa31b943640b6f15214aee585b41ebdd084f4da",
+    "translation": "218d16a8c4f10aa69e4c945de5589b5b73d38ef890f5a2299a6492f6d6b6a9e3"
+  },
+  "man/ftc_sexo_jefe.Rd": {
+    "source": "500451e90b6c408da72c3564fa8d3d56743b9f4fd5f3189d5d1f5320d9970fba",
+    "translation": "4a0c32b99170f33fb99ee3965f87166aad0f8ddcebdd85388147ff8bad4e043e"
+  },
+  "man/ftc_sobreedad_escolar.Rd": {
+    "source": "ccb5dbf95b2dfa866cbc47ee7578a3acfc52cf0797d584c7bc025ad34754a930",
+    "translation": "3f1cea73e8cfd38f8b7c4f6b136f53fc90a06e546085c689003d3300ce245af8"
+  },
+  "man/ftc_tasa_alfabetizacion_hogar.Rd": {
+    "source": "2e8ffec14a09b3eac9c38cffe338f845da2b5fcea6fd0c59e38c0bc0f25663c1",
+    "translation": "c040beb0b2f2abfafb21f9df23ef56db40a32e75c71e3e628f5c9b2b0716228b"
+  },
+  "man/ftc_tasa_dependencia.Rd": {
+    "source": "cb071c90ba037b1d2684cc342ebccb584416284a6f379760fae48b369e5db0b4",
+    "translation": "d49197d7691ab0de96d579b3b25425083aff1b72c1e1af127bb0fc39e3bcc529"
+  },
+  "man/ftc_tiempo_total_empleo_anos.Rd": {
+    "source": "4b61be7227cf3f0946706114184e68fc634b890e380f9e36796fb1b5eed1e2cd",
+    "translation": "11c82647b8525b63240b6c58debadad1ccba896fed8a932f0492a456717f205e"
+  },
+  "man/ftc_tiempo_total_empleo_dias.Rd": {
+    "source": "f162fa1da39993ee8693bfd0ec1be8084b68ee8741bb716788cbe8f63090748f",
+    "translation": "7d77155d5ca008e81f55b8a60f13eac8a4cf75acdae1bd6ec75885b150a6ad5e"
+  },
+  "man/ftc_tiempo_total_empleo_meses.Rd": {
+    "source": "9e2d4ddc865a9415e90ee2ce4e1552f874d01c52e4e291447f13224d1269bc5c",
+    "translation": "ee869c9ab6290aea04c6eece8e94727c56e04e8c153f7681ec7bf22963822372"
+  },
+  "man/ftc_trabajo_infantil.Rd": {
+    "source": "0729f6011ef7607e020cd557354936b92ea3336e0c002c0946812786cade5ac5",
+    "translation": "476d62fda2d0b111d1a7d16c79095228a042492e7a586b3d652631db8fc932a2"
+  },
+  "man/ftc_variables_icv_siuben.Rd": {
+    "source": "3dccd47bcf52310f021fcbb59bd93c7e6ff150af6cd4705b680a1a34e60c4907",
+    "translation": "75f62a8d9b53a8c02947c6f454465d1ef3eea906d1daa89904c30814f565124c"
+  },
+  "man/ftc_variables_iih.Rd": {
+    "source": "b2de369a1c279f75afa9029f2b052b8d67570d771f729c8c2e1f54a7e1082c30",
+    "translation": "1e52b8381009f2dfc8ca7011e3a3926eb0dd9e9edb64243f70748add9aa2cd52"
+  },
+  "man/ftc_with_Dict.Rd": {
+    "source": "c5f1e33762326bc8fceb086fb7772095324f184291388b001d6c5e56488fb2ed",
+    "translation": "423e159181d25d727a09edffb656adca3a3a1105a02d7bd6e60ab77f46f80d4e"
+  },
+  "man/ftc_zona_desarrollo_fronterizo.Rd": {
+    "source": "98bbdc0490afd5723ee41873e8520a49a1df783d8611da5421f65331b106a63a",
+    "translation": "e5a80c60a4fac5837846f889803bcab1fc42abfc8a094434bccdde0c2c250117"
+  },
+  "man/ipc_2010.Rd": {
+    "source": "1cef8fc37736a45f3ec71996e8a16b1e3c6f7a6555edc5f163b101a7ab258b8b",
+    "translation": "feecf2a526fcf8a9d1ef13538e709613673b56b0bc418a910e35fa4ea7330b4c"
+  },
+  "man/ipc_2020.Rd": {
+    "source": "f6218067a741a405b2026550233265dbcfde9b45c2d20cfbfd3a5d507403af28",
+    "translation": "407b6df3cb8a8d9362c99d54a3d94b4969cb8c9365b86ea53ea901e769ca9cc0"
+  },
+  "man/lineas_pobreza.Rd": {
+    "source": "27f08f15472da34178fe00a3f5c77c046c672ea3674e3356fe02d0c0de764b81",
+    "translation": "810eb84f032c23be05ad75754244c092a7b1c84062160ec8041c3da187edc68a"
+  },
+  "man/pipe.Rd": {
+    "source": "68c2929d4b05a4bd40ccfa314117ea4d1251fe860fb76c9e06ac82b0a5db7922",
+    "translation": "0adcc374cf148a4cd72820bb14465f6697f7c89c24e3835fbb394b7db2d54d97"
+  },
+  "man/salario_minimo.Rd": {
+    "source": "79de46ae992663929485bf356c8f39ddf7eeabe232128f139edfe35a066995d9",
+    "translation": "b987f31c2607547744ba5282fd4f31c9c06ec987acc4a0f50ed99a306fb4f6fa"
+  },
+  "man/tipo_cambio.Rd": {
+    "source": "0670a7e6ac02409aef9436ee406bbae94beb0d4c2fe823cca1883751784e04ad",
+    "translation": "1b1ea24b1c586e316f542c7abeef7c3090b5cb980927af4f5959b1d553b43874"
+  },
+  "man/tipo_cambio_monedas.Rd": {
+    "source": "4b7410f4ff5c68514957a9db41a6f95819a041a038ce12721cdd87933beaeeed",
+    "translation": "11550508be319c8ea3444970030c08b27a0e7a2ca5ccf97183099ee8785d9f54"
+  },
+  "NEWS.md": {
+    "source": "da5c5ca87f02745c933d0de19ad31bf0eb2c0e98e9dab2a6c9550773129f3166",
+    "translation": "85bd65df622d627b21890ee4544fbda16c549265e9b1cf849f3ab847ae8fd02d"
+  },
+  "README.md": {
+    "source": "190aafb91cd38190c278161c65bf6e8aff954b6f6576f515426bfdf27c8c334c",
+    "translation": "360bc326e4b5ed619d55c540fb8e8d3f0352cfb53a8b9d7bd29b1ab0e4d042d1"
+  },
+  "vignettes/diccionario.Rmd": {
+    "source": "6cc6fbc7bb5c4afcead209b0028986d0bd8a37c8432d9ac3c4d5f29f491e99a7",
+    "translation": "cbddd67abe4f3b145a5dcd7658a1672b4ef5e50b66bab7cae674a38901754280"
+  },
+  "vignettes/encftr.Rmd": {
+    "source": "f7114e0085a1d7689083f3233759484f2fa19bf01ebb4fa09035c169ed3b00de",
+    "translation": "108f371177aa051d7c512d4364f1ee10074b41f0d24cf2fac817409608869842"
+  },
+  "vignettes/icv-siuben.Rmd": {
+    "source": "aec8e4310dfc6f7e26f77216ca4295dd2f4c49fb5416fc1aadf020d184150181",
+    "translation": "a2f757510e7fe33969ce96c7ea7d9a37070ae8aa3a651aa901371a1b2b2e6e35"
+  },
+  "vignettes/iih.Rmd": {
+    "source": "43ab6b578b6f3b8f098f59ea6d03c35735bc5c2151aa1c3b08392dbf7071a16c",
+    "translation": "1bf7a75ab1a6eb451d73ec80e529690ec6083b044148f7a637935c6bd1ce74b5"
+  },
+  "vignettes/indicadores.Rmd": {
+    "source": "666a9bdf38adebf37c568bb337962d0a2a92b6e04abf7fc6299cc5d461413168",
+    "translation": "18512709219536c57d1051127ff57fba446d4ef743fe3e4c1857f2548c43adec"
+  },
+  "vignettes/pobreza-monetaria.Rmd": {
+    "source": "d83e1701bf8db05f23552bd3f8830ddb8561fae763852a236af5afaa58122f62",
+    "translation": "c9a3266a2c49739077251a2a5178b09e31d3cfb907fd4322d36037a5716e475d"
+  }
+}

@@ -45,13 +45,11 @@ ftc_tasa_dependencia <- function(tbl,
   if (length(limit) > 1) {
     limit <- limit[[1]]
   }
+  if (min_edad > max_edad) stop("Edad minima mayor que maxima.", call. = FALSE)
+  if (!limit %in% c("both", "above", "below", "a", "b")) stop("limit debe ser both, above o below.", call. = FALSE)
 
   tbl <- tbl %>%
-    dplyr::group_by(
-      TRIMESTRE,
-      VIVIENDA,
-      HOGAR
-    ) %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(ftc_household_keys(tbl)))) %>%
     dplyr::mutate(
       independientes = sum(dplyr::between(EDAD, min_edad, max_edad)),
       dependientes = sum(!dplyr::between(

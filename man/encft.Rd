@@ -3,18 +3,20 @@
 \docType{data}
 \name{encft}
 \alias{encft}
-\title{Datos para simular la base de datos de la ENCFT}
+\title{Ejemplo agregado de la ENCFT de 2016}
 \format{
-\link{data.frame}
+Un data.frame de 256 filas con TRIMESTRE, ANO, SEXO,
+ID_PROVINCIA y FACTOR_EXPANSION.
 }
 \source{
-NA
+ENCFT 2016; procedimiento de agregacion en data-raw/encft.R.
 }
 \usage{
 encft
 }
 \description{
-Contiene un pequeño data.frame con la estructura básica necesaria para simular
-la ENCFT. Útil para los ejemplos y viñetas del paquete.
+Contiene 256 celdas agregadas por trimestre, ano, sexo y provincia,
+con la suma del factor de expansion. Es un agregado historico de 2016,
+no una base de personas ni el ejemplo sintetico de las nuevas guias.
 }
 \keyword{datasets}

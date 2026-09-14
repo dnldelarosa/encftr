@@ -5,7 +5,13 @@
 \alias{ftc_compute_anos_educacion}
 \title{Años de educación}
 \usage{
-ftc_anos_educacion(tbl, breaks = NULL, labels = NULL)
+ftc_anos_educacion(
+  tbl,
+  breaks = NULL,
+  labels = NULL,
+  secundaria_base = c("armonizada_6_6", "historica_por_ano", "legacy_8_4"),
+  anio_corte = 2022L
+)
 
 ftc_compute_anos_educacion(tbl, breaks = NULL, labels = NULL)
 }
@@ -15,6 +21,16 @@ ftc_compute_anos_educacion(tbl, breaks = NULL, labels = NULL)
 \item{breaks}{Puntos de corte para la variable. Vea \code{See also} para más detalles.}
 
 \item{labels}{\link{character}: Nombres para los grupos de la variable.  Vea \code{See also} para más detalles.}
+
+\item{secundaria_base}{\link{character}: Base usada para calcular los años de
+secundaria. Puede ser \code{"armonizada_6_6"} para asumir primaria de 6
+años, \code{"legacy_8_4"} para asumir primaria de 8 años o
+\code{"historica_por_ano"} para decidir según \code{ANO} y
+\code{anio_corte} (útil si tienes datos que mezclan los sistemas).}
+
+\item{anio_corte}{\link{numeric}: Año a partir del cual
+\code{secundaria_base = "historica_por_ano"} usa la estructura 6-6. Para
+años anteriores usa la estructura 8-4.}
 }
 \value{
 \link{data.frame}: Los datos suministrados en el argumento \code{tbl} con
@@ -22,6 +38,11 @@ la variable \code{anos_educacion} adicionada.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
+Calcula los años de educación aprobados a partir del nivel y el último
+año aprobado. Permite armonizar la base de secundaria entre la estructura
+6-6, la estructura histórica 8-4 o una regla por año de corte.
 }
 \examples{
 \dontrun{

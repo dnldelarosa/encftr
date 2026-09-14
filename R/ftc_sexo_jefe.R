@@ -13,6 +13,9 @@
 #'     ftc_sexo_jefe(tbl)
 #'  }
 ftc_sexo_jefe <- function(tbl){
+    keys <- ftc_household_keys(tbl, period = "PERIODO")
+    heads <- tbl[which(tbl$PARENTESCO == 1), keys, drop = FALSE]
+    if (anyDuplicated(heads)) stop("Mas de un jefe para el mismo hogar.", call. = FALSE)
     PERIODO <- NULL
     VIVIENDA <- NULL
     HOGAR <- NULL
@@ -24,7 +27,7 @@ ftc_sexo_jefe <- function(tbl){
     ) %>%
     dplyr::group_by(PERIODO, VIVIENDA, HOGAR) %>%
     dplyr::mutate(
-        sexo_jefe = min(sexo_jefe, na.rm = TRUE)
+        sexo_jefe = if (all(is.na(sexo_jefe))) NA_real_ else min(sexo_jefe, na.rm = TRUE)
     ) %>%
     dplyr::ungroup()
 }

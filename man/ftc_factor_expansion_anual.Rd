@@ -2,23 +2,33 @@
 % Please edit documentation in R/factor_expansion.R
 \name{ftc_factor_expansion_anual}
 \alias{ftc_factor_expansion_anual}
-\title{Factor de expansión anual
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}}
+\alias{ftc_factor_expansion_semestre}
+\title{Factores de expansion para periodos agrupados}
 \usage{
-ftc_factor_expansion_anual(tbl)
+ftc_factor_expansion_anual(tbl, periods = NULL)
+
+ftc_factor_expansion_semestre(tbl, periods = NULL)
 }
 \arguments{
-\item{tbl}{\link{data.frame}: Conexión a base de datos o dataframe con los datos.}
+\item{tbl}{Un data.frame de miembros de la ENCFT.}
+
+\item{periods}{Divisor entero opcional entre 1 y 4 (anual) o 1 y 2 (semestral).
+Si es NULL, requiere TRIMESTRE como AAAAT o como 1:4 junto con ANO.}
 }
 \value{
-Conexión a base de datos o dataframe según input con la variable
-\code{factor_expansion_anual} agregada.
+Los datos originales con \code{factor_expansion_anual} o
+\code{factor_expansion_semestre}, conservando el orden de las filas.
 }
 \description{
-Factor de expansión anual
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+Promedia las ponderaciones trimestrales sobre los trimestres observados por
+ano (o por ano y semestre). No convierte un subconjunto de trimestres en una
+estimacion representativa del ano completo. Calcule el factor antes de filtrar
+personas. \code{periods} permite declarar explicitamente el divisor de un extracto
+cuya cobertura ya se conoce.
 }
 \examples{
-  encft <- data.frame(FACTOR_EXPANSION = c(1028, 848, 400))
-  ftc_factor_expansion_anual(encft)
+x <- data.frame(TRIMESTRE = c(20231, 20232, 20241),
+                FACTOR_EXPANSION = c(100, 200, 300))
+ftc_factor_expansion_anual(x)
+ftc_factor_expansion_anual(data.frame(FACTOR_EXPANSION = 100), periods = 4)
 }

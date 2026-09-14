@@ -135,7 +135,7 @@ ftc_horas_semana <- function(tbl) {
 #' }
 ftc_trabajo_infantil <- function(tbl, summer_fix = FALSE) {
   tbl %>%
-    ftc_asistencia_escolar() %>%
+    ftc_asistencia_escolar(min_edad = 5, max_edad = 14, summer_fix = summer_fix) %>%
     dplyr::mutate(
       trabajo_infantil = dplyr::case_when(
         dplyr::between(EDAD, 5, 14) & OCUPADO == 1 & asistencia_escolar == 1 ~

@@ -1,0 +1,25 @@
+---
+title: "Education, labour and households"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Education, labour and households}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Indicators have explicit populations. Literacy, enrollment and attendance use inclusive age bounds; people outside the population receive missing results. Within it, unmatched conditions follow the R indicator's coding (for example, literacy codes other than 1 produce zero). That zero does not document an imputation of the original answer.
+
+Years of schooling support three bases: `armonizada_6_6` adds six years for secondary schooling; `legacy_8_4` adds eight; `historica_por_ano` uses eight before `anio_corte` and six from that year onward. The default is 6+6 with a default cutoff of 2022. The historical option requires `ANO`. University starts at 12 years and postgraduate schooling at 16. Analytical configuration does not alter questionnaire codes.
+
+`summer_fix` includes students waiting for classes to start in June–August according to the coded reason. It is passed consistently to enrollment, attendance and child labour. Child labour covers ages 5–14 and has four categories: working and attending (1), working and not attending (2), not working and attending (3), neither working nor attending (4).
+
+The dependency ratio is dependents per 100 working-age people (15–64 by default). Households without a denominator have missing results; a missing age preserves uncertainty in the sum. `limit` selects total, older or younger dependency. Household literacy excludes people outside the selected ages from its denominator. Crowding counts people per bedroom at dwelling level; zero bedrooms yields infinity. Headship groups by month, dwelling and household; missing heads yield missing results, and multiple heads raise an error.
+
+Use explicit numeric cut points and labels for R/Python comparisons. Intervals are open on the left and closed on the right. Advanced Dmisc-specific R cut functions have no general automatic pandas equivalent. The configured Dmisc connection and R HTML viewer are environment adapters: Python uses caller-owned connections (`sqlite3`, SQLAlchemy) and `browse_dict()`, which returns a notebook/export table.
+
+```{r}
+library(encftr)
+x <- data.frame(NIVEL_ULTIMO_ANO_APROBADO = c(3,3,5), ULTIMO_ANO_APROBADO = c(4,6,2), ANO = c(2021,2022,2022))
+stopifnot(all(ftc_anos_educacion(x)$anos_educacion == c(10,12,14)))
+ftc_anos_educacion(x, secundaria_base = "historica_por_ano")
+```

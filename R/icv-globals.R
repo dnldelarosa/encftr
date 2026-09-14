@@ -1,0 +1,2 @@
+# Column symbols used by the historical dplyr engine.
+utils::globalVariables(c("aguav1", "aire_acondicionado", "alfabeta15", "alfav1", "asiscv1", "basicos", "cociv1", "computador", "E614", "edu_jefe", "equiv1", "equivivi", "escoj1", "escov1", "estufa", "hacina1", "lavadora", "luzv1", "modernos", "nevera", "paredv1", "pisov1", "pninme1", "saniv1", "techv1", "televisor", "ULTIMO_ANO_APROBADO", "vehiculo_privado"))

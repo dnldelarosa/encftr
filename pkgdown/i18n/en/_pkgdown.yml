@@ -1,0 +1,23 @@
+url: https://endomer-py.github.io/encftr/en/
+lang: en
+template:
+  bootstrap: 5
+  bootswatch: flatly
+navbar:
+  structure:
+    left: [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    intro:
+      text: Home
+      href: index.html
+articles:
+  - title: Guides
+    navbar: ~
+    contents:
+      - encftr
+      - diccionario
+      - pobreza-monetaria
+      - indicadores
+      - iih
+      - icv-siuben

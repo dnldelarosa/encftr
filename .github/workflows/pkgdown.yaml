@@ -1,48 +1,51 @@
+name: Bilingual pkgdown
 on:
-  push:
-    branches:
-      - main
-      - master
-
-name: pkgdown
-
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the verified static site to GitHub Pages
+        type: boolean
+        default: false
+permissions:
+  contents: read
 jobs:
-  pkgdown:
-    runs-on: macOS-latest
+  build:
+    runs-on: ubuntu-latest
     env:
+      RENV_CONFIG_AUTOLOADER_ENABLED: 'false'
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: r-lib/actions/setup-r@v1
-
-      - uses: r-lib/actions/setup-pandoc@v1
-
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-
-      - name: Cache R packages
-        uses: actions/cache@v4
+      - uses: actions/checkout@v4
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
-
-      - name: Install dependencies
-        run: |
-          remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown", type = "binary")
-        shell: Rscript {0}
-
-      - name: Install package
-        run: R CMD INSTALL .
-
-      - name: Deploy package
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+          path: encftr
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: encftr
+          extra-packages: any::pkgdown, any::jsonlite
+          needs: website
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install beautifulsoup4
+      - run: Rscript encftr/scripts/build-docs.R
+      - run: python encftr/scripts/check-sites.py artifacts/encftr-release/sites/r --kind r
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: artifacts/encftr-release/sites/r
+  deploy:
+    if: ${{ inputs.publish }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

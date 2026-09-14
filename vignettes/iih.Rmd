@@ -1,0 +1,28 @@
+---
+title: "Índice de ingresos del hogar"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Índice de ingresos del hogar}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+El IIH estima una clasificación a partir de características de las personas y la vivienda mediante modelos de coeficientes fijos. No es el ingreso observado de la encuesta ni una sustitución de la medición monetaria de pobreza. La edición del diccionario y la metodología de pobreza no seleccionan otro modelo IIH.
+
+`variables_iih()` devuelve las columnas obligatorias, opcionales y de salida. Se necesita `ID_HOGAR` junto a `PERIODO` para construir una clave estable de cálculo. La función acepta una tabla de personas o una lista con `miembros` y, opcionalmente, `vivienda`; también puede suministrar la tabla de vivienda por separado. El texto adicional de pared se completa por período y vivienda cuando falta en personas.
+
+El cálculo normaliza respuestas, construye indicadores de personas, agrega hogares y aplica los modelos oficial y de focalización. La base escolar de secundaria del IIH se detecta por año a partir de los grados observados, conforme a su implementación de R; es un contrato propio del modelo, distinto de la opción configurable de `anos_educacion()`.
+
+Por defecto los resultados se añaden a cada persona. `return_households=TRUE` devuelve una fila por hogar. `include_details=TRUE` añade componentes, predictores y diagnósticos. `IIH` toma 1, 2 o 3 para las categorías del modelo y 9 cuando no puede clasificarse. `hconmissing` identifica las carencias educativas especificadas por el modelo; otros códigos no representados en sus coeficientes también pueden producir una clasificación 9.
+
+`filter_valid_households=TRUE` filtra hogares según `hconmissing == 0`. En la salida por persona se preservan las filas originales y se dejan ausentes las puntuaciones de hogares filtrados. Recalcular actualiza las puntuaciones antiguas. Para analizar por hogar no sume los ingresos estimados repetidos en todas las personas.
+
+Python reproduce las 77 columnas de resultado y diagnóstico de R para los 26,697 hogares de referencia 2019. Es una validación de equivalencia entre implementaciones, no una reestimación ni una certificación externa de los coeficientes. Conserve el modelo y sus tablas al reproducir resultados.
+
+```{r}
+library(encftr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-members.json", package = "encftr"))
+households <- ftc_iih(x, return_households = TRUE, include_details = TRUE)
+stopifnot(nrow(households) == 4)
+households[c("PERIODO", "ID_HOGAR", "IIH", "hconmissing")]
+```

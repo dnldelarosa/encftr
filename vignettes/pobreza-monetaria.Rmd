@@ -1,94 +1,44 @@
 ---
-title: "Pobreza monetaria"
+title: "Pobreza monetaria: 2012 y 2022"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Pobreza monetaria}
+  %\VignetteIndexEntry{Pobreza monetaria: 2012 y 2022}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+Seleccione la metodología explícitamente. La función histórica `ftc_pobreza_monetaria()` sigue apuntando a 2012 por compatibilidad y emite una advertencia de deprecación. No cambia de metodología según el año de los datos.
+
+| Contrato | Metodología 2012 | Metodología 2022 |
+|---|---|---|
+| Deflación | Nacional | Cuatro macrorregiones |
+| Líneas | Urbana y rural | Ozama, Norte, Sur y Este |
+| Denominador per cápita | CANTIDAD_MIEMBROS_HOGAR reportada | Personas observadas en el hogar y período |
+| Alimentación escolar | Excluida | Incluida |
+| Selección | pobreza_monetaria_2012 | pobreza_monetaria_2022 |
+
+La entrada contiene respuestas de personas, con nombres del cuestionario en mayúsculas y claves `PERIODO` (AAAAMM), `TRIMESTRE`, `VIVIENDA` y `HOGAR`. La metodología 2012 requiere además `ZONA` y `CANTIDAD_MIEMBROS_HOGAR`. Debe aportar todos los miembros del hogar para sumar sus ingresos. La de 2022 necesita una macrorregión identificable mediante `ID_PROVINCIA` o `GRUPO_REGION`.
+
+`prepare_poverty` resuelve únicamente alias conocidos de programas sociales y ayuda anual, y completa los campos opcionales que el código metodológico trata como cero o ausentes. No completa arbitrariamente las otras respuestas obligatorias. La clasificación conserva ausentes cuando faltan líneas, el ingreso calculado no es finito o el denominador 2012 no es positivo. Los componentes omitidos que el código oficial suma con `na.rm=TRUE` contribuyen cero; esto no convierte cualquier respuesta faltante en un error ni sustituye una auditoría de calidad de la encuesta.
+
+Las salidas monetarias son pesos dominicanos mensuales. `ing_total_pobreza` es nominal; `ing_total_pobreza_def` e `ing_pc_pobreza_def` usan la base de precios de la metodología. `linea_pobreza` y `linea_pobreza_extrema` corresponden al mismo criterio de comparación. `pobreza_monetaria` vale 1 (extrema), 2 (no extrema) o 3 (no pobre); `pobre` e `indigente` son lógicos anulables. La igualdad con una línea pertenece a la categoría superior.
+
+`keep=TRUE` conserva componentes intermedios; una lista conserva los nombres solicitados. En R los argumentos son `.keep` y `.reuse`. En las dos funciones metodológicas `reuse` se acepta por compatibilidad y siempre se recalcula desde las respuestas. Repetir el cálculo actualiza las columnas de salida. Los auxiliares históricos `ing_*` conservan su contrato particular de reutilización: son útiles para inspeccionar componentes, pero el flujo oficial completo debe ejecutarse con la función metodológica explícita.
+
+Las líneas empaquetadas de ambas metodologías cubren enero de 2016 a diciembre de 2022; los IPC cubren julio de 2015 a diciembre de 2022. La tabla de tasas llega a diciembre de 2024, pero eso no amplía las líneas de pobreza. Los períodos desde 2023 quedan sin clasificación con esta entrega. Revise la fuente antes de actualizar tasas o líneas; actualizar el diccionario no actualiza estas tablas. Las tasas de remesas se asignan al mes declarado, sin depender del orden de las personas.
+
+La validación de 2019 cubre 83,031 personas y 26,697 hogares. R reproduce ingresos, líneas y clasificación del código oficial 2012; la clasificación 2022 coincide con el archivo de referencia de la metodología. Python reproduce los resultados de R en ambos métodos. Esta evidencia valida esa base y los casos sintéticos de regresión; no certifica períodos para los que no se ejecutó una comparación independiente.
 
 ```{r}
 library(encftr)
+x <- jsonlite::fromJSON(system.file("examples", "synthetic-members.json", package = "encftr"))
+p12 <- ftc_pobreza_monetaria_2012(x)
+p22 <- ftc_pobreza_monetaria_2022(x)
+stopifnot(nrow(p12) == nrow(x), nrow(p22) == nrow(x))
+head(p22[c("ing_total_pobreza", "ing_pc_pobreza_def", "linea_pobreza", "pobreza_monetaria")])
 ```
 
-## API pública
+## Fuentes / Sources
 
-El paquete expone tres entradas para pobreza monetaria:
-
-- `ftc_pobreza_monetaria()`: wrapper **deprecated** que se conserva por compatibilidad y sigue usando la metodología 2012.
-- `ftc_pobreza_monetaria_2012()`: entrada explícita para la metodología 2012.
-- `ftc_pobreza_monetaria_2022()`: entrada explícita para la metodología 2022.
-
-La recomendación es llamar directamente a la metodología que corresponda a tu flujo de trabajo.
-
-## Metodología 2012
-
-La ruta 2012 mantiene la semántica histórica del paquete y conserva los argumentos `.keep` y `.reuse`.
-
-```{r, eval = FALSE}
-encft_2012 <- ftc_pobreza_monetaria_2012(
-  encft,
-  .keep = FALSE,
-  .reuse = FALSE
-)
-```
-
-El wrapper deprecated continúa disponible para no romper código existente:
-
-```{r, eval = FALSE}
-encft_2012 <- ftc_pobreza_monetaria(encft)
-```
-
-## Metodología 2022
-
-La ruta 2022 implementa la metodología nueva con líneas macroregionales y deflactación regional. Requiere una base con identificadores del hogar y variables adicionales de ingresos, región y moneda.
-
-Columnas mínimas esperadas por la función:
-
-- `PERIODO`
-- `TRIMESTRE`
-- `VIVIENDA`
-- `HOGAR`
-- `GRUPO_REGION`
-- `ID_PROVINCIA`
-
-En la práctica, la función necesita además las variables de ingresos y remesas usadas por la metodología.
-
-```{r, eval = FALSE}
-encft_2022 <- ftc_pobreza_monetaria_2022(
-  encft,
-  .keep = FALSE
-)
-```
-
-La salida agrega, entre otras, estas variables:
-
-- `macro_region_pobreza`
-- `ing_total_pobreza_def`
-- `ing_pc_pobreza_def`
-- `linea_pobreza`
-- `linea_pobreza_extrema`
-- `pobreza_monetaria`
-- `pobre`
-- `indigente`
-
-## Selección de variables
-
-Si tu flujo de trabajo parte de una tabla amplia y quieres conservar sólo los insumos relevantes para pobreza monetaria, puedes usar `ftc_select_variables_pobreza()` antes del cálculo.
-
-```{r, eval = FALSE}
-encft_pobreza <- encft |>
-  ftc_select_variables_pobreza()
-```
-
-## Notas
-
-- La metodología 2022 fue integrada como una función nueva para no cambiar silenciosamente el comportamiento de `ftc_pobreza_monetaria()`.
-- Si estás migrando código existente, la transición recomendada es reemplazar `ftc_pobreza_monetaria()` por `ftc_pobreza_monetaria_2012()` o `ftc_pobreza_monetaria_2022()`, según corresponda.
+- [Código oficial de pobreza / Official poverty code](https://mepyd.gob.do/vaes/codigos-de-pobreza/).
+- [Metodología oficial 2022 / Official 2022 methodology](https://one.gob.do/media/skoevafz/nueva-metodologia-de-medicion-oficial-de-pobreza-monetaria-2023.pdf).

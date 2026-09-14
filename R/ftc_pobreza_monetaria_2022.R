@@ -190,7 +190,7 @@ ftc_pm22_ensure_columns <- function(encft) {
   numeric_na <- c(
     "remesas_nac_ano",
     "otros_ingresos_ext_moneda",
-    "grupo_region"
+    "grupo_region", "id_provincia"
   )
 
   alias_map <- c(
@@ -209,13 +209,13 @@ ftc_pm22_ensure_columns <- function(encft) {
 
   for (name in numeric_zero) {
     if (!(name %in% names(encft))) {
-      encft[[name]] <- 0
+      encft[[name]] <- rep(0, nrow(encft))
     }
   }
 
   for (name in numeric_na) {
     if (!(name %in% names(encft))) {
-      encft[[name]] <- NA_real_
+      encft[[name]] <- rep(NA_real_, nrow(encft))
     }
   }
 
@@ -290,6 +290,7 @@ ftc_pm22_build_outputs <- function(encft, original_names, .keep = FALSE) {
     linea_pobreza = linea_pob,
     linea_pobreza_extrema = linea_ind,
     pobreza_monetaria = dplyr::case_when(
+      !is.finite(IPCm_ENCFT) | !is.finite(linea_ind) | !is.finite(linea_pob) ~ NA_integer_,
       IPCm_ENCFT < linea_ind ~ 1L,
       IPCm_ENCFT < linea_pob ~ 2L,
       TRUE ~ 3L
@@ -301,11 +302,11 @@ ftc_pm22_build_outputs <- function(encft, original_names, .keep = FALSE) {
     )
 
   if (isTRUE(.keep)) {
-    candidate_cols <- setdiff(names(encft), c(original_names, ".encftr_rowid"))
+    candidate_cols <- setdiff(names(encft), c(original_names, names(outputs)))
     extras <- dplyr::select(encft, dplyr::all_of(c(".encftr_rowid", candidate_cols)))
     outputs <- dplyr::left_join(outputs, extras, by = ".encftr_rowid")
   } else if (is.character(.keep)) {
-    keep_cols <- intersect(.keep, setdiff(names(encft), original_names))
+    keep_cols <- intersect(.keep, setdiff(names(encft), c(original_names, names(outputs))))
     if (length(keep_cols)) {
       extras <- dplyr::select(encft, dplyr::all_of(c(".encftr_rowid", keep_cols)))
       outputs <- dplyr::left_join(outputs, extras, by = ".encftr_rowid")
@@ -315,10 +316,16 @@ ftc_pm22_build_outputs <- function(encft, original_names, .keep = FALSE) {
   outputs
 }
 
-ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) {
+ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE, methodology = "2022") {
+  if (!(is.logical(.keep) && length(.keep) == 1L && !is.na(.keep)) && !is.character(.keep)) stop(".keep debe ser logico o nombres de componentes.", call. = FALSE)
   rm(.reuse)
 
   required_cols <- c("PERIODO", "TRIMESTRE", "VIVIENDA", "HOGAR")
+  ftc_require_columns(tbl, required_cols)
+  if (methodology == "2012") ftc_require_columns(tbl, c("ZONA", "CANTIDAD_MIEMBROS_HOGAR"))
+  if (anyDuplicated(tolower(names(tbl)))) stop("Nombres ambiguos al normalizar mayusculas.", call. = FALSE)
+  if (anyNA(tbl[required_cols])) stop("Los identificadores de periodo y hogar no pueden faltar.", call. = FALSE)
+  if (".encftr_rowid" %in% names(tbl)) stop(".encftr_rowid es un nombre reservado.", call. = FALSE)
   missing_required <- setdiff(required_cols, names(tbl))
   if (length(missing_required)) {
     stop(
@@ -330,14 +337,16 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
 
   tbl_out <- tbl
   tbl_out$.encftr_rowid <- seq_len(nrow(tbl_out))
-  encft <- tbl_out
+  encft <- ftc_prepare_poverty(ftc_select_variables_pobreza(tbl_out))
   encft$.encftr_rowid <- seq_len(nrow(encft))
   original_names <- tolower(names(encft))
   names(encft) <- tolower(names(encft))
   encft <- ftc_pm22_ensure_columns(encft)
   encft <- ftc_pm22_autocoerce_numeric(encft)
+  quarters <- ftc_quarter_parts(tbl)
+  encft$trimestre <- quarters$year * 10 + quarters$quarter
 
-  encft$personas <- 1
+  encft$personas <- rep(1, nrow(encft))
   encft <- encft %>%
     dplyr::group_by(trimestre, vivienda, hogar) %>%
     dplyr::mutate(miembros = sum(personas)) %>%
@@ -531,6 +540,14 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
   encft$Itotal <- ftc_pm22_row_sums(encft, c("Ilab_tot", "Inlab_nac_esp", "Inlab_nac_TrN_mon", "Inla_trE", "p_s2_6"))
 
   encft <- dplyr::left_join(encft, ipc_pobreza_monetaria_2022, by = "periodo")
+  if (methodology == "2012") {
+    national <- utils::read.csv(system.file("poverty", "ipc_official_2012.csv", package = "encftr"))
+    encft <- dplyr::left_join(encft, national[c("periodo", "deflactor", "deflactor_movil")], by = "periodo")
+    for (region in c("ozama", "norte", "este", "sur")) {
+      encft[[paste0("deflactor_region", region)]] <- encft$deflactor
+      encft[[paste0("deflactor_movil_region", region)]] <- encft$deflactor_movil
+    }
+  }
   encft$macro_region <- ftc_pm22_macro_region(encft$grupo_region, encft$id_provincia)
 
   region_vars <- c(
@@ -551,6 +568,7 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
   for (var in intersect(region_vars, names(encft))) {
     out_col <- paste0("d_", var)
     encft[[out_col]] <- dplyr::case_when(
+      methodology == "2012" ~ encft[[var]] * encft$deflactor_regionozama,
       encft$macro_region == "Ozama" ~ encft[[var]] * encft$deflactor_regionozama,
       encft$macro_region == "Este" ~ encft[[var]] * encft$deflactor_regioneste,
       encft$macro_region == "Norte" ~ encft[[var]] * encft$deflactor_regionnorte,
@@ -562,6 +580,7 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
   for (var in intersect(moving_vars, names(encft))) {
     out_col <- paste0("d_", var)
     encft[[out_col]] <- dplyr::case_when(
+      methodology == "2012" ~ encft[[var]] * encft$deflactor_movil_regionozama,
       encft$macro_region == "Ozama" ~ encft[[var]] * encft$deflactor_movil_regionozama,
       encft$macro_region == "Este" ~ encft[[var]] * encft$deflactor_movil_regioneste,
       encft$macro_region == "Norte" ~ encft[[var]] * encft$deflactor_movil_regionnorte,
@@ -589,6 +608,10 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
   encft$IDnlab_nac_esp_a <- ftc_pm22_row_sums(encft, c("d_p_s4d11_5", "d_p_s4d12_5"))
   encft$IDnlab_nac_esp <- ftc_pm22_row_sums(encft, c("IDnlab_nac_esp_a"))
   encft$IDnla_trE <- ftc_pm22_row_sums(encft, c("d_p_s4d21_1", "d_p_s4d21_2", "d_p_s4d21_3", "d_p_s4d22"))
+  if (methodology == "2012") {
+    encft$IDnlab_nac_TrN_mon <- ftc_pm22_row_sums(encft, c("d_p_s4d11_1", "d_p_s4d11_2", "d_p_s4d11_3", "d_p_s4d11_4", "d_p_s4d11_7", "d_p_s4d12_1", "d_p_s4d12_2", "d_p_s4d12_3", "d_p_s4d12_6"))
+    encft$IDnla_trE <- ftc_pm22_row_sums(encft, c("d_p_s4d21_1", "d_p_s4d21_2", "d_p_s4d21_3", "d_p_s4d21_4", "d_p_s4d22"))
+  }
 
   encft <- encft %>%
     dplyr::group_by(trimestre, periodo, vivienda, hogar) %>%
@@ -628,7 +651,25 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
       )
     )
 
+  if (methodology == "2012") {
+    lines <- utils::read.csv(system.file("poverty", "lines_official_2012.csv", package = "encftr"))
+    encft <- dplyr::left_join(encft, lines, by = "periodo")
+    encft$IPCm_ENCFT <- ifelse(encft$cantidad_miembros_hogar > 0,
+      encft$Ihog_ENCFT_a / encft$cantidad_miembros_hogar, NA_real_)
+    encft$linea_pob <- dplyr::case_when(encft$zona == 1 ~ encft$linea_urbanogeneral,
+      encft$zona == 2 ~ encft$linea_ruralgeneral)
+    encft$linea_ind <- dplyr::case_when(encft$zona == 1 ~ encft$linea_urbanoextrema,
+      encft$zona == 2 ~ encft$linea_ruralextrema)
+  }
   outputs <- ftc_pm22_build_outputs(encft, original_names = original_names, .keep = .keep)
+  nominal <- encft
+  if (methodology == "2012") nominal$Inlab_nac_TrN_mon <- ftc_pm22_row_sums(nominal,
+    c("p_s4d11_1", "p_s4d11_2", "p_s4d11_3", "p_s4d11_4", "p_s4d11_7", "p_s4d12_1", "p_s4d12_2", "p_s4d12_3", "p_s4d12_6"))
+  nominal$.nominal <- ftc_pm22_row_sums(nominal, c("Ilab_tot", "Inlab_nac_esp", "Inlab_nac_TrN_mon", "Inla_trE"))
+  nominal <- nominal %>% dplyr::group_by(trimestre, vivienda, hogar) %>%
+    dplyr::mutate(ing_total_pobreza = sum(.data$.nominal) + .data$p_s2_6) %>% dplyr::ungroup()
+  outputs$ing_total_pobreza <- nominal$ing_total_pobreza
+  tbl_out <- dplyr::select(tbl_out, -dplyr::any_of(setdiff(names(outputs), ".encftr_rowid")))
   dplyr::left_join(tbl_out, outputs, by = ".encftr_rowid") %>%
     dplyr::select(-.encftr_rowid)
 }
@@ -655,7 +696,7 @@ ftc_pobreza_monetaria_2022_impl <- function(tbl, .keep = FALSE, .reuse = FALSE) 
 #' encft <- ftc_pobreza_monetaria_2012(encft)
 #' }
 ftc_pobreza_monetaria_2012 <- function(tbl, .keep = FALSE, .reuse = FALSE) {
-  ftc_pobreza_monetaria_2012_impl(tbl, .keep = .keep, .reuse = .reuse)
+  ftc_pobreza_monetaria_2022_impl(tbl, .keep = .keep, .reuse = .reuse, methodology = "2012")
 }
 
 #' Pobreza monetaria con metodologia 2022
